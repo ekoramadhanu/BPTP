@@ -1,7 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>
-      login
-  </title>
+  <title>Admin SIM</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?=base_url('Assets/SB2admin/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,10 +17,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Custom styles for this template-->
   <link href="<?=base_url('Assets/SB2admin/')?>css/sb-admin-2.min.css" rel="stylesheet">
-
+  
   <!-- CSS SIM -->
   <link href="<?=base_url('Assets/')?>template.css" rel="stylesheet">
 
 </head>
 
-<body id="bg-gradient-primary">
+<body id="page-top">
