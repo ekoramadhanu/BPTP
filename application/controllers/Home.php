@@ -43,6 +43,12 @@ class Home extends CI_Controller {
         $this->load->view('template/admin_footer');
     }
 
+    public function logout(){
+        $this->session->unset_userdata('roleId');
+        $this->session->unset_userdata('username');
+        redirect('Auth');
+    }
+
     // private function role(){
     //     $role=$this->session->userdata('roleId');
     //     if($role == 1){

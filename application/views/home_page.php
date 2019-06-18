@@ -4,7 +4,7 @@
 <!-- Sidebar -->
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="bg-gradient-primary">    
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('Admin')?>">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('Home')?>">
     <div class="sidebar-brand-icon">
       <img src="<?=base_url('Assets/image/logo.png')?>" witdh='40' height='40'>
     </div>
@@ -18,7 +18,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-    <a class="nav-link" href="<?=base_url('Admin')?>">
+    <a class="nav-link" href="<?=base_url('Home')?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Informasi</span></a>
   </li>
@@ -33,14 +33,14 @@
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('Admin/daftar')?>">
+    <a class="nav-link" href="<?=base_url('Home/daftar')?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Daftar</span></a>
   </li>
   
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('Admin/permintaan')?>">
+    <a class="nav-link" href="<?=base_url('Home/permintaan')?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Permintaan</span></a>
   </li>
@@ -70,7 +70,7 @@
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
       <i class="fas fa-fw fa-table"></i>
       <span>keluar</span></a>
   </li>
@@ -110,14 +110,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin SIM</span>
             <img class="img-profile rounded-circle" src="<?=base_url('Assets/image/default.jpg')?>">
-          </a>
-          <!-- Dropdown - User Information -->
-          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">                        
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-              Keluar
-            </a>
-          </div>
+          </a>          
         </li>
 
       </ul>
@@ -329,7 +322,7 @@
     <div class="modal-body">Jika iya silahkan pilih tombol 'keluar'</div>
     <div class="modal-footer">
       <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-      <a class="btn btn-danger" href="login.html">Keluar</a>
+      <a class="btn btn-danger" href="<?=base_url('Home/logout')?>">Keluar</a>
     </div>
   </div>
 </div>
