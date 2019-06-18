@@ -46,6 +46,7 @@
   </li>
     <?php
       if($role1 == 1){
+        echo '<hr class="sidebar-divider">';
         echo '<div class="sidebar-heading">Administrator</div>';
         echo'<li class="nav-item">';
         echo'<a class="nav-link" href="">';
@@ -54,7 +55,8 @@
         echo'</li>';
       }
     ?>
-    <!-- Heading -->
+  <hr class="sidebar-divider">
+  <!-- Heading -->
   <div class="sidebar-heading">
     Pengguna
   </div>
@@ -72,7 +74,7 @@
       <i class="fas fa-fw fa-table"></i>
       <span>keluar</span></a>
   </li>
-  
+
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
 
