@@ -8,7 +8,9 @@
     <div class="sidebar-brand-icon">
       <img src="<?=base_url('Assets/image/logo.png')?>" witdh='40' height='40'>
     </div>
-    <div class="sidebar-brand-text mx-3">Admin SIM</div>
+    <div class="sidebar-brand-text mx-3">
+      <?=$role['nama']?>
+    </div>
   </a>
 
   <!-- Divider -->
@@ -42,7 +44,35 @@
       <i class="fas fa-fw fa-table"></i>
       <span>Permintaan</span></a>
   </li>
+    <?php
+      if($role1 == 1){
+        echo '<div class="sidebar-heading">Administrator</div>';
+        echo'<li class="nav-item">';
+        echo'<a class="nav-link" href="">';
+        echo'<i class="fas fa-fw fa-table"></i>';
+        echo'<span>Daftar</span></a>';
+        echo'</li>';
+      }
+    ?>
+    <!-- Heading -->
+  <div class="sidebar-heading">
+    Pengguna
+  </div>
 
+  <!-- Nav Item - Tables -->
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Profil Saya</span></a>
+  </li>
+
+  <!-- Nav Item - Tables -->
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <i class="fas fa-fw fa-table"></i>
+      <span>keluar</span></a>
+  </li>
+  
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block">
 

@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="author" content="">
 
   <title>
-      login
+     <?=$title?>
   </title>
 
   <!-- Custom fonts for this template-->
