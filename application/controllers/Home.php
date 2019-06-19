@@ -36,11 +36,13 @@ class Home extends CI_Controller {
    
     public function permintaan(){
         $role['role']=$this->session->userdata('roleId');
+        $query = "SELECT fullname,department,institute ,concat (date_format(date_start,'%d-%M-%Y'),concat(' sd ',concat(date_format(date_end,'%d-%M-%Y')))) as 'waktupkl' FROM internship";
+        $result['daftarPermintaan']=$this->db->query($query)->result();
         $data['title'] = 'Permintaan Magang';
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar');
-        $this->load->view('Permintaan_magang');
+        $this->load->view('Permintaan_magang',$result);
         $this->load->view('template/footer');
     }
 

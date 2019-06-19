@@ -20,6 +20,21 @@
             <th>Keterangan</th>
           </tr>
         </thead>
+        <?php 
+         $i =1;
+        foreach($daftarPermintaan as $permintaan) : ?>
+          <tr>
+            <td><?=$i?></td>
+            <td><?=$permintaan->fullname?></td>
+            <td><?=$permintaan->department?></td>
+            <td><?=$permintaan->institute?></td>
+            <td><?=$permintaan->waktupkl?></td>
+          </tr>
+          
+        <?php 
+          $i++;
+          endforeach; ?>
+        </tbody>
         <tfoot>
           <tr class="text-center text-white" id="bg-gradient-primary">
             <th>No</th>
