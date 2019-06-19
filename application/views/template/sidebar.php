@@ -47,17 +47,21 @@
       <i class="fas fa-fw fa-table"></i>
       <span>Permintaan</span></a>
   </li>
-    <?php
-      if($role == 1){
-        echo '<hr class="sidebar-divider">';
-        echo '<div class="sidebar-heading">Administrator</div>';
-        echo'<li class="nav-item">';
-        echo'<a class="nav-link" href="daftarAdministrator">';
-        echo'<i class="fas fa-fw fa-table"></i>';
-        echo'<span>Daftar</span></a>';
-        echo'</li>';
-      }
-    ?>
+  <!-- tambahan navbar -->
+  <?php if($role == 1):?>
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      Administrator
+    </div>      
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+      <a class="nav-link" href="<?=base_url('Home/daftarAdministrator')?>">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Daftar</span></a>
+    </li>    
+  <?php endif ;?>
+    
   <hr class="sidebar-divider">
   <!-- Heading -->
   <div class="sidebar-heading">
@@ -67,14 +71,14 @@
   <!-- Nav Item - Tables -->
   <li class="nav-item">
     <a class="nav-link" href="profilSaya">
-      <i class="fas fa-fw fa-table"></i>
+      <i class="fas fa-fw fa-user"></i>
       <span>Profil Saya</span></a>
   </li>
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
     <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
-      <i class="fas fa-fw fa-table"></i>
+      <i class="fas fa-fw fa-sign-out-alt"></i>
       <span>keluar</span></a>
   </li>
 
