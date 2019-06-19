@@ -7,6 +7,12 @@ class Home extends CI_Controller {
     public function index(){        
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Informasi'; 
+        $query="select count(id) from internship";
+        $result ['totalMagang'] = $this->db->query($query);
+        $query="select count(id) from internship where gender='P'";
+        $result ['totalPerempuan'] = $this->db->query($query);
+        $query="select count(id) from internship where gender='L'";
+        $result ['totalLaki-Laki'] = $this->db->query($query);
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar');

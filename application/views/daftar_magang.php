@@ -6,19 +6,18 @@
 <br>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead >
           <tr class="text-center text-white" id="bg-gradient-primary">
-            <th>No</th>
-            <th>Jumlah Peserta</th>            
-            <th>Sekolah</th>
-            <th>Waktu PKL</th>
-            <th>Penempatan</th>
-            <th>Pembimbing</th>
-            <th>Keterangan</th>
+            <th class="align-middle">No</th>
+            <th class="align-middle">Jumlah Peserta</th>            
+            <th class="align-middle">Sekolah</th>
+            <th class="align-middle">Waktu PKL</th>
+            <th class="align-middle">Penempatan</th>
+            <th class="align-middle">Pembimbing</th>
+            <th class="align-middle">Keterangan</th>
           </tr>
         </thead>
         <tbody>
@@ -32,20 +31,25 @@
               <td><?=$daftar->waktupkl?></td>
               <td><?=$daftar->place?></td>
               <td><?=$daftar->guide?></td>
+              <td>
+                <button href="" class="btn btn-primary btn-user btn-block">
+                  Detail
+                </button>      
+              </td>
             </tr>
           <?php 
            $counter++;
           endforeach;?>
         </tbody>
         <tfoot>
-          <tr class="text-center text-white" id="bg-gradient-primary">
-            <th>No</th>
-            <th>Jumlah Peserta</th>            
-            <th>Sekolah</th>
-            <th>Waktu PKL</th>
-            <th>Penempatan</th>
-            <th>Pembimbing</th>
-            <th>Keterangan</th>
+          <tr class="text-center text-white " id="bg-gradient-primary">
+            <th class="align-middle">No</th>
+            <th class="align-middle">Jumlah Peserta</th>            
+            <th class="align-middle">Sekolah</th>
+            <th class="align-middle">Waktu PKL</th>
+            <th class="align-middle">Penempatan</th>
+            <th class="align-middle">Pembimbing</th>
+            <th class="align-middle">Keterangan</th>
           </tr>
         </tfoot>        
       </table>
