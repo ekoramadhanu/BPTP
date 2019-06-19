@@ -13,24 +13,16 @@
         <thead>
           <tr class="text-center text-white" id="bg-gradient-primary">
             <th>No</th>
-            <th>Nama Peserta</th>
-            <th>Jurusan</th>
-            <th>Sekolah</th>
-            <th>Waktu PKL</th>
-            <th>Penempatan</th>
-            <th>Pembimbing</th>
+            <th>name</th>
+            <th>role</th>            
             <th>Keterangan</th>
           </tr>
         </thead>
         <tfoot>
           <tr class="text-center text-white" id="bg-gradient-primary">
             <th>No</th>
-            <th>Nama Peserta</th>
-            <th>Jurusan</th>
-            <th>Sekolah</th>
-            <th>Waktu PKL</th>
-            <th>Penempatan</th>
-            <th>Pembimbing</th>
+            <th>name</th>
+            <th>role</th>            
             <th>Keterangan</th>
           </tr>
         </tfoot>        

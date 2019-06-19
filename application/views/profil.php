@@ -4,41 +4,24 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Profil Saya</h1>
 <br>
-<!-- DataTales Example -->
+<!-- Content Profil -->
 <div class="card shadow mb-4">
-
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr class="text-center text-white" id="bg-gradient-primary">
-            <th>No</th>
-            <th>Nama Peserta</th>
-            <th>Jurusan</th>
-            <th>Sekolah</th>
-            <th>Waktu PKL</th>
-            <th>Penempatan</th>
-            <th>Pembimbing</th>
-            <th>Keterangan</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr class="text-center text-white" id="bg-gradient-primary">
-            <th>No</th>
-            <th>Nama Peserta</th>
-            <th>Jurusan</th>
-            <th>Sekolah</th>
-            <th>Waktu PKL</th>
-            <th>Penempatan</th>
-            <th>Pembimbing</th>
-            <th>Keterangan</th>
-          </tr>
-        </tfoot>        
-      </table>
-    </div>
+  <div clas="row ">
+  <div class="col-xl-4 col-md-6 mb-4">
+      <img class="img-profile mt-3 rounded mx-auto d-block" src="<?=base_url('Assets/image/'.$user->image)?>">
   </div>
-</div>
+  <div class="col-xl-8 col-md-6 mb-4">
+        
+  </div> 
 
+  <div clas="row card">
+  <div class="col-xl-4 col-md-6 mb-4">
+      <img class="img-profile mt-3 rounded mx-auto d-block" src="<?=base_url('Assets/image/'.$user->image)?>">
+  </div>
+  <div class="col-xl-8 col-md-6 mb-4">
+        
+  </div> 
+</div>
 </div>
 <!-- /.container-fluid -->
   </div>
