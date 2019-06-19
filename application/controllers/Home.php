@@ -17,10 +17,14 @@ class Home extends CI_Controller {
     public function daftarMagang(){
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Daftar Magang';        
+        $query= "select count(fullname) as jumlah,department,institute,
+        concat (date_format(date_start,'%d-%M-%Y'),concat(' sd ',concat(date_format(date_end,'%d-%M-%Y')))) as 'waktupkl',place,guide,create_at from internship group by place,guide,create_at";
+        $result['daftarMagang'] = $this->db->query($query)->result();
+        // var_dump($result['daftarMagang']);
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar');
-        $this->load->view('daftar_magang');
+        $this->load->view('daftar_magang',$result);
         $this->load->view('template/footer');
     }
    

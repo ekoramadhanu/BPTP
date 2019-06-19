@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Jun 2019 pada 10.28
+-- Waktu pembuatan: 19 Jun 2019 pada 06.18
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.1.27
 
@@ -30,40 +30,38 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `internship` (
   `id` int(11) NOT NULL,
-  `fullname` varchar(60) DEFAULT NULL,
-  `department` varchar(25) DEFAULT NULL,
-  `institute` varchar(35) DEFAULT NULL,
-  `image` varchar(15) DEFAULT NULL,
-  `Address` varchar(100) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `province` varchar(30) NOT NULL,
-  `poscode` smallint(6) NOT NULL,
-  `status` varchar(15) DEFAULT NULL,
-  `place` varchar(30) NOT NULL,
-  `guide` varchar(50) NOT NULL,
+  `fullname` varchar(60) DEFAULT '',
+  `department` varchar(25) DEFAULT '',
+  `institute` varchar(35) DEFAULT '',
+  `gender` enum('P','L') DEFAULT 'P',
+  `image` varchar(15) DEFAULT 'default.jpg',
+  `Address` varchar(100) DEFAULT '',
+  `city` varchar(20) DEFAULT '',
+  `province` varchar(30) DEFAULT '',
+  `poscode` smallint(6) DEFAULT NULL,
+  `status` varchar(15) DEFAULT 'menunggu',
+  `place` varchar(30) DEFAULT '',
+  `guide` varchar(50) DEFAULT '',
   `date_start` date DEFAULT NULL,
   `date_end` date DEFAULT NULL,
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `menu`
+-- Dumping data untuk tabel `internship`
 --
 
-CREATE TABLE `menu` (
-  `id` tinyint(6) NOT NULL,
-  `nama` varchar(25) DEFAULT NULL,
-  `role_akses_id` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `menu`
---
-
-INSERT INTO `menu` (`id`, `nama`, `role_akses_id`) VALUES
-(1, 'Administrator', 1);
+INSERT INTO `internship` (`id`, `fullname`, `department`, `institute`, `gender`, `image`, `Address`, `city`, `province`, `poscode`, `status`, `place`, `guide`, `date_start`, `date_end`, `create_at`) VALUES
+(1, 'Atik Rokhania', '', 'SMK Negeri 1 Purwosari Pasuruan', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'lab. Pascapanen', 'Aniswatul Khamidah STP', '2019-01-02', '2019-06-28', '2019-06-19 03:21:29'),
+(2, 'Ma\'rufatunisa\'', '', 'SMK Negeri 1 Purwosari Pasuruan', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'lab. Pascapanen', 'Aniswatul Khamidah STP', '2019-01-02', '2019-06-28', '2019-06-19 03:21:29'),
+(3, 'Herlin Amanda Sari', '', 'SMK Negeri 1 Purwosari Pasuruan', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'lab. Pascapanen', 'Aniswatul Khamidah STP', '2019-01-02', '2019-06-28', '2019-06-19 03:21:29'),
+(4, 'Evy Mayasari', '', 'SMK Negeri 1 Purwosari Pasuruan', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'lab. Pascapanen', 'Aniswatul Khamidah STP', '2019-01-02', '2019-06-28', '2019-06-19 03:21:29'),
+(5, 'Ahmad Triono', '', 'Uniska Kediri', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'Lab. Agronomi', 'Nurul istiqomah, SP', '2019-01-15', '2019-02-15', '2019-06-19 03:21:47'),
+(6, 'Siti Khalimah', '', 'Uniska Kediri', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'Lab. Agronomi', 'Nurul istiqomah, SP', '2019-01-15', '2019-02-15', '2019-06-19 03:21:47'),
+(7, 'Ayu Septia Yuniar', '', 'Uniska Kediri', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'Lab. Agronomi', 'Nurul istiqomah, SP', '2019-01-15', '2019-02-15', '2019-06-19 03:21:47'),
+(8, 'Roni Agus Setiawan', '', 'Uniska Kediri', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'Lab. Agronomi', 'Nurul istiqomah, SP', '2019-01-15', '2019-02-15', '2019-06-19 03:21:47'),
+(9, 'Gisela Lugita Nurcahyani', '', 'Uniska Kediri', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'Lab. Agronomi', 'Nurul istiqomah, SP', '2019-01-15', '2019-02-15', '2019-06-19 03:21:47'),
+(10, 'Santi Wulandari', '', 'Poltek Negeri Malang', 'P', 'default.jpg', '', '', '', NULL, 'terdaftar', 'Keuangan', 'Ir. Dwi Wahyu Astuti, MSc', '2018-01-07', '2018-02-16', '2019-06-19 03:22:03');
 
 -- --------------------------------------------------------
 
@@ -83,47 +81,6 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`id`, `roleName`) VALUES
 (1, 'Super Administrator'),
 (2, 'Administrator');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `role_akses`
---
-
-CREATE TABLE `role_akses` (
-  `id` tinyint(4) NOT NULL,
-  `nama` varchar(15) DEFAULT NULL,
-  `role_id` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `role_akses`
---
-
-INSERT INTO `role_akses` (`id`, `nama`, `role_id`) VALUES
-(1, 'ADMIN SIM', 2),
-(2, 'DBA SIM', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `submenu`
---
-
-CREATE TABLE `submenu` (
-  `id` int(11) NOT NULL,
-  `menu_id` tinyint(4) DEFAULT NULL,
-  `title` varchar(30) DEFAULT NULL,
-  `url` varchar(40) DEFAULT NULL,
-  `icon` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `submenu`
---
-
-INSERT INTO `submenu` (`id`, `menu_id`, `title`, `url`, `icon`) VALUES
-(1, 1, 'Administrator', 'super', 'fas fa-fw fa-table');
 
 -- --------------------------------------------------------
 
@@ -159,30 +116,10 @@ ALTER TABLE `internship`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `menu`
---
-ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `role_akses_id` (`role_akses_id`);
-
---
 -- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `role_akses`
---
-ALTER TABLE `role_akses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`);
-
---
--- Indeks untuk tabel `submenu`
---
-ALTER TABLE `submenu`
-  ADD KEY `menu_id` (`menu_id`);
 
 --
 -- Indeks untuk tabel `user`
@@ -196,21 +133,15 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `menu`
+-- AUTO_INCREMENT untuk tabel `internship`
 --
-ALTER TABLE `menu`
-  MODIFY `id` tinyint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `internship`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `role_akses`
---
-ALTER TABLE `role_akses`
   MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -222,24 +153,6 @@ ALTER TABLE `user`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
-
---
--- Ketidakleluasaan untuk tabel `menu`
---
-ALTER TABLE `menu`
-  ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`role_akses_id`) REFERENCES `role_akses` (`id`);
-
---
--- Ketidakleluasaan untuk tabel `role_akses`
---
-ALTER TABLE `role_akses`
-  ADD CONSTRAINT `role_akses_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
-
---
--- Ketidakleluasaan untuk tabel `submenu`
---
-ALTER TABLE `submenu`
-  ADD CONSTRAINT `submenu_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `user`

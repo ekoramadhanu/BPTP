@@ -38,16 +38,17 @@
   <li class="nav-item">
     <a class="nav-link" href="<?=base_url('Home/daftarMagang')?>">
       <i class="fas fa-fw fa-table"></i>
-      <span>Daftar</span></a>
+      <span>Daftar Magang</span></a>
   </li>
   
   <!-- Nav Item - Tables -->
   <li class="nav-item">
     <a class="nav-link" href="<?=base_url('Home/permintaan')?>">
       <i class="fas fa-fw fa-table"></i>
-      <span>Permintaan</span></a>
+      <span>Permintaan Magang</span></a>
   </li>
-  <!-- tambahan navbar -->
+
+  <!-- tambahan navbar super administrasi-->
   <?php if($role == 1):?>
     <hr class="sidebar-divider">
     <!-- Heading -->
@@ -58,9 +59,10 @@
     <li class="nav-item">
       <a class="nav-link" href="<?=base_url('Home/daftarAdministrator')?>">
         <i class="fas fa-fw fa-table"></i>
-        <span>Daftar</span></a>
+        <span>Daftar Administrator</span></a>
     </li>    
   <?php endif ;?>
+  <!-- berakhir tambahan navbar -->
     
   <hr class="sidebar-divider">
   <!-- Heading -->

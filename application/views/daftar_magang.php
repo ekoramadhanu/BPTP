@@ -10,11 +10,10 @@
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
+        <thead >
           <tr class="text-center text-white" id="bg-gradient-primary">
             <th>No</th>
-            <th>Nama Peserta</th>
-            <th>Jurusan</th>
+            <th>Jumlah Peserta</th>            
             <th>Sekolah</th>
             <th>Waktu PKL</th>
             <th>Penempatan</th>
@@ -22,11 +21,26 @@
             <th>Keterangan</th>
           </tr>
         </thead>
+        <tbody>
+          <?php 
+          $counter = 1;
+          foreach ($daftarMagang as $daftar):?>
+            <tr>
+              <td><?= $counter ?></td>
+              <td><?=$daftar->jumlah." orang"?></td>
+              <td><?=$daftar->institute?></td>
+              <td><?=$daftar->waktupkl?></td>
+              <td><?=$daftar->place?></td>
+              <td><?=$daftar->guide?></td>
+            </tr>
+          <?php 
+           $counter++;
+          endforeach;?>
+        </tbody>
         <tfoot>
           <tr class="text-center text-white" id="bg-gradient-primary">
             <th>No</th>
-            <th>Nama Peserta</th>
-            <th>Jurusan</th>
+            <th>Jumlah Peserta</th>            
             <th>Sekolah</th>
             <th>Waktu PKL</th>
             <th>Penempatan</th>
