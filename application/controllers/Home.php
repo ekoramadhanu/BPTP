@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+    public function __construct()
+	{
+		parent::__construct();
+		$this->load->model("Internship");
+	}
+
+
     
     public function index(){        
         $role['role']=$this->session->userdata('roleId');
@@ -24,12 +31,15 @@ class Home extends CI_Controller {
 
     public function daftarMagang(){
         $role['role']=$this->session->userdata('roleId');
-        $data['title'] = 'Daftar Magang';        
-        $query= "select count(fullname) as jumlah,department,institute,
-        concat (date_format(date_start,'%d-%M-%Y'),concat(' sd ',concat(date_format(date_end,'%d-%M-%Y')))) as 'waktupkl',place,guide,create_at from internship group by place,guide,create_at";
-        $result['daftarMagang'] = $this->db->query($query)->result();
+        $data['title'] = 'Daftar Magang';
         $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row(); 
+        $top ['user'] = $this->db->query($query)->row();         
+        for ($i=0; $i <=12 ; $i++) {             
+            $result['daftarMagang'][$i] = $this->Internship->getRekapByMonth($i);
+        }
+        // for ($i=0; $i <=12 ; $i++) {             
+        //     $result['jumlahdaftarMagang'][$i] = $this->Internship->getCountByMonth($i);
+        // }
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
@@ -63,7 +73,7 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
-    public function profilSaya(){
+    public function gantiPassword(){
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Profil Saya';
         $query = "select name,image from user where roleId=".$role['role'];

@@ -42,11 +42,15 @@
   </li>
   
   <!-- Nav Item - Tables -->
-  <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('Home/permintaan')?>">
+  <!-- <li class="nav-item">
+    <a class="nav-link" href="
+    <?php
+    // base_url('Home/permintaan')
+    ?>
+    ">
       <i class="fas fa-fw fa-table"></i>
       <span>Permintaan Magang</span></a>
-  </li>
+  </li> -->
 
   <!-- tambahan navbar super administrasi-->
   <?php if($role == 1):?>
@@ -72,9 +76,9 @@
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="profilSaya">
+    <a class="nav-link" href="<?=base_url('Home/gantiPassword')?>">
       <i class="fas fa-fw fa-user"></i>
-      <span>Profil Saya</span></a>
+      <span>Ganti Password</span></a>
   </li>
 
   <!-- Nav Item - Tables -->

@@ -14,7 +14,15 @@
   <!-- Page level custom scripts -->
   <script src="<?=base_url('Assets/SB2admin/')?>js/demo/chart-area-demo.js"></script>
   <script src="<?=base_url('Assets/SB2admin/')?>js/demo/chart-pie-demo.js"></script>
-  
+  <script src="<?=base_url('Assets/')?>jquery.js"></script>
+  <script>
+  var ambilVal;
+    $('.cetak').click(function () {
+      ambilVal= $(this).attr('data-kelompok');        
+      console.log(ambilVal);
+      $('.form-cetak').attr('action', $('.form-cetak').attr('action') + '/' + ambilVal)
+    });
+  </script>
 </body>
 
 </html>

@@ -27,3 +27,11 @@
     display: block;
     margin: 9% auto;
 }
+
+.text-black{
+    color: #000 !important;
+}
+
+#line_spacing_0{
+    margin:0px !important;
+}
