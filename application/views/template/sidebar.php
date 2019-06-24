@@ -40,6 +40,12 @@
       <i class="fas fa-fw fa-table"></i>
       <span>Daftar Magang</span></a>
   </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="<?=base_url('Home/tambahData')?>">
+      <i class="fas fa-fw fa-plus"></i>
+      <span>Tambah Data</span></a>
+  </li>
   
   <!-- Nav Item - Tables -->
   <!-- <li class="nav-item">

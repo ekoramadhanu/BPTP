@@ -86,7 +86,37 @@ class Home extends CI_Controller {
         $this->load->view('profil',$result);
         $this->load->view('template/footer');
     }
-    
+
+    public function tambahData(){
+        $role['role']=$this->session->userdata('roleId');
+        $data['title'] = 'Profil Saya';
+        $query = "select name,image from user where roleId=".$role['role'];
+        $top ['user'] = $this->db->query($query)->row();        
+        $this->load->view('template/header',$data);
+        $this->load->view('template/sidebar',$role);
+        $this->load->view('template/topbar',$top);
+        $this->load->view('tambah_data');
+        $this->load->view('template/footer');
+    }
+
+    public function insertData(){
+        $nama = $this->input->post('nama');
+        $universitas = $this->input->post('universitas');
+        $programStudi =$this->input->post('programStudi');
+        $penempatanMagang =$this->input->post('penempatanMagang');
+        $pembimbingMagang =$this->input->post('pembimbingMagang');
+        $tanggalMulai =$this->input->post('tanggalMulai');
+        $tanggalBerakhir =$this->input->post('tanggalSelesai');
+        echo $nama;
+        echo $universitas;
+        echo $programStudi;
+        echo $penempatanMagang;
+        echo $pembimbingMagang;
+        echo $tanggalMulai;
+        echo $tanggalBerakhir;
+
+    }
+
     public function logout(){
         $this->session->unset_userdata('roleId');
         $this->session->unset_userdata('username');

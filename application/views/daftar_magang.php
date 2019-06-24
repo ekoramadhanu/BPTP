@@ -3,9 +3,9 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Daftar Magang</h1>
-        <button  data-toggle="modal" data-target="#cetakRekap" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-white"><i class="fas fa-download fa-sm text-white"></i> Cetak Rekap per Tahun</a>
-      </div>
+  <h1 class="h3 mb-0 text-gray-800">Daftar Magang</h1>
+  <button  data-toggle="modal" data-target="#cetakRekap" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-white"><i class="fas fa-download fa-sm text-white"></i> Cetak Rekap per Tahun</a>
+</div>
 <br>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">

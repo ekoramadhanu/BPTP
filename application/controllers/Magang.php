@@ -21,7 +21,8 @@ class Magang extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model("Internship");
+		// $this->load->library("mypdf");
+		$this->load->model("Internship");		
 	}
 
 	public function index()
@@ -38,7 +39,8 @@ class Magang extends CI_Controller {
 			$result['jumlah'][$i]= $this->Internship->getCountByMonthAndyear($i,$result['tahunRekap']);
 		}		
 		$result['total'] = $this->Internship->getCountAllByYear($result['tahunRekap']);		
-		$this->load->view('print_rekap',$result);
+		$this->load->view('print_rekap',$result);		
+		// $this->mypdf->generatePDF('print_rekap', $result,'RekapTahunan '.$detail['fullname'] ,'A4','Portrait');
 
 	}
 
@@ -47,12 +49,15 @@ class Magang extends CI_Controller {
 		$detail['tujuan'] = $this->input->get('tujuan');
 		$detail['tempat'] = $this->input->get('tempat');
 		$detail['nomorbalasan'] = $this->input->get('balasan');
-		$detail['tanggalbalasan'] = $this->input->get('tanggal');
+		$date = $this->input->get('tanggal');
+		$detail['tanggalBalasan'] = substr($date,8,2);
+		$detail['bulanBalasan'] = substr($date,5,2);
+		$detail['tahunBalasan'] = substr($date,0,4);
 		$detail['tanggal'] = date('d');
 		$detail['bulan'] = date('m');
 		$detail['tahun'] = date('Y');
 		$detail['fullname'] = $this->Internship->getNameByKelompok($kelompok);
-		$detail['detail'] = $this->Internship->getRekapBalasanByKelompok($kelompok);		
+		$detail['detail'] = $this->Internship->getRekapBalasanByKelompok($kelompok);						
 		$this->load->view('print_balasan',$detail);
 	}
 }
