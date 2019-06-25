@@ -16,31 +16,31 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="<?=base_url('Assets/SB2admin/')?>css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?=base_url('Assets/bootstrap/')?>css/bootstrap.min.css" rel="stylesheet">
   
   <!-- CSS SIM -->
   <link href="<?=base_url('Assets/')?>template.css" rel="stylesheet">
 
 </head>
 
-<body id="page-top">
+<body id="page-top"style="font-family:verdana">
   <div class="container-fluid">
-  <h1 class="text-center text-dark">REKAP MAGANG/PKL DI BPTP JAWA TIMUR TAHUN <?=$tahunRekap?></h1>
-  <table class="table table-bordered text-dark" id="dataTable" width="100%" cellspacing="0" style="border-color = black !important">
+  <h2 class="text-center text-black">REKAP MAGANG/PKL DI BPTP JAWA TIMUR TAHUN <?=$tahunRekap?></h2>
+  <table class="table table-bordered table-sm text-black border border-dark" id="dataTable" width="100%" cellspacing="0" style="border-color = black !important">
     <thead class="text-center">
         <tr>
-            <th>NO</th>
-            <th>NAMA</th>
-            <th>SEKOLAH/PT</th>
-            <th>WAKTU PKL</th>
-            <th>PENEMPATAN/MATERI</th>
-            <th>PEMBIMBING</th>
+            <th class="border border-dark">NO</th>
+            <th class="border border-dark">NAMA</th>
+            <th class="border border-dark">SEKOLAH/PT</th>
+            <th class="border border-dark">WAKTU PKL</th>
+            <th class="border border-dark">PENEMPATAN/MATERI</th>
+            <th class="border border-dark">PEMBIMBING</th>
         </tr>
     </thead>
     <tbody>
-        <?php for ($i=1; $i <= 12 ; $i++) :?>
+        <?php for ($i=1; $i <= 12 ; $i++):?>
         <tr>
-          <td colspan="6" class="text-center text-white" id="bg-gradient-primary"><b>
+          <td colspan="6" class="text-center text-black border border-dark "><b>
           <?php 
               switch ($i){
               case 1:
@@ -82,71 +82,262 @@
               }
           ?>
           </b></td>
-        </tr>
-        <!-- PERULANGAN TIAP BULAN -->
-        <?php 
-        $counter = 1;
-        foreach ($bulan[$i] as $rekap) :?>
-        <tr>            
-            <td><?=$counter?></td>
-            <td>
-            <?php          
-                $kelompok = $rekap->kelompok;
-                $nomor = 1;
-                $query = "select fullname from internship where is_kelompok =".$kelompok;
-                $fullname = $this->db->query($query)->result();                            
-                $check = $this->db->query($query);                                           
-                foreach ($fullname as $name) {
-                    if($check->num_rows() == 1){
-                      echo $name->fullname."<br>";
-                    }else{
-                      echo $nomor.". ".$name->fullname."<br>";
-                      $nomor++;
-                    }                    
+          <!-- perulangan rekapnya tiap bulan yang dimulai dari startPKL-->            
+            <?php 
+            $counter = 1;
+            foreach ($startMonth[$i] as $rekap):?>
+            <tr>            
+                <td class="border border-dark"><?=$counter?></td>
+                <td class="border border-dark">
+                <?php          
+                    $kelompok = $rekap->kelompok;
+                    $nomor = 1;
+                    $query = "select fullname from internship where id_kelompok =".$kelompok;
+                    $fullname = $this->db->query($query)->result();                            
+                    $check = $this->db->query($query);                                           
+                    foreach ($fullname as $name) {
+                        if($check->num_rows() == 1){
+                        echo $name->fullname."<br>";
+                        }else{
+                        echo $nomor.". ".$name->fullname."<br>";
+                        $nomor++;
+                        }                    
+                    }
+                ?>
+                </td>
+                <td class="border border-dark"><?=$rekap->institute?></td>
+                <td class="border border-dark">                
+                <?php
+                switch ($rekap->StartMonth){
+                case 1:
+                  echo $rekap->startDay." Januari ".$rekap->satrtYear;
+                  break;
+                case 2:
+                    echo $rekap->startDay." Februari ".$rekap->satrtYear;
+                    break;
+                case 3:
+                    echo $rekap->startDay." Maret ".$rekap->satrtYear;
+                    break;
+                case 4:
+                    echo $rekap->startDay." April ".$rekap->satrtYear;
+                    break;
+                case 5:
+                    echo $rekap->startDay." Mei ".$rekap->satrtYear;
+                    break;
+                case 6:
+                    echo $rekap->startDay." Juni ".$rekap->satrtYear;
+                    break;
+                case 7:
+                    echo $rekap->startDay." Juli ".$rekap->satrtYear;
+                    break;
+                case 8:
+                    echo $rekap->startDay." Agustus ".$rekap->satrtYear;
+                    break;
+                case 9:
+                    echo $rekap->startDay." September ".$rekap->satrtYear;
+                    break;
+                case 10:
+                    echo $rekap->startDay." Oktober ".$rekap->satrtYear;
+                    break;
+                case 11:
+                    echo $rekap->startDay." November ".$rekap->satrtYear;
+                    break;
+                case 12:
+                    echo $rekap->startDay." Desember ".$rekap->satrtYear;
+                    break;
                 }
-            ?>
-            </td>
-            <td><?=$rekap->institute?></td>
-            <td><?=$rekap->startDay."-".$rekap->StartMonth."-".$rekap->satrtYear
-            ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
-            <td><?=$rekap->place?></td>
-            <td><?=$rekap->guide?></td>
+                echo " sd <br>";
+                switch ($rekap->endMonth){
+                    case 1:
+                      echo $rekap->endDay." Januari ".$rekap->endYear;
+                      break;
+                    case 2:
+                        echo $rekap->endDay." Februari ".$rekap->endYear;
+                        break;
+                    case 3:
+                        echo $rekap->endDay." Maret ".$rekap->endYear;
+                        break;
+                    case 4:
+                        echo $rekap->endDay." April ".$rekap->endYear;
+                        break;
+                    case 5:
+                        echo $rekap->endDay." Mei ".$rekap->endYear;
+                        break;
+                    case 6:
+                        echo $rekap->endDay." Juni ".$rekap->endYear;
+                        break;
+                    case 7:
+                        echo $rekap->endDay." Juli ".$rekap->endYear;
+                        break;
+                    case 8:
+                        echo $rekap->endDay." Agustus ".$rekap->endYear;
+                        break;
+                    case 9:
+                        echo $rekap->startDay." September ".$rekap->endYear;
+                        break;
+                    case 10:
+                        echo $rekap->endDay." Oktober ".$rekap->endYear;
+                        break;
+                    case 11:
+                        echo $rekap->endDay." November ".$rekap->endYear;
+                        break;
+                    case 12:
+                        echo $rekap->endDay." Desember ".$rekap->endYear;
+                        break;
+                    }
+                ?>
+                </td>
+                <td class="border border-dark"><?=$rekap->place?></td>
+                <td class="border border-dark"><?=$rekap->guide?></td>
+            </tr>
+            <?php 
+            $counter++;
+            endforeach;?>
+            <!-- akhir dari perulangan startPKL -->
+            <!--  awal dari perulangan endPKL-->
+            <?php for ($j=1; $j <$i ; $j++) :?>
+                <?php             
+                foreach ($endMonth[$i][$j] as $rekap):?>
+                <tr>            
+                    <td class="border border-dark"><?=$counter?></td>
+                    <td class="border border-dark">
+                    <?php          
+                        $kelompok = $rekap->kelompok;
+                        $nomor = 1;
+                        $query = "select fullname from internship where id_kelompok =".$kelompok;
+                        $fullname = $this->db->query($query)->result();                            
+                        $check = $this->db->query($query);                                           
+                        foreach ($fullname as $name) {
+                            if($check->num_rows() == 1){
+                            echo $name->fullname."<br>";
+                            }else{
+                            echo $nomor.". ".$name->fullname."<br>";
+                            $nomor++;
+                            }                    
+                        }
+                    ?>
+                    </td>
+                    <td class="border border-dark"><?=$rekap->institute?></td>
+                    <td class="border border-dark">
+                    <?php
+                switch ($rekap->StartMonth){
+                case 1:
+                  echo $rekap->startDay." Januari ".$rekap->satrtYear;
+                  break;
+                case 2:
+                    echo $rekap->startDay." Februari ".$rekap->satrtYear;
+                    break;
+                case 3:
+                    echo $rekap->startDay." Maret ".$rekap->satrtYear;
+                    break;
+                case 4:
+                    echo $rekap->startDay." April ".$rekap->satrtYear;
+                    break;
+                case 5:
+                    echo $rekap->startDay." Mei ".$rekap->satrtYear;
+                    break;
+                case 6:
+                    echo $rekap->startDay." Juni ".$rekap->satrtYear;
+                    break;
+                case 7:
+                    echo $rekap->startDay." Juli ".$rekap->satrtYear;
+                    break;
+                case 8:
+                    echo $rekap->startDay." Agustus ".$rekap->satrtYear;
+                    break;
+                case 9:
+                    echo $rekap->startDay." September ".$rekap->satrtYear;
+                    break;
+                case 10:
+                    echo $rekap->startDay." Oktober ".$rekap->satrtYear;
+                    break;
+                case 11:
+                    echo $rekap->startDay." November ".$rekap->satrtYear;
+                    break;
+                case 12:
+                    echo $rekap->startDay." Desember ".$rekap->satrtYear;
+                    break;
+                }
+                echo " sd <br>";
+                switch ($rekap->endMonth){
+                    case 1:
+                      echo $rekap->endDay." Januari ".$rekap->endYear;
+                      break;
+                    case 2:
+                        echo $rekap->endDay." Februari ".$rekap->endYear;
+                        break;
+                    case 3:
+                        echo $rekap->endDay." Maret ".$rekap->endYear;
+                        break;
+                    case 4:
+                        echo $rekap->endDay." April ".$rekap->endYear;
+                        break;
+                    case 5:
+                        echo $rekap->endDay." Mei ".$rekap->endYear;
+                        break;
+                    case 6:
+                        echo $rekap->endDay." Juni ".$rekap->endYear;
+                        break;
+                    case 7:
+                        echo $rekap->endDay." Juli ".$rekap->endYear;
+                        break;
+                    case 8:
+                        echo $rekap->endDay." Agustus ".$rekap->endYear;
+                        break;
+                    case 9:
+                        echo $rekap->startDay." September ".$rekap->endYear;
+                        break;
+                    case 10:
+                        echo $rekap->endDay." Oktober ".$rekap->endYear;
+                        break;
+                    case 11:
+                        echo $rekap->endDay." November ".$rekap->endYear;
+                        break;
+                    case 12:
+                        echo $rekap->endDay." Desember ".$rekap->endYear;
+                        break;
+                    }
+                    ?>
+                    </td>
+                    <td class="border border-dark"><?=$rekap->place?></td>
+                    <td class="border border-dark"><?=$rekap->guide?></td>
+                </tr>
+                <?php 
+                $counter++;
+                endforeach;?>
+                
+            <?php endfor;?>            
+            <!-- akhir dari perulangan endPKL -->            
+            <tr>
+                <td colspan="6" class="text-center border border-dark">
+                    <b>Jumlah =                 
+                        <?php
+                        $jumlah = 0 ;
+                        for ($j=1; $j <$i ; $j++) { 
+                                $jumlah += $jumlahEndaDate[$i][$j];
+                        }
+                        echo $jumlahStartDate[$i]+$jumlah." orang ";
+                        ?>
+                    </b>
+                </td>
+            </tr>
+          <!-- akhir dari perulangan rekapnya -->
         </tr>
-        <?php 
-        $counter++;
-        endforeach;?>
+        <?php endfor;?>
         <tr>
-          <td colspan="6" class="text-center"><b>Jumlah = <?= $jumlah[$i]." orang"?></b></td>
-        </tr>
-        <!-- AKHIR DARI PERULANGAN DALAM -->
-        <?php endfor;?>        
-        <tr>
-          <td colspan="6" class="text-center"><b>Jumlah = <?= $total." orang"?></b></td>
+          <td colspan="6" class="text-center border border-dark"><b>Total Magang = <?= $total." orang"?></b></td>
         </tr>
     </tbody>
   </table>
   </div>
-  <!-- Bootstrap core JavaScript-->
-  <script src="<?=base_url('Assets/SB2admin/')?>vendor/jquery/jquery.min.js"></script>
-  <script src="<?=base_url('Assets/SB2admin/')?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="<?=base_url('Assets/SB2admin/')?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<?=base_url('Assets/SB2admin/')?>js/sb-admin-2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script>
+		print();
+	</script>
 
   
-  <!-- Page level plugins -->
-  <script src="<?=base_url('Assets/SB2admin/')?>vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="<?=base_url('Assets/SB2admin/')?>js/demo/chart-area-demo.js"></script>
-  <script src="<?=base_url('Assets/SB2admin/')?>js/demo/chart-pie-demo.js"></script>
-
-  <script>
-  print();
-  </script>
   
 </body>
 

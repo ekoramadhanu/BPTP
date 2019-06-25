@@ -1,3 +1,10 @@
+<!-- 
+    Nama                : Eko Ramadhanu Aryputra
+    Tanggal Pembuatan   : 18 Juni 2019
+    Keguanan kelas ini  : kelas ini digunakan sebagai controler yaitu sebagai penghubung antara view home dengan
+                          beberapa model user dan internship
+
+ -->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -7,6 +14,7 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model("Internship");
+		$this->load->model("User");
 	}
 
 
@@ -36,10 +44,7 @@ class Home extends CI_Controller {
         $top ['user'] = $this->db->query($query)->row();         
         for ($i=0; $i <=12 ; $i++) {             
             $result['daftarMagang'][$i] = $this->Internship->getRekapByMonth($i);
-        }
-        // for ($i=0; $i <=12 ; $i++) {             
-        //     $result['jumlahdaftarMagang'][$i] = $this->Internship->getCountByMonth($i);
-        // }
+        }        
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
@@ -47,29 +52,30 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
    
-    public function permintaan(){
-        $role['role']=$this->session->userdata('roleId');
-        $query = "SELECT fullname,department,institute ,concat (date_format(date_start,'%d-%M-%Y'),concat(' sd ',concat(date_format(date_end,'%d-%M-%Y')))) as 'waktupkl' FROM internship";
-        $result['daftarPermintaan']=$this->db->query($query)->result();
-        $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row(); 
-        $data['title'] = 'Permintaan Magang';
-        $this->load->view('template/header',$data);
-        $this->load->view('template/sidebar',$role);
-        $this->load->view('template/topbar',$top);
-        $this->load->view('Permintaan_magang',$result);
-        $this->load->view('template/footer');
-    }
+    // public function permintaan(){
+    //     $role['role']=$this->session->userdata('roleId');
+    //     $query = "SELECT fullname,department,institute ,concat (date_format(date_start,'%d-%M-%Y'),concat(' sd ',concat(date_format(date_end,'%d-%M-%Y')))) as 'waktupkl' FROM internship";
+    //     $result['daftarPermintaan']=$this->db->query($query)->result();
+    //     $query = "select name,image from user where roleId=".$role['role'];
+    //     $top ['user'] = $this->db->query($query)->row(); 
+    //     $data['title'] = 'Permintaan Magang';
+    //     $this->load->view('template/header',$data);
+    //     $this->load->view('template/sidebar',$role);
+    //     $this->load->view('template/topbar',$top);
+    //     $this->load->view('Permintaan_magang',$result);
+    //     $this->load->view('template/footer');
+    // }
 
     public function daftarAdministrator(){
         $role['role']=$this->session->userdata('roleId');
         $query = "select name,image from user where roleId=".$role['role'];
         $top ['user'] = $this->db->query($query)->row(); 
         $data['title'] = 'Daftar Administrator';
+        $result['user'] =$this->User->getDaftarAdministrasi();
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
-        $this->load->view('daftar_administrator');
+        $this->load->view('daftar_administrator',$result);
         $this->load->view('template/footer');
     }
 

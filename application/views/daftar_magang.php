@@ -11,16 +11,16 @@
 <div class="card shadow mb-4">
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered text-black" id="dataTable" width="100%" cellspacing="0">
         <thead >
           <tr class="text-center text-white" id="bg-gradient-primary">
-            <th class="align-middle">No</th>
-            <th class="align-middle">Jumlah Peserta</th>            
-            <th class="align-middle">Sekolah</th>
-            <th class="align-middle">Waktu PKL</th>
-            <th class="align-middle">Penempatan</th>
-            <th class="align-middle">Pembimbing</th>
-            <th class="align-middle">Keterangan</th>
+            <th class="align-middle border border-black">No</th>
+            <th class="align-middle border border-black">Jumlah Peserta</th>            
+            <th class="align-middle border border-black">Sekolah</th>
+            <th class="align-middle border border-black">Waktu PKL</th>
+            <th class="align-middle border border-black">Penempatan</th>
+            <th class="align-middle border border-black">Pembimbing</th>
+            <th class="align-middle border border-black">Keterangan</th>
           </tr>
         </thead>
         <tbody>
@@ -30,12 +30,12 @@
           <?php 
           foreach ($daftarMagang[$i] as $rekap) :?>
           <tr>            
-              <td><?=$counter?></td>
+              <td class="border border-black"><?=$counter?></td>
               <td>
               <?php          
                   $kelompok = $rekap->kelompok;                  
                   $nomor = 1;
-                  $query = "select fullname from internship where is_kelompok =".$kelompok;
+                  $query = "select fullname from internship where id_kelompok =".$kelompok." order by fullname asc";
                   $fullname = $this->db->query($query)->result();                            
                   $check = $this->db->query($query);                                           
                   foreach ($fullname as $name) {
@@ -48,11 +48,11 @@
                   }
               ?>
               </td>
-              <td><?=$rekap->institute?></td>
-              <td><?=$rekap->startDay."-".$rekap->StartMonth."-".$rekap->satrtYear
+              <td class="border border-black"><?=$rekap->institute?></td>
+              <td class="border border-black"><?=$rekap->startDay."-".$rekap->StartMonth."-".$rekap->satrtYear
               ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
-              <td><?=$rekap->place?></td>
-              <td><?=$rekap->guide?></td>
+              <td class="border border-black"><?=$rekap->place?></td>
+              <td class="border border-black"><?=$rekap->guide?></td>
               <td>
               
                   <button type="submit" class="cetak" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>

@@ -20,8 +20,7 @@ class Magang extends CI_Controller {
 	 */
 	public function __construct()
 	{
-		parent::__construct();
-		// $this->load->library("mypdf");
+		parent::__construct();		
 		$this->load->model("Internship");		
 	}
 
@@ -33,14 +32,24 @@ class Magang extends CI_Controller {
 	public function cetakRekap(){
 		$result['tahunRekap'] = $this->input->get('tahun');	
 		for ($i=1; $i <=12 ; $i++) { 			
-			$result['bulan'][$i]= $this->Internship->getRekapByMonthAndYear($i,$result['tahunRekap']);					
+			$result['startMonth'][$i]= $this->Internship->getRekapByStartDatePKL($i,$result['tahunRekap']);								
 		}
-		for ($i=1; $i <=12 ; $i++) { 			
-			$result['jumlah'][$i]= $this->Internship->getCountByMonthAndyear($i,$result['tahunRekap']);
+		for ($i=1; $i <= 12 ; $i++) { 
+			for ($j=1; $j <$i ; $j++) { 								
+				$result['endMonth'][$i][$j]= $this->Internship->getRekapByEndDatePKL($j,$result['tahunRekap'],$i,$result['tahunRekap']);
+			}
+		}
+		for ($i=1; $i <=12 ; $i++) { 
+			$result['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,$result['tahunRekap']);
+		}
+		for ($i=1; $i <= 12 ; $i++) { 
+			for ($j=1; $j <$i ; $j++) { 								
+				$result['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($j,$result['tahunRekap'],$i,$result['tahunRekap']);
+			}
 		}		
-		$result['total'] = $this->Internship->getCountAllByYear($result['tahunRekap']);		
-		$this->load->view('print_rekap',$result);		
-		// $this->mypdf->generatePDF('print_rekap', $result,'RekapTahunan '.$detail['fullname'] ,'A4','Portrait');
+		$result['total'] = $this->Internship->getCountAllByYear($result['tahunRekap']);						
+		$this->load->view('print_rekap',$result);
+		
 
 	}
 
