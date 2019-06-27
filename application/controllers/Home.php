@@ -10,15 +10,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+
+    /*
+      kontrsuktor yang digunakan untuk memanggil model internship
+      dan user
+     */
     public function __construct()
 	{
 		parent::__construct();
 		$this->load->model("Internship");
-		$this->load->model("User");
+        $this->load->model("User");
+        if(!$this->session->userdata('roleId')){
+            redirect('Auth');
+        }
 	}
 
 
-    
+    /*
+     method index ini digunakan untuk menghubungkan antara view home_page dengan model
+     user dan internship 
+     */
     public function index(){        
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Informasi'; 
@@ -37,6 +48,10 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    /*
+       method daftarMagang ini digunakan untuk  menghubungkan anatara view daftar_magang
+       dengan model User dan Internship
+     */
     public function daftarMagang(){
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Daftar Magang';
@@ -66,19 +81,32 @@ class Home extends CI_Controller {
     //     $this->load->view('template/footer');
     // }
 
+    /*
+       method daftarMagang ini digunakan untuk  menghubungkan anatara view daftar_magang
+       dengan model User dan Internship
+     */
     public function daftarAdministrator(){
         $role['role']=$this->session->userdata('roleId');
-        $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row(); 
-        $data['title'] = 'Daftar Administrator';
-        $result['user'] =$this->User->getDaftarAdministrasi();
-        $this->load->view('template/header',$data);
-        $this->load->view('template/sidebar',$role);
-        $this->load->view('template/topbar',$top);
-        $this->load->view('daftar_administrator',$result);
-        $this->load->view('template/footer');
+        if ($role['role'] == 1){
+            $data['title'] = 'Daftar Administrator';
+            $query = "select name,image from user where roleId=".$role['role'];
+            $top ['user'] = $this->db->query($query)->row(); 
+            $result['user'] =$this->User->getDaftarAdministrasi();
+            $this->load->view('template/header',$data);
+            $this->load->view('template/sidebar',$role);
+            $this->load->view('template/topbar',$top);
+            $this->load->view('daftar_administrator',$result);
+            $this->load->view('template/footer',$data);
+        }else{
+            $data['title'] = 'Error';            
+            $this->load->view('page_403',$data);
+        }
     }
 
+    /*
+     method gantiPasswor ini digunakan untuk menghubungkan antara view  profil dengan 
+     model user
+     */
     public function gantiPassword(){
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Profil Saya';
@@ -93,6 +121,10 @@ class Home extends CI_Controller {
         $this->load->view('template/footer');
     }
 
+    /*
+      method tambahData ini digunakan untuk menghubungkan anatara view tambah data dengan model
+      User
+     */
     public function tambahData(){
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Profil Saya';
@@ -123,6 +155,10 @@ class Home extends CI_Controller {
 
     }
 
+    /*
+       method logout ini digunakan untuk menghapus session serta mengarahkan ke 
+       controler Auth dengan method index
+     */
     public function logout(){
         $this->session->unset_userdata('roleId');
         $this->session->unset_userdata('username');

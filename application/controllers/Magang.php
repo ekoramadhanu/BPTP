@@ -22,6 +22,10 @@ class Magang extends CI_Controller {
 	{
 		parent::__construct();		
 		$this->load->model("Internship");		
+		$this->load->library('form_validation');
+		if(!$this->session->userdata('roleId')){
+            redirect('Auth');
+        }
 	}
 
 	public function index()
@@ -29,7 +33,7 @@ class Magang extends CI_Controller {
 
 	}
 	
-	public function cetakRekap(){
+	public function cetakRekap(){		
 		$result['tahunRekap'] = $this->input->get('tahun');	
 		for ($i=1; $i <=12 ; $i++) { 			
 			$result['startMonth'][$i]= $this->Internship->getRekapByStartDatePKL($i,$result['tahunRekap']);								

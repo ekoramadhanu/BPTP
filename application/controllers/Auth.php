@@ -18,6 +18,9 @@ class Auth extends CI_Controller {
 		parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('User');
+        if($this->session->userdata('roleId')){
+            redirect('Home');
+        }
 	}
     /*     
      sebuah method index yang akan dijalankan pertama kali oleh CI untuk menghubungkan antara view 

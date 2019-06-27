@@ -119,23 +119,23 @@
       <div class="modal-body">
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor surat" 
-          name="nomor" min='0'>
+          name="nomor" min='0'required>
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="Nomor surat yang dibalas"
-           name="balasan">
+           name="balasan" required>
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Surat ditujukan kepada"
-           name="tujuan">
+           name="tujuan" required>
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="tempat tujuan pengiriman surat"
-           name="tempat">
+           name="tempat" required>
         </div>                
         <div class="form-group">
           <input type="date" class="form-control form-control-user" placeholder="Tanggal surat yang diterima"
-           name="tanggal">
+           name="tanggal" required>
         </div>                        
       </div>
       <div class="modal-footer">
@@ -161,7 +161,7 @@
       <div class="modal-body">
       <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Tahun rekap"
-           name="tahun" min="0">
+           name="tahun" min="0" required>
         </div>         
       </div>
       <div class="modal-footer">
@@ -172,4 +172,4 @@
   </div>
 </div>
 </div>
-<script></script>
+

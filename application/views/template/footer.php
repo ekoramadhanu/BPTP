@@ -17,11 +17,26 @@
   <script src="<?=base_url('Assets/')?>jquery.js"></script>
   <script>
   var ambilVal;
+    // event yang diambil dari tempat view daftar_magang
     $('.cetak').click(function () {
       ambilVal= $(this).attr('data-kelompok');        
       console.log(ambilVal);
       $('.form-cetak').attr('action', $('.form-cetak').attr('action') + '/' + ambilVal)
     });
+
+    // event yang diambil dari tempat view daftar_administrator untuk hapus
+    $('.hapusAdmin').click(function () {
+      ambilVal= $(this).attr('data-id');        
+      console.log(ambilVal);
+      $('.form-hapus').attr('action', $('.form-hapus').attr('action') + '/' + ambilVal)
+    });
+    // event yang diambil dari tempat view daftar_administrator untuk update
+    $('.updateAdmin').click(function () {
+      ambilVal= $(this).attr('data-id');        
+      console.log(ambilVal);
+      $('.form-update').attr('action', $('.form-update').attr('action') + '/' + ambilVal)
+    });
+
   </script>
 </body>
 
