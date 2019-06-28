@@ -35,7 +35,7 @@
               </form>
               <br>
               <div class="text-center">
-                 <a class="small text-primary" href="forgot-password.html">Forgot Password?</a>
+                 <a class="small text-primary" href="forgot-password.html">Reset Password?</a>
               </div>              
               <br>              
             </div>

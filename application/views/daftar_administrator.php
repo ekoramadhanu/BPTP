@@ -100,7 +100,7 @@
         </div>
         <div class="form-group">          
           <select class="form-control text-black" name="role">
-            <option disabled selected class="text-black" value="administrator">Pilih jenis Pelaku</option>
+            <option disabled selected class="text-black">Pilih jenis Pelaku</option>
             <option class="text-black">Administrator</option>
             <option class="text-black">Super Administrator</option>            
           </select>

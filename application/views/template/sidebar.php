@@ -20,7 +20,13 @@
   <hr class="sidebar-divider my-0">
 
   <!-- Nav Item - Dashboard -->
-  <li class="nav-item active">
+  <li class="nav-item 
+  <?php
+    if($title =='Informasi'){
+      echo 'active';
+    }
+  ?>
+  ">
     <a class="nav-link" href="<?=base_url('Home')?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Informasi</span></a>
@@ -35,13 +41,25 @@
   </div>
 
   <!-- Nav Item - Tables -->
-  <li class="nav-item">
+  <li class="nav-item 
+    <?php
+      if($title =='Daftar Magang'){
+        echo 'active';
+      }
+    ?>
+  ">
     <a class="nav-link" href="<?=base_url('Home/daftarMagang')?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Daftar Magang</span></a>
   </li>
 
-  <li class="nav-item">
+  <li class="nav-item 
+    <?php
+      if($title =='Tambah Data'){
+        echo 'active';
+      }
+    ?>
+  ">
     <a class="nav-link" href="<?=base_url('Home/tambahData')?>">
       <i class="fas fa-fw fa-plus"></i>
       <span>Tambah Data</span></a>
@@ -66,7 +84,13 @@
       Administrator
     </div>      
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
+    <li class="nav-item 
+      <?php
+        if($title =='Daftar Administrator'){
+          echo 'active';
+        }
+      ?>
+    ">
       <a class="nav-link" href="<?=base_url('Home/daftarAdministrator')?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Daftar Administrator</span></a>
@@ -81,7 +105,13 @@
   </div>
 
   <!-- Nav Item - Tables -->
-  <li class="nav-item">
+  <li class="nav-item 
+    <?php
+      if($title =='Ganti Password'){
+        echo 'active';
+      }
+    ?>
+  ">
     <a class="nav-link" href="<?=base_url('Home/gantiPassword')?>">
       <i class="fas fa-fw fa-user"></i>
       <span>Ganti Password</span></a>

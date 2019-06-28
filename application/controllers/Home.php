@@ -33,6 +33,7 @@ class Home extends CI_Controller {
     public function index(){        
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Informasi'; 
+        $role['title'] = $data['title'];
         $query="select count(id) as jumlah from internship";
         $result ['totalMagang'] = $this->db->query($query)->row();
         $query="select count(id) as jumlah from internship where gender='P'";
@@ -40,12 +41,29 @@ class Home extends CI_Controller {
         $query="select count(id) as jumlah from internship where gender='L'";
         $result ['totalLaki'] = $this->db->query($query)->row(); 
         $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row();         
+        $top ['user'] = $this->db->query($query)->row();  
+        // buat menampilkan jumlah dalam bentuk pie chart
+        $diagram['menunggu'] = $this->Internship->getCountByStatus('menunggu');
+        $diagram['tersetujui'] = $this->Internship->getCountByStatus('tersetujui');
+        $diagram['terdaftar'] = $this->Internship->getCountByStatus('terdaftar');        
+        // buat menampilkan jumlah dalam bentuk area chart
+        for ($i=1; $i <=12 ; $i++) { 
+			$temp['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,2019);
+            for ($j=1; $j <$i ; $j++) { 								
+                $temp['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($j,2019,$i,2019);
+            }
+            $jumlah = 0;
+            for ($j=1; $j <$i ; $j++) { 
+                $jumlah += $temp['jumlahEndaDate'][$i][$j];
+            }
+            $diagram['total'][$i]=$temp['jumlahStartDate'][$i]+$jumlah;            
+        }
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
         $this->load->view('home_page',$result);
-        $this->load->view('template/footer');
+        // $this->load->view('template/pie_chart');
+        $this->load->view('template/footer',$diagram);
     }
 
     /*
@@ -55,6 +73,7 @@ class Home extends CI_Controller {
     public function daftarMagang(){
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Daftar Magang';
+        $role['title'] = $data['title'];
         $query = "select name,image from user where roleId=".$role['role'];
         $top ['user'] = $this->db->query($query)->row();         
         for ($i=0; $i <=12 ; $i++) {             
@@ -89,6 +108,7 @@ class Home extends CI_Controller {
         $role['role']=$this->session->userdata('roleId');
         if ($role['role'] == 1){
             $data['title'] = 'Daftar Administrator';
+            $role['title'] = $data['title'];
             $query = "select name,image from user where roleId=".$role['role'];
             $top ['user'] = $this->db->query($query)->row(); 
             $result['user'] =$this->User->getDaftarAdministrasi();
@@ -109,15 +129,14 @@ class Home extends CI_Controller {
      */
     public function gantiPassword(){
         $role['role']=$this->session->userdata('roleId');
-        $data['title'] = 'Profil Saya';
+        $data['title'] = 'Ganti Password';
+        $role['title'] = $data['title'];
         $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row();
-        $query = "select * from user where roleId=".$role['role'];
-        $result ['user'] = $this->db->query($query)->row();
+        $top ['user'] = $this->db->query($query)->row();        
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
-        $this->load->view('profil',$result);
+        $this->load->view('ganti_password');
         $this->load->view('template/footer');
     }
 
@@ -127,7 +146,8 @@ class Home extends CI_Controller {
      */
     public function tambahData(){
         $role['role']=$this->session->userdata('roleId');
-        $data['title'] = 'Profil Saya';
+        $data['title'] = 'Tambah Data';
+        $role['title'] = $data['title'];
         $query = "select name,image from user where roleId=".$role['role'];
         $top ['user'] = $this->db->query($query)->row();        
         $this->load->view('template/header',$data);

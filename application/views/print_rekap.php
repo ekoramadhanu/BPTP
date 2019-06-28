@@ -25,22 +25,22 @@
 
 <body id="page-top"style="font-family:verdana">
   <div class="container-fluid">
-  <h2 class="text-center text-black">REKAP MAGANG/PKL DI BPTP JAWA TIMUR TAHUN <?=$tahunRekap?></h2>
+  <h2 class="text-center text-black mt-3">REKAP MAGANG/PKL DI BPTP JAWA TIMUR TAHUN <?=$tahunRekap?></h2>
   <table class="table table-bordered table-sm text-black border border-dark" id="dataTable" width="100%" cellspacing="0" style="border-color = black !important">
     <thead class="text-center">
         <tr>
-            <th class="border border-dark">NO</th>
-            <th class="border border-dark">NAMA</th>
-            <th class="border border-dark">SEKOLAH/PT</th>
-            <th class="border border-dark">WAKTU PKL</th>
-            <th class="border border-dark">PENEMPATAN/MATERI</th>
-            <th class="border border-dark">PEMBIMBING</th>
+            <th style="border: 1px solid #000 !important">NO</th>
+            <th style="border: 1px solid #000 !important">NAMA</th>
+            <th style="border: 1px solid #000 !important">SEKOLAH/PT</th>
+            <th style="border: 1px solid #000 !important">WAKTU PKL</th>
+            <th style="border: 1px solid #000 !important">PENEMPATAN/MATERI</th>
+            <th style="border: 1px solid #000 !important">PEMBIMBING</th>
         </tr>
     </thead>
     <tbody>
         <?php for ($i=1; $i <= 12 ; $i++):?>
         <tr>
-          <td colspan="6" class="text-center text-black border border-dark "><b>
+          <td colspan="6" class="text-center text-black" style="border: 1px solid #000 !important"><b>
           <?php 
               switch ($i){
               case 1:
@@ -87,8 +87,8 @@
             $counter = 1;
             foreach ($startMonth[$i] as $rekap):?>
             <tr>            
-                <td class="border border-dark"><?=$counter?></td>
-                <td class="border border-dark">
+                <td style="border: 1px solid #000 !important"><?=$counter?></td>
+                <td style="border: 1px solid #000 !important">
                 <?php          
                     $kelompok = $rekap->kelompok;
                     $nomor = 1;
@@ -105,8 +105,8 @@
                     }
                 ?>
                 </td>
-                <td class="border border-dark"><?=$rekap->institute?></td>
-                <td class="border border-dark">                
+                <td style="border: 1px solid #000 !important"><?=$rekap->institute?></td>
+                <td style="border: 1px solid #000 !important">                
                 <?php
                 switch ($rekap->StartMonth){
                 case 1:
@@ -187,8 +187,8 @@
                     }
                 ?>
                 </td>
-                <td class="border border-dark"><?=$rekap->place?></td>
-                <td class="border border-dark"><?=$rekap->guide?></td>
+                <td style="border: 1px solid #000 !important"><?=$rekap->place?></td>
+                <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
             </tr>
             <?php 
             $counter++;
@@ -199,8 +199,8 @@
                 <?php             
                 foreach ($endMonth[$i][$j] as $rekap):?>
                 <tr>            
-                    <td class="border border-dark"><?=$counter?></td>
-                    <td class="border border-dark">
+                    <td style="border: 1px solid #000 !important"><?=$counter?></td>
+                    <td style="border: 1px solid #000 !important">
                     <?php          
                         $kelompok = $rekap->kelompok;
                         $nomor = 1;
@@ -217,8 +217,8 @@
                         }
                     ?>
                     </td>
-                    <td class="border border-dark"><?=$rekap->institute?></td>
-                    <td class="border border-dark">
+                    <td style="border: 1px solid #000 !important"><?=$rekap->institute?></td>
+                    <td style="border: 1px solid #000 !important">
                     <?php
                 switch ($rekap->StartMonth){
                 case 1:
@@ -299,8 +299,8 @@
                     }
                     ?>
                     </td>
-                    <td class="border border-dark"><?=$rekap->place?></td>
-                    <td class="border border-dark"><?=$rekap->guide?></td>
+                    <td style="border: 1px solid #000 !important"><?=$rekap->place?></td>
+                    <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
                 </tr>
                 <?php 
                 $counter++;
@@ -309,7 +309,7 @@
             <?php endfor;?>            
             <!-- akhir dari perulangan endPKL -->            
             <tr>
-                <td colspan="6" class="text-center border border-dark">
+                <td colspan="6" class="text-center" style="border: 1px solid #000 !important">
                     <b>Jumlah =                 
                         <?php
                         $jumlah = 0 ;
@@ -325,7 +325,7 @@
         </tr>
         <?php endfor;?>
         <tr>
-          <td colspan="6" class="text-center border border-dark"><b>Total Magang = <?= $total." orang"?></b></td>
+          <td colspan="6" class="text-center" style="border: 1px solid #000 !important"><b>Total Magang = <?= $total." orang"?></b></td>
         </tr>
     </tbody>
   </table>

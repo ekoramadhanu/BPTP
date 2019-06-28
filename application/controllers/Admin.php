@@ -25,11 +25,15 @@ class Admin extends CI_Controller {
         $username= htmlspecialchars($this->input->post('username'),true);
         $role= $this->input->post('role');
         $name=htmlspecialchars($this->input->post('name'));
-        $result = $this->User->addUser($username,$name,$role);
-        if($result){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
+        if($username=='' || $role=='' || $name==''){
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa ditambah karena username, role, dan nama kosong</div>');
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data gagal ditambahkan</div>');
+            $result = $this->User->addUser($username,$name,$role);
+            if($result){
+                $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
+            }else{
+                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data gagal ditambahkan</div>');
+            }
         }
         redirect('Home/daftarAdministrator');
     }

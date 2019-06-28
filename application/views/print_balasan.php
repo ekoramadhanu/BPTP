@@ -23,7 +23,7 @@
 
 </head>
 
-<body id="page-top" style="font-family:tahoma; font-size=11px">
+<body id="page-top" style="font-family:tahoma">
 	<div class="container-fluid text-dark">
 		<!-- <div class="row row mt-3 mb-3">
 			<div class="col-lg-12 col-md-12 col-xs-12">
@@ -56,7 +56,7 @@
 		</div> -->
 		<br><br><br><br><br><br><br>
 		<div class="row mt-3 mb-3 ml-4 mr-5">
-			<div class="col-lg-9 col-md-9 col-xs-9">
+			<div class="col-lg-9 col-md-9 col-xs-9" style="font-size:16px">
 				<p style="margin:0" class="text-black">Nomor <span style="display:inline-block; width: 40px;"></span>: B- <?=$nomorSurat?><span style="display:inline-block;"></span>/HM.240/H.12.15/<?=$bulan."/".$tahun?></p>
 				<p style="margin:0" class="text-black">Sifat<span style="display:inline-block; width: 63px;"></span>: Biasa</p>
 				<p style="margin:0" class="text-black">Lampiran <span style="display:inline-block; width: 23px;"></span>: -</p>
@@ -65,7 +65,7 @@
 				<p style="margin:0" class="text-black"><b>Yth. <?=$tujuan?></b></p>
 				<p style="margin:0" class="text-black"><b>Di <?=$tempat?></b></p>
 			</div>
-			<div class="col-lg-3 col-md-3 col-xs-3">
+			<div class="col-lg-3 col-md-3 col-xs-3" style="font-size:16px">
 				<p class="text-right text-black"><?php
 				switch ($bulan){					
 					case 1:
@@ -110,7 +110,7 @@
 		</div>
 		<br><br>
 		<div class="row mt-5 mb-3 ml-4 mr-5">
-			<div class="col-lg-12 col-md-12 col-xs-12">
+			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:16px">
 				<p class="text-black">Menanggapi surat Saudara Nomor: <?=$nomorbalasan." tanggal "?><?php
 					switch ($bulanBalasan){					
 						case 1:
@@ -157,12 +157,12 @@
 					</b> bagi mahasiswa
 				Program Studi <?=$detail->department?> berikut: </p>
 				<br>
-				<table class="table table-bordered text-black border border-dark">
+				<table class="table table-bordered text-black border-table-black" style="font-size:16px">
 					<thead>
 						<tr>
-							<th class="pt-1 pb-1 border border-dark"> No.</th>
-							<th class="pt-1 pb-1 border border-dark" width="65%">Nama</th>
-							<th class="pt-1 pb-1 border border-dark" width="35%">		
+							<th class="pt-1 pb-1" style="border: 1px solid #000 !important"> No.</th>
+							<th class="pt-1 pb-1"  style="border: 1px solid #000 !important" width="65%">Nama</th>
+							<th class="pt-1 pb-1"  style="border: 1px solid #000 !important" width="35%">		
 								<?php 
 									foreach ($fullname as $name) {
 										if($name->is_sekolah == 1) {
@@ -182,9 +182,9 @@
 						$counter =1;
 						foreach ($fullname as $name) :?>
 							<tr>
-								<td class="pt-1 pb-1 border border-dark"><?=$counter?></td>
-								<td class="pt-1 pb-1 border border-dark"><?=$name->fullname?></td>
-								<td class="pt-1 pb-1 border border-dark"><?=$name->id?></td>
+								<td class="pt-1 pb-1" style="border: 1px solid #000 !important"><?=$counter?></td>
+								<td class="pt-1 pb-1" style="border: 1px solid #000 !important"><?=$name->fullname?></td>
+								<td class="pt-1 pb-1" style="border: 1px solid #000 !important"><?=$name->id?></td>
 							</tr>
 						<?php  
 						$counter++;
@@ -200,7 +200,7 @@
 		<br><br>
 		<div class="row">
 			<div class="col-lg-7 col-md-7 col-xs-7"></div>
-			<div class="col-lg-5 col-md-5 col-xs-5">
+			<div class="col-lg-5 col-md-5 col-xs-5" style="font-size:16px;font-family:Arial">
 				<p style="margin:0" class="text-black"><b>An. Kepala Balai,</b></p>
 				<p class="text-black" style="margin:0"><b>Kepala Seksi Kerjasama dan</b></p>
 				<p class="text-black"style="margin:0"><b>Pelayanan Pengkajian</b></p>
@@ -213,9 +213,9 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>    
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script>
+	<!-- <script>
 		print();
-	</script>
+	</script> -->
 </body>
 
 </html>

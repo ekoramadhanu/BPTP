@@ -1,19 +1,19 @@
-#bg-gradient-primary{
-    background-color: #1b810f !important;
+#background-primary{
+    background-color: #1fb205 !important;
 }
 
 .text-header-primary{
     color: white !important;
 }
 
-.btn-primary{
+.button-primary{
     /* color: white !important; */
-    background-color: #1b810f !important;
+    background-color: #1fb205 !important;
     /* border-radius: 100% !important; */
 }
 
 .text-primary{
-    color:#1b810f !important;
+    color:#1fb205 !important;
 }
 
 .midle{
@@ -30,5 +30,8 @@
 
 .text-black{
     color:black !important;
- 
+}
+
+.border-table-black{
+    border: 1px solid #000 !important;
 }
