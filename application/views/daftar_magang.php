@@ -3,17 +3,17 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Daftar Magang</h1>
-  <button  data-toggle="modal" data-target="#cetakRekap" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-white"><i class="fas fa-download fa-sm text-white"></i> Cetak Rekap per Tahun</a>
+  <h1 class="h3 mb-0" style="color:black">Daftar Magang</h1>
+  <button  data-toggle="modal" data-target="#cetakRekap" class="btn btn-sm btn-primary shadow-sm text-white"><i class="fas fa-print fa-sm text-white"></i> Cetak Rekap per Tahun</a>
 </div>
 <br>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered text-black" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="color:black">
         <thead >
-          <tr class="text-center text-white" id="bg-gradient-primary">
+          <tr class="text-center" id="bg-gradient-primary">
             <th class="align-middle border border-black">No</th>
             <th class="align-middle border border-black">Jumlah Peserta</th>            
             <th class="align-middle border border-black">Sekolah</th>
@@ -53,9 +53,9 @@
               ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
               <td class="border border-black"><?=$rekap->place?></td>
               <td class="border border-black"><?=$rekap->guide?></td>
-              <td>
+              <td class="text-center">
               
-                  <button type="submit" class="cetak" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>
+                  <button type="submit" class="cetak btn btn-outline-primary" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>
               <!-- </form> -->
               </td>
           </tr>
@@ -65,7 +65,7 @@
           <?php endfor;?>
         </tbody>
         <tfoot>
-          <tr class="text-center text-white " id="bg-gradient-primary">
+          <tr class="text-center">
             <th class="align-middle">No</th>
             <th class="align-middle">Jumlah Peserta</th>            
             <th class="align-middle">Sekolah</th>
@@ -109,7 +109,7 @@
 <div class="modal fade" id="cetakBalasan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <div class="modal-header">
+    <div class="modal-header " style="color:black">
       <h5 class="modal-title" id="exampleModalLabel">Isi Form cetak</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
@@ -119,27 +119,27 @@
       <div class="modal-body">
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor surat" 
-          name="nomor" min='0'required>
+          name="nomor" min='0'required style="color:black">
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="Nomor surat yang dibalas"
-           name="balasan" required>
+           name="balasan" required style="color:black">
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Surat ditujukan kepada"
-           name="tujuan" required>
+           name="tujuan" required style="color:black">
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="tempat tujuan pengiriman surat"
-           name="tempat" required>
+           name="tempat" required style="color:black">
         </div>                
         <div class="form-group">
           <input type="date" class="form-control form-control-user" placeholder="Tanggal surat yang diterima"
-           name="tanggal" required>
+           name="tanggal" required style="color:black">
         </div>                        
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
         <button class="btn btn-primary" type="submit">Cetak</button>
       </div>
     </form>
@@ -151,21 +151,21 @@
 <div class="modal fade" id="cetakRekap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <div class="modal-header">
+    <div class="modal-header" style="color:black">
       <h5 class="modal-title" id="exampleModalLabel">Isi Form cetak</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
     </div>
     <form action="<?=base_url('Magang/cetakRekap')?>" method="get">
-      <div class="modal-body">
+      <div class="modal-body" style="color:black">
       <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Tahun rekap"
-           name="tahun" min="0" required>
+           name="tahun" min="0" required style="color:black">
         </div>         
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
         <button class="btn btn-primary" type="submit">Cetak</button>
       </div>
     </form>

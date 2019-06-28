@@ -117,11 +117,16 @@ class Internship extends CI_Model {
         return $this->db->query($query)->result();
     }
 
-    public function getCountByStatus($status){
+    public function getCountByStatusAndYear($status,$year){
         // $status = $status."";
-        $query="select count(id) as 'jumlah'  from internship WHERE lower(status) ='".$status."'"; 
+        $query="select count(id) as 'jumlah'  from internship WHERE lower(status) ='".$status."' and year(date_start) =".$year; 
         return $this->db->query($query)->row();
 
+    }
+
+    public function getCountByGenderAndYear($gender,$year){
+        $query="select count(id) as 'jumlah' from internship where gender= '".$gender."' and year(date_start) = ".$year;
+        return $this->db->query($query)->row();
     }
     
 

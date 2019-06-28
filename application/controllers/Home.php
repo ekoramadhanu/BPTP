@@ -20,6 +20,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model("Internship");
         $this->load->model("User");
+        $this->load->library('form_validation');
         if(!$this->session->userdata('roleId')){
             redirect('Auth');
         }
@@ -30,27 +31,33 @@ class Home extends CI_Controller {
      method index ini digunakan untuk menghubungkan antara view home_page dengan model
      user dan internship 
      */
-    public function index(){        
-        $role['role']=$this->session->userdata('roleId');
+    public function index(){  
+        // data yang dikirmkan ke view header
         $data['title'] = 'Informasi'; 
+        // data yang dikirimkan ke view topbar
+        $role['id']=$this->session->userdata('id');        
+        $role['role']=$this->session->userdata('roleId');        
         $role['title'] = $data['title'];
-        $query="select count(id) as jumlah from internship";
-        $result ['totalMagang'] = $this->db->query($query)->row();
-        $query="select count(id) as jumlah from internship where gender='P'";
-        $result ['totalPerempuan'] = $this->db->query($query)->row();
-        $query="select count(id) as jumlah from internship where gender='L'";
-        $result ['totalLaki'] = $this->db->query($query)->row(); 
-        $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row();  
+        $tahun= $this->input->get('tahun');
+        if($tahun == 0){
+            $tahun=date('Y');            
+        }else{
+            $tahun=$tahun;            
+        }        
+        $result ['totalMagang'] = $this->Internship->getCountAllByYear($tahun);        
+        $result ['totalPerempuan'] = $this->Internship->getCountByGenderAndYear('P',$tahun);                
+        $result ['totalLaki'] = $this->Internship->getCountByGenderAndYear('L',$tahun);        
+        $result['tahun']= $tahun;
+        $top['user']= $this->User->getIdentityUser($role['id']);
         // buat menampilkan jumlah dalam bentuk pie chart
-        $diagram['menunggu'] = $this->Internship->getCountByStatus('menunggu');
-        $diagram['tersetujui'] = $this->Internship->getCountByStatus('tersetujui');
-        $diagram['terdaftar'] = $this->Internship->getCountByStatus('terdaftar');        
+        $diagram['menunggu'] = $this->Internship->getCountByStatusAndYear('menunggu',$tahun);
+        $diagram['tersetujui'] = $this->Internship->getCountByStatusAndYear('tersetujui',$tahun);
+        $diagram['terdaftar'] = $this->Internship->getCountByStatusAndYear('terdaftar',$tahun);        
         // buat menampilkan jumlah dalam bentuk area chart
         for ($i=1; $i <=12 ; $i++) { 
-			$temp['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,2019);
+			$temp['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,$tahun);
             for ($j=1; $j <$i ; $j++) { 								
-                $temp['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($j,2019,$i,2019);
+                $temp['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($j,$tahun,$i,$tahun);
             }
             $jumlah = 0;
             for ($j=1; $j <$i ; $j++) { 
@@ -61,8 +68,7 @@ class Home extends CI_Controller {
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
-        $this->load->view('home_page',$result);
-        // $this->load->view('template/pie_chart');
+        $this->load->view('home_page',$result);        
         $this->load->view('template/footer',$diagram);
     }
 
@@ -71,11 +77,11 @@ class Home extends CI_Controller {
        dengan model User dan Internship
      */
     public function daftarMagang(){
+        $role['id']=$this->session->userdata('id');        
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Daftar Magang';
         $role['title'] = $data['title'];
-        $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row();         
+        $top['user']= $this->User->getIdentityUser($role['id']);
         for ($i=0; $i <=12 ; $i++) {             
             $result['daftarMagang'][$i] = $this->Internship->getRekapByMonth($i);
         }        
@@ -105,12 +111,12 @@ class Home extends CI_Controller {
        dengan model User dan Internship
      */
     public function daftarAdministrator(){
+        $role['id']=$this->session->userdata('id');        
         $role['role']=$this->session->userdata('roleId');
         if ($role['role'] == 1){
             $data['title'] = 'Daftar Administrator';
             $role['title'] = $data['title'];
-            $query = "select name,image from user where roleId=".$role['role'];
-            $top ['user'] = $this->db->query($query)->row(); 
+            $top['user']= $this->User->getIdentityUser($role['id']);
             $result['user'] =$this->User->getDaftarAdministrasi();
             $this->load->view('template/header',$data);
             $this->load->view('template/sidebar',$role);
@@ -128,16 +134,55 @@ class Home extends CI_Controller {
      model user
      */
     public function gantiPassword(){
-        $role['role']=$this->session->userdata('roleId');
+        // data dimasukkan ke dalam view header
         $data['title'] = 'Ganti Password';
+        // data dimasukkan ke dalam view sidebar
+        $role['id']=$this->session->userdata('id');        
+        $role['role']=$this->session->userdata('roleId');
         $role['title'] = $data['title'];
-        $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row();        
-        $this->load->view('template/header',$data);
-        $this->load->view('template/sidebar',$role);
-        $this->load->view('template/topbar',$top);
-        $this->load->view('ganti_password');
-        $this->load->view('template/footer');
+        // data dimasukkan ke dalam view topbar
+        $top['user']= $this->User->getIdentityUser($role['id']);
+        // validasi inputan
+        $this->form_validation->set_rules('passwordLama','passwordLama','required|trim|min_length[6]|max_length[12]',[
+            'required' =>'kata sandi harus diisi',
+            'min_length'=>'kata sandi anda kurang dari 6 karakter',
+            'max_length'=>'kata sandi anda lebih dari 12 karakter'
+        ]);
+        $this->form_validation->set_rules('passwordBaru','passwordBaru','required|trim|min_length[6]|max_length[12]|matches[repasswordBaru]',[
+            'required' =>'kata sandi harus diisi',
+            'min_length'=>'kata sandi anda kurang dari 6 karakter',
+            'max_length'=>'kata sandi anda lebih dari 12 karakter',
+            'matches'=>'kata sandi anda tidak sesuai'
+        ]);
+        $this->form_validation->set_rules('repasswordBaru','repasswordBaru','required|trim|min_length[6]|max_length[12]',[
+            'required' =>'kata sandi harus diisi',
+            'min_length'=>'kata sandi anda kurang dari 6 karakter',
+            'max_length'=>'kata sandi anda lebih dari 12 karakter',
+            'matches'=>'kata sandi anda tidak sesuai'
+        ]);
+        if($this->form_validation->run() ==false){
+            $this->load->view('template/header',$data);
+            $this->load->view('template/sidebar',$role);
+            $this->load->view('template/topbar',$top);
+            $this->load->view('ganti_password');
+            $this->load->view('template/footer');
+        }else{
+            $passwordLama =$this->input->post('passwordLama');
+            $username = $this->session->userdata('username');
+            $user = $this->User->getUser($username);
+            if( password_verify($passwordLama,$user->password)){
+                $passwordBaru =password_hash($this->input->post('passwordBaru'),PASSWORD_DEFAULT);
+                $gantiPassword = $this->User->updatePasswordByID($role['id'],$passwordBaru);
+                if($gantiPassword){
+                    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Password Berhasil diganti</div>');
+                }else{
+                    $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Password tidak berhasil diganti</div>');
+                }
+            }else{
+                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Password Lama Anda Salah</div>');
+            }
+            redirect('Home/gantiPassword');
+        }
     }
 
     /*
@@ -145,11 +190,11 @@ class Home extends CI_Controller {
       User
      */
     public function tambahData(){
+        $role['id']=$this->session->userdata('id');        
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Tambah Data';
         $role['title'] = $data['title'];
-        $query = "select name,image from user where roleId=".$role['role'];
-        $top ['user'] = $this->db->query($query)->row();        
+        $top['user']= $this->User->getIdentityUser($role['id']);
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
@@ -181,9 +226,15 @@ class Home extends CI_Controller {
      */
     public function logout(){
         $this->session->unset_userdata('roleId');
-        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('id');
         redirect('Auth');
-    }
-    
-
+    }    
 }
+
+
+
+
+
+
+
+

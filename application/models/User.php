@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Model {    
 
+    public function getIdentityUser($id){
+        $query = "select name,image from user where id=".$id;
+        return $this->db->query($query)->row();  
+    }
+
     public function getUser($username){
         return $this->db->get_where('user',['username'=>$username])->row();
     }
@@ -41,4 +46,11 @@ class User extends CI_Model {
         }
         return $this->db->update('user',['roleId'=>$role],['id'=>$id]);
     }
+
+    public function updatePasswordByID($id,$password){
+        return $this->db->update('user',['password'=>$password],['id'=>$id]);
+    }
+
+    
+
 }

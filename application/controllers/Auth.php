@@ -27,7 +27,7 @@ class Auth extends CI_Controller {
      login dengan method login  
      */
     public function index(){
-        $data['title']= 'Login';              
+        $data['title']= 'Login';                      
         $this->form_validation->set_rules('username','username','required|trim',[
             'required'=>'Username Tidak Boleh Kosong'
         ]);
@@ -52,10 +52,10 @@ class Auth extends CI_Controller {
         $password = $this->input->post('password');
         $user = $this->User->getUser($username);
         if($user && password_verify($password,$user->password)){            
-        $data= array(
-            'username' =>$user->username,
+        $data= array(            
             'roleId' =>$user->roleId,
-            'id'=>$user->id
+            'id'=>$user->id,
+            'username'=>$user->username
         );
         $this->session->set_userdata($data);            
         redirect('Home');

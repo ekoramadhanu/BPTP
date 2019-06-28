@@ -1,5 +1,6 @@
+
 <!-- Sidebar -->
-<ul class="navbar-nav sidebar sidebar-dark accordion" id="bg-gradient-primary">    
+<ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #2dad21 !important">    
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('Home')?>">
     <div class="sidebar-brand-icon">
@@ -36,7 +37,7 @@
   <hr class="sidebar-divider">
 
   <!-- Heading -->
-  <div class="sidebar-heading">
+  <div class="sidebar-heading text-white">
     Peserta Magang
   </div>
 
@@ -80,7 +81,7 @@
   <?php if($role == 1):?>
     <hr class="sidebar-divider">
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <div class="sidebar-heading text-white">
       Administrator
     </div>      
     <!-- Nav Item - Tables -->
@@ -100,7 +101,7 @@
     
   <hr class="sidebar-divider">
   <!-- Heading -->
-  <div class="sidebar-heading">
+  <div class="sidebar-heading text-white">
     Pengguna
   </div>
 
@@ -113,7 +114,7 @@
     ?>
   ">
     <a class="nav-link" href="<?=base_url('Home/gantiPassword')?>">
-      <i class="fas fa-fw fa-user"></i>
+      <i class="fas fa-fw fa-key"></i>
       <span>Ganti Password</span></a>
   </li>
 

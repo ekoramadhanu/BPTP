@@ -54,8 +54,8 @@
       labels: ["menunggu", "tersetujui","terdaftar"],
       datasets: [{
         data: [menunggu,tersetujui,terdaftar],
-        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+        backgroundColor: ['#ffc107', '#34ad2d', '#007bff'],
+        hoverBackgroundColor: ['#e8af05', '#17a673', '#026bdb'],
         hoverBorderColor: "rgba(234, 236, 244, 1)",
       }],
     },

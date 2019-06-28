@@ -1,0 +1,35 @@
+.background-primary{
+    background-color: #2dad21 !important;    
+}
+
+/* .text-primary-hover{
+    color:#1fb205  !important;
+} */
+
+.button-primary{    
+    background-color: #2dad21 !important;    
+}
+
+.text-green{
+    color:#2dad21 !important;
+}
+
+.text-secondary{
+    color:#d3e8da !important;
+}
+
+.image-logo{
+    display: block;
+    margin: 9% auto;
+}
+
+.text-black{
+    color:black !important;
+}
+.text-blue{
+    color: #007bff !important;
+}
+
+.border-table-black{
+    border: 1px solid #000 !important;
+}

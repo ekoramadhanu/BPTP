@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Daftar Administrator</h1>
+<h1 class="h3 mb-2" style="color:black">Daftar Administrator</h1>
 <br>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -11,13 +11,13 @@
     <br>
     <?= $this->session->flashdata('message')?>
     <div class="table-responsive">
-      <table class="table table-borderedless" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-borderedless" id="dataTable" width="100%" cellspacing="0" style="color:black">
         <thead>
-          <tr class="text-center text-white" id="bg-gradient-primary">
+          <tr class="align-middle" id="bg-gradient-primary">
             <th>No</th>
             <th>Username</th>
             <th>Peran</th>            
-            <th>Keterangan</th>
+            <th class="text-right pr-5">Keterangan</th>
           </tr>
         </thead>
         <tbody>
@@ -40,11 +40,11 @@
         endforeach;?>
         </tbody>
         <tfoot>
-          <tr class="text-center text-white" id="bg-gradient-primary">
+          <tr class="align-middle" id="bg-gradient-primary">
             <th>No</th>
             <th>Username</th>
             <th>Peran</th>            
-            <th>Keterangan</th>
+            <th class="text-right pr-5">Keterangan</th>
           </tr>
         </tfoot>        
       </table>
@@ -92,22 +92,22 @@
       <div class="modal-body">
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Username"
-           name="username" >
+           name="username" style="color:black">
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Nama"
-           name="name" >
+           name="name" style="color:black">
         </div>
         <div class="form-group">          
-          <select class="form-control text-black" name="role">
-            <option disabled selected class="text-black">Pilih jenis Pelaku</option>
-            <option class="text-black">Administrator</option>
-            <option class="text-black">Super Administrator</option>            
+          <select class="form-control" name="role" style="color:black">
+            <option disabled selected class="" style="color:black">Pilih jenis Pelaku</option>
+            <option class="" style="color:black">Administrator</option>
+            <option class="" style="color:black">Super Administrator</option>            
           </select>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
         <button class="btn btn-primary" type="submit">Tambah</button>
       </div>
     </form>
@@ -120,16 +120,16 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin ingin mengahapus?</h5>
+      <h5 class="modal-title" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin mengahapus?</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <div class="modal-body">Jika iya silahkan pilih tombol 'iya'</div>
+    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
     <div class="modal-footer">
-      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+      <button class="btn btn-danger " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Admin/deleteAdmin')?>" method="post" class="form-hapus">
-        <button class="btn btn-danger" type="submit">iya</button>
+        <button class="btn btn-primary" type="submit">iya</button>
       </form>
     </div>
   </div>
@@ -140,7 +140,7 @@
 <div class="modal fade" id="updateAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <div class="modal-header">
+    <div class="modal-header" style="color:black">
       <h5 class="modal-title" id="exampleModalLabel">Form Ganti User</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
@@ -149,15 +149,15 @@
     <form action="<?=base_url('Admin/updateAdminById')?>" method="post" class="form-update">
       <div class="modal-body">                
         <div class="form-group">          
-          <select class="form-control text-black" name="role">
-            <option disabled selected class="text-black">Pilih jenis Pelaku</option>
-            <option class="text-black">Administrator</option>
-            <option class="text-black">Super Administrator</option>            
+          <select class="form-control" name="role" style="color:black">
+            <option disabled selected class="" style="color:black">Pilih jenis Pelaku</option>
+            <option class="" style="color:black">Administrator</option>
+            <option class="" style="color:black">Super Administrator</option>            
           </select>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
         <button class="btn btn-primary" type="submit">Ganti</button>
       </div>
   </div>

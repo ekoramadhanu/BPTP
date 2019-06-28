@@ -23,10 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Custom styles for this template-->
   <link href="<?=base_url('Assets/sbadmin/')?>css/sb-admin-2.min.css" rel="stylesheet">
-
+  
   <!-- CSS SIM -->
-  <link href="<?=base_url('Assets/')?>template.css" rel="stylesheet">
+  <link href="<?=base_url('Assets/')?>style.css" rel="stylesheet">
+  
 
 </head>
 
-<body id="bg-gradient-primary">
+<body class="background-primary d-flex align-items-center">

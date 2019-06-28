@@ -13,11 +13,11 @@
           <form class="user" method="post" action="<?=base_url('Auth/registrasi')?>">
               <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nama Lengkap"
-                  name="username">                  
+                  name="username" style="color:black">                  
                 </div>                
                 <div class="form-group">
                   <input type="password" class="form-control form-control-user" id="exampleInputEmail" placeholder="Kata Sandi"
-                  name ="password">                  
+                  name ="password" style="color:black">                  
                 </div>                
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                   Pendaftaran Akun
