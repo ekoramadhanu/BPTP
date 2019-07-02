@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+    private $tahun;
 
     /*
       kontrsuktor yang digunakan untuk memanggil model internship
@@ -21,6 +22,7 @@ class Home extends CI_Controller {
 		$this->load->model("Internship");
         $this->load->model("User");
         $this->load->library('form_validation');
+        $this->load->helper(array('url'));		
         if(!$this->session->userdata('roleId')){
             redirect('Auth');
         }
@@ -77,21 +79,57 @@ class Home extends CI_Controller {
        dengan model User dan Internship
      */
     public function daftarMagang(){
-        $role['id']=$this->session->userdata('id');        
+        $role['id']=$this->session->userdata('id');  
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Daftar Magang';
         $role['title'] = $data['title'];
         $top['user']= $this->User->getIdentityUser($role['id']);
-        for ($i=0; $i <=12 ; $i++) {             
-            $result['daftarMagang'][$i] = $this->Internship->getRekapByMonth($i);
-        }        
+        
+        $this->load->library('pagination');
+        // pencarian data 
+        if($this->input->post('submit')){
+            $tahun= $this->input->post('tahun');
+            $nama= $this->input->post('nama');
+            if($tahun && $nama){
+                $tahun = $tahun;
+                $nama = $nama;
+            }else if ($nama){
+                $tahun = null;
+                $nama = $nama;            
+            }else{
+                $tahun = $tahun;
+                $nama = null;            
+            }         
+            $this->session->set_userdata('tahun',$tahun);
+            $this->session->set_userdata('nama',$nama);
+        }else{
+            $tahun = $this->session->userdata('tahun');
+            $nama = $this->session->userdata('nama');
+            $nama = null;
+        }
+
+        // config pagination                
+        $config['total_rows'] = $this->Internship->getCountAll($tahun,$nama);
+        $config['per_page'] = 5;        
+        
+        // inisialisasi pagination
+        $this->pagination->initialize($config);
+        if(!$this->uri->segment(3)){
+            $result['start'] = 0;
+        }else if($this->uri->segment(3)){
+            $result['start'] = $this->uri->segment(3);
+        }                                
+        $result['daftarMagang']= $this->Internship->getLimitAndOffset($config['per_page'],$result['start'],$tahun,$nama); 
+        
+
+        // akhir dari pebuatan pagination
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);
         $this->load->view('daftar_magang',$result);
         $this->load->view('template/footer');
     }
-   
+        
     // public function permintaan(){
     //     $role['role']=$this->session->userdata('roleId');
     //     $query = "SELECT fullname,department,institute ,concat (date_format(date_start,'%d-%M-%Y'),concat(' sd ',concat(date_format(date_end,'%d-%M-%Y')))) as 'waktupkl' FROM internship";
@@ -227,8 +265,16 @@ class Home extends CI_Controller {
     public function logout(){
         $this->session->unset_userdata('roleId');
         $this->session->unset_userdata('id');
+        $this->session->unset_userdata('tahun');
+        $this->session->unset_userdata('nama');
         redirect('Auth');
     }    
+
+    public function test(){
+       $tahun=$this->input->get('nama');
+       echo $tahun;
+    }
+    
 }
 
 

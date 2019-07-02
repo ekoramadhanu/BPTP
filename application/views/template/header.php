@@ -19,7 +19,7 @@
   <link href="<?=base_url('Assets/sbadmin/')?>css/sb-admin-2.min.css" rel="stylesheet">
   
   <!-- CSS SIM -->
-  <link href="<?=base_url('Assets/')?>template.css" rel="stylesheet">
+  <link href="<?=base_url('Assets/')?>style.css" rel="stylesheet">
 
 </head>
 

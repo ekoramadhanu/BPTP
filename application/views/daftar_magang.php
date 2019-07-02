@@ -1,85 +1,98 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0" style="color:black">Daftar Magang</h1>
-  <button  data-toggle="modal" data-target="#cetakRekap" class="btn btn-sm btn-primary shadow-sm text-white"><i class="fas fa-print fa-sm text-white"></i> Cetak Rekap per Tahun</a>
-</div>
-<br>
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0" style="color:black">Daftar Magang</h1>  
+  </div>
+  <div class="row mb-2">
+    <div class="col-lg-12 text-right">      
+      <button  data-toggle="modal" data-target="#cetakRekap" class="btn btn-sm shadow-sm text-white btn-primary"><i class="fas fa-print fa-sm text-white"></i> Cetak Rekap per Tahun</a>      
+    </div>
+  </div>
+  
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="color:black">
-        <thead >
-          <tr class="text-center" id="bg-gradient-primary">
-            <th class="align-middle border border-black">No</th>
-            <th class="align-middle border border-black">Jumlah Peserta</th>            
-            <th class="align-middle border border-black">Sekolah</th>
-            <th class="align-middle border border-black">Waktu PKL</th>
-            <th class="align-middle border border-black">Penempatan</th>
-            <th class="align-middle border border-black">Pembimbing</th>
-            <th class="align-middle border border-black">Keterangan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php 
-          $counter = 1;
-          for ($i=1; $i <= 12 ; $i++) :?>                          
-          <?php 
-          foreach ($daftarMagang[$i] as $rekap) :?>
-          <tr>            
-              <td class="border border-black"><?=$counter?></td>
+  <div class="row pt-2 pl-2 pr-2">    
+      <div class="col-lg-12 col-md-12 col-xs-12 d-flex justify-content-end">
+        <form action="<?=base_url('Home/daftarMagang')?>" method="post" id="form-cari" class="form-inline">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control mr-3" placeholder="nama" name="nama" autocomplete="off">            
+            <input type="number" class="form-control mr-3 " placeholder="tahun" name="tahun" min='1' autocomplete="off">
+            <input class="btn btn-outline-primary " type="submit" name="submit" value="Cari">            
+          </div>      
+        </form>
+      </div>        
+  </div>
+  <div class="row">  
+    <div class="card-body col-lg-12">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="color:black">
+          <thead >
+            <tr class="text-center" id="bg-gradient-primary">
+              <th class="align-middle border border-black">No</th>
+              <th class="align-middle border border-black">Jumlah Peserta</th>            
+              <th class="align-middle border border-black">Sekolah</th>
+              <th class="align-middle border border-black">Waktu PKL</th>
+              <th class="align-middle border border-black">Penempatan</th>
+              <th class="align-middle border border-black">Pembimbing</th>
+              <th class="align-middle border border-black">Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php             
+              foreach ($daftarMagang as $rekap):
+            ?>
+            <tr>            
+              <td class="border border-black"><?=++$start?></td>
               <td>
-              <?php          
+                <?php          
                   $kelompok = $rekap->kelompok;                  
                   $nomor = 1;
                   $query = "select fullname from internship where id_kelompok =".$kelompok." order by fullname asc";
                   $fullname = $this->db->query($query)->result();                            
                   $check = $this->db->query($query);                                           
                   foreach ($fullname as $name) {
-                      if($check->num_rows() == 1){
-                        echo $name->fullname."<br>";
-                      }else{
-                        echo $nomor.". ".$name->fullname."<br>";
-                        $nomor++;
-                      }                    
+                    if($check->num_rows() == 1){
+                      echo $name->fullname."<br>";
+                    }else{
+                      echo $nomor.". ".$name->fullname."<br>";
+                      $nomor++;
+                    }                    
                   }
-              ?>
+                ?>
               </td>
               <td class="border border-black"><?=$rekap->institute?></td>
               <td class="border border-black"><?=$rekap->startDay."-".$rekap->StartMonth."-".$rekap->satrtYear
               ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
               <td class="border border-black"><?=$rekap->place?></td>
               <td class="border border-black"><?=$rekap->guide?></td>
-              <td class="text-center">
-              
-                  <button type="submit" class="cetak btn btn-outline-primary" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>
-              <!-- </form> -->
+              <td class="text-center">        
+                <button type="submit" class="cetak btn btn-outline-primary" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>
               </td>
-          </tr>
-          <?php 
-          $counter++;
-          endforeach;?>
-          <?php endfor;?>
-        </tbody>
-        <tfoot>
-          <tr class="text-center">
-            <th class="align-middle">No</th>
-            <th class="align-middle">Jumlah Peserta</th>            
-            <th class="align-middle">Sekolah</th>
-            <th class="align-middle">Waktu PKL</th>
-            <th class="align-middle">Penempatan</th>
-            <th class="align-middle">Pembimbing</th>
-            <th class="align-middle">Keterangan</th>
-          </tr>
-        </tfoot>        
-      </table>
+            </tr>
+                
+            <?php
+            endforeach; ?>
+          </tbody>
+          <tfoot>
+            <tr class="text-center">
+              <th class="align-middle">No</th>
+              <th class="align-middle">Jumlah Peserta</th>            
+              <th class="align-middle">Sekolah</th>
+              <th class="align-middle">Waktu PKL</th>
+              <th class="align-middle">Penempatan</th>
+              <th class="align-middle">Pembimbing</th>
+              <th class="align-middle">Keterangan</th>
+            </tr>
+          </tfoot>        
+        </table>
+      </div>
     </div>
   </div>
 </div>
-
+<?php 
+ echo $this->pagination->create_links();
+?>
 </div>
 <!-- /.container-fluid -->
   </div>

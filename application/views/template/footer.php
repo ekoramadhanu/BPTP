@@ -1,15 +1,15 @@
 <!-- Bootstrap core JavaScript-->
-<script src="<?=base_url('Assets/SB2admin/')?>vendor/jquery/jquery.min.js"></script>
-  <script src="<?=base_url('Assets/SB2admin/')?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?=base_url('Assets/sbadmin/')?>vendor/jquery/jquery.min.js"></script>
+  <script src="<?=base_url('Assets/sbadmin/')?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="<?=base_url('Assets/SB2admin/')?>vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="<?=base_url('Assets/sbadmin/')?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="<?=base_url('Assets/SB2admin/')?>js/sb-admin-2.min.js"></script>
+  <script src="<?=base_url('Assets/sbadmin/')?>js/sb-admin-2.min.js"></script>
   
   <!-- Page level plugins -->
-  <script src="<?=base_url('Assets/SB2admin/')?>vendor/chart.js/Chart.min.js"></script>
+  <script src="<?=base_url('Assets/sbadmin/')?>vendor/chart.js/Chart.min.js"></script>
     
   <script src="<?=base_url('Assets/')?>jquery.js"></script>
 
@@ -32,7 +32,26 @@
       ambilVal= $(this).attr('data-id');        
       console.log(ambilVal);
       $('.form-update').attr('action', $('.form-update').attr('action') + '/' + ambilVal)
-    });
+    });    
+    
+  
+    // // mengisi value tahun sama dengan inputan     
+    // // var date =  new Date();
+    // // window.location.href = "Home.php?tahun=" + date.getFullYear();
+    // // console.log(date.getFullYear());
+    // document.getElementById("form-cari").addEventListener("keydown", enterTahun);
+
+    // function enterTahun() {
+    //   if(window.event.keyCode === 13 ){ 
+    //     console.log('press');
+    //     document.getElementById("form-cari").submit();       
+    //   }
+    // }
+
+  
+    
+
+
   </script>
 
   <!-- Pie chart -->
