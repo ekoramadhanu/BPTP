@@ -15,7 +15,7 @@
   <div class="row pt-2 pl-2 pr-2">    
       <div class="col-lg-12 col-md-12 col-xs-12 d-flex justify-content-end">
         <form action="<?=base_url('Home/daftarMagang')?>" method="post" id="form-cari" class="form-inline">
-          <div class="input-group mb-3">
+          <div class="input-group">
             <input type="text" class="form-control mr-3" placeholder="nama" name="nama" autocomplete="off">            
             <input type="number" class="form-control mr-3 " placeholder="tahun" name="tahun" min='1' autocomplete="off">
             <input class="btn btn-outline-primary " type="submit" name="submit" value="Cari">            

@@ -19,7 +19,7 @@
   <link href="<?=base_url('Assets/bootstrap/')?>css/bootstrap.min.css" rel="stylesheet">
   
   <!-- CSS SIM -->
-  <link href="<?=base_url('Assets/')?>template.css" rel="stylesheet">
+  <link href="<?=base_url('Assets/')?>style.css" rel="stylesheet">
 
 </head>
 
@@ -68,43 +68,43 @@
 			<div class="col-lg-3 col-md-3 col-xs-3" style="font-size:16px">
 				<p class="text-right text-black"><?php
 				switch ($bulan){					
-					case 1:
+				case 1:
                   echo $tanggal." Januari ".$tahun;
                   break;
-              case 2:
-                  echo $tanggal." Februari ".$tahun;
-                  break;
-              case 3:
-                  echo $tanggal." Maret ".$tahun;
-                  break;
-              case 4:
-                  echo $tanggal." April " .$tahun;
-                  break;
-              case 5:
-                  echo $tanggal." Mei ".$tahun;
-                  break;
-              case 6:
-                  echo $tanggal." Juni ".$tahun;
-                  break;
-              case 7:
-                  echo $tanggal." Juli ".$tahun;
-                  break;
-              case 8:
-                  echo $tanggal." Agustus ".$tahun;
-                  break;
-              case 9:
-                  echo $tanggal." September ".$tahun;
-                  break;
-              case 10:
-                  echo $tanggal." Oktober ".$tahun;
-                  break;
-              case 11:
-                  echo $tanggal." November ".$tahun;
-                  break;
-              case 12:
-                  echo $tanggal." Desember ".$tahun;
-                  break;
-				}
+				case 2:
+					echo $tanggal." Februari ".$tahun;
+					break;
+				case 3:
+					echo $tanggal." Maret ".$tahun;
+					break;
+				case 4:
+					echo $tanggal." April " .$tahun;
+					break;
+				case 5:
+					echo $tanggal." Mei ".$tahun;
+					break;
+				case 6:
+					echo $tanggal." Juni ".$tahun;
+					break;
+				case 7:
+					echo $tanggal." Juli ".$tahun;
+					break;
+				case 8:
+					echo $tanggal." Agustus ".$tahun;
+					break;
+				case 9:
+					echo $tanggal." September ".$tahun;
+					break;
+				case 10:
+					echo $tanggal." Oktober ".$tahun;
+					break;
+				case 11:
+					echo $tanggal." November ".$tahun;
+					break;
+				case 12:
+					echo $tanggal." Desember ".$tahun;
+					break;
+					}
 				?></p>
 			</div>
 		</div>
