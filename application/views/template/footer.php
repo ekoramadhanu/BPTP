@@ -79,10 +79,22 @@
       console.log(ambilVal);
       if(ambilVal === "siswa"){
         document.getElementById('labelSekolah').innerHTML = "Sekolah";
+        document.getElementById('labeljurusan').innerHTML = "Jurusan";
+        $('#labelProgramStudi').remove();
+        $('#inputProgramStudi').remove();
       }else{      
         document.getElementById('labelSekolah').innerHTML = "Universitas";
+        document.getElementById('labeljurusan').innerHTML = "Fakultas";
+        $('#programStudi').append("<label class='text-black' id='labelProgramStudi' >Program Studi</label>"+
+          "<input type='text' class='form-control' name='programStudi' id='inputProgramStudi'required>");
       }
     });
+
+    $('#cetakRekap').on('click', '.batalRekap', function(e) {
+      e.preventDefault();
+      document.getElementById('tahunRekap').value = "";
+    });
+    
 
   </script>
 

@@ -40,6 +40,7 @@ class Home extends CI_Controller {
         $role['id']=$this->session->userdata('id');        
         $role['role']=$this->session->userdata('roleId');        
         $role['title'] = $data['title'];
+        
         $tahun= $this->input->get('tahun');
         if($tahun == 0){
             $tahun=date('Y');            
@@ -218,58 +219,29 @@ class Home extends CI_Controller {
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Tambah Data';
         $role['title'] = $data['title'];
-        $top['user']= $this->User->getIdentityUser($role['id']);
-        // validasi inputan
-        $this->form_validation->set_rules('nama','nama','required|trim',[
-            'required' =>'Nama Pemagang harus diisi',            
-        ]);
-        $this->form_validation->set_rules('nomor','nomor','required|trim',[
-            'required' =>'NIM/NISN harus diisi',            
-        ]);
-        $this->form_validation->set_rules('sekolah','sekolah','required|trim',[
-            'required' =>'Universitas / Sekolah harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('fakultas','fakultas','required|trim',[
-            'required' =>'Program Studi harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('penempatanMagang','penempatanMagang','required|trim',[
-            'required' =>'Penempatan magang harap diisi harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('pembimbingMagang','pembimbingMagang','required|trim',[
-            'required' =>'Pembimbing Magang harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('pembimbingMagang','pembimbingMagang','required|trim',[
-            'required' =>'Pembimbing Magang harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('tanggalMulai','tanggalMulai','required|trim',[
-            'required' =>'Tanggal Mulai Magang harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('tanggalSelesai','tanggalSelesai','required|trim',[
-            'required' =>'Tanggal Selesai Magang harap harus diisi',            
-        ]);
-        if($this->form_validation->run() == false){
+        $top['user']= $this->User->getIdentityUser($role['id']);        
             $this->load->view('template/header',$data);
             $this->load->view('template/sidebar',$role);
             $this->load->view('template/topbar',$top);
             $this->load->view('tambah_data');
-            $this->load->view('template/footer');
-        }else{
-            // insertData();
-        }
+            $this->load->view('template/footer');        
+            // insertData();        
     }
 
-    public function insertData(){
+    private function insertData(){
         $nama = $this->input->post('nama');
         $nomor = $this->input->post('nomor');
         $jenisKelamin = $this->input->post('jenisKelamin');        
         $pekerjaan = $this->input->post('pekerjaan');        
+        $programStudi = $this->input->post('programStudi');        
+        $fakultas =$this->input->post('fakultas');
         if($pekerjaan=='siswa'){
             $pekerjaan=1;
+            $fakultas='-';
         }else{
             $pekerjaan=0;
         }
         $sekolah = $this->input->post('sekolah');
-        $fakultas =$this->input->post('fakultas');
         $penempatanMagang =$this->input->post('penempatanMagang');
         $pembimbingMagang =$this->input->post('pembimbingMagang');
         $tanggalMulai =$this->input->post('tanggalMulai');
@@ -281,6 +253,7 @@ class Home extends CI_Controller {
             array_push($data,array(
                 'id'=>$result,
                 'fullname'=>$nama[$index],
+                'studyProgram'=>$programStudi,
                 'department'=>$fakultas,
                 'institute'=>$sekolah,
                 'gender'=>$jenisKelamin[$index],

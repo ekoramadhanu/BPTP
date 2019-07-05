@@ -7,9 +7,10 @@
       </div>
       
       <div class="text-right">
-        <form class="d-none d-sm-inline-block text-white" mehod="get" action="<?=base_url('Home')?>">
+        <form class="d-none d-sm-inline-block text-white form-inline mb-4" mehod="get" action="<?=base_url('Home')?>">
           <div class="form-group">            
              <input type="number" class="form-control" placeholder="tahun" min="1" name="tahun" style="color:black">
+             <input class="btn btn-outline-primary ml-3 " type="submit" name="submit" value="Cari">            
           </div>
        </form>        
       </div>

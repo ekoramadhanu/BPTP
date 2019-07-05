@@ -180,12 +180,12 @@
       <div class="modal-body" style="color:black">
       <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Tahun rekap"
-           name="tahun" min="0" required style="color:black">
+           name="tahun" min="0" required style="color:black" id="tahunRekap">
         </div>         
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
-        <button class="btn btn-primary" type="submit">Cetak</button>
+        <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalRekap">Batal</button>
+        <button class="btn btn-primary" type="submit" id="cetakRekap">Cetak</button>
       </div>
     </form>
   </div>

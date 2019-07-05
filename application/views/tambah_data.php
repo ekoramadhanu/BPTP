@@ -5,16 +5,14 @@
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-black">Tambah Magang</h1>        
       </div>
-        <form method="post" action="<?=base_url('Home/insertData')?>" class="pl-3 pr-3">
+        <form method="post" action="<?=base_url('Home/tambahData')?>" class="pl-3 pr-3">
             <div class="form-group">
                 <label class="text-black">Nama Pemagang</label>
-                <input type="text" class="form-control" name="nama[]">                
-                <?= form_error('nama','<small class="text-danger">','</small>');?>
+                <input type="text" class="form-control" name="nama[]" required>                
             </div>
             <div class="form-group">
                 <label class="text-black">NIM/NISN</label>
-                <input type="number" class="form-control" name="nomor[]">                
-                <?= form_error('nomor','<small class="text-danger">','</small>');?>
+                <input type="number" class="form-control" name="nomor[]" required>                
             </div>
             <div class="form-group">          
               <label class="text-black">Jenis Kelamin</label>
@@ -25,40 +23,36 @@
             </div>                                                        
             <div class="form-group">          
               <label class="text-black">Pekerjaan </label>
-              <select class="form-control" name="pekerjaan" style="color:black" id="pekerjaan">            
+              <select class="form-control" name="pekerjaan" style="color:black" id="pekerjaan" >            
                 <option class="" style="color:black" value="siswa">Siswa</option>
                 <option class="" style="color:black" value="mahasiswa">Mahasiswa</option>            
               </select>
             </div>                                                        
             <div class="form-group">
                 <label class="text-black" id="labelSekolah">Sekolah</label>
-                <input type="text" class="form-control" name="sekolah" id="inputSekolah">
-                <?= form_error('sekolah','<small class="text-danger">','</small>');?>
+                <input type="text" class="form-control" name="sekolah" id="inputSekolah" required>
             </div>
             <div class="form-group">
-                <label class="text-black">Fakultas</label>
-                <input type="text" class="form-control" name="fakultas">
-                <?= form_error('fakultas','<small class="text-danger">','</small>');?>
+                <label class="text-black" id="labeljurusan">Jurusan</label>
+                <input type="text" class="form-control" name="fakultas" required>                
+            </div>
+            <div class="form-group" id="programStudi">                
             </div>
             <div class="form-group">
                 <label class="text-black">Penempatan Magang</label>
-                <input type="text" class="form-control" name="penempatanMagang">
-                <?= form_error('penempatanMagang','<small class="text-danger">','</small>');?>
+                <input type="text" class="form-control" name="penempatanMagang" required>
             </div>
             <div class="form-group">
                 <label class="text-black">Pembimbing Magang</label>
-                <input type="text" class="form-control" name="pembimbingMagang">
-                <?= form_error('pembimbingMagang','<small class="text-danger">','</small>');?>
+                <input type="text" class="form-control" name="pembimbingMagang" required>
             </div>
             <div class="form-group">
                 <label class="text-black">Tanggal Mulai</label>
-                <input type="date" class="form-control text-black" name="tanggalMulai">
-                <?= form_error('tanggalMulai','<small class="text-danger">','</small>');?>
+                <input type="date" class="form-control text-black" name="tanggalMulai" required>
             </div>
             <div class="form-group">
                 <label class="text-black">Tanggal Selesai</label>
-                <input type="date" class="form-control text-black" name="tanggalSelesai">
-                <?= form_error('tanggalSelesai','<small class="text-danger">','</small>');?>
+                <input type="date" class="form-control text-black" name="tanggalSelesai" required>
             </div>
             <div class="form-group">
               <label id="daftarMagang" class="text-black">Daftar angota</label>                
@@ -107,11 +101,11 @@
       <div class="modal-body">
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="Nama anggota"  id="namaAnggota"
-          name="namaAggota" required style="color:black">
+          name="namaAggota" required style="color:black" required>
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="NIM/NISN" id="nomorInduk"
-          name="nomorInduk" min='0'required style="color:black">
+          name="nomorInduk" min='0'required style="color:black" required>
         </div>        
         <div class="form-group">          
           <label class="text-black">jenis kelamin</label>
