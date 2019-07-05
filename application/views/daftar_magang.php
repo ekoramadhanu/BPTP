@@ -133,32 +133,32 @@
       <div class="modal-body">
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor surat" 
-          name="nomorSurat" min='0'required style="color:black">
+          name="nomorSurat" min='0'required style="color:black" id="nomorSurat">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" placeholder="Jumlah Lampiran" 
-          name="nomorLampiran" min='0'required style="color:black">
+          <input type="number" class="form-control form-control-user" placeholder="Jumlah Lampiran" 
+          name="nomorLampiran" min='0'required style="color:black" id="jumlahLampiran">
         </div>        
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Nama Penerima"
-           name="penerima" required style="color:black">
+           name="penerima" required style="color:black" id="namaPenerima">
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Tempat surat dituju"
-           name="tempatTujuan" required style="color:black">
+           name="tempatTujuan" required style="color:black" id="tempatSurat">
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="Nomor surat yang akan dibalas"
-           name="nomorBalasan" required style="color:black">
+           name="nomorBalasan" required style="color:black" id="nomorSuratBalasan">
         </div>
         <div class="form-group">
           <label class="text-black">Tanggal surat yang akan dibalas</label>
           <input type="date" class="form-control form-control-user" placeholder="Tanggal surat yang dibalas"
-           name="tanggalSurat" required style="color:black">
+           name="tanggalSurat" required style="color:black" id="tanggalSuratBalasan">
         </div>                                
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
+      <div class="modal-footer" id="footerBalasan">
+        <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalBalasan">Batal</button>
         <button class="btn btn-primary" type="submit">Cetak</button>
       </div>
     </form>
@@ -183,9 +183,9 @@
            name="tahun" min="0" required style="color:black" id="tahunRekap">
         </div>         
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" id="footerRekap">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalRekap">Batal</button>
-        <button class="btn btn-primary" type="submit" id="cetakRekap">Cetak</button>
+        <button class="btn btn-primary" type="submit">Cetak</button>
       </div>
     </form>
   </div>

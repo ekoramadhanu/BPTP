@@ -90,11 +90,20 @@
       }
     });
 
-    $('#cetakRekap').on('click', '.batalRekap', function(e) {
+    $('#footerRekap').on('click','#batalRekap',function(e){
       e.preventDefault();
-      document.getElementById('tahunRekap').value = "";
-    });
+      $('#tahunRekap').val('');
+    });    
     
+    $('#footerBalasan').on('click','#batalBalasan',function(e){
+      e.preventDefault();
+      $('#nomorSurat').val('');
+      $('#jumlahLampiran').val('');
+      $('#namaPenerima').val('');
+      $('#tempatSurat').val('');
+      $('#nomorSuratBalasan').val('');
+      $('#tanggalSuratBalasan').val('');
+    });    
 
   </script>
 
