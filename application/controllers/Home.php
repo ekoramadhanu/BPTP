@@ -129,20 +129,6 @@ class Home extends CI_Controller {
         $this->load->view('daftar_magang',$result);
         $this->load->view('template/footer');
     }
-        
-    // public function permintaan(){
-    //     $role['role']=$this->session->userdata('roleId');
-    //     $query = "SELECT fullname,department,institute ,concat (date_format(date_start,'%d-%M-%Y'),concat(' sd ',concat(date_format(date_end,'%d-%M-%Y')))) as 'waktupkl' FROM internship";
-    //     $result['daftarPermintaan']=$this->db->query($query)->result();
-    //     $query = "select name,image from user where roleId=".$role['role'];
-    //     $top ['user'] = $this->db->query($query)->row(); 
-    //     $data['title'] = 'Permintaan Magang';
-    //     $this->load->view('template/header',$data);
-    //     $this->load->view('template/sidebar',$role);
-    //     $this->load->view('template/topbar',$top);
-    //     $this->load->view('Permintaan_magang',$result);
-    //     $this->load->view('template/footer');
-    // }
 
     /*
        method daftarMagang ini digunakan untuk  menghubungkan anatara view daftar_magang
@@ -248,14 +234,10 @@ class Home extends CI_Controller {
         $pembimbingMagang =$this->input->post('pembimbingMagang');
         $tanggalMulai =$this->input->post('tanggalMulai');
         $tanggalBerakhir =$this->input->post('tanggalSelesai');
-        echo $nama;
-        echo $universitas;
-        echo $programStudi;
-        echo $penempatanMagang;
-        echo $pembimbingMagang;
-        echo $tanggalMulai;
-        echo $tanggalBerakhir;
-
+        $nama1=$this->input->post('nama1');
+        echo $nama1;
+        // $nama2=$this->input->post('nama2');
+        // echo $nama2;
     }
 
     /*

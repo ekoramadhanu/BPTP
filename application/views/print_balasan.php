@@ -57,13 +57,54 @@
 		<br><br><br><br><br><br><br>
 		<div class="row mt-3 mb-3 ml-4 mr-5">
 			<div class="col-lg-9 col-md-9 col-xs-9" style="font-size:16px">
-				<p style="margin:0" class="text-black">Nomor <span style="display:inline-block; width: 40px;"></span>: B- <?=$nomorSurat?><span style="display:inline-block;"></span>/HM.240/H.12.15/<?=$bulan."/".$tahun?></p>
-				<p style="margin:0" class="text-black">Sifat<span style="display:inline-block; width: 63px;"></span>: Biasa</p>
-				<p style="margin:0" class="text-black">Lampiran <span style="display:inline-block; width: 23px;"></span>: -</p>
-				<p style="margin:0" class="text-black">Hal<span style="display:inline-block; width: 69px;"></span>: Praktek Kerja Lapangan</p>
+				<table>
+					<tr>
+						<td>Nomor</td>
+						<td class="pl-3">:</td>
+						<td class="pl-1">B- <?=$nomorSurat?>/HM.240/H.12.15/<?=$bulan."/".$tahun?></td>
+					</tr>
+					<tr>
+						<td>Sifat</td>
+						<td class="pl-3">:</td>
+						<td class="pl-1">Biasa</td>
+					</tr>
+					<tr>
+						<td>Lampiran</td>
+						<td class="pl-3">:</td>
+						<td class="pl-1"><?=$nomorLampiran?></td>
+					</tr>
+					<tr>
+						<td>Hal</td>
+						<td class="pl-3">:</td>
+						<td class="pl-1">Praktek Kerja Lapangan</td>
+					</tr>
+				</table>
 				<br><br>
-				<p style="margin:0" class="text-black"><b>Yth. <?=$tujuan?></b></p>
-				<p style="margin:0" class="text-black"><b>Di <?=$tempat?></b></p>
+					<?php 
+						$alamat = explode(" ",$penerima);	
+						$length = count($alamat);
+					?>
+				<p style="margin:0" class="text-black text-capitalize"><b>Yth. 
+					<?php
+					foreach ($fullname as $name) {
+						if($name->is_sekolah==1){
+							echo $penerima."<br>".$institution->institute;
+						}else{
+							echo $penerima;
+							if($length <= 3){
+								echo "<br>";
+							}else{
+								echo" ";
+							}
+							echo "Fakutas ".$department->department ."<br>".$institution->institute;
+						}
+						break;
+					}					
+					?>
+				</b></p>
+				<p style="margin:0" class="text-black text-capitalize"><b>Di 
+				<?=$tempatTujuan?>
+				</b></p>
 			</div>
 			<div class="col-lg-3 col-md-3 col-xs-3" style="font-size:16px">
 				<p class="text-right text-black"><?php
@@ -111,7 +152,7 @@
 		<br><br>
 		<div class="row mt-5 mb-3 ml-4 mr-5">
 			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:16px">
-				<p class="text-black">Menanggapi surat Saudara Nomor: <?=$nomorbalasan." tanggal "?><?php
+				<p class="text-black">Menanggapi surat Saudara Nomor: <?=$nomorBalasan." tanggal "?><?php
 					switch ($bulanBalasan){					
 						case 1:
 					  echo $tanggalBalasan." Januari ".$tahunBalasan;
@@ -153,9 +194,19 @@
 				?> , perihal sebagaimana pada pokok surat. Kami memberikan ijin untuk kegiatan Praktek 
 				Kerja Lapangan di BPTP Balitbangtan Jawa Timur. Pelaksanaan kegiatan tersebut sesuai 
 				dengan permintaan terhitung mulai tanggal <b>
-					<?=$detail->startDay."-".$detail->StartMonth."-".$detail->satrtYear." sd ".$detail->endDay." - ".$detail->endMonth." - ".$detail->endYear?>
-					</b> bagi mahasiswa
-				Program Studi <?=$detail->department?> berikut: </p>
+				<?=$detail->startDay."-".$detail->StartMonth."-".$detail->satrtYear." sd ".$detail->endDay." - ".$detail->endMonth." - ".$detail->endYear?>
+				</b> 
+				<?php foreach ($fullname as $name) {
+					if($name->is_sekolah == 1){
+						echo "siswa sebagai berikut";
+					}else{
+						echo "bagi mahasiswa
+						program studi ".$detail->department." berikut:";
+					}
+					break;
+				}
+				?>
+				 </p>
 				<br>
 				<table class="table table-bordered text-black border-table-black" style="font-size:16px">
 					<thead>
@@ -213,9 +264,9 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>    
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script>
+	<!-- <script>
 		print();
-	</script>
+	</script> -->
 </body>
 
 </html>

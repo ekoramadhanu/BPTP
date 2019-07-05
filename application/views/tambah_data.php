@@ -28,15 +28,19 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Tanggal Mulai</label>
-                <input type="date" class="form-control" name="tanggalMulai">
+                <input type="date" class="form-control text-black" name="tanggalMulai">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Tanggal Selesai</label>
-                <input type="date" class="form-control" name="tanggalSelesai">
+                <input type="date" class="form-control text-black" name="tanggalSelesai">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+              <label id="daftarMagang">Daftar angota</label>                
+              <div id="listAnggota"></div>
+              <a class="text-white btn btn-primary" data-toggle="modal" data-target="#tambahAnggota">Tambah Anggota</a>
+            </div>
+            <button class="btn btn-primary ">tambah</button>
         </form>
-
     </div>
     <!-- /.container-fluid -->
 
@@ -63,3 +67,38 @@
 <a class="scroll-to-top rounded" href="#page-top">
 <i class="fas fa-angle-up"></i>
 </a>
+
+<!-- tambah anggota -->
+<div class="modal fade" id="tambahAnggota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header" style="color:black">
+      <h5 class="modal-title" id="exampleModalLabel">Isi Form Tambah Anggota</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>    
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="text" class="form-control form-control-user" placeholder="Nama anggota"  id="namaAnggota"
+          name="namaAggota" required style="color:black">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control form-control-user" placeholder="NIM/NISN" id="nomorInduk"
+          name="nomorInduk" min='0'required style="color:black">
+        </div>        
+        <div class="form-group">          
+          <label class="text-black">jenis kelamin</label>
+          <select class="form-control" name="jenisKelamin" style="color:black" id="jenisKelamin">            
+            <option class="" style="color:black">Laki - Laki</option>
+            <option class="" style="color:black">Perempuan</option>            
+          </select>
+        </div>                                                        
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
+        <button class="btn btn-primary" id="tambah">tambah</button>
+      </div>    
+  </div>
+</div>
+</div>

@@ -34,23 +34,42 @@
       $('.form-update').attr('action', $('.form-update').attr('action') + '/' + ambilVal)
     });    
     
-  
-    // // mengisi value tahun sama dengan inputan     
-    // // var date =  new Date();
-    // // window.location.href = "Home.php?tahun=" + date.getFullYear();
-    // // console.log(date.getFullYear());
-    // document.getElementById("form-cari").addEventListener("keydown", enterTahun);
+  // tambah list anggota
+    var index = 0;
+    $('#tambah').click(function(){
+      index++;
+      var nameNama = "nama"+index;
+      var nameNomor = "nomor"+index;
+      var nameJenis = "nomor"+index;
+      var namaAnggota = document.getElementById('namaAnggota').value;
+      var nomorAnggota = document.getElementById('nomorInduk').value;      
+      var jenisKelamin = document.getElementById('jenisKelamin').value;      
+      console.log("nama "+namaAnggota);
+      console.log("nomor "+nomorAnggota);  
+      console.log("jenis "+jenisKelamin);  
+      list(nameNama,namaAnggota,nameNomor,nomorAnggota,nameJenis,jenisKelamin);
+    });
+    // ,nameNomor,valueNomor,nameGender,valueGender
+    function list(nameNama,valueNama,nameNomor,valueNomor,nameJenis,valueJenis){      
+      $('#listAnggota').append(
+      "<div class='row mb-3' id='"+valueNomor+"'>"+        
+          "<div class='col'>"+            
+              "<input class='form-control-plaintext text-black' name='"+nameNama+ "' value ='"+valueNama+"' readonly>"+                            
+          "</div>"+
+          "<div class='col'>"+            
+              "<input class='form-control-plaintext text-black' name='"+nameNomor+ "' value ='"+valueNomor+"' readonly>"+              
+          "</div>"+
+          "<div class='col'>"+            
+              "<input class='form-control-plaintext text-black' name='"+nameJenis+ "' value ='"+valueJenis+"' readonly>"+                
+          "</div>"+          
+      "</div>"+
+      "<button class='close text-danger' type ='button' data-nomor='"+valueNomor+"' >"+
+      "×"+ "</button>");
+    }
 
-    // function enterTahun() {
-    //   if(window.event.keyCode === 13 ){ 
-    //     console.log('press');
-    //     document.getElementById("form-cari").submit();       
-    //   }
-    // }
-
-  
-    
-
+    $('.close').click(function () {      
+      console.log('hapus');      
+    });    
 
   </script>
 

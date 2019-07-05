@@ -517,7 +517,16 @@ class Internship extends CI_Model {
         $query="select count(id) as 'jumlah' from internship where gender= '".$gender."' and year(date_start) = ".$year;
         return $this->db->query($query)->row();
     }
+
+    public function getDepartmentByKelompok($kelompok){
+        $query="select distinct department from internship where id_kelompok =".$kelompok;
+        return $this->db->query($query)->row();
+    }
     
+    public function getInstitutionByKelompok($kelompok){
+        $query="select distinct institute from internship where id_kelompok =".$kelompok;
+        return $this->db->query($query)->row();
+    }
 
 
 }

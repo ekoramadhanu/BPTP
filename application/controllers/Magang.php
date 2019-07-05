@@ -58,18 +58,21 @@ class Magang extends CI_Controller {
 	}
 
 	public function cetakBalasan($kelompok = null){
-		$detail['nomorSurat'] = $this->input->get('nomor');
-		$detail['tujuan'] = $this->input->get('tujuan');
-		$detail['tempat'] = $this->input->get('tempat');
-		$detail['nomorbalasan'] = $this->input->get('balasan');
-		$date = $this->input->get('tanggal');
+		$detail['nomorSurat'] = $this->input->get('nomorSurat');
+		$detail['nomorLampiran'] = $this->input->get('nomorLampiran');
+		$detail['penerima'] = $this->input->get('penerima');
+		$detail['nomorBalasan'] = $this->input->get('nomorBalasan');
+		$detail['tempatTujuan'] = $this->input->get('tempatTujuan');
+		$date = $this->input->get('tanggalSurat');
 		$detail['tanggalBalasan'] = substr($date,8,2);
 		$detail['bulanBalasan'] = substr($date,5,2);
 		$detail['tahunBalasan'] = substr($date,0,4);
 		$detail['tanggal'] = date('d');
 		$detail['bulan'] = date('m');
-		$detail['tahun'] = date('Y');
+		$detail['tahun'] = date('Y');		
 		$detail['fullname'] = $this->Internship->getNameByKelompok($kelompok);
+		$detail['department'] = $this->Internship->getDepartmentByKelompok($kelompok);
+		$detail['institution'] = $this->Internship->getInstitutionByKelompok($kelompok);
 		$detail['detail'] = $this->Internship->getRekapBalasanByKelompok($kelompok);						
 		$this->load->view('print_balasan',$detail);
 	}

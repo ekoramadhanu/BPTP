@@ -118,6 +118,7 @@
 <a class="scroll-to-top rounded" href="#page-top">
 <i class="fas fa-angle-up"></i>
 </a>
+
 <!-- cetak balasan -->
 <div class="modal fade" id="cetakBalasan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -132,24 +133,29 @@
       <div class="modal-body">
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor surat" 
-          name="nomor" min='0'required style="color:black">
+          name="nomorSurat" min='0'required style="color:black">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" placeholder="Nomor surat yang dibalas"
-           name="balasan" required style="color:black">
+          <input type="text" class="form-control form-control-user" placeholder="Jumlah Lampiran" 
+          name="nomorLampiran" min='0'required style="color:black">
+        </div>        
+        <div class="form-group">
+          <input type="text" class="form-control form-control-user"  placeholder="Nama Penerima"
+           name="penerima" required style="color:black">
         </div>                
         <div class="form-group">
-          <input type="text" class="form-control form-control-user"  placeholder="Surat ditujukan kepada"
-           name="tujuan" required style="color:black">
+          <input type="text" class="form-control form-control-user"  placeholder="Tempat surat dituju"
+           name="tempatTujuan" required style="color:black">
         </div>                
         <div class="form-group">
-          <input type="text" class="form-control form-control-user"  placeholder="tempat tujuan pengiriman surat"
-           name="tempat" required style="color:black">
-        </div>                
+          <input type="text" class="form-control form-control-user" placeholder="Nomor surat yang akan dibalas"
+           name="nomorBalasan" required style="color:black">
+        </div>
         <div class="form-group">
-          <input type="date" class="form-control form-control-user" placeholder="Tanggal surat yang diterima"
-           name="tanggal" required style="color:black">
-        </div>                        
+          <label class="text-black">Tanggal surat yang akan dibalas</label>
+          <input type="date" class="form-control form-control-user" placeholder="Tanggal surat yang dibalas"
+           name="tanggalSurat" required style="color:black">
+        </div>                                
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>

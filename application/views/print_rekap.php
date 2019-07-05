@@ -193,7 +193,6 @@
             <?php 
             $counter++;
             endforeach;?>
-            <!-- akhir dari perulangan startPKL -->
             <!--  awal dari perulangan endPKL-->
             <?php for ($j=1; $j <$i ; $j++) :?>
                 <?php             
@@ -304,8 +303,7 @@
                 </tr>
                 <?php 
                 $counter++;
-                endforeach;?>
-                
+                endforeach;?>   
             <?php endfor;?>            
             <!-- akhir dari perulangan endPKL -->            
             <tr>
@@ -322,11 +320,11 @@
                 </td>
             </tr>
           <!-- akhir dari perulangan rekapnya -->
-        </tr>
-        <?php endfor;?>
-        <tr>
-          <td colspan="6" class="text-center" style="border: 1px solid #000 !important"><b>Total Magang = <?= $total." orang"?></b></td>
-        </tr>
+          </tr>
+          <?php endfor;?>
+          <tr>
+            <td colspan="6" class="text-center" style="border: 1px solid #000 !important"><b>Total Magang = <?= $total." orang"?></b></td>
+          </tr>
     </tbody>
   </table>
   </div>
@@ -336,9 +334,6 @@
 	<script>
 		print();
 	</script>
-
-  
-  
 </body>
 
 </html>
