@@ -37,39 +37,52 @@
   // tambah list anggota
     var index = 0;
     $('#tambah').click(function(){
-      index++;
-      var nameNama = "nama"+index;
-      var nameNomor = "nomor"+index;
-      var nameJenis = "nomor"+index;
+      // if(index === 0){
+      //   $$('#listAnggota').append(
+      //     "<label id='daftarMagang' class='text-black'>Daftar angota</label>"
+      //   );
+      // }
       var namaAnggota = document.getElementById('namaAnggota').value;
       var nomorAnggota = document.getElementById('nomorInduk').value;      
       var jenisKelamin = document.getElementById('jenisKelamin').value;      
-      console.log("nama "+namaAnggota);
-      console.log("nomor "+nomorAnggota);  
-      console.log("jenis "+jenisKelamin);  
-      list(nameNama,namaAnggota,nameNomor,nomorAnggota,nameJenis,jenisKelamin);
+      // console.log("nama "+namaAnggota);
+      // console.log("nomor "+nomorAnggota);  
+      // console.log("jenis "+jenisKelamin);  
+      list(namaAnggota,nomorAnggota,jenisKelamin);
+      index++;      
     });
     // ,nameNomor,valueNomor,nameGender,valueGender
-    function list(nameNama,valueNama,nameNomor,valueNomor,nameJenis,valueJenis){      
-      $('#listAnggota').append(
-      "<div class='row mb-3' id='"+valueNomor+"'>"+        
-          "<div class='col'>"+            
-              "<input class='form-control-plaintext text-black' name='"+nameNama+ "' value ='"+valueNama+"' readonly>"+                            
-          "</div>"+
-          "<div class='col'>"+            
-              "<input class='form-control-plaintext text-black' name='"+nameNomor+ "' value ='"+valueNomor+"' readonly>"+              
-          "</div>"+
-          "<div class='col'>"+            
-              "<input class='form-control-plaintext text-black' name='"+nameJenis+ "' value ='"+valueJenis+"' readonly>"+                
-          "</div>"+          
-      "</div>"+
-      "<button class='close text-danger' type ='button' data-nomor='"+valueNomor+"' >"+
-      "×"+ "</button>");
+    function list(valueNama,valueNomor,valueJenis){      
+      $('#listAnggota').append(              
+        "<div class='row mb-3' id='"+valueNomor+"'>"+        
+            "<div class='col'>"+            
+                "<input class='form-control-plaintext text-black' name='nama[]' value ='"+valueNama+"' readonly>"+                            
+            "</div>"+
+            "<div class='col'>"+            
+                "<input class='form-control-plaintext text-black' name='nomor[]' value ='"+valueNomor+"' readonly>"+              
+            "</div>"+
+            "<div class='col'>"+            
+                "<input class='form-control-plaintext text-black' name='jenisKelamin[]' value ='"+valueJenis+"' readonly>"+                
+            "</div>"+          
+            "<button class='close text-danger ' type ='button' data-nomor='"+valueNomor+"' >"+
+            "×"+ "</button>"+
+        "</div>");
     }
 
-    $('.close').click(function () {      
-      console.log('hapus');      
-    });    
+    $('#listAnggota').on('click', '.close', function(e) {
+      e.preventDefault();
+      $(this).parent().remove();
+    });
+
+    $('#pekerjaan').change(function(){
+      ambilVal= document.getElementById('pekerjaan').value;        
+      console.log(ambilVal);
+      if(ambilVal === "siswa"){
+        document.getElementById('labelSekolah').innerHTML = "Sekolah";
+      }else{      
+        document.getElementById('labelSekolah').innerHTML = "Universitas";
+      }
+    });
 
   </script>
 

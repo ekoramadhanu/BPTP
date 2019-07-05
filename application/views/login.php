@@ -21,17 +21,17 @@
               <?= $this->session->flashdata('message')?>
               <form class="user" method="post" action="<?=base_url('Auth')?>">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Username"
+                  <input type="text" class="form-control form-control-user" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Nama Pengguna"
                   name="username">
                   <?= form_error('username','<small class="text-danger pl-3">','</small>');?>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password"
+                  <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Kata Sandi"
                   name="password">
                   <?= form_error('password','<small class="text-danger pl-3">','</small>');?>
                 </div>                
                 <button type="submit" href="<?=base_url('Auth/login')?>" class="btn button-primary btn-user btn-block text-white">
-                  Login
+                  Masuk
                 </button>      
               </form>
               <br>

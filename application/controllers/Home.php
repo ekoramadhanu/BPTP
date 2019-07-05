@@ -214,30 +214,88 @@ class Home extends CI_Controller {
       User
      */
     public function tambahData(){
-        $role['id']=$this->session->userdata('id');        
+        $role['id']=$this->session->userdata('id');       
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Tambah Data';
         $role['title'] = $data['title'];
         $top['user']= $this->User->getIdentityUser($role['id']);
-        $this->load->view('template/header',$data);
-        $this->load->view('template/sidebar',$role);
-        $this->load->view('template/topbar',$top);
-        $this->load->view('tambah_data');
-        $this->load->view('template/footer');
+        // validasi inputan
+        $this->form_validation->set_rules('nama','nama','required|trim',[
+            'required' =>'Nama Pemagang harus diisi',            
+        ]);
+        $this->form_validation->set_rules('nomor','nomor','required|trim',[
+            'required' =>'NIM/NISN harus diisi',            
+        ]);
+        $this->form_validation->set_rules('sekolah','sekolah','required|trim',[
+            'required' =>'Universitas / Sekolah harap harus diisi',            
+        ]);
+        $this->form_validation->set_rules('fakultas','fakultas','required|trim',[
+            'required' =>'Program Studi harap harus diisi',            
+        ]);
+        $this->form_validation->set_rules('penempatanMagang','penempatanMagang','required|trim',[
+            'required' =>'Penempatan magang harap diisi harap harus diisi',            
+        ]);
+        $this->form_validation->set_rules('pembimbingMagang','pembimbingMagang','required|trim',[
+            'required' =>'Pembimbing Magang harap harus diisi',            
+        ]);
+        $this->form_validation->set_rules('pembimbingMagang','pembimbingMagang','required|trim',[
+            'required' =>'Pembimbing Magang harap harus diisi',            
+        ]);
+        $this->form_validation->set_rules('tanggalMulai','tanggalMulai','required|trim',[
+            'required' =>'Tanggal Mulai Magang harap harus diisi',            
+        ]);
+        $this->form_validation->set_rules('tanggalSelesai','tanggalSelesai','required|trim',[
+            'required' =>'Tanggal Selesai Magang harap harus diisi',            
+        ]);
+        if($this->form_validation->run() == false){
+            $this->load->view('template/header',$data);
+            $this->load->view('template/sidebar',$role);
+            $this->load->view('template/topbar',$top);
+            $this->load->view('tambah_data');
+            $this->load->view('template/footer');
+        }else{
+            // insertData();
+        }
     }
 
     public function insertData(){
         $nama = $this->input->post('nama');
-        $universitas = $this->input->post('universitas');
-        $programStudi =$this->input->post('programStudi');
+        $nomor = $this->input->post('nomor');
+        $jenisKelamin = $this->input->post('jenisKelamin');        
+        $pekerjaan = $this->input->post('pekerjaan');        
+        if($pekerjaan=='siswa'){
+            $pekerjaan=1;
+        }else{
+            $pekerjaan=0;
+        }
+        $sekolah = $this->input->post('sekolah');
+        $fakultas =$this->input->post('fakultas');
         $penempatanMagang =$this->input->post('penempatanMagang');
         $pembimbingMagang =$this->input->post('pembimbingMagang');
         $tanggalMulai =$this->input->post('tanggalMulai');
-        $tanggalBerakhir =$this->input->post('tanggalSelesai');
-        $nama1=$this->input->post('nama1');
-        echo $nama1;
-        // $nama2=$this->input->post('nama2');
-        // echo $nama2;
+        $tanggalBerakhir =$this->input->post('tanggalSelesai');    
+        $data = array();
+        $index = 0;           
+
+        foreach ($nomor as $result) {
+            array_push($data,array(
+                'id'=>$result,
+                'fullname'=>$nama[$index],
+                'department'=>$fakultas,
+                'institute'=>$sekolah,
+                'gender'=>$jenisKelamin[$index],
+                'status'=>'terdaftar',
+                'place'=>$penempatanMagang,
+                'guide'=>$pembimbingMagang,
+                'id_kelompok'=>$nomor[0],
+                'is_sekolah'=>$pekerjaan,
+                'date_start'=>$tanggalMulai,
+                'date_end'=>$tanggalBerakhir
+                )
+            );
+            $index++;
+        }
+        $result = $this->Internship->insertNewInternship($data);        
     }
 
     /*

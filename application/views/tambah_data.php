@@ -3,41 +3,67 @@
 
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Magang</h1>        
+        <h1 class="h3 mb-0 text-black">Tambah Magang</h1>        
       </div>
-        <form method="post" action="<?=base_url('Home/insertData')?>">
+        <form method="post" action="<?=base_url('Home/insertData')?>" class="pl-3 pr-3">
             <div class="form-group">
-                <label for="exampleInputEmail1">Nama Pemagang</label>
-                <input type="text" class="form-control" placeholder="Masukkan nama pemagang" name="nama">                
+                <label class="text-black">Nama Pemagang</label>
+                <input type="text" class="form-control" name="nama[]">                
+                <?= form_error('nama','<small class="text-danger">','</small>');?>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Universitas</label>
-                <input type="text" class="form-control" placeholder="Masukkan Universitas" name="universitas">
+                <label class="text-black">NIM/NISN</label>
+                <input type="number" class="form-control" name="nomor[]">                
+                <?= form_error('nomor','<small class="text-danger">','</small>');?>
+            </div>
+            <div class="form-group">          
+              <label class="text-black">Jenis Kelamin</label>
+              <select class="form-control" name="jenisKelamin[]" style="color:black">            
+                <option class="" style="color:black" value="L">Laki - Laki</option>
+                <option class="" style="color:black" value="P">Perempuan</option>            
+              </select>
+            </div>                                                        
+            <div class="form-group">          
+              <label class="text-black">Pekerjaan </label>
+              <select class="form-control" name="pekerjaan" style="color:black" id="pekerjaan">            
+                <option class="" style="color:black" value="siswa">Siswa</option>
+                <option class="" style="color:black" value="mahasiswa">Mahasiswa</option>            
+              </select>
+            </div>                                                        
+            <div class="form-group">
+                <label class="text-black" id="labelSekolah">Sekolah</label>
+                <input type="text" class="form-control" name="sekolah" id="inputSekolah">
+                <?= form_error('sekolah','<small class="text-danger">','</small>');?>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Program Studi</label>
-                <input type="text" class="form-control" placeholder="Masukkan Program Studi" name="programStudi">
+                <label class="text-black">Fakultas</label>
+                <input type="text" class="form-control" name="fakultas">
+                <?= form_error('fakultas','<small class="text-danger">','</small>');?>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Penempatan Magang</label>
-                <input type="text" class="form-control" placeholder="Masukkan Penempatan Magang" name="penempatanMagang">
+                <label class="text-black">Penempatan Magang</label>
+                <input type="text" class="form-control" name="penempatanMagang">
+                <?= form_error('penempatanMagang','<small class="text-danger">','</small>');?>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Pembimbing Magang</label>
-                <input type="text" class="form-control" placeholder="Masukkan Pembimbing Magang" name="pembimbingMagang">
+                <label class="text-black">Pembimbing Magang</label>
+                <input type="text" class="form-control" name="pembimbingMagang">
+                <?= form_error('pembimbingMagang','<small class="text-danger">','</small>');?>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Tanggal Mulai</label>
+                <label class="text-black">Tanggal Mulai</label>
                 <input type="date" class="form-control text-black" name="tanggalMulai">
+                <?= form_error('tanggalMulai','<small class="text-danger">','</small>');?>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Tanggal Selesai</label>
+                <label class="text-black">Tanggal Selesai</label>
                 <input type="date" class="form-control text-black" name="tanggalSelesai">
+                <?= form_error('tanggalSelesai','<small class="text-danger">','</small>');?>
             </div>
             <div class="form-group">
-              <label id="daftarMagang">Daftar angota</label>                
+              <label id="daftarMagang" class="text-black">Daftar angota</label>                
               <div id="listAnggota"></div>
-              <a class="text-white btn btn-primary" data-toggle="modal" data-target="#tambahAnggota">Tambah Anggota</a>
+              <a class="small text-primary" href="" data-toggle="modal" data-target="#tambahAnggota" >Tambah Anggota</a>
             </div>
             <button class="btn btn-primary ">tambah</button>
         </form>
@@ -90,14 +116,14 @@
         <div class="form-group">          
           <label class="text-black">jenis kelamin</label>
           <select class="form-control" name="jenisKelamin" style="color:black" id="jenisKelamin">            
-            <option class="" style="color:black">Laki - Laki</option>
-            <option class="" style="color:black">Perempuan</option>            
+            <option class="" style="color:black" value="L">Laki - Laki</option>
+            <option class="" style="color:black" value="P">Perempuan</option>            
           </select>
         </div>                                                        
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
-        <button class="btn btn-primary" id="tambah">tambah</button>
+        <button class="btn btn-primary" id="tambah" data-dismiss="modal">tambah</button>
       </div>    
   </div>
 </div>
