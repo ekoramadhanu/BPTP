@@ -9,7 +9,7 @@
   <div class="card-body">
     <button type="button" class="btn btn-primary btn-sm mb-3" data-toggle="modal" data-target="#tambahAdmin"><i class="fas fa-plus"></i> Tambah Admin</button>
     <br>
-    <?= $this->session->flashdata('message')?>
+    <?= $this->session->flashdata('message')?>    
     <div class="table-responsive">
       <table class="table table-borderedless" id="dataTable" width="100%" cellspacing="0" style="color:black">
         <thead>
@@ -88,26 +88,35 @@
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <form action="<?=base_url('Admin/tambahAdmin')?>" method="post">
+    <form action="<?=base_url('Admin/tambahAdmin')?>" method="post" class=" needs-validation" novalidate>
       <div class="modal-body">
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Username"
-           name="username" style="color:black">
+           name="username" style="color:black" required>
+           <div class="invalid-feedback">
+            <p class="pl-2">Username tidak boleh kosong</p>
+          </div>
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Nama"
-           name="name" style="color:black">
+           name="name" style="color:black" required>
+           <div class="invalid-feedback">
+            <p class="pl-2">Nama tidak boleh kosong</p>
+          </div>
         </div>
         <div class="form-group">          
-          <select class="form-control" name="role" style="color:black">
-            <option disabled selected class="" style="color:black">Pilih jenis Pelaku</option>
+          <select class="form-control" name="role" style="color:black" class="custom-select" required>
+            <option disabled selected  style="color:black" value="">Pilih jenis Pelaku</option>
             <option class="" style="color:black">Administrator</option>
             <option class="" style="color:black">Super Administrator</option>            
           </select>
+          <div class="invalid-feedback">
+            <p class="pl-2">Jenis Pelaku tidak boleh kosong</p>
+          </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
+      <div class="modal-footer" id="">
+        <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalTambahAdmin">Batal</button>
         <button class="btn btn-primary" type="submit">Tambah</button>
       </div>
     </form>
@@ -146,14 +155,17 @@
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <form action="<?=base_url('Admin/updateAdminById')?>" method="post" class="form-update">
+    <form action="<?=base_url('Admin/updateAdminById')?>" method="post" class="form-update needs-validation" novalidate>
       <div class="modal-body">                
         <div class="form-group">          
-          <select class="form-control" name="role" style="color:black">
-            <option disabled selected class="" style="color:black">Pilih jenis Pelaku</option>
+          <select class="form-control custom-select" name="role" style="color:black" required>
+            <option disabled selected class="" style="color:black" value="">Pilih jenis Pelaku</option>
             <option class="" style="color:black">Administrator</option>
             <option class="" style="color:black">Super Administrator</option>            
           </select>
+          <div class="invalid-feedback">
+            <p class="pl-2">Jenis Pelaku tidak boleh kosong</p>
+          </div>
         </div>
       </div>
       <div class="modal-footer">

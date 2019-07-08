@@ -1,6 +1,7 @@
 <?php
 //config
-$config['base_url'] = base_url('Home/daftarMagang');
+// $config['base_url'] = base_url('Home/daftarMagang');
+$config['base_url'] = base_url('Magang/daftarMagang');
 $config['num_links']= 2;
 // style
 $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';

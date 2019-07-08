@@ -11,7 +11,7 @@
   <!-- Page level plugins -->
   <script src="<?=base_url('Assets/sbadmin/')?>vendor/chart.js/Chart.min.js"></script>
     
-  <script src="<?=base_url('Assets/')?>jquery.js"></script>
+  <script src="<?=base_url('Assets/')?>jquery.js"></script>  
 
   <script>
   var ambilVal;
@@ -49,7 +49,9 @@
       // console.log("nomor "+nomorAnggota);  
       // console.log("jenis "+jenisKelamin);  
       list(namaAnggota,nomorAnggota,jenisKelamin);
-      index++;      
+      $('#namaAnggota').val('');
+      $('#nomorInduk').val('');
+      $('#namaAnggota').val('');
     });
     // ,nameNomor,valueNomor,nameGender,valueGender
     function list(valueNama,valueNomor,valueJenis){      
@@ -86,15 +88,20 @@
         document.getElementById('labelSekolah').innerHTML = "Universitas";
         document.getElementById('labeljurusan').innerHTML = "Fakultas";
         $('#programStudi').append("<label class='text-black' id='labelProgramStudi' >Program Studi</label>"+
-          "<input type='text' class='form-control' name='programStudi' id='inputProgramStudi'required>");
+          "<input type='text' class='form-control' name='fakultas' id='inputProgramStudi'required>");
       }
     });
 
     $('#footerRekap').on('click','#batalRekap',function(e){
       e.preventDefault();
-      $('#tahunRekap').val('');
+      $('#tahunRekap').val('');      
     });    
     
+    $('#headerRekap').on('click','#xRekap',function(e){
+      e.preventDefault();
+      $('#tahunRekap').val('');
+    });    
+
     $('#footerBalasan').on('click','#batalBalasan',function(e){
       e.preventDefault();
       $('#nomorSurat').val('');
@@ -104,7 +111,37 @@
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
     });    
+    
+    $('#headerBalasan').on('click','#xBalasan',function(e){
+      e.preventDefault();
+      $('#nomorSurat').val('');
+      $('#jumlahLampiran').val('');
+      $('#namaPenerima').val('');
+      $('#tempatSurat').val('');
+      $('#nomorSuratBalasan').val('');
+      $('#tanggalSuratBalasan').val('');
+    });    
 
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+        
+  
   </script>
 
   <!-- Pie chart -->

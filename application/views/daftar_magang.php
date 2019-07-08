@@ -122,39 +122,57 @@
 <!-- cetak balasan -->
 <div class="modal fade" id="cetakBalasan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
-  <div class="modal-content">
+  <div class="modal-content" id="headerBalasan">
     <div class="modal-header " style="color:black">
       <h5 class="modal-title" id="exampleModalLabel">Isi Form cetak</h5>
-      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="xBalasan">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <form class="form-cetak" action="<?=base_url('Magang/cetakBalasan')?>" method="get">
+    <form class="form-cetak needs-validation" action="<?=base_url('Magang/cetakBalasan')?>" method="get" novalidate>
       <div class="modal-body">
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor surat" 
           name="nomorSurat" min='0'required style="color:black" id="nomorSurat">
+          <div class="invalid-feedback">
+            <p class="pl-2">Nomor surat tidak boleh kosong</p>
+          </div>
         </div>
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Jumlah Lampiran" 
           name="nomorLampiran" min='0'required style="color:black" id="jumlahLampiran">
+          <div class="invalid-feedback">
+            <p class="pl-2">Jumlah Lampiran tidak boleh kosong</p>
+          </div>
         </div>        
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Nama Penerima"
            name="penerima" required style="color:black" id="namaPenerima">
+           <div class="invalid-feedback">
+            <p class="pl-2">Nomor Penerima tidak boleh kosong</p>
+          </div>
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Tempat surat dituju"
            name="tempatTujuan" required style="color:black" id="tempatSurat">
+           <div class="invalid-feedback">
+            <p class="pl-2">Tempat surat dituju tidak boleh kosong</p>
+          </div>
         </div>                
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="Nomor surat yang akan dibalas"
            name="nomorBalasan" required style="color:black" id="nomorSuratBalasan">
+           <div class="invalid-feedback">
+            <p class="pl-2">Nomor surat yang dibalas tidak boleh kosong</p>
+          </div>
         </div>
         <div class="form-group">
           <label class="text-black">Tanggal surat yang akan dibalas</label>
           <input type="date" class="form-control form-control-user" placeholder="Tanggal surat yang dibalas"
            name="tanggalSurat" required style="color:black" id="tanggalSuratBalasan">
+           <div class="invalid-feedback">
+            <p class="pl-2">Tanggal surat yang dibalas tidak boleh kosong</p>
+          </div>
         </div>                                
       </div>
       <div class="modal-footer" id="footerBalasan">
@@ -169,18 +187,21 @@
 <!-- cetak rekap -->
 <div class="modal fade" id="cetakRekap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
-  <div class="modal-content">
+  <div class="modal-content" id="headerRekap">
     <div class="modal-header" style="color:black">
       <h5 class="modal-title" id="exampleModalLabel">Isi Form cetak</h5>
-      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="xRekap">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <form action="<?=base_url('Magang/cetakRekap')?>" method="get">
+    <form action="<?=base_url('Magang/cetakRekap')?>" method="get" class="needs-validation" novalidate id="form-rekap">
       <div class="modal-body" style="color:black">
-      <div class="form-group">
+        <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Tahun rekap"
-           name="tahun" min="0" required style="color:black" id="tahunRekap">
+           name="tahun" min="0" style="color:black" id="tahunRekap" required>
+           <div class="invalid-feedback">
+              <p class="pl-2">Tahun tidak boleh kosong</p>
+            </div>
         </div>         
       </div>
       <div class="modal-footer" id="footerRekap">

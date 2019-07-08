@@ -9,18 +9,24 @@
       <div class="row">
         <div class="col-lg-6">
           <?= $this->session->flashdata('message')?>
-          <form class="user" method="post" action="<?=base_url('Home/gantiPassword')?>">
+          <form class="user needs-validation" method="post" action="<?=base_url('UserControler/gantiPassword')?>" novalidate>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password Lama" name="passwordLama" style="color:black">                        
-              <?= form_error('passwordLama','<small class="text-danger pl-3">','</small>');?>
+              <input type="password" class="form-control" placeholder="kata Sandi Lama" name="passwordLama" style="color:black" required>                                      
+              <div class="invalid-feedback">
+                <p class="pl-2">Kata sandi lama tidak boleh kosong</p>
+              </div>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password Baru" name="passwordBaru" style="color:black">              
-              <?= form_error('passwordBaru','<small class="text-danger pl-3">','</small>');?>
+              <input type="password" class="form-control" placeholder="kata Sandi Baru" name="passwordBaru" style="color:black" required>                            
+              <div class="invalid-feedback">
+                <p class="pl-2">Kata sandi baru tidak boleh kosong</p>
+              </div>
             </div>
             <div class="form-group">              
-              <input type="password" class="form-control" placeholder="Ulangi Password Baru" name="repasswordBaru" style="color:black">              
-              <?= form_error('repasswordBaru','<small class="text-danger pl-3">','</small>');?>
+              <input type="password" class="form-control" placeholder="Ulangi Kata Sandi Baru" name="repasswordBaru" style="color:black" required>                            
+              <div class="invalid-feedback">
+                <p class="pl-2">Ulangi kata sandi anda</p>
+              </div>
             </div>
             <div class="d-flex justify-content-end">
               <button type="submit" class="btn btn-primary ">Ganti</button>

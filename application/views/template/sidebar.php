@@ -49,7 +49,7 @@
       }
     ?>
   ">
-    <a class="nav-link" href="<?=base_url('Home/daftarMagang')?>" id="daftarMagang">
+    <a class="nav-link" href="<?=base_url('Magang/daftarMagang')?>" id="daftarMagang">
       <i class="fas fa-fw fa-table"></i>
       <span>Daftar Magang</span></a>
   </li>
@@ -61,7 +61,7 @@
       }
     ?>
   ">
-    <a class="nav-link" href="<?=base_url('Home/tambahData')?>">
+    <a class="nav-link" href="<?=base_url('Magang/tambahData')?>">
       <i class="fas fa-fw fa-plus"></i>
       <span>Tambah Data</span></a>
   </li>
@@ -92,7 +92,7 @@
         }
       ?>
     ">
-      <a class="nav-link" href="<?=base_url('Home/daftarAdministrator')?>">
+      <a class="nav-link" href="<?=base_url('Admin')?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Daftar Administrator</span></a>
     </li>    
@@ -113,7 +113,7 @@
       }
     ?>
   ">
-    <a class="nav-link" href="<?=base_url('Home/gantiPassword')?>">
+    <a class="nav-link" href="<?=base_url('UserControler')?>">
       <i class="fas fa-fw fa-key"></i>
       <span>Ganti Password</span></a>
   </li>
@@ -149,7 +149,7 @@
     <div class="modal-body">Jika iya silahkan pilih tombol 'keluar'</div>
     <div class="modal-footer">
       <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-      <a class="btn btn-danger" href="<?=base_url('Home/logout')?>">Keluar</a>
+      <a class="btn btn-danger" href="<?=base_url('UserControler/logout')?>">Keluar</a>
     </div>
   </div>
 </div>

@@ -528,8 +528,10 @@ class Internship extends CI_Model {
         return $this->db->query($query)->row();
     }
 
-    public function insertNewInternship($data){
-        return $this->db->insert_batch('internship',$data);
+    public function insertNewInternship( $data){
+        print_r($data);        
+        return $this->db->insert_batch('internship',$data);        
+
     }
 
 

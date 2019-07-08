@@ -30,4 +30,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 
-<body class="background-primary d-flex align-items-center">
+<!-- <body class="background-primary d-flex align-items-center"> -->

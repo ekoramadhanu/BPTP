@@ -5,54 +5,84 @@
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-black">Tambah Magang</h1>        
       </div>
-        <form method="post" action="<?=base_url('Home/tambahData')?>" class="pl-3 pr-3">
+        <form method="post" action="<?=base_url('Home/tambahData')?>" class="pl-3 pr-3 needs-validation" novalidate>
             <div class="form-group">
                 <label class="text-black">Nama Pemagang</label>
                 <input type="text" class="form-control" name="nama[]" required>                
+                <div class="invalid-feedback">
+                  <p class="pl-2">Nama pemagang tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group">
                 <label class="text-black">NIM/NISN</label>
-                <input type="number" class="form-control" name="nomor[]" required>                
+                <input type="number" class="form-control" name="nomor[]" required>       
+                <div class="invalid-feedback">
+                  <p class="pl-2">NIM/NISN pemagang tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group">          
               <label class="text-black">Jenis Kelamin</label>
-              <select class="form-control" name="jenisKelamin[]" style="color:black">            
+              <select class="form-control" name="jenisKelamin[]" style="color:black" required>            
                 <option class="" style="color:black" value="L">Laki - Laki</option>
                 <option class="" style="color:black" value="P">Perempuan</option>            
               </select>
+              <div class="invalid-feedback">
+                  <p class="pl-2">Jenis Kelamin tidak boleh kosong</p>
+                </div>
             </div>                                                        
             <div class="form-group">          
               <label class="text-black">Pekerjaan </label>
-              <select class="form-control" name="pekerjaan" style="color:black" id="pekerjaan" >            
+              <select class="form-control" name="pekerjaan" style="color:black" id="pekerjaan" required>            
                 <option class="" style="color:black" value="siswa">Siswa</option>
                 <option class="" style="color:black" value="mahasiswa">Mahasiswa</option>            
               </select>
+              <div class="invalid-feedback">
+                  <p class="pl-2">Pekerjaan tidak boleh kosong</p>
+                </div>
             </div>                                                        
             <div class="form-group">
                 <label class="text-black" id="labelSekolah">Sekolah</label>
-                <input type="text" class="form-control" name="sekolah" id="inputSekolah" required>
+                <input type="text" class="form-control" name="sekolah" id="inputSekolah"  required>
+                <div class="invalid-feedback">
+                  <p class="pl-2">Sekolah tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group">
                 <label class="text-black" id="labeljurusan">Jurusan</label>
-                <input type="text" class="form-control" name="fakultas" required>                
+                <input type="text" class="form-control" name="programStudi" required >                
+                <div class="invalid-feedback">
+                  <p class="pl-2">Jurusan tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group" id="programStudi">                
             </div>
             <div class="form-group">
                 <label class="text-black">Penempatan Magang</label>
                 <input type="text" class="form-control" name="penempatanMagang" required>
+                <div class="invalid-feedback">
+                  <p class="pl-2">Penempatan magang tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group">
                 <label class="text-black">Pembimbing Magang</label>
-                <input type="text" class="form-control" name="pembimbingMagang" required>
+                <input type="text" class="form-control" name="pembimbingMagang" required>                
+                <div class="invalid-feedback">
+                  <p class="pl-2">Pembimbing magang tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group">
                 <label class="text-black">Tanggal Mulai</label>
-                <input type="date" class="form-control text-black" name="tanggalMulai" required>
+                <input type="date" class="form-control text-black" name="tanggalMulai" required id="datepicker1">                
+                <div class="invalid-feedback">
+                  <p class="pl-2">tanggal mulai tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group">
                 <label class="text-black">Tanggal Selesai</label>
-                <input type="date" class="form-control text-black" name="tanggalSelesai" required>
+                <input type="date" class="form-control text-black " name="tanggalSelesai"  required id="datepicker2">
+                <div class="invalid-feedback">
+                  <p class="pl-2">Tanggal selesai tidak boleh kosong</p>
+                </div>
             </div>
             <div class="form-group">
               <label id="daftarMagang" class="text-black">Daftar angota</label>                
