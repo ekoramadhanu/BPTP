@@ -92,14 +92,14 @@
       <div class="modal-body">
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Username"
-           name="username" style="color:black" required>
+           name="username" style="color:black" required id="username">
            <div class="invalid-feedback">
             <p class="pl-2">Username tidak boleh kosong</p>
           </div>
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Nama"
-           name="name" style="color:black" required>
+           name="name" style="color:black" required id="namaUser">
            <div class="invalid-feedback">
             <p class="pl-2">Nama tidak boleh kosong</p>
           </div>
@@ -115,7 +115,7 @@
           </div>
         </div>
       </div>
-      <div class="modal-footer" id="">
+      <div class="modal-footer" id="footerTambahAdmin">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalTambahAdmin">Batal</button>
         <button class="btn btn-primary" type="submit">Tambah</button>
       </div>

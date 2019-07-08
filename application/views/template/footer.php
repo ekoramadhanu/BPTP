@@ -121,7 +121,12 @@
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
     });    
-
+    
+    $('#footerTambahAdmin').on('click','#batalTambahAdmin',function(e){
+      e.preventDefault();
+      $('#username').val('');
+      $('#namaUser').val(''); 
+    });    
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
       'use strict';

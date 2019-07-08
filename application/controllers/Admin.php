@@ -54,7 +54,6 @@ class Admin extends CI_Controller {
         }else{
             $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Username sudah dipakai</div>');
         }
-        
         redirect('Admin');
     }
 
