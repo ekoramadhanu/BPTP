@@ -109,7 +109,7 @@
                   <i class="fas fa-circle text-warning"></i> Menunggu
                 </span>
                 <span class="mr-2">
-                  <i class="fas fa-circle" style="color:#34ad2d"></i> Tersetujui
+                  <i class="fas fa-circle" style="color:#c43516"></i> Ditolak
                 </span>
                 <span class="mr-2">
                   <i class="fas fa-circle text-primary"></i> Terdaftar

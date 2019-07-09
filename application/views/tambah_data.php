@@ -6,7 +6,8 @@
         <h1 class="h3 mb-0 text-black">Tambah Magang</h1>        
       </div>
       <?= $this->session->flashdata('message')?>
-        <form method="post" action="<?=base_url('Magang/insertData')?>" class="pl-3 pr-3 needs-validation" novalidate>
+      <?= form_error('nomor[]', '<div class="alert alert-danger" role="alert">', '</div>')?>
+        <form method="post" action="<?=base_url('Magang/tambahData')?>" class="pl-3 pr-3 needs-validation" novalidate>
             <div class="form-group">
                 <label class="text-black">Nama Pemagang</label>
                 <input type="text" class="form-control" name="nama[]" required>                
@@ -120,7 +121,8 @@
 </a>
 
 <!-- tambah anggota -->
-<div class="modal fade" id="tambahAnggota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahAnggota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header" style="color:black">

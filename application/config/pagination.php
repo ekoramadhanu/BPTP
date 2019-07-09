@@ -7,19 +7,19 @@ $config['num_links']= 2;
 $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
 $config['full_tag_close'] = '</ul></nav>';        
 
-$config['first_link'] = 'First';
+$config['first_link'] = '<i class="fas fa-angle-double-left"></i>';
 $config['first_tag_open'] = '<li class="page-item">';
 $config['first_tag_close'] = '</li>';
 
-$config['last_link'] = 'Last';
+$config['last_link'] = '<i class="fas fa-angle-double-right"></i>';
 $config['last_tag_open'] = '  <li class="page-item">';
 $config['last_tag_close'] = ' </li>';
 
-$config['next_link'] = 'Next';
+$config['next_link'] = '<i class="fas fa-angle-right"></i>';
 $config['next_tag_open'] = '<li class="page-item">';
 $config['next_tag_close'] = '</li>';
 
-$config['prev_link'] = 'Previous';
+$config['prev_link'] = '<i class="fas fa-angle-left"></i>';
 $config['prev_tag_open'] = '<li class="page-item">';
 $config['prev_tag_close'] = '</li>';
 

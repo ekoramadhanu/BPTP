@@ -385,7 +385,7 @@ class Internship extends CI_Model {
         $query ="select distinct id_kelompok as 'kelompok',institute, 
         day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear', 
         day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
-        from internship where month(date_start) = ".$month." and year(date_start) = ".$year 
+        from internship where status = 'terdaftar' and month(date_start) = ".$month." and year(date_start) = ".$year 
         ;
         return $this->db->query($query)->result();
     }
@@ -401,7 +401,7 @@ class Internship extends CI_Model {
      * output : mengebalikan banyaknya jumlah magang
      */
     public function getCountByStartDatePKL($month,$year){        
-        $query ="select id from internship where month(date_start) = ".$month." and year(date_start)=".$year;
+        $query ="select id from internship where status = 'terdaftar'and month(date_start) = ".$month." and year(date_start)=".$year;
         return $this->db->query($query)->num_rows();
     }
     
@@ -419,7 +419,7 @@ class Internship extends CI_Model {
      */
     public function getCountByEndDatePKL($monthStart,$yearStart,$monthEnd,$yearEnd){        
         $query ="
-        select id from internship where month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart.
+        select id from internship where status = 'terdaftar' and month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart.
         " and month(date_end) >=".$monthEnd." and year(date_end) = ".$yearEnd;
         return $this->db->query($query)->num_rows();
     }
@@ -500,7 +500,7 @@ class Internship extends CI_Model {
         select distinct id_kelompok as 'kelompok',institute, 
         day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear', 
         day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
-        from internship where month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart." 
+        from internship where status='terdaftar' and month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart." 
         and month(date_end) >=".$monthEnd."
         and year(date_end) = " .$yearEnd;
         return $this->db->query($query)->result();
@@ -534,6 +534,14 @@ class Internship extends CI_Model {
 
     }
 
+    public function getNIMByKelompok($kelompok=null){
+        $query="select id from internship where id_kelompok =".$kelompok;
+        return $this->db->query($query)->result();
+    }
+
+    public function updateByNIM($data){
+        return $this->db->update_batch('internship',$data,'id');        
+    }
 
 
 }

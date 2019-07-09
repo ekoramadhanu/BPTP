@@ -56,7 +56,7 @@ class Home extends CI_Controller {
         $top['user']= $this->User->getIdentityUser($role['id']);
         // buat menampilkan jumlah dalam bentuk pie chart
         $diagram['menunggu'] = $this->Internship->getCountByStatusAndYear('menunggu',$tahun);
-        $diagram['tersetujui'] = $this->Internship->getCountByStatusAndYear('tersetujui',$tahun);
+        $diagram['ditolak'] = $this->Internship->getCountByStatusAndYear('ditolak',$tahun);
         $diagram['terdaftar'] = $this->Internship->getCountByStatusAndYear('terdaftar',$tahun);        
         // buat menampilkan jumlah dalam bentuk area chart
         for ($i=1; $i <=12 ; $i++) { 

@@ -66,8 +66,18 @@
               ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
               <td class="border border-black"><?=$rekap->place?></td>
               <td class="border border-black"><?=$rekap->guide?></td>
-              <td class="text-center">                                      
-                  <button type="submit" class="cetak btn btn-outline-primary" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>                
+              <td class="text-center">      
+              <?php 
+                if($rekap->status == "terdaftar"){
+                  echo "<button type='submit' class='cetak btn btn-outline-primary' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'><i class='fas fa-fw fa-print'></i></button>";
+                }else if($rekap->status == "tersetujui"){
+                  // echo "<button type='submit' class='cetak btn btn-outline-primary' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'></button>";
+                }else{
+                  echo "<button type='submit' class='tolak btn btn-outline-danger btn-sm mr-1' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#tolak'><i class='fas fa-fw fa-thumbs-down'></i></button>";
+                  echo "<button type='submit' class='setuju btn btn-outline-success btn-sm' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#setuju'><i class='fas fa-fw fa-thumbs-up'></i></button>";
+                }
+              ?>                                
+                  <!-- <button type="submit" class="cetak btn btn-outline-primary" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>                 -->
               </td>
             </tr>
                 
@@ -120,7 +130,8 @@
 </a>
 
 <!-- cetak balasan -->
-<div class="modal fade" id="cetakBalasan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cetakBalasan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content" id="headerBalasan">
     <div class="modal-header " style="color:black">
@@ -184,8 +195,10 @@
 </div>
 </div>
 
+
 <!-- cetak rekap -->
-<div class="modal fade" id="cetakRekap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cetakRekap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content" id="headerRekap">
     <div class="modal-header" style="color:black">
@@ -213,3 +226,61 @@
 </div>
 </div>
 
+<!-- menyetujui -->
+<div class="modal fade" id="setuju" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog" role="document">
+  <div class="modal-content" id="headerRekap">
+    <div class="modal-header" style="color:black">
+      <h5 class="modal-title" id="exampleModalLabel">Isi Form setuju</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="xRekap">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <form action="<?=base_url('Magang/setuju')?>" method="post" class="needs-validation form-setuju" novalidate>
+      <div class="modal-body" style="color:black">
+        <div class="form-group">
+          <label class="text-black">Pembimbing Magang</label>
+          <input type="text" class="form-control" name="pembimbingMagang" required>                
+          <div class="invalid-feedback">
+            <p class="pl-2">Pembimbing magang tidak boleh kosong</p>
+          </div>
+        </div> 
+        <div class="form-group">
+          <label class="text-black">Penempatan Magang</label>
+          <input type="text" class="form-control" name="penempatanMagang" required>
+          <div class="invalid-feedback">
+              <p class="pl-2">Penempatan magang tidak boleh kosong</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="footerRekap">
+        <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalRekap">Batal</button>
+        <button class="btn btn-success" type="submit">setuju</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+<!-- Tolak -->
+<div class="modal fade" id="tolak" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin menolak?</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
+    <div class="modal-footer">
+      <button class="btn btn-danger " type="button" data-dismiss="modal">Batal</button>
+      <form action="<?=base_url('Magang/tolak')?>" method="post" class="form-tolak">
+        <button class="btn btn-primary" type="submit">iya</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

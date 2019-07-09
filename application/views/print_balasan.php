@@ -71,7 +71,14 @@
 					<tr>
 						<td>Lampiran</td>
 						<td class="pl-3">:</td>
-						<td class="pl-1"><?=$nomorLampiran?></td>
+						<td class="pl-1">
+						<?php 
+						if($nomorLampiran == 0){
+							echo'-';
+						}else{
+							echo $nomorLampiran;
+						}
+						?></td>
 					</tr>
 					<tr>
 						<td>Hal</td>

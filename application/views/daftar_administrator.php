@@ -80,7 +80,8 @@
 </a>
 
 <!-- Tambah Admin -->
-<div class="modal fade" id="tambahAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
@@ -126,7 +127,8 @@
 </div>
 
 <!-- Hapus Admin-->
-<div class="modal fade" id="hapusAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="hapusAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
@@ -147,7 +149,8 @@
 </div>
 
 <!-- Update Admin-->
-<div class="modal fade" id="updateAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header" style="color:black">

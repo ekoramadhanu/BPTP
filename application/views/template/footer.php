@@ -21,6 +21,21 @@
       console.log(ambilVal);
       $('.form-cetak').attr('action', $('.form-cetak').attr('action') + '/' + ambilVal)
     });
+
+    // event yang diambil dari tempat view daftar magang untuk menyetujui
+    $('.setuju').click(function () {
+      ambilVal= $(this).attr('data-kelompok');        
+      console.log(ambilVal);
+      $('.form-setuju').attr('action', $('.form-setuju').attr('action') + '/' + ambilVal)
+    });
+
+    // event yang diambil dari tempat view daftar magang untuk tolak
+    $('.tolak').click(function () {
+      ambilVal= $(this).attr('data-kelompok');        
+      console.log(ambilVal);
+      $('.form-tolak').attr('action', $('.form-tolak').attr('action') + '/' + ambilVal)
+    });
+
     // event yang diambil dari tempat view daftar_administrator untuk hapus
     $('.hapusAdmin').click(function () {
       ambilVal= $(this).attr('data-id');        
@@ -126,6 +141,7 @@
       $('#username').val('');
       $('#namaUser').val(''); 
     });    
+    
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
       'use strict';
@@ -155,7 +171,7 @@
   Chart.defaults.global.defaultFontColor = '#858796';
     var menunggu = <?= $menunggu->jumlah?>;
     var terdaftar = <?= $terdaftar->jumlah?>;
-    var tersetujui = <?= $tersetujui->jumlah?>;
+    var ditolak = <?= $ditolak->jumlah?>;
     // console.log (menunggu);
     // console.log (terdaftar);
     // console.log (tersetujui);
@@ -164,11 +180,11 @@
   var myPieChart = new Chart(ctx, {
     type: 'doughnut',
     data: {    
-      labels: ["menunggu", "tersetujui","terdaftar"],
+      labels: ["menunggu", "ditolak","terdaftar"],
       datasets: [{
-        data: [menunggu,tersetujui,terdaftar],
-        backgroundColor: ['#ffc107', '#34ad2d', '#007bff'],
-        hoverBackgroundColor: ['#e8af05', '#17a673', '#026bdb'],
+        data: [menunggu,ditolak,terdaftar],
+        backgroundColor: ['#ffc107', '#c43516', '#007bff'],
+        hoverBackgroundColor: ['#e8af05', '#cf3817', '#026bdb'],
         hoverBorderColor: "rgba(234, 236, 244, 1)",
       }],
     },

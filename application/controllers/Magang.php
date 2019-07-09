@@ -149,15 +149,23 @@ class Magang extends CI_Controller {
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Tambah Data';
         $role['title'] = $data['title'];
-        $top['user']= $this->User->getIdentityUser($role['id']);                
+        $top['user']= $this->User->getIdentityUser($role['id']);     
+        // validasi form
+        $this->form_validation->set_rules('nomor[]','nomor[]','is_unique[internship.id]',[
+            "is_unique"=>'NIM / NISN sudah terdaftar'
+        ]);
+        if(!$this->form_validation->run()){
             $this->load->view('template/header',$data);
             $this->load->view('template/sidebar',$role);
             $this->load->view('template/topbar',$top);
             $this->load->view('tambah_data');
             $this->load->view('template/footer');        
+        }else{
+            $this->insertData();
+        }
     }
 
-	public function insertData(){        
+	private function insertData(){        
         $nama = $this->input->post('nama');
         $nomor = $this->input->post('nomor');
         $jenisKelamin = $this->input->post('jenisKelamin');        
@@ -197,7 +205,7 @@ class Magang extends CI_Controller {
             );
             $index++;
         }
-        print_r(json_encode($data));                
+        // print_r(json_encode($data));                
         $result = $this->Internship->insertNewInternship($data);
         if($result){
             $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
@@ -206,4 +214,50 @@ class Magang extends CI_Controller {
         }
         redirect('Magang/tambahData');
     }
+
+    public function setuju($kelompok=null){
+        $pembimbing = $this->input->post('pembimbingMagang');
+        $tempat = $this->input->post('penempatanMagang');        
+        $data= array();
+        $fullname = $this->Internship->getNIMByKelompok($kelompok);
+        // var_dump($fullname);
+        foreach ($fullname as $result) {
+            array_push($data,array(
+                'id'=>$result->id,    
+                'status'=>'terdaftar',            
+                'place'=>$tempat,
+                'guide'=>$pembimbing
+                )
+            );
+        }
+        print_r(json_encode($data));
+        $result = $this->Internship->updateByNIM($data);
+        if($result){
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data telah disetujui</div>');
+        }else{
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa tidak bisa disetujui</div>');
+        }
+        redirect('Magang/daftarMagang');
+    }
+
+    public function tolak($kelompok=null){
+        $data = array();
+        $fullname = $this->Internship->getNIMByKelompok($kelompok);
+        foreach ($fullname as $result) {
+            array_push($data,array(
+                'id'=>$result->id,    
+                'status'=>'ditolak',                            
+                )
+            );
+        }
+        print_r(json_encode($data));
+        $result = $this->Internship->updateByNIM($data);
+        if($result){
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data telah ditolak</div>');
+        }else{
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa tidak bisa ditolak/div>');
+        }
+        redirect('Magang/daftarMagang');
+    }
+    
 }
