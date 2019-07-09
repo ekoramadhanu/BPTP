@@ -64,7 +64,7 @@ class Internship extends CI_Model {
     
     public function getLimitAndOffset($limit,$offset,$year = null,$like = null){
         if($year&&$like){
-            $query ="select DISTINCT institute,
+            $query ="select DISTINCT institute,status,
             day(date_start) as 'startDay',
             case  
             when month(date_start) = 1 then 'Januari'
@@ -100,7 +100,7 @@ class Internship extends CI_Model {
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($like){
-            $query ="select DISTINCT institute,
+            $query ="select DISTINCT institute,status,
             day(date_start) as 'startDay',
             case  
             when month(date_start) = 1 then 'Januari'
@@ -136,7 +136,7 @@ class Internship extends CI_Model {
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($year){
-            $query ="select DISTINCT institute,
+            $query ="select DISTINCT institute,status,
             day(date_start) as 'startDay',
             case  
             when month(date_start) = 1 then 'Januari'
@@ -172,7 +172,7 @@ class Internship extends CI_Model {
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else{
-            $query ="select DISTINCT institute,
+            $query ="select DISTINCT institute,status,
                 day(date_start) as 'startDay',
                 case  
                 when month(date_start) = 1 then 'Januari'

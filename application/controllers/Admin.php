@@ -21,30 +21,30 @@ class Admin extends CI_Controller {
         $role['id']=$this->session->userdata('id');        
         $role['role']=$this->session->userdata('roleId');
         if ($role['role'] == 1){
-            // // validasi form
-            // $this->form_validation->set_rules('username','username','is_unique',[
-            //     'is_unique'=>'username ada silahkan cari yang lainnya'
-            // ]);
+            // validasi form
+            $this->form_validation->set_rules('username','username','is_unique[user.username]',[
+                'is_unique'=>'username sudah ada silahkan cari yang lainnya'
+            ]);
             $data['title'] = 'Daftar Administrator';
             $role['title'] = $data['title'];
             $top['user']= $this->User->getIdentityUser($role['id']);
             $result['user'] =$this->User->getDaftarAdministrasi();
-            // if(!$this->form_validation->run()){
+            if(!$this->form_validation->run()){
                 $this->load->view('template/header',$data);
                 $this->load->view('template/sidebar',$role);
                 $this->load->view('template/topbar',$top);
                 $this->load->view('daftar_administrator',$result);
                 $this->load->view('template/footer',$data);
-            // }else{
-            //     $this->tambahAdmin();
-            // }
+            }else{
+                $this->tambahAdmin();
+            }
         }else{
             $data['title'] = 'Error';                        
             $this->load->view('page_403',$data);
         }
     }   
 
-    public function tambahAdmin(){
+    private function tambahAdmin(){
         $username= htmlspecialchars($this->input->post('username'),true);
         $role= $this->input->post('role');
         $name=htmlspecialchars($this->input->post('name'));
@@ -52,7 +52,7 @@ class Admin extends CI_Controller {
         if($result){
             $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Username sudah dipakai</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Username sudah dipakai</div>');
         }
         redirect('Admin');
     }

@@ -6,6 +6,7 @@ class UserControler extends CI_Controller {
     public function __construct(){
         parent:: __construct();
         $this->load->model('User');        
+        $this->load->library('form_validation');
         if(!$this->session->userdata('roleId')){
             redirect('Auth');
         }
@@ -19,15 +20,25 @@ class UserControler extends CI_Controller {
         $role['role']=$this->session->userdata('roleId');
         $role['title'] = $data['title'];
         // data dimasukkan ke dalam view topbar
-        $top['user']= $this->User->getIdentityUser($role['id']);        
-        $this->load->view('template/header',$data);
-        $this->load->view('template/sidebar',$role);
-        $this->load->view('template/topbar',$top);
-        $this->load->view('ganti_password');
-        $this->load->view('template/footer');        
+        $top['user']= $this->User->getIdentityUser($role['id']);      
+        // validasi form
+        $this->form_validation->set_rules('passwordBaru','passwordBaru','min_length[6]|max_length[12]|matches[password]',[
+            'min_lenght'=>'kata sandi terlalu pendek',
+            'max_lenght'=>'kata sandi terlalu panjang',
+            'matches'=>'kata sandi baru tidak sama '
+        ]);
+        if(!$this->form_validation->run()){
+            $this->load->view('template/header',$data);
+            $this->load->view('template/sidebar',$role);
+            $this->load->view('template/topbar',$top);
+            $this->load->view('ganti_password');
+            $this->load->view('template/footer');        
+        }else{
+            $this->gantiPassword();
+        }
     }
 
-    public function gantiPassword(){
+    private function gantiPassword(){
         $role['id']=$this->session->userdata('id');  
         $passwordLama =$this->input->post('passwordLama');
         $username = $this->session->userdata('username');        

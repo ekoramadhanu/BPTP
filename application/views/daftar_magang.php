@@ -14,7 +14,7 @@
 <div class="card shadow mb-4">
   <div class="row pt-2 pl-2 pr-2">    
       <div class="col-lg-12 col-md-12 col-xs-12 d-flex justify-content-end">
-        <form action="<?=base_url('Home/daftarMagang')?>" method="post" id="form-cari" class="form-inline">
+        <form action="<?=base_url('Magang/daftarMagang')?>" method="post" id="form-cari" class="form-inline">
           <div class="input-group">
             <input type="text" class="form-control mr-3" placeholder="nama" name="nama" autocomplete="off">            
             <input type="number" class="form-control mr-3 " placeholder="tahun" name="tahun" min='1' autocomplete="off">
@@ -66,8 +66,8 @@
               ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
               <td class="border border-black"><?=$rekap->place?></td>
               <td class="border border-black"><?=$rekap->guide?></td>
-              <td class="text-center">        
-                <button type="submit" class="cetak btn btn-outline-primary" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>
+              <td class="text-center">                                      
+                  <button type="submit" class="cetak btn btn-outline-primary" data-kelompok='<?=$rekap->kelompok?>'class="btn btn-primary btn-user btn-block" data-toggle="modal" data-target="#cetakBalasan">Cetak</button>                
               </td>
             </tr>
                 

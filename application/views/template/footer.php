@@ -36,22 +36,18 @@
     
   // tambah list anggota
     var index = 0;
-    $('#tambah').click(function(){
-      // if(index === 0){
-      //   $$('#listAnggota').append(
-      //     "<label id='daftarMagang' class='text-black'>Daftar angota</label>"
-      //   );
-      // }
+    $('#tambah').click(function(){      
       var namaAnggota = document.getElementById('namaAnggota').value;
       var nomorAnggota = document.getElementById('nomorInduk').value;      
       var jenisKelamin = document.getElementById('jenisKelamin').value;      
       // console.log("nama "+namaAnggota);
       // console.log("nomor "+nomorAnggota);  
-      // console.log("jenis "+jenisKelamin);  
-      list(namaAnggota,nomorAnggota,jenisKelamin);
-      $('#namaAnggota').val('');
-      $('#nomorInduk').val('');
-      $('#namaAnggota').val('');
+      // console.log("jenis "+jenisKelamin);       
+      if(namaAnggota != null && nomorAnggota != null){
+        list(namaAnggota,nomorAnggota,jenisKelamin);
+        $('#namaAnggota').val('');
+        $('#nomorInduk').val('');                
+      }
     });
     // ,nameNomor,valueNomor,nameGender,valueGender
     function list(valueNama,valueNomor,valueJenis){      
@@ -88,7 +84,10 @@
         document.getElementById('labelSekolah').innerHTML = "Universitas";
         document.getElementById('labeljurusan').innerHTML = "Fakultas";
         $('#programStudi').append("<label class='text-black' id='labelProgramStudi' >Program Studi</label>"+
-          "<input type='text' class='form-control' name='fakultas' id='inputProgramStudi'required>");
+          "<input type='text' class='form-control' name='fakultas' id='inputProgramStudi'required>"+
+          "<div class='invalid-feedback'>"+
+           "<p class='pl-2'>Program studi tidak boleh kosong</p>"+
+          "</div>");
       }
     });
 

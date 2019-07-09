@@ -10,6 +10,7 @@
     <button type="button" class="btn btn-primary btn-sm mb-3" data-toggle="modal" data-target="#tambahAdmin"><i class="fas fa-plus"></i> Tambah Admin</button>
     <br>
     <?= $this->session->flashdata('message')?>    
+    <?= form_error('username', '<div class="alert alert-danger" role="alert">', '</div>')?>
     <div class="table-responsive">
       <table class="table table-borderedless" id="dataTable" width="100%" cellspacing="0" style="color:black">
         <thead>
@@ -88,7 +89,7 @@
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <form action="<?=base_url('Admin/tambahAdmin')?>" method="post" class=" needs-validation" novalidate>
+    <form action="<?=base_url('Admin')?>" method="post" class=" needs-validation" novalidate>
       <div class="modal-body">
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Username"

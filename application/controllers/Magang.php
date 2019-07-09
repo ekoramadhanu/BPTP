@@ -82,8 +82,7 @@ class Magang extends CI_Controller {
         }else if($this->uri->segment(3)){
             $result['start'] = $this->uri->segment(3);
         }                                
-        $result['daftarMagang']= $this->Internship->getLimitAndOffset($config['per_page'],$result['start'],$tahun,$nama); 
-        
+        $result['daftarMagang']= $this->Internship->getLimitAndOffset($config['per_page'],$result['start'],$tahun,$nama);         
 
         // akhir dari pebuatan pagination
         $this->load->view('template/header',$data);
@@ -150,51 +149,15 @@ class Magang extends CI_Controller {
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Tambah Data';
         $role['title'] = $data['title'];
-        $top['user']= $this->User->getIdentityUser($role['id']);        
-        // form validation
-        $this->form_validation->set_rules('nama[]','nama','required|trim',[
-            'required' =>'Nama Pemagang harus diisi',            
-        ]);
-        $this->form_validation->set_rules('nomor[]','nomor','required|trim|numeric',[
-            'required' =>'NIM/NISN harus diisi', 
-        ]);
-        $this->form_validation->set_rules('sekolah','sekolah','required|trim',[
-            'required' =>'Universitas / Sekolah harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('fakultas','fakultas','required|trim',[
-            'required' =>'Program Studi harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('programStudi','programStudi','required|trim',[
-            'required' =>'Program Studi harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('penempatanMagang','penempatanMagang','required|trim',[
-            'required' =>'Penempatan magang harap diisi harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('pembimbingMagang','pembimbingMagang','required|trim',[
-            'required' =>'Pembimbing Magang harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('pembimbingMagang','pembimbingMagang','required|trim',[
-            'required' =>'Pembimbing Magang harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('tanggalMulai','tanggalMulai','required|trim',[
-            'required' =>'Tanggal Mulai Magang harap harus diisi',            
-        ]);
-        $this->form_validation->set_rules('tanggalSelesai','tanggalSelesai','required|trim',[
-            'required' =>'Tanggal Selesai Magang harap harus diisi',            
-        ]);
-        if($this->form_validation->run() == false){
+        $top['user']= $this->User->getIdentityUser($role['id']);                
             $this->load->view('template/header',$data);
             $this->load->view('template/sidebar',$role);
             $this->load->view('template/topbar',$top);
             $this->load->view('tambah_data');
-            $this->load->view('template/footer');
-        }else{
-            $this->insertData();
-        }
+            $this->load->view('template/footer');        
     }
 
-	private function insertData(){
-        echo"berhasil";
+	public function insertData(){        
         $nama = $this->input->post('nama');
         $nomor = $this->input->post('nomor');
         $jenisKelamin = $this->input->post('jenisKelamin');        
@@ -236,5 +199,11 @@ class Magang extends CI_Controller {
         }
         print_r(json_encode($data));                
         $result = $this->Internship->insertNewInternship($data);
+        if($result){
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
+        }else{
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak Berhasil ditambahkan</div>');
+        }
+        redirect('Magang/tambahData');
     }
 }

@@ -5,7 +5,8 @@
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-black">Tambah Magang</h1>        
       </div>
-        <form method="post" action="<?=base_url('Home/tambahData')?>" class="pl-3 pr-3 needs-validation" novalidate>
+      <?= $this->session->flashdata('message')?>
+        <form method="post" action="<?=base_url('Magang/insertData')?>" class="pl-3 pr-3 needs-validation" novalidate>
             <div class="form-group">
                 <label class="text-black">Nama Pemagang</label>
                 <input type="text" class="form-control" name="nama[]" required>                
@@ -127,15 +128,15 @@
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
-    </div>    
-      <div class="modal-body">
+    </div>            
+      <div class="modal-body">        
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="Nama anggota"  id="namaAnggota"
-          name="namaAggota" required style="color:black" required>
+          name="namaAggota"  style="color:black"  id="namaAnggota">
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="NIM/NISN" id="nomorInduk"
-          name="nomorInduk" min='0'required style="color:black" required>
+          name="nomorInduk" min='0' style="color:black"  id="nomorAnggota">
         </div>        
         <div class="form-group">          
           <label class="text-black">jenis kelamin</label>
@@ -147,8 +148,8 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
-        <button class="btn btn-primary" id="tambah" data-dismiss="modal">tambah</button>
-      </div>    
+        <button class="btn btn-primary" id="tambah">tambah</button>
+      </div>        
   </div>
 </div>
 </div>
