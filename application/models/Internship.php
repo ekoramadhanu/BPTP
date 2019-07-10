@@ -527,6 +527,16 @@ class Internship extends CI_Model {
         $query="select distinct institute from internship where id_kelompok =".$kelompok;
         return $this->db->query($query)->row();
     }
+    
+    public function getProgramStuyByKelompok($kelompok){
+        $query="select distinct studyProgram from internship where id_kelompok =".$kelompok;
+        return $this->db->query($query)->row();
+    }
+
+    public function getFakultasByKelompok($kelompok){
+        $query="select distinct faculty from internship where id_kelompok =".$kelompok;
+        return $this->db->query($query)->row();
+    }
 
     public function insertNewInternship( $data){
         print_r($data);        

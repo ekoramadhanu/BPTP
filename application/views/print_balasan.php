@@ -97,13 +97,24 @@
 						if($name->is_sekolah==1){
 							echo $penerima."<br>".$institution->institute;
 						}else{
-							echo $penerima;
-							if($length <= 3){
-								echo "<br>";
-							}else{
-								echo" ";
+							echo $penerima." ";														
+							if(preg_match("/jurusan/i", $department->department)) {
+								echo  $department->department;
+							} else {
+								echo "jurusan ". $department->department;
 							}
-							echo "Fakutas ".$department->department ."<br>".$institution->institute;
+							echo"<br>";
+							if(preg_match("/fakultas/i", $faculty->faculty)) {
+								echo  $faculty->faculty;
+							} else {
+								echo "jurusan ". $faculty->faculty;
+							}
+							echo"<br>";
+							if(preg_match("/universitas/i", $institution->institute)) {
+								echo  $institution->institute;
+							} else {
+								echo "universitas ". $institution->institute;
+							}							
 						}
 						break;
 					}					
@@ -207,8 +218,13 @@
 					if($name->is_sekolah == 1){
 						echo " bagi siswa sebagai berikut :";
 					}else{
+						$string = explode(' ',$studyProgram->studyProgram);
+						$index = 0;
+						for ($i=0; $i <count($string) ; $i++) { 
+							$string[$i] = ucfirst($string[$i]);
+						}
 						echo "bagi mahasiswa
-						program studi ".$detail->department." sebagai berikut:";
+						Program Studi ".implode(' ',$string)." sebagai berikut:";
 					}
 					break;
 				}

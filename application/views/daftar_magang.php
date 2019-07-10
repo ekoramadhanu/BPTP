@@ -70,8 +70,8 @@
               <?php 
                 if($rekap->status == "terdaftar"){
                   echo "<button type='submit' class='cetak btn btn-outline-primary' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'><i class='fas fa-fw fa-print'></i></button>";
-                }else if($rekap->status == "tersetujui"){
-                  // echo "<button type='submit' class='cetak btn btn-outline-primary' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'></button>";
+                }else if($rekap->status == "ditolak"){
+                  echo "<p class='text-danger'>Ditolak</p>";
                 }else{
                   echo "<button type='submit' class='tolak btn btn-outline-danger btn-sm mr-1' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#tolak'><i class='fas fa-fw fa-thumbs-down'></i></button>";
                   echo "<button type='submit' class='setuju btn btn-outline-success btn-sm' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#setuju'><i class='fas fa-fw fa-thumbs-up'></i></button>";

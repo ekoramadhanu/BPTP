@@ -30,7 +30,7 @@
               </select>
               <div class="invalid-feedback">
                   <p class="pl-2">Jenis Kelamin tidak boleh kosong</p>
-                </div>
+              </div>
             </div>                                                        
             <div class="form-group">          
               <label class="text-black">Pekerjaan </label>
@@ -40,7 +40,7 @@
               </select>
               <div class="invalid-feedback">
                   <p class="pl-2">Pekerjaan tidak boleh kosong</p>
-                </div>
+              </div>
             </div>                                                        
             <div class="form-group">
                 <label class="text-black" id="labelSekolah">Sekolah</label>
@@ -49,9 +49,11 @@
                   <p class="pl-2">Sekolah tidak boleh kosong</p>
                 </div>
             </div>
+            <div class="form-group" id="fakultas">
+            </div>
             <div class="form-group">
                 <label class="text-black" id="labeljurusan">Jurusan</label>
-                <input type="text" class="form-control" name="programStudi" required >                
+                <input type="text" class="form-control" name="jurusan" required >                
                 <div class="invalid-feedback">
                   <p class="pl-2">Jurusan tidak boleh kosong</p>
                 </div>
@@ -124,10 +126,10 @@
 <div class="modal fade" id="tambahAnggota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
 data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
-  <div class="modal-content">
+  <div class="modal-content" id="headerTambahAnggota">
     <div class="modal-header" style="color:black">
       <h5 class="modal-title" id="exampleModalLabel">Isi Form Tambah Anggota</h5>
-      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="xTambahAnggota">
         <span aria-hidden="true">×</span>
       </button>
     </div>            
@@ -148,8 +150,8 @@ data-backdrop="static" data-keyboard="false">
           </select>
         </div>                                                        
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
+      <div class="modal-footer" id="footerTambahAnggota">
+        <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalTambahAnggota">Batal</button>
         <button class="btn btn-primary" id="tambah">tambah</button>
       </div>        
   </div>

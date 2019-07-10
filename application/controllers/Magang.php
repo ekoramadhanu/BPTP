@@ -139,7 +139,9 @@ class Magang extends CI_Controller {
 		$detail['tahun'] = date('Y');		
 		$detail['fullname'] = $this->Internship->getNameByKelompok($kelompok);
 		$detail['department'] = $this->Internship->getDepartmentByKelompok($kelompok);
-		$detail['institution'] = $this->Internship->getInstitutionByKelompok($kelompok);
+        $detail['institution'] = $this->Internship->getInstitutionByKelompok($kelompok);
+        $detail['studyProgram']=$this->Internship->getProgramStuyByKelompok($kelompok);
+        $detail['faculty']=$this->Internship->getFakultasByKelompok($kelompok);
 		$detail['detail'] = $this->Internship->getRekapBalasanByKelompok($kelompok);						
 		$this->load->view('print_balasan',$detail);
 	}

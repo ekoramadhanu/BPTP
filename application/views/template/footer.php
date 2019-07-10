@@ -54,16 +54,21 @@
     $('#tambah').click(function(){      
       var namaAnggota = document.getElementById('namaAnggota').value;
       var nomorAnggota = document.getElementById('nomorInduk').value;      
-      var jenisKelamin = document.getElementById('jenisKelamin').value;      
-      // console.log("nama "+namaAnggota);
-      // console.log("nomor "+nomorAnggota);  
-      // console.log("jenis "+jenisKelamin);       
-      if(namaAnggota != null && nomorAnggota != null){
+      var jenisKelamin = document.getElementById('jenisKelamin').value;            
+      console.log(namaAnggota);
+      console.log(nomorAnggota);
+      console.log(jenisKelamin);
+      if(namaAnggota === '' || nomorAnggota === ''){
+        $('#tambah').attr('data-dismiss','');
+        alert('data tidak bisa ditambahkan harap diisi semua form yang diberikan');
+      }else{
+        $('#tambah').attr('data-dismiss','modal');
         list(namaAnggota,nomorAnggota,jenisKelamin);
         $('#namaAnggota').val('');
         $('#nomorInduk').val('');                
       }
     });
+
     // ,nameNomor,valueNomor,nameGender,valueGender
     function list(valueNama,valueNomor,valueJenis){      
       $('#listAnggota').append(              
@@ -82,6 +87,7 @@
         "</div>");
     }
 
+
     $('#listAnggota').on('click', '.close', function(e) {
       e.preventDefault();
       $(this).parent().remove();
@@ -91,17 +97,22 @@
       ambilVal= document.getElementById('pekerjaan').value;        
       console.log(ambilVal);
       if(ambilVal === "siswa"){
-        document.getElementById('labelSekolah').innerHTML = "Sekolah";
-        document.getElementById('labeljurusan').innerHTML = "Jurusan";
+        document.getElementById('labelSekolah').innerHTML = "Sekolah";        
         $('#labelProgramStudi').remove();
         $('#inputProgramStudi').remove();
+        $('#labelFakultas').remove();
+        $('#inputfakultas').remove();
       }else{      
-        document.getElementById('labelSekolah').innerHTML = "Universitas";
-        document.getElementById('labeljurusan').innerHTML = "Fakultas";
+        document.getElementById('labelSekolah').innerHTML = "Universitas";        
         $('#programStudi').append("<label class='text-black' id='labelProgramStudi' >Program Studi</label>"+
-          "<input type='text' class='form-control' name='fakultas' id='inputProgramStudi'required>"+
+          "<input type='text' class='form-control' name='programstudi' id='inputProgramStudi' required>"+
           "<div class='invalid-feedback'>"+
            "<p class='pl-2'>Program studi tidak boleh kosong</p>"+
+          "</div>");
+        $('#fakultas').append("<label class='text-black' id='labelFakultas' >Fakultas</label>"+
+          "<input type='text' class='form-control' name='fakultas' id='inputfakultas' required>"+
+          "<div class='invalid-feedback'>"+
+           "<p class='pl-2'>Fakultas tidak boleh kosong</p>"+
           "</div>");
       }
     });
@@ -140,6 +151,18 @@
       e.preventDefault();
       $('#username').val('');
       $('#namaUser').val(''); 
+    });    
+
+    $('#footerTambahAnggota').on('click','#batalTambahAnggota',function(e){
+      e.preventDefault();
+      $('#nomorInduk').val('');      
+      $('#namaAnggota').val('');      
+    });
+
+    $('#headerTambahAnggota').on('click','#xTambahAnggota',function(e){
+      e.preventDefault();
+      $('#nomorInduk').val('');      
+      $('#namaAnggota').val('');   
     });    
     
     // Example starter JavaScript for disabling form submissions if there are invalid fields
