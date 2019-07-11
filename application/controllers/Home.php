@@ -49,27 +49,41 @@ class Home extends CI_Controller {
         }else{
             $tahun=$tahun;            
         }        
-        $result ['totalMagang'] = $this->Internship->getCountAllByYear($tahun);        
-        $result ['totalPerempuan'] = $this->Internship->getCountByGenderAndYear('P',$tahun);                
-        $result ['totalLaki'] = $this->Internship->getCountByGenderAndYear('L',$tahun);        
+        $nextYear =$tahun +1;
+        $prevYear =$tahun -1;
+        $result ['totalMagang'] = $this->Internship->getCountAllByYear($tahun);
+        $result['totalMagang'] += $this->Internship->getCountAllByEndYear($tahun);                
+        $result ['totalPerempuan'] = $this->Internship->getCountByGenderAndStartYear('P',$tahun);                
+        $result ['totalPerempuan'] += $this->Internship->getCountByGenderAndEndYear('P',$tahun);                
+        $result ['totalLaki'] = $this->Internship->getCountByGenderAndStartYear('L',$tahun);        
+        $result ['totalLaki'] += $this->Internship->getCountByGenderAndEndYear('L',$tahun);        
         $result['tahun']= $tahun;
         $top['user']= $this->User->getIdentityUser($role['id']);
         // buat menampilkan jumlah dalam bentuk pie chart
-        $diagram['menunggu'] = $this->Internship->getCountByStatusAndYear('menunggu',$tahun);
-        $diagram['ditolak'] = $this->Internship->getCountByStatusAndYear('ditolak',$tahun);
-        $diagram['terdaftar'] = $this->Internship->getCountByStatusAndYear('terdaftar',$tahun);        
-        // buat menampilkan jumlah dalam bentuk area chart
+        $diagram['menunggu'] = $this->Internship->getCountByStatusAndStartYear('menunggu',$tahun);
+        $diagram['menunggu'] += $this->Internship->getCountByStatusAndEndYear('menunggu',$tahun);
+        $diagram['ditolak'] = $this->Internship->getCountByStatusAndStartYear('ditolak',$tahun);
+        $diagram['ditolak'] += $this->Internship->getCountByStatusAndEndYear('ditolak',$tahun);
+        $diagram['terdaftar'] = $this->Internship->getCountByStatusAndStartYear('terdaftar',$tahun);        
+        $diagram['terdaftar'] += $this->Internship->getCountByStatusAndEndYear('terdaftar',$tahun);        
+        // fix area chart
         for ($i=1; $i <=12 ; $i++) { 
-			$temp['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,$tahun);
+            $result['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,$tahun);
+            $result['JumlahendMonthNextInNow'][$i]= $this->Internship->getCountByEndDatePKL($i,$tahun,$nextYear);
+            $result['JumlahendMonthPrevInNow'][$i]= $this->Internship->getCountByEndDatePKL($i,$tahun,$prevYear);
             for ($j=1; $j <$i ; $j++) { 								
-                $temp['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($j,$tahun,$i,$tahun);
+				$result['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($i,$tahun,null,$j);
             }
-            $jumlah = 0;
+            $jumlah = 0 ;
+            $jumlah += $result['jumlahStartDate'][$i] ;
+            $jumlah += $result['JumlahendMonthNextInNow'][$i] ;
+            $jumlah += $result['JumlahendMonthPrevInNow'][$i] ;
             for ($j=1; $j <$i ; $j++) { 
-                $jumlah += $temp['jumlahEndaDate'][$i][$j];
+               $jumlah += $result['jumlahEndaDate'][$i][$j];
             }
-            $diagram['total'][$i]=$temp['jumlahStartDate'][$i]+$jumlah;            
-        }
+            $diagram['total'][$i]=$jumlah;            
+
+		}        
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);

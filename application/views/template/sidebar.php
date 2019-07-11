@@ -112,7 +112,7 @@
         echo 'active';
       }
     ?>
-  ">
+  "> 
     <a class="nav-link" href="<?=base_url('UserControler')?>">
       <i class="fas fa-fw fa-key"></i>
       <span>Ganti Password</span></a>

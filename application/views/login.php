@@ -41,7 +41,7 @@
               </form>
               <br>
               <div class="text-center">
-                 <a class="small text-green" href="forgot-password.html">Reset Password?</a>
+                 <!-- <a class="small text-green" href="forgot-password.html">Reset Password?</a> -->
               </div>              
               <br>              
             </div>

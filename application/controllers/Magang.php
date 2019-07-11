@@ -97,25 +97,29 @@ class Magang extends CI_Controller {
 	 * akan langsung membuat file yang siap diprint berdasarkan tahun masukkan 
 	 */
 	public function cetakRekap(){		
-		$result['tahunRekap'] = $this->input->get('tahun');	
-		for ($i=1; $i <=12 ; $i++) { 			
-			$result['startMonth'][$i]= $this->Internship->getRekapByStartDatePKL($i,$result['tahunRekap']);								
-		}
-		for ($i=1; $i <= 12 ; $i++) { 
-			for ($j=1; $j <$i ; $j++) { 								
-				$result['endMonth'][$i][$j]= $this->Internship->getRekapByEndDatePKL($j,$result['tahunRekap'],$i,$result['tahunRekap']);
+        $result['tahunRekap'] = $this->input->get('tahun');			
+        $nextYear=$result['tahunRekap']+1;
+        $prevYear=$result['tahunRekap']-1;        
+        for ($i=1; $i <= 12 ; $i++) { 
+            $result['startMonth'][$i]= $this->Internship->getRekapByStartDatePKL($i,$result['tahunRekap']);
+            $result['endMonthNextInNow'][$i]= $this->Internship->getRekapByEndDatePKL($i,$result['tahunRekap'],$nextYear);
+            $result['endMonthPrevInNow'][$i]= $this->Internship->getRekapByEndDatePKL($i,$result['tahunRekap'],$prevYear);				            
+			for ($j=1; $j < $i ; $j++) { 								                
+				$result['endMonth'][$i][$j]= $this->Internship->getRekapByEndDatePKL($i,$result['tahunRekap'],null,$j);
 			}
-		}
+        }        
 		for ($i=1; $i <=12 ; $i++) { 
-			$result['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,$result['tahunRekap']);
-		}
-		for ($i=1; $i <= 12 ; $i++) { 
-			for ($j=1; $j <$i ; $j++) { 								
-				$result['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($j,$result['tahunRekap'],$i,$result['tahunRekap']);
+            $result['jumlahStartDate'][$i]= $this->Internship->getCountByStartDatePKL($i,$result['tahunRekap']);
+            $result['JumlahendMonthNextInNow'][$i]= $this->Internship->getCountByEndDatePKL($i,$result['tahunRekap'],$nextYear);
+            $result['JumlahendMonthPrevInNow'][$i]= $this->Internship->getCountByEndDatePKL($i,$result['tahunRekap'],$prevYear);
+            for ($j=1; $j <$i ; $j++) { 								
+				$result['jumlahEndaDate'][$i][$j]= $this->Internship->getCountByEndDatePKL($i,$result['tahunRekap'],null,$j);
 			}
-		}		
-		$result['total'] = $this->Internship->getCountAllByYear($result['tahunRekap']);						
-		$this->load->view('print_rekap',$result);
+		}
+        $result['total'] = $this->Internship->getCountAllByYear($result['tahunRekap']);						        
+        $result['total'] += $this->Internship->getCountAllByEndYear($result['tahunRekap']);
+        $this->load->view('testRekap',$result);
+		// $this->load->view('print_rekap',$result);
 		
 
 	}
@@ -172,15 +176,17 @@ class Magang extends CI_Controller {
         $nomor = $this->input->post('nomor');
         $jenisKelamin = $this->input->post('jenisKelamin');        
         $pekerjaan = $this->input->post('pekerjaan');        
-        $programStudi = $this->input->post('programStudi');        
+        $sekolah = $this->input->post('sekolah');
         $fakultas =$this->input->post('fakultas');
+        $jurusan = $this->input->post('jurusan');        
+        $programStudi = $this->input->post('programstudi');        
         if($pekerjaan=='siswa'){
             $pekerjaan=1;
             $fakultas='-';
+            $programStudi='-';
         }else{
             $pekerjaan=0;
         }
-        $sekolah = $this->input->post('sekolah');
         $penempatanMagang =$this->input->post('penempatanMagang');
         $pembimbingMagang =$this->input->post('pembimbingMagang');
         $tanggalMulai =$this->input->post('tanggalMulai');
@@ -193,7 +199,8 @@ class Magang extends CI_Controller {
                 'id'=>$result,
                 'fullname'=>$nama[$index],
                 'studyProgram'=>$programStudi,
-                'department'=>$fakultas,
+                'department'=>$jurusan,
+                'faculty'=>$fakultas,
                 'institute'=>$sekolah,
                 'gender'=>$jenisKelamin[$index],
                 'status'=>'terdaftar',
@@ -207,7 +214,7 @@ class Magang extends CI_Controller {
             );
             $index++;
         }
-        // print_r(json_encode($data));                
+        print_r(json_encode($data));                        
         $result = $this->Internship->insertNewInternship($data);
         if($result){
             $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
@@ -232,7 +239,8 @@ class Magang extends CI_Controller {
                 )
             );
         }
-        print_r(json_encode($data));
+        // print_r(json_encode($data));
+        
         $result = $this->Internship->updateByNIM($data);
         if($result){
             $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data telah disetujui</div>');
@@ -261,5 +269,7 @@ class Magang extends CI_Controller {
         }
         redirect('Magang/daftarMagang');
     }
+
+
     
 }

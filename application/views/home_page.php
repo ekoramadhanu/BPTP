@@ -42,7 +42,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-uppercase mb-2" style="color:black">Total Laki - laki</div>
-                  <div class="h5 mb-0 font-weight-bold" style="color:black"><?=$totalLaki->jumlah?></div>
+                  <div class="h5 mb-0 font-weight-bold" style="color:black"><?=$totalLaki?></div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-male fa-3x text-primary"></i>
@@ -59,7 +59,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-uppercase mb-2" style="color:black">Total Perempuan</div>
-                  <div class="h5 mb-0 font-weight-bold" style="color:black"><?=$totalPerempuan->jumlah?></div>
+                  <div class="h5 mb-0 font-weight-bold" style="color:black"><?=$totalPerempuan?></div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-female fa-3x text-danger"></i>

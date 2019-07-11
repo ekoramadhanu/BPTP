@@ -96,7 +96,7 @@ class Internship extends CI_Model {
             when month(date_end) = 12 then 'Desember'
             END as 'endMonth',
             year(date_end) as 'endYear', id_kelompok as 'kelompok',
-            guide,place from internship where year(date_start) =".$year." and fullname like '%".$like."%' order by year(date_start) desc, month(date_start) asc
+            guide,place,create_at from internship where year(date_start) =".$year." and fullname like '%".$like."%' order by create_at desc, year(date_start) desc, month(date_start) asc
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($like){
@@ -132,7 +132,7 @@ class Internship extends CI_Model {
             when month(date_end) = 12 then 'Desember'
             END as 'endMonth',
             year(date_end) as 'endYear', id_kelompok as 'kelompok',
-            guide,place from internship where fullname like '%".$like."%' order by year(date_start) desc, month(date_start) asc
+            guide,place,create_at from internship where fullname like '%".$like."%' order by create_at desc,year(date_start) desc, month(date_start) asc
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($year){
@@ -168,7 +168,7 @@ class Internship extends CI_Model {
             when month(date_end) = 12 then 'Desember'
             END as 'endMonth',
             year(date_end) as 'endYear', id_kelompok as 'kelompok',
-            guide,place from internship where year(date_start) = ".$year." order by year(date_start) desc, month(date_start) asc
+            guide,place,create_at from internship where year(date_start) = ".$year." order by create_at desc,year(date_start) desc, month(date_start) asc
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else{
@@ -204,7 +204,7 @@ class Internship extends CI_Model {
                 when month(date_end) = 12 then 'Desember'
                 END as 'endMonth',
                 year(date_end) as 'endYear', id_kelompok as 'kelompok',
-                guide,place from internship order by year(date_start) desc, month(date_start) asc
+                guide,place,create_at from internship order by create_at desc,year(date_start) desc, month(date_start) asc
                 limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }
@@ -362,9 +362,21 @@ class Internship extends CI_Model {
      * 
      * output: mengembalikan banyaknya data dalam bentuk int atau angka
      */
-    public function getCountAllByYear($year){
-        return $this->db->get_where("internship",['year(date_start)'=>$year])->num_rows();
+    public function getCountAllByYear($yearNow){
+        return $this->db->get_where("internship",['year(date_start)'=>$yearNow])->num_rows();
     }
+
+    public function getCountAllByEndYear($yearNow){    
+        $yearPrev = $yearNow-1;
+        return $this->db->get_where("internship",['year(date_start)'=>$yearPrev,'year(date_end)'=>$yearNow])->num_rows();
+    }
+
+    public function getCountAllByStartYear($yearNow){    
+        $query="select id from internship where status='terdaftar' and year(date_start)=".$yearNow;
+        
+    }
+
+
 
     /**
      * method ini digunakan sebagai untuk mengambil  data
@@ -417,11 +429,25 @@ class Internship extends CI_Model {
      * 
      * output :  mengembalikan banyak nya data 
      */
-    public function getCountByEndDatePKL($monthStart,$yearStart,$monthEnd,$yearEnd){        
-        $query ="
-        select id from internship where status = 'terdaftar' and month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart.
-        " and month(date_end) >=".$monthEnd." and year(date_end) = ".$yearEnd;
-        return $this->db->query($query)->num_rows();
+    public function getCountByEndDatePKL($monthCheck,$yearNow,$yearCheck=null,$monthNow=null){        
+        // $query ="
+        // select id from internship where status = 'terdaftar' and month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart.
+        // " and month(date_end) >=".$monthEnd." and year(date_end) = ".$yearEnd;
+        // return $this->db->query($query)->num_rows();
+        if(!$yearCheck){
+            $query="select id from internship 
+            where status='terdaftar' and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow.
+            " and month(date_start) =".$monthNow." and year(date_start)= ".$yearNow;
+            return $this->db->query($query)->num_rows();        
+        }else if($yearNow < $yearCheck){
+            $query="select id from internship where status ='terdaftar' and year(date_start)= ".$yearNow." 
+             and month(date_start) <".$monthCheck." and year(date_end)= ".$yearCheck;
+             return $this->db->query($query)->num_rows();        
+        }else{            
+            $query="select id from internship where status ='terdaftar' and year(date_start)= ".$yearCheck." 
+             and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow;
+             return $this->db->query($query)->num_rows();   
+        }
     }
 
     /**
@@ -495,29 +521,53 @@ class Internship extends CI_Model {
      * 
      * output :  mengembalikan array of object yang berisi
      */
-    public function getRekapByEndDatePKL($monthStart,$yearStart,$monthEnd,$yearEnd){
-        $query ="
-        select distinct id_kelompok as 'kelompok',institute, 
-        day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear', 
-        day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
-        from internship where status='terdaftar' and month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart." 
-        and month(date_end) >=".$monthEnd."
-        and year(date_end) = " .$yearEnd;
-        return $this->db->query($query)->result();
+    public function getRekapByEndDatePKL($monthCheck,$yearNow,$yearCheck=null,$monthNow=null){        
+        if(!$yearCheck){
+            $query="select distinct id_kelompok as 'kelompok',institute, 
+            day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear', 
+            day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
+            from internship where status='terdaftar' and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow.
+            " and month(date_start) =".$monthNow." and year(date_start)= ".$yearNow;
+            return $this->db->query($query)->result();        
+        }else if($yearNow < $yearCheck){
+            $query="select distinct id_kelompok as 'kelompok',institute, 
+            day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear',
+             day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
+             from internship where status ='terdaftar' and year(date_start)= ".$yearNow." 
+             and month(date_start) <".$monthCheck." and year(date_end)= ".$yearCheck;
+             return $this->db->query($query)->result();        
+        }else{            
+            $query="select distinct id_kelompok as 'kelompok',institute, 
+            day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear',
+             day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
+             from internship where status ='terdaftar' and year(date_start)= ".$yearCheck." 
+             and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow;
+             return $this->db->query($query)->result();   
+        }
     }
 
-    public function getCountByStatusAndYear($status,$year){
-        // $status = $status."";
-        $query="select count(id) as 'jumlah'  from internship WHERE lower(status) ='".$status."' and year(date_start) =".$year; 
-        return $this->db->query($query)->row();
 
+    public function getCountByStatusAndStartYear($status,$yearNow){        
+        $query="select id as 'jumlah'  from internship WHERE lower(status) ='".$status."' and year(date_start) =".$yearNow; 
+        return $this->db->query($query)->num_rows();
     }
 
-    public function getCountByGenderAndYear($gender,$year){
-        $query="select count(id) as 'jumlah' from internship where gender= '".$gender."' and year(date_start) = ".$year;
-        return $this->db->query($query)->row();
+    public function getCountByStatusAndEndYear($status,$yearNow){  
+        $yearPrev = $yearNow-1;      
+        $query="select id as 'jumlah'  from internship WHERE lower(status) ='".$status."' and year(date_start) =".$yearPrev." and year(date_end)=".$yearNow; 
+        return $this->db->query($query)->num_rows();
     }
 
+    public function getCountByGenderAndStartYear($gender,$yearNow){
+        $query="select id as 'jumlah' from internship where gender= '".$gender."' and year(date_start) = ".$yearNow;
+        return $this->db->query($query)->num_rows();
+    }
+    
+    public function getCountByGenderAndEndYear($gender,$yearNow){
+        $yearPrev = $yearNow-1;
+        $query="select id as 'jumlah' from internship where gender= '".$gender."' and year(date_end) = ".$yearNow." and year(date_start) =".$yearPrev;
+        return $this->db->query($query)->num_rows();
+    }
     public function getDepartmentByKelompok($kelompok){
         $query="select distinct department from internship where id_kelompok =".$kelompok;
         return $this->db->query($query)->row();
