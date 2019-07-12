@@ -22,10 +22,14 @@ class UserControler extends CI_Controller {
         // data dimasukkan ke dalam view topbar
         $top['user']= $this->User->getIdentityUser($role['id']);      
         // validasi form
-        $this->form_validation->set_rules('passwordBaru','passwordBaru','min_length[6]|max_length[12]|matches[password]',[
-            'min_lenght'=>'kata sandi terlalu pendek',
-            'max_lenght'=>'kata sandi terlalu panjang',
+        $this->form_validation->set_rules('passwordBaru','passwordBaru','min_length[6]|max_length[12]|matches[repasswordBaru]',[
+            'min_length'=>'kata sandi terlalu pendek',
+            'max_length'=>'kata sandi terlalu panjang',
             'matches'=>'kata sandi baru tidak sama '
+        ]);
+        $this->form_validation->set_rules('repasswordBaru','repasswordBaru','min_length[6]|max_length[12]',[
+            'min_length'=>'kata sandi terlalu pendek',
+            'max_length'=>'kata sandi terlalu panjang'            
         ]);
         if(!$this->form_validation->run()){
             $this->load->view('template/header',$data);

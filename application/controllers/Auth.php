@@ -17,6 +17,7 @@ class Auth extends CI_Controller {
     public function __construct(){
 		parent::__construct();        
         $this->load->model('User');
+        $this->load->library('form_validation');
         if($this->session->userdata('roleId')){
             redirect('Home');
         }
@@ -55,5 +56,39 @@ class Auth extends CI_Controller {
         }
 
     } 
+
+    public function resetKataSandi(){
+        $data['title']= 'Reset Password'; 
+        $this->form_validation->set_rules('password','password','min_length[6]|max_length[12]|matches[repassword]',[
+            'min_length'=>'kata sandi terlalu pendek',
+            'max_length'=>'kata sandi terlalu panjang',
+            'matches'=>'kata sandi baru tidak sama '
+        ]);
+        $this->form_validation->set_rules('repassword','repassword','min_length[6]|max_length[12]',[
+            'min_length'=>'kata sandi terlalu pendek',
+            'max_length'=>'kata sandi terlalu panjang'            
+        ]);
+        if(!$this->form_validation->run()){
+            $this->load->view('template/header',$data);
+            $this->load->view('reset_password');
+            $this->load->view('template/footer');           
+        }else{
+            $this->changePassword();
+        }
+    }
+
+    public function changePassword(){
+        $username =$this->input->post('username');
+        $password =$this->input->post('repassword');
+        $passwordBaru =password_hash($this->input->post('password'),PASSWORD_DEFAULT);        
+        $user = $this->User->getUser($username);
+        $gantiPassword = $this->User->updatePasswordByID($user->id,$passwordBaru);
+        if($gantiPassword){
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Password Berhasil diganti</div>');
+        }else{
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Password tidak berhasil diganti</div>');
+        }
+        redirect('Auth/resetKataSandi');
+    }
     
 }

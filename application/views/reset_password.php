@@ -11,16 +11,17 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-6 d-none d-lg-block "> 
+          <div class="col-lg-6 d-none d-lg-block pl-5 pt-4"> 
               <img src="<?=base_url('Assets/image/logo.png')?>" width='300' height='300' class="image-logo">
           </div>
           <div class="col-lg-6 ">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-black mb-4">Masuk SIM BPTP Jawa Timur</h1>
+                <h1 class="h4 text-black mb-4">Reset Kata Sandi</h1>
               </div>
               <?= $this->session->flashdata('message')?>
-              <form class="user needs-validation" method="post" action="<?=base_url('Auth/login')?>" novalidate>
+              <?=form_error('password', '<div class="alert alert-danger" role="alert">', '</div>')?>
+              <form class="user needs-validation" method="post" action="<?=base_url('Auth/resetKataSandi')?>" novalidate>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Nama Pengguna"
                   name="username" required>
@@ -29,19 +30,26 @@
                   </div>                  
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Kata Sandi"
+                  <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Kata Sandi Baru"
                   name="password" required>
                   <div class="invalid-feedback">
                     <p class="pl-2">Kata sandi tidak boleh kosong</p>
                   </div>                  
                 </div>                
-                <button type="submit" href="<?=base_url('Auth/login')?>" class="btn button-primary btn-user btn-block text-white">
-                  Masuk
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ulang Kata Sandi"
+                  name="repassword" required>
+                  <div class="invalid-feedback">
+                    <p class="pl-2">Kata sandi tidak boleh kosong</p>
+                  </div>                  
+                </div>                
+                <button type="submit"  class="btn button-primary btn-user btn-block text-white">
+                  Reset
                 </button>      
               </form>
               <br>
               <div class="text-center">
-                 <a class="small text-black" href="<?=base_url('Auth/resetKataSandi')?>">Reset Kata Sandi?</a>
+                 <a class="small text-black" href="<?=base_url('Auth')?>">Masuk SIM</a>
               </div>              
               <br>              
             </div>

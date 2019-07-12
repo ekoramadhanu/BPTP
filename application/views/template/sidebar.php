@@ -94,7 +94,7 @@
     ">
       <a class="nav-link" href="<?=base_url('Admin')?>">
         <i class="fas fa-fw fa-table"></i>
-        <span>Daftar Administrator</span></a>
+        <span>Daftar Admin</span></a>
     </li>    
   <?php endif ;?>
   <!-- berakhir tambahan navbar -->
@@ -115,7 +115,7 @@
   "> 
     <a class="nav-link" href="<?=base_url('UserControler')?>">
       <i class="fas fa-fw fa-key"></i>
-      <span>Ganti Password</span></a>
+      <span>Ganti Kata Sandi</span></a>
   </li>
 
   <!-- Nav Item - Tables -->
