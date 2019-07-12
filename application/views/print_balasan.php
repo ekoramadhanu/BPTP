@@ -216,7 +216,7 @@
 				</b> 
 				<?php foreach ($fullname as $name) {
 					if($name->is_sekolah == 1){
-						echo " bagi siswa sebagai berikut :";
+						echo " bagi siswa berikut :";
 					}else{
 						$string = explode(' ',$studyProgram->studyProgram);
 						$index = 0;
@@ -224,7 +224,7 @@
 							$string[$i] = ucfirst($string[$i]);
 						}
 						echo "bagi mahasiswa
-						Program Studi ".implode(' ',$string)." sebagai berikut:";
+						Program Studi ".implode(' ',$string)." berikut:";
 					}
 					break;
 				}
