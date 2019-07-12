@@ -530,7 +530,7 @@
              <!-- perhitungan untuk  -->
              <tr>
                 <td colspan="6" class="text-center" style="border: 1px solid #000 !important">
-                    <b>Jumlah =                 
+                    <b>JUMLAH =                 
                         <?php
                         $jumlah = 0 ;
                         $jumlah += $jumlahStartDate[$i] ;
@@ -539,14 +539,14 @@
                         for ($j=1; $j <$i ; $j++) { 
                                 $jumlah += $jumlahEndaDate[$i][$j];
                         }
-                        echo $jumlah." orang ";
+                        echo $jumlah." ORANG ";
                         ?>
                     </b>
                 </td>
             </tr>
         <?php endfor;?>
         <tr>
-            <td colspan="6" class="text-center" style="border: 1px solid #000 !important"><b>Total Magang = <?= $total." orang"?></b></td>
+            <td colspan="6" class="text-center text-uppercase" style="border: 1px solid #000 !important"><b>Total Magang = <?= $total." orang"?></b></td>
         </tr>
     </tbody>
   </table>

@@ -43,7 +43,7 @@
         <tfoot>
           <tr class="align-middle" id="bg-gradient-primary">
             <th>No</th>
-            <th>Username</th>
+            <th>Nama Pengguna</th>
             <th>Peran</th>            
             <th class="text-right pr-5">Keterangan</th>
           </tr>

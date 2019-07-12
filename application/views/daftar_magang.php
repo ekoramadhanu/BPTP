@@ -210,7 +210,7 @@ data-backdrop="static" data-keyboard="false">
     <form action="<?=base_url('Magang/cetakRekap')?>" method="get" class="needs-validation" novalidate id="form-rekap">
       <div class="modal-body" style="color:black">
         <div class="form-group">
-          <input type="number" class="form-control form-control-user" placeholder="Tahun Sekap"
+          <input type="number" class="form-control form-control-user" placeholder="Tahun Rekap"
            name="tahun" min="0" style="color:black" id="tahunRekap" required>
            <div class="invalid-feedback">
               <p class="pl-2 text-capitalize">Tahun tidak boleh kosong</p>

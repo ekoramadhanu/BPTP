@@ -60,13 +60,13 @@ class Auth extends CI_Controller {
     public function resetKataSandi(){
         $data['title']= 'Reset Password'; 
         $this->form_validation->set_rules('password','password','min_length[6]|max_length[12]|matches[repassword]',[
-            'min_length'=>'kata sandi terlalu pendek',
-            'max_length'=>'kata sandi terlalu panjang',
-            'matches'=>'kata sandi baru tidak sama '
+            'min_length'=>'Kata Sandi Kurang Dari Enam',
+            'max_length'=>'Kata Sandi Lebih Dari Dua belas',
+            'matches'=>'Kata Sandi Baru Tidak Sama'
         ]);
         $this->form_validation->set_rules('repassword','repassword','min_length[6]|max_length[12]',[
-            'min_length'=>'kata sandi terlalu pendek',
-            'max_length'=>'kata sandi terlalu panjang'            
+            'min_length'=>'Kata Sandi Kurang Dari Enam',
+            'max_length'=>'Kata Sandi Lebih Dari Dua belas'      
         ]);
         if(!$this->form_validation->run()){
             $this->load->view('template/header',$data);

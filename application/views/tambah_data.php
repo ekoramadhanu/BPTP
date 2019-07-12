@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="form-group">
-              <label id="daftarMagang" class="text-black">Daftar angota</label>                
+              <label id="daftarMagang" class="text-black text-capitalize">Daftar anggota</label>                
               <div id="listAnggota"></div>
               <a class="small text-primary" href="" data-toggle="modal" data-target="#tambahAnggota" >Tambah Anggota</a>
             </div>
