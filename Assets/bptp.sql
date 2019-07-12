@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jul 2019 pada 09.21
+-- Waktu pembuatan: 12 Jul 2019 pada 09.25
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.1.27
 
@@ -57,6 +57,14 @@ CREATE TABLE `role` (
   `roleName` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `role`
+--
+
+INSERT INTO `role` (`id`, `roleName`) VALUES
+(1, 'Super Administrator'),
+(2, 'Administrator');
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +80,14 @@ CREATE TABLE `user` (
   `roleId` tinyint(4) DEFAULT NULL,
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `roleId`, `create_at`) VALUES
+(1, 'admin', '$2y$10$8zS0m.o/8CGhyCDXuc435.cMxU1z9xjXGzexDSQitI73RSosGFQBq', 'Admin', 'default.jpg', 2, '2019-06-19 07:13:57'),
+(2, 'superAdmin', '$2y$10$xXM7DKZ8CeLbkqmVJm5/tu5f51UyNrshMajq5L4Br0OaCWpOOCEs6', 'DBA', 'default.jpg', 1, '2019-06-19 07:13:50');
 
 --
 -- Indexes for dumped tables
@@ -107,13 +123,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
