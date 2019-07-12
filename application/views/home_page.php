@@ -9,7 +9,7 @@
       <div class="text-right">
         <form class="d-none d-sm-inline-block text-white form-inline mb-4" mehod="get" action="<?=base_url('Home')?>">
           <div class="form-group">            
-             <input type="number" class="form-control" placeholder="tahun" min="1" name="tahun" style="color:black">
+             <input type="number" class="form-control" placeholder="Tahun" min="1" name="tahun" style="color:black">
              <input class="btn btn-outline-primary ml-3 " type="submit" name="submit" value="Cari">            
           </div>
        </form>        
@@ -41,7 +41,7 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-uppercase mb-2" style="color:black">Total Laki - laki</div>
+                  <div class="text-xs font-weight-bold text-uppercase mb-2" style="color:black">Total Laki-laki</div>
                   <div class="h5 mb-0 font-weight-bold" style="color:black"><?=$totalLaki?></div>
                 </div>
                 <div class="col-auto">
@@ -81,7 +81,7 @@
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
-              <h6 class="m-0 font-weight-bold" style="color:black">Jumlah Magang tiap bulan</h6>              
+              <h6 class="m-0 font-weight-bold" style="color:black">Jumlah Magang Tiap bulan</h6>              
             </div>
             <!-- Card Body -->
             <div class="card-body">

@@ -217,9 +217,9 @@ class Magang extends CI_Controller {
         print_r(json_encode($data));                        
         $result = $this->Internship->insertNewInternship($data);
         if($result){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan</div>');
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak Berhasil ditambahkan</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Tidak Berhasil Ditambahkan</div>');
         }
         redirect('Magang/tambahData');
     }
@@ -243,9 +243,9 @@ class Magang extends CI_Controller {
         
         $result = $this->Internship->updateByNIM($data);
         if($result){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data telah disetujui</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data telah Disetujui</div>');
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa tidak bisa disetujui</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Tidak Bisa Disetujui</div>');
         }
         redirect('Magang/daftarMagang');
     }
@@ -263,9 +263,9 @@ class Magang extends CI_Controller {
         print_r(json_encode($data));
         $result = $this->Internship->updateByNIM($data);
         if($result){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data telah ditolak</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Telah Ditolak</div>');
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa tidak bisa ditolak/div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Data Tidak Bisa ditolak/div>');
         }
         redirect('Magang/daftarMagang');
     }

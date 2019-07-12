@@ -60,7 +60,7 @@
       console.log(jenisKelamin);
       if(namaAnggota === '' || nomorAnggota === ''){
         $('#tambah').attr('data-dismiss','');
-        alert('data tidak bisa ditambahkan harap diisi semua form yang diberikan');
+        alert('Data Tidak Bisa Ditambahkan Harap Diisi Semua Formulir yang Diberikan');
       }else{
         $('#tambah').attr('data-dismiss','modal');
         list(namaAnggota,nomorAnggota,jenisKelamin);
@@ -107,12 +107,12 @@
         $('#programStudi').append("<label class='text-black' id='labelProgramStudi' >Program Studi</label>"+
           "<input type='text' class='form-control' name='programstudi' id='inputProgramStudi' required>"+
           "<div class='invalid-feedback'>"+
-           "<p class='pl-2'>Program studi tidak boleh kosong</p>"+
+           "<p class='pl-2 text-capitalize'>Program studi tidak boleh kosong</p>"+
           "</div>");
         $('#fakultas').append("<label class='text-black' id='labelFakultas' >Fakultas</label>"+
           "<input type='text' class='form-control' name='fakultas' id='inputfakultas' required>"+
           "<div class='invalid-feedback'>"+
-           "<p class='pl-2'>Fakultas tidak boleh kosong</p>"+
+           "<p class='pl-2 text-capitalize'>Fakultas tidak boleh kosong</p>"+
           "</div>");
       }
     });
@@ -201,7 +201,7 @@
   var myPieChart = new Chart(ctx, {
     type: 'doughnut',
     data: {    
-      labels: ["menunggu", "ditolak","terdaftar"],
+      labels: ["Menunggu", "Ditolak","Terdaftar"],
       datasets: [{
         data: [menunggu,ditolak,terdaftar],
         backgroundColor: ['#ffc107', '#c43516', '#007bff'],

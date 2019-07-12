@@ -23,13 +23,13 @@ class UserControler extends CI_Controller {
         $top['user']= $this->User->getIdentityUser($role['id']);      
         // validasi form
         $this->form_validation->set_rules('passwordBaru','passwordBaru','min_length[6]|max_length[12]|matches[repasswordBaru]',[
-            'min_length'=>'kata sandi terlalu pendek',
-            'max_length'=>'kata sandi terlalu panjang',
-            'matches'=>'kata sandi baru tidak sama '
+            'min_length'=>'Kata Sandi Tidak Boleh Kurang Dari Enam',
+            'max_length'=>'Kata Sandi Tidak Boleh Lebih Dari Dua Belas',
+            'matches'=>'Kata Sandi Tidak Sama '
         ]);
         $this->form_validation->set_rules('repasswordBaru','repasswordBaru','min_length[6]|max_length[12]',[
-            'min_length'=>'kata sandi terlalu pendek',
-            'max_length'=>'kata sandi terlalu panjang'            
+            'min_length'=>'Kata Sandi Tidak Boleh Kurang Dari Enam',
+            'max_length'=>'Kata Sandi Tidak Boleh Lebih Dari Dua Belas'
         ]);
         if(!$this->form_validation->run()){
             $this->load->view('template/header',$data);
@@ -51,13 +51,13 @@ class UserControler extends CI_Controller {
             $passwordBaru =password_hash($this->input->post('passwordBaru'),PASSWORD_DEFAULT);
             $gantiPassword = $this->User->updatePasswordByID($role['id'],$passwordBaru);
             if($gantiPassword){
-                $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Password Berhasil diganti</div>');
+                $this->session->set_flashdata('message','<div class="alert alert-success text-capitalize" role="alert">Password Berhasil diganti</div>');
             }else{
-                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Password tidak berhasil diganti</div>');
+                $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Password tidak berhasil diganti</div>');
             }
         }else{
             echo "b";
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Password Lama Anda Salah</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Password Lama Anda Salah</div>');
         }
         redirect('UserControler');
     }

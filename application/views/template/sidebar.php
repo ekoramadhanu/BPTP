@@ -82,7 +82,7 @@
     <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading text-white">
-      Administrator
+      Admin
     </div>      
     <!-- Nav Item - Tables -->
     <li class="nav-item 
@@ -122,7 +122,7 @@
   <li class="nav-item">
     <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
       <i class="fas fa-fw fa-sign-out-alt"></i>
-      <span>keluar</span></a>
+      <span>Keluar</span></a>
   </li>
 
   <!-- Divider -->
@@ -142,14 +142,14 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin keluar?</h5>
+      <h5 class="modal-title text-capitalize" id="exampleModalLabel">Apakah anda yakin keluar?</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
     </div>
     <div class="modal-body">Jika iya silahkan pilih tombol 'keluar'</div>
     <div class="modal-footer">
-      <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+      <button class="btn btn-primary" type="button" data-dismiss="modal">Batal</button>
       <a class="btn btn-danger" href="<?=base_url('UserControler/logout')?>">Keluar</a>
     </div>
   </div>

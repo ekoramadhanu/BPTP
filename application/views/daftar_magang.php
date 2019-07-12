@@ -16,8 +16,8 @@
       <div class="col-lg-12 col-md-12 col-xs-12 d-flex justify-content-end">
         <form action="<?=base_url('Magang/daftarMagang')?>" method="post" id="form-cari" class="form-inline">
           <div class="input-group">
-            <input type="text" class="form-control mr-3" placeholder="nama" name="nama" autocomplete="off">            
-            <input type="number" class="form-control mr-3 " placeholder="tahun" name="tahun" min='1' autocomplete="off">
+            <input type="text" class="form-control mr-3" placeholder="Nama" name="nama" autocomplete="off">            
+            <input type="number" class="form-control mr-3 " placeholder="Tahun" name="tahun" min='1' autocomplete="off">
             <input class="btn btn-outline-primary " type="submit" name="submit" value="Cari">            
           </div>      
         </form>
@@ -135,7 +135,7 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content" id="headerBalasan">
     <div class="modal-header " style="color:black">
-      <h5 class="modal-title" id="exampleModalLabel">Isi Form cetak</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Isi Formulir Cetak</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="xBalasan">
         <span aria-hidden="true">×</span>
       </button>
@@ -143,46 +143,46 @@ data-backdrop="static" data-keyboard="false">
     <form class="form-cetak needs-validation" action="<?=base_url('Magang/cetakBalasan')?>" method="get" novalidate>
       <div class="modal-body">
         <div class="form-group">
-          <input type="number" class="form-control form-control-user" placeholder="Nomor surat" 
+          <input type="number" class="form-control form-control-user" placeholder="Nomor Surat" 
           name="nomorSurat" min='0'required style="color:black" id="nomorSurat">
           <div class="invalid-feedback">
-            <p class="pl-2">Nomor surat tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Nomor surat tidak boleh kosong</p>
           </div>
         </div>
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Jumlah Lampiran" 
           name="nomorLampiran" min='0'required style="color:black" id="jumlahLampiran">
           <div class="invalid-feedback">
-            <p class="pl-2">Jumlah Lampiran tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Jumlah lampiran tidak boleh kosong</p>
           </div>
         </div>        
         <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Nama Penerima"
            name="penerima" required style="color:black" id="namaPenerima">
            <div class="invalid-feedback">
-            <p class="pl-2">Nomor Penerima tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Nomor penerima tidak boleh kosong</p>
           </div>
         </div>                
         <div class="form-group">
-          <input type="text" class="form-control form-control-user"  placeholder="Tempat surat dituju"
+          <input type="text" class="form-control form-control-user"  placeholder="Tempat Surat Dituju"
            name="tempatTujuan" required style="color:black" id="tempatSurat">
            <div class="invalid-feedback">
-            <p class="pl-2">Tempat surat dituju tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Tempat surat dituju tidak boleh kosong</p>
           </div>
         </div>                
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" placeholder="Nomor surat yang akan dibalas"
+          <input type="text" class="form-control form-control-user" placeholder="Nomor Surat yang Akan Dibalas"
            name="nomorBalasan" required style="color:black" id="nomorSuratBalasan">
            <div class="invalid-feedback">
-            <p class="pl-2">Nomor surat yang dibalas tidak boleh kosong</p>
+            <p class="pl-2 ">Nomor Surat yang Dibalas Tidak Boleh Kosong</p>
           </div>
         </div>
         <div class="form-group">
-          <label class="text-black">Tanggal surat yang akan dibalas</label>
-          <input type="date" class="form-control form-control-user" placeholder="Tanggal surat yang dibalas"
+          <label class="text-black">Tanggal Surat yang Akan Dibalas</label>
+          <input type="date" class="form-control form-control-user" placeholder="Tanggal Surat yang Dibalas"
            name="tanggalSurat" required style="color:black" id="tanggalSuratBalasan">
            <div class="invalid-feedback">
-            <p class="pl-2">Tanggal surat yang dibalas tidak boleh kosong</p>
+            <p class="pl-2">Tanggal Surat yang Dibalas Tidak Boleh Kosong</p>
           </div>
         </div>                                
       </div>
@@ -202,7 +202,7 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content" id="headerRekap">
     <div class="modal-header" style="color:black">
-      <h5 class="modal-title" id="exampleModalLabel">Isi Form cetak</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Isi Formulir Cetak</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="xRekap">
         <span aria-hidden="true">×</span>
       </button>
@@ -210,10 +210,10 @@ data-backdrop="static" data-keyboard="false">
     <form action="<?=base_url('Magang/cetakRekap')?>" method="get" class="needs-validation" novalidate id="form-rekap">
       <div class="modal-body" style="color:black">
         <div class="form-group">
-          <input type="number" class="form-control form-control-user" placeholder="Tahun rekap"
+          <input type="number" class="form-control form-control-user" placeholder="Tahun Sekap"
            name="tahun" min="0" style="color:black" id="tahunRekap" required>
            <div class="invalid-feedback">
-              <p class="pl-2">Tahun tidak boleh kosong</p>
+              <p class="pl-2 text-capitalize">Tahun tidak boleh kosong</p>
             </div>
         </div>         
       </div>
@@ -232,7 +232,7 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content" id="headerRekap">
     <div class="modal-header" style="color:black">
-      <h5 class="modal-title" id="exampleModalLabel">Isi Form setuju</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Isi Formulir Setuju</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close" id="xRekap">
         <span aria-hidden="true">×</span>
       </button>
@@ -243,20 +243,20 @@ data-backdrop="static" data-keyboard="false">
           <label class="text-black">Pembimbing Magang</label>
           <input type="text" class="form-control" name="pembimbingMagang" required>                
           <div class="invalid-feedback">
-            <p class="pl-2">Pembimbing magang tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Pembimbing magang tidak boleh kosong</p>
           </div>
         </div> 
         <div class="form-group">
           <label class="text-black">Penempatan Magang</label>
           <input type="text" class="form-control" name="penempatanMagang" required>
           <div class="invalid-feedback">
-              <p class="pl-2">Penempatan magang tidak boleh kosong</p>
+              <p class="pl-2 text-capitalize">Penempatan magang tidak boleh kosong</p>
           </div>
         </div>
       </div>
       <div class="modal-footer" id="footerRekap">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalRekap">Batal</button>
-        <button class="btn btn-success" type="submit">setuju</button>
+        <button class="btn btn-success" type="submit">Setuju</button>
       </div>
     </form>
   </div>
@@ -269,16 +269,16 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin menolak?</h5>
+      <h5 class="modal-title text-capitalize" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin menolak?</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
     </div>
     <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
     <div class="modal-footer">
-      <button class="btn btn-danger " type="button" data-dismiss="modal">Batal</button>
+      <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Magang/tolak')?>" method="post" class="form-tolak">
-        <button class="btn btn-primary" type="submit">iya</button>
+        <button class="btn btn-danger" type="submit">Iya</button>
       </form>
     </div>
   </div>

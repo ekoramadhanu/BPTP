@@ -23,7 +23,7 @@ class Admin extends CI_Controller {
         if ($role['role'] == 1){
             // validasi form
             $this->form_validation->set_rules('username','username','is_unique[user.username]',[
-                'is_unique'=>'username sudah ada silahkan cari yang lainnya'
+                'is_unique'=>'Username Sudah Ada Silahkan Cari yang Lainnya'
             ]);
             $data['title'] = 'Daftar Administrator';
             $role['title'] = $data['title'];
@@ -50,9 +50,9 @@ class Admin extends CI_Controller {
         $name=htmlspecialchars($this->input->post('name'));
         $result = $this->User->addUser($username,$name,$role);        
         if($result){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-success text-capitalize" role="alert">Data Berhasil ditambahkan</div>');
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Username sudah dipakai</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Username sudah dipakai</div>');
         }
         redirect('Admin');
     }
@@ -61,9 +61,9 @@ class Admin extends CI_Controller {
 
         $result=$this->User->deleteAdminBYId($id);
         if($result){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil dihapus</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-success text-capitalize" role="alert">Data Berhasil dihapus</div>');
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data gagal dihapus</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Data gagal dihapus</div>');
         }
         redirect('Admin');
     }
@@ -76,9 +76,9 @@ class Admin extends CI_Controller {
         }else{
             $result=$this->User->updateAdminById($id,$role);
             if($result){
-                $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil diupdate</div>');
+                $this->session->set_flashdata('message','<div class="alert alert-success text-capitalize" role="alert">Data Berhasil diupdate</div>');
             }else{
-                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data gagal diupdate</div>');
+                $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Data gagal diupdate</div>');
             }
         }
         redirect('Admin');

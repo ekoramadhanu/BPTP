@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2" style="color:black">Daftar Administrator</h1>
+<h1 class="h3 mb-2" style="color:black">Daftar Admin</h1>
 <br>
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -16,7 +16,7 @@
         <thead>
           <tr class="align-middle" id="bg-gradient-primary">
             <th>No</th>
-            <th>Username</th>
+            <th>Nama pengguna</th>
             <th>Peran</th>            
             <th class="text-right pr-5">Keterangan</th>
           </tr>
@@ -85,7 +85,7 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title text-black" id="exampleModalLabel">Isi Form Tambah Admin</h5>
+      <h5 class="modal-title text-black" id="exampleModalLabel">Isi Formulir Tambah Admin</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -93,27 +93,27 @@ data-backdrop="static" data-keyboard="false">
     <form action="<?=base_url('Admin')?>" method="post" class=" needs-validation" novalidate>
       <div class="modal-body">
         <div class="form-group">
-          <input type="text" class="form-control form-control-user text-black" placeholder="Username"
+          <input type="text" class="form-control form-control-user text-black" placeholder="Nama Pengguna"
            name="username" style="color:black" required id="username">
            <div class="invalid-feedback">
-            <p class="pl-2">Username tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Username tidak boleh kosong</p>
           </div>
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user text-black" placeholder="Nama"
            name="name" style="color:black" required id="namaUser">
            <div class="invalid-feedback">
-            <p class="pl-2">Nama tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Nama tidak boleh kosong</p>
           </div>
         </div>
         <div class="form-group">          
           <select class="form-control" name="role" style="color:black" class="custom-select" required>
-            <option disabled selected  style="color:black" value="">Pilih jenis Pelaku</option>
+            <option disabled selected  style="color:black" value="">Pilih Jenis Pelaku</option>
             <option class="" style="color:black">Administrator</option>
             <option class="" style="color:black">Super Administrator</option>            
           </select>
           <div class="invalid-feedback">
-            <p class="pl-2">Jenis Pelaku tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Jenis Pelaku tidak boleh kosong</p>
           </div>
         </div>
       </div>
@@ -132,16 +132,16 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin mengahapus?</h5>
+      <h5 class="modal-title text-capitalize" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin menghapus?</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
     </div>
     <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
     <div class="modal-footer">
-      <button class="btn btn-danger " type="button" data-dismiss="modal">Batal</button>
+      <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Admin/deleteAdmin')?>" method="post" class="form-hapus">
-        <button class="btn btn-primary" type="submit">iya</button>
+        <button class="btn btn-danger" type="submit">Iya</button>
       </form>
     </div>
   </div>
@@ -154,7 +154,7 @@ data-backdrop="static" data-keyboard="false">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header" style="color:black">
-      <h5 class="modal-title" id="exampleModalLabel">Form Ganti User</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Isi Formulir Ganti Pengguna</h5>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -163,12 +163,12 @@ data-backdrop="static" data-keyboard="false">
       <div class="modal-body">                
         <div class="form-group">          
           <select class="form-control custom-select" name="role" style="color:black" required>
-            <option disabled selected class="" style="color:black" value="">Pilih jenis Pelaku</option>
+            <option disabled selected class="" style="color:black" value="">Pilih Jenis Pelaku</option>
             <option class="" style="color:black">Administrator</option>
             <option class="" style="color:black">Super Administrator</option>            
           </select>
           <div class="invalid-feedback">
-            <p class="pl-2">Jenis Pelaku tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Jenis Pelaku tidak boleh kosong</p>
           </div>
         </div>
       </div>
