@@ -24,7 +24,7 @@ class Admin extends CI_Controller {
             // validasi form
             $this->form_validation->set_rules('username','username','is_unique[user.username]|alpha_dash',[
                 'is_unique'=>'Username Sudah Ada Silahkan Cari yang Lainnya',
-                'alpha_dash'=>'Username Tidak Boleh Ada Spasi'
+                'alpha_dash'=>'Username Hanya Boleh Huruf,Angka, dan Underscore'
             ]);
             $data['title'] = 'Daftar Administrator';
             $role['title'] = $data['title'];
