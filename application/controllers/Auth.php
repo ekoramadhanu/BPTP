@@ -82,11 +82,15 @@ class Auth extends CI_Controller {
         $password =$this->input->post('repassword');
         $passwordBaru =password_hash($this->input->post('password'),PASSWORD_DEFAULT);        
         $user = $this->User->getUser($username);
-        $gantiPassword = $this->User->updatePasswordByID($user->id,$passwordBaru);
-        if($gantiPassword){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Password Berhasil diganti</div>');
+        if($user){
+            $gantiPassword = $this->User->updatePasswordByID($user->id,$passwordBaru);
+            if($gantiPassword){
+                $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Kata Sandi Berhasil diganti</div>');
+            }else{
+                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Kata Sandi Tidak Berhasil diganti</div>');
+            }
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Password tidak berhasil diganti</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Nama Pengguna Tidak Terdaftar</div>');
         }
         redirect('Auth/resetKataSandi');
     }
