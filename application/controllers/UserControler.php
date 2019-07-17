@@ -62,6 +62,22 @@ class UserControler extends CI_Controller {
         redirect('UserControler');
     }
 
+    public function bantuan(){
+        // data dimasukkan ke dalam view header
+        $data['title'] = 'Bantuan';
+        // data dimasukkan ke dalam view sidebar
+        $role['id']=$this->session->userdata('id');        
+        $role['role']=$this->session->userdata('roleId');
+        $role['title'] = $data['title'];
+        // data dimasukkan ke dalam view topbar
+        $top['user']= $this->User->getIdentityUser($role['id']);      
+        $this->load->view('template/header',$data);
+        $this->load->view('template/sidebar',$role);
+        $this->load->view('template/topbar',$top);
+        $this->load->view('bantuan');
+        $this->load->view('template/footer');    
+    }
+
     public function logout(){
         $this->session->unset_userdata('roleId');
         $this->session->unset_userdata('id');

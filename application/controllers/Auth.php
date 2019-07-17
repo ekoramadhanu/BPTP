@@ -42,18 +42,24 @@ class Auth extends CI_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $user = $this->User->getUser($username);
-        if($user && password_verify($password,$user->password)){            
-        $data= array(            
-            'roleId' =>$user->roleId,
-            'id'=>$user->id,
-            'username'=>$user->username
-        );
-        $this->session->set_userdata($data);            
-        redirect('Home');
+        if($user){
+            if($user && password_verify($password,$user->password)){            
+                $data= array(            
+                    'roleId' =>$user->roleId,
+                    'id'=>$user->id,
+                    'username'=>$user->username
+                );
+                $this->session->set_userdata($data);            
+                redirect('Home');
+            }else{
+                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Kata Sandi Salah</div>');
+                redirect('auth');
+            }
         }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Nama Pengguna dan Kata Sandi Salah</div>');
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Nama Pengguna Tidak Terdaftar</div>');
             redirect('auth');
         }
+        
 
     } 
 
@@ -62,7 +68,7 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('password','password','min_length[6]|max_length[12]|matches[repassword]',[
             'min_length'=>'Kata Sandi Tidak Boleh Kurang Dari Enam',
             'max_length'=>'Kata Sandi Tidak Boleh Lebih Dari Dua belas',
-            'matches'=>'Kata Sandi Baru Tidak Sama'
+            'matches'=>'Kata Sandi Tidak Sama'
         ]);
         $this->form_validation->set_rules('repassword','repassword','min_length[6]|max_length[12]',[
             'min_length'=>'Kata Sandi Tidak Boleh Kurang Dari Enam',

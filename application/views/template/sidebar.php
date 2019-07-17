@@ -119,6 +119,19 @@
   </li>
 
   <!-- Nav Item - Tables -->
+  <li class="nav-item
+    <?php
+      if($title =='Bantuan'){
+        echo 'active';
+      }
+    ?>
+  ">
+    <a class="nav-link" href="<?=base_url('UserControler/bantuan')?>">
+      <i class="fas fa-fw fa-question-circle"></i>
+      <span>Bantuan</span></a>
+  </li>
+
+  <!-- Nav Item - Tables -->
   <li class="nav-item">
     <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">
       <i class="fas fa-fw fa-sign-out-alt"></i>
