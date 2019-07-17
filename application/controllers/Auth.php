@@ -59,8 +59,6 @@ class Auth extends CI_Controller {
             $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Nama Pengguna Tidak Terdaftar</div>');
             redirect('auth');
         }
-        
-
     } 
 
     public function resetKataSandi(){

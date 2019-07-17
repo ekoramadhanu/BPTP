@@ -119,14 +119,8 @@
   </li>
 
   <!-- Nav Item - Tables -->
-  <li class="nav-item
-    <?php
-      if($title =='Bantuan'){
-        echo 'active';
-      }
-    ?>
-  ">
-    <a class="nav-link" href="<?=base_url('UserControler/bantuan')?>">
+  <li class="nav-item">
+    <a class="nav-link" href="<?=base_url('Help')?>">
       <i class="fas fa-fw fa-question-circle"></i>
       <span>Bantuan</span></a>
   </li>
