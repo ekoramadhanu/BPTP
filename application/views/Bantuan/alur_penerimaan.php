@@ -43,9 +43,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>tolakDaftarMagang.png" class="mt-1 mb-4 img-fluid img-thumbnail">
             </li>
-            
         </ol>
-            
       </div>
   </div>
 </div>
