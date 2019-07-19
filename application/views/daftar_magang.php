@@ -69,7 +69,8 @@
               <td class="text-center">      
               <?php 
                 if($rekap->status == "terdaftar"){
-                  echo "<button type='submit' class='cetak btn btn-outline-primary' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'><i class='fas fa-fw fa-print'></i></button>";
+                  echo "<button type='submit' class='cetak btn btn-sm btn-outline-primary mr-1' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'><i class='fas fa-fw fa-print'></i></button>";
+                  echo "<button type='submit' class='hapusMagang btn btn-sm btn-outline-danger' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#hapusDataMagang'><i class='fas fa-fw fa-trash-alt'></i></button>";
                 }else if($rekap->status == "ditolak"){
                   echo "<p class='text-danger'>Ditolak</p>";
                 }else{
@@ -219,7 +220,7 @@ data-backdrop="static" data-keyboard="false">
       </div>
       <div class="modal-footer" id="footerRekap">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalRekap">Batal</button>
-        <button class="btn btn-primary" type="submit">Cetak</button>
+        <button class="btn btn-primary btnCetakMagang" type="submit">Cetak</button>
       </div>
     </form>
   </div>
@@ -256,7 +257,7 @@ data-backdrop="static" data-keyboard="false">
       </div>
       <div class="modal-footer" id="footerRekap">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalRekap">Batal</button>
-        <button class="btn btn-success" type="submit">Setuju</button>
+        <button class="btn btn-success btnSetujuMagang" type="submit">Setuju</button>
       </div>
     </form>
   </div>
@@ -278,7 +279,29 @@ data-backdrop="static" data-keyboard="false">
     <div class="modal-footer">
       <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Magang/tolak')?>" method="post" class="form-tolak">
-        <button class="btn btn-danger" type="submit">Iya</button>
+        <button class="btn btn-danger btnTolakMagang" type="submit">Iya</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Hapus Data Magang-->
+<div class="modal fade" id="hapusDataMagang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-capitalize" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin menghapus?</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
+    <div class="modal-footer">
+      <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
+      <form action="<?=base_url('Magang/delete')?>" method="post" class="form-hapus-magang">
+        <button class="btn btn-danger btnHapusDataMagang" type="submit" id="">Iya</button>
       </form>
     </div>
   </div>

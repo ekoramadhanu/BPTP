@@ -589,7 +589,7 @@ class Internship extends CI_Model {
     }
 
     public function insertNewInternship( $data){
-        print_r($data);        
+        // print_r($data);        
         return $this->db->insert_batch('internship',$data);        
 
     }
@@ -601,6 +601,14 @@ class Internship extends CI_Model {
 
     public function updateByNIM($data){
         return $this->db->update_batch('internship',$data,'id');        
+    }
+
+    public function updateIdKelompok($data){
+
+    }
+
+    public function DeleteKelompok($kelompok){
+
     }
 
 

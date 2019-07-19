@@ -19,37 +19,57 @@
     $('.cetak').click(function () {
       ambilVal= $(this).attr('data-kelompok');        
       console.log(ambilVal);
-      $('.form-cetak').attr('action', $('.form-cetak').attr('action') + '/' + ambilVal)
+      $('.form-cetak').on('click','.btnCetakMagang',function(e){        
+        $('.form-cetak').attr('action', $('.form-cetak').attr('action') + '/' + ambilVal)
+      });
     });
 
     // event yang diambil dari tempat view daftar magang untuk menyetujui
     $('.setuju').click(function () {
       ambilVal= $(this).attr('data-kelompok');        
-      console.log(ambilVal);
-      $('.form-setuju').attr('action', $('.form-setuju').attr('action') + '/' + ambilVal)
+      console.log(ambilVal);      
+      $('.form-setuju').on('click','.btnSetujuMagang',function(e){        
+        $('.form-setuju').attr('action', $('.form-setuju').attr('action') + '/' + ambilVal)
+      });
     });
 
     // event yang diambil dari tempat view daftar magang untuk tolak
     $('.tolak').click(function () {
       ambilVal= $(this).attr('data-kelompok');        
-      console.log(ambilVal);
-      $('.form-tolak').attr('action', $('.form-tolak').attr('action') + '/' + ambilVal)
+      console.log(ambilVal);      
+      $('.form-tolak').on('click','.btnTolakMagang',function(e){        
+        $('.form-tolak').attr('action', $('.form-tolak').attr('action') + '/' + ambilVal)
+      });
     });
 
     // event yang diambil dari tempat view daftar_administrator untuk hapus
     $('.hapusAdmin').click(function () {
       ambilVal= $(this).attr('data-id');        
-      console.log(ambilVal);
-      $('.form-hapus').attr('action', $('.form-hapus').attr('action') + '/' + ambilVal)
+      console.log(ambilVal);      
+      $('.form-hapus').on('click','.btnHapusAdmin',function(e){        
+        $('.form-hapus').attr('action', $('.form-hapus').attr('action') + '/' + ambilVal)
+      });
     });
+
     // event yang diambil dari tempat view daftar_administrator untuk update
     $('.updateAdmin').click(function () {
       ambilVal= $(this).attr('data-id');        
-      console.log(ambilVal);
-      $('.form-update').attr('action', $('.form-update').attr('action') + '/' + ambilVal)
+      console.log(ambilVal);      
+      $('.form-update').on('click','.btnUpdateAdmin',function(e){        
+        $('.form-update').attr('action', $('.form-update').attr('action') + '/' + ambilVal)
+      });
     });    
-    
-  // tambah list anggota
+
+    // event yang diambil dari tempat view daftar_magang untuk hapus data
+    $('.hapusMagang').click(function () {
+      ambilVal= $(this).attr('data-kelompok');        
+      console.log(ambilVal);
+      $('.form-hapus-magang').on('click','.btnHapusDataMagang',function(e){
+        $('.form-hapus-magang').attr('action', $('.form-hapus-magang').attr('action') + '/' + ambilVal)
+      });
+    });    
+
+    // tambah list anggota
     var index = 0;
     $('#tambah').click(function(){      
       var namaAnggota = document.getElementById('namaAnggota').value;

@@ -141,7 +141,7 @@ data-backdrop="static" data-keyboard="false">
     <div class="modal-footer">
       <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Admin/deleteAdmin')?>" method="post" class="form-hapus">
-        <button class="btn btn-danger" type="submit">Iya</button>
+        <button class="btn btn-danger btnHapusAdmin" type="submit">Iya</button>
       </form>
     </div>
   </div>
@@ -174,7 +174,7 @@ data-backdrop="static" data-keyboard="false">
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger" type="button" data-dismiss="modal">Batal</button>
-        <button class="btn btn-primary" type="submit">Ganti</button>
+        <button class="btn btn-primary btnUpdateAdmin" type="submit">Ganti</button>
       </div>
   </div>
 </div>

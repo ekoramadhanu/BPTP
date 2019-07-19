@@ -270,6 +270,7 @@ class Magang extends CI_Controller {
         redirect('Magang/daftarMagang');
     }
 
-
-    
+    public function delete($kelompok=null){
+     echo $kelompok;   
+    }
 }

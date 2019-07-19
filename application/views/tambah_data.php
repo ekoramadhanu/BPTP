@@ -93,7 +93,7 @@
               <div id="listAnggota"></div>
               <a class="small text-primary" href="" data-toggle="modal" data-target="#tambahAnggota" >Tambah Anggota</a>
             </div>
-            <button class="btn btn-primary ">Tambah</button>
+            <button class="btn btn-primary ">Simpan</button>
         </form>
     </div>
     <!-- /.container-fluid -->
