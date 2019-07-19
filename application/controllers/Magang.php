@@ -275,8 +275,13 @@ class Magang extends CI_Controller {
       if($update){
         $deleteMember=$this->Internship->DeleteMemberKelompok($kelompok);
         $deleteLeader=$this->Internship->DeleteLeaderKelompok($kelompok);
+        if($deleteMember && $deleteLeader){
+            $this->session->set_flashdata('message','<div class="alert alert-success text-capitalize" role="alert">Data berhasil dihapus</div>');
+        }else{
+            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Data Tidak Bisa Dihapus</div>');    
+        }
       }else{
-
+        $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Data Tidak Bisa Dihapus</div>');
       }
       redirect('Magang/daftarMagang');
     }

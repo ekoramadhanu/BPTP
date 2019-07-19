@@ -9,7 +9,13 @@
       <button  data-toggle="modal" data-target="#cetakRekap" class="btn btn-sm shadow-sm text-white btn-primary"><i class="fas fa-print fa-sm text-white"></i> Cetak Rekap per Tahun</a>      
     </div>
   </div>
-  
+
+  <div class="row">
+    <div class="col-lg-12">      
+      <?= $this->session->flashdata('message')?>    
+    </div>
+  </div>
+
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="row pt-2 pl-2 pr-2">    
@@ -21,7 +27,7 @@
             <input class="btn btn-outline-primary " type="submit" name="submit" value="Cari">            
           </div>      
         </form>
-      </div>        
+      </div>  
   </div>
   <div class="row">  
     <div class="card-body col-lg-12">
