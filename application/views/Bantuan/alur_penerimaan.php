@@ -15,7 +15,7 @@
               <img src="<?=base_url('Assets/image/')?>pilihDaftarMagang.png" class="mt-1 mb-4 img-fluid img-thumbnail">
             </li>
             <li>Cari nama peserta magang yang ingin anda tindak lanjuti pada tabel daftar magang</li>
-            <li>Atau anda bisa melakukan pencarian dengan memasukkan nama/tahun/keduanya
+            <li>Atau anda bisa melakukan pencarian dengan memasukkan nama/tahun/keduanya pada formulir nama/tahun. Contoh pencarian berdasarkan nama, “martha”
               <br>
               <img src="<?=base_url('Assets/image/')?>pencarianDaftarMagang.png" class="mt-1 mb-4 img-fluid img-thumbnail">
             </li>
@@ -27,11 +27,11 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>setujuDaftarMagang.png" class="mt-1 mb-4 img-fluid img-thumbnail">
             </li>
-            <li>Jika setuju, masukkan nama pembimbing magang di kolom pembimbing
+            <li>Jika setuju, maka masukkan nama pembimbing magang pada formulir pembimbing magang. Contoh “Abu, SP”
               <br>
               <img src="<?=base_url('Assets/image/')?>mengisiPembimbingDaftarMagang.png" class="mt-1 mb-4 img-fluid img-thumbnail">
             </li>
-            <li>Jika setuju, masukkan penempatan magang di kolom penempatan magang
+            <li>Jika setuju, maka masukkan penempatan magang pada formulir penempatan magang. Contoh “Perpustakaan”
               <br>
               <img src="<?=base_url('Assets/image/')?>mengisiPenempatanMagangDaftarMagang.png" class="mt-1 mb-4 img-fluid img-thumbnail">
             </li>

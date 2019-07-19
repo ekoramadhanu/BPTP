@@ -189,7 +189,7 @@ data-backdrop="static" data-keyboard="false">
       </div>
       <div class="modal-footer" id="footerBalasan">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalBalasan">Batal</button>
-        <button class="btn btn-primary" type="submit">Cetak</button>
+        <button class="btn btn-primary btnCetakBalasan" type="submit">Cetak</button>
       </div>
     </form>
   </div>

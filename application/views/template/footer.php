@@ -19,7 +19,7 @@
     $('.cetak').click(function () {
       ambilVal= $(this).attr('data-kelompok');        
       console.log(ambilVal);
-      $('.form-cetak').on('click','.btnCetakMagang',function(e){        
+      $('.form-cetak').on('click','.btnCetakBalasan',function(e){        
         $('.form-cetak').attr('action', $('.form-cetak').attr('action') + '/' + ambilVal)
       });
     });
