@@ -271,6 +271,13 @@ class Magang extends CI_Controller {
     }
 
     public function delete($kelompok=null){
-     echo $kelompok;   
+      $update = $this->Internship->updateIdKelompok($kelompok);
+      if($update){
+        $deleteMember=$this->Internship->DeleteMemberKelompok($kelompok);
+        $deleteLeader=$this->Internship->DeleteLeaderKelompok($kelompok);
+      }else{
+
+      }
+      redirect('Magang/daftarMagang');
     }
 }

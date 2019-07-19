@@ -603,12 +603,16 @@ class Internship extends CI_Model {
         return $this->db->update_batch('internship',$data,'id');        
     }
 
-    public function updateIdKelompok($data){
-
+    public function updateIdKelompok($kelompok){
+        return $this->db->update('internship',['id_kelompok'=>null],['id'=>$kelompok]);
     }
 
-    public function DeleteKelompok($kelompok){
+    public function DeleteMemberKelompok($kelompok){
+        return $this->db->delete('internship', array('id_kelompok' => $kelompok));
+    }
 
+    public function DeleteLeaderKelompok($kelompok){
+        return $this->db->delete('internship', array('id' => $kelompok));
     }
 
 

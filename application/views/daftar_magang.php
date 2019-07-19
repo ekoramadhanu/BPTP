@@ -45,7 +45,7 @@
             <tr>            
               <td class="border border-black"><?=++$start?></td>
               <td>
-                <?php          
+                <?php                            
                   $kelompok = $rekap->kelompok;                  
                   $nomor = 1;
                   $query = "select fullname from internship where id_kelompok =".$kelompok." order by fullname asc";
