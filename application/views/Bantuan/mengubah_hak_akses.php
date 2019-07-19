@@ -9,11 +9,23 @@
             <h1 class="h3 mb-0" style="color:black" >Panduan Mengubah Hak Akses</h1>                    
         </div>
         <hr>
-        <ol>
-            <li>Pilih menu Daftar Admin pada halaman utama SIM</li>
-            <li>Pilih tombol dengan ikon pensil pada halaman Daftar Administrator</li>
-            <li>Pilih jenis pelaku yang akan diganti pada formulir administrator</li>
-            <li>Pilih tombol ganti untuk mengganti jenis pelaku Administrator</li>                       
+        <ol class="text-black">
+            <li>Pilih menu Daftar Admin pada halaman utama SIM
+              <br>
+              <img src="<?=base_url('Assets/image/')?>menu_daftar admin.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
+            <li>Pilih tombol dengan ikon pensil pada halaman Daftar Administrator
+              <br>
+              <img src="<?=base_url('Assets/image/')?>daftaradmin_ganti_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
+            <li>ilih jenis pelaku yang akan diganti pada formulir pilih jenis pelaku. Contoh untuk nama pengguna bptpjatim diganti menjadi “Super Administrator”
+              <br>
+              <img src="<?=base_url('Assets/image/')?>daftaradmin_ganti_jenis pelaku.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
+            <li>Pilih tombol ganti untuk mengganti jenis pelaku Administrator
+            <br>
+              <img src="<?=base_url('Assets/image/')?>daftaradmin_ganti_tombol2.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>                       
         </ol>
       </div>
   </div>

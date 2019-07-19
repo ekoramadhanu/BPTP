@@ -27,7 +27,7 @@
       <a class="collapse-item" href="<?=base_url('Help/alurPenerimaanMagang')?>">Alur penerimaan magang</a>
       <a class="collapse-item" href="<?=base_url('Help/cetakSuratBalasan')?>">Mencetak surat balasan</a>
       <a class="collapse-item" href="<?=base_url('Help/cetakLaporan')?>">Mencetak rekap magang</a>
-      <a class="collapse-item" href="<?=base_url('Help/tambahData')?>">Menambah Data</a>
+      <a class="collapse-item" href="<?=base_url('Help/tambahData')?>">Menambah data</a>
     </div>
   </div>
 </li>
@@ -35,7 +35,7 @@
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">    
-    <span>Menambah User</span>
+    <span>Menambah Pengguna</span>
   </a>
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
@@ -55,3 +55,5 @@
 
 </ul>
 <!-- End of Sidebar -->
+
+  
