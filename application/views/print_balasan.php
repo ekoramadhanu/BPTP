@@ -97,24 +97,40 @@
 						if($name->is_sekolah==1){
 							echo $penerima."<br>".$institution->institute;
 						}else{
-							echo $penerima." ";														
-							if(preg_match("/jurusan/i", $department->department)) {
-								echo  $department->department;
-							} else {
-								echo "jurusan ". $department->department;
+							echo $penerima." ";
+							if(preg_match("/pol/i", $institution->institute)){
+								if(preg_match("/jurusan/i", $department->department)) {
+									echo  $department->department;
+								} else {
+									echo "jurusan ". $department->department;
+								}
+								echo"<br>";
+								if(preg_match("/fakultas/i", $faculty->faculty)) {
+									echo  $faculty->faculty;
+								} else {
+									echo "Fakultas ". $faculty->faculty;
+								}
+								echo"<br>";
+								echo $institution->institute;
+							}else{
+								if(preg_match("/jurusan/i", $department->department)) {
+									echo  $department->department;
+								} else {
+									echo "jurusan ". $department->department;
+								}
+								echo"<br>";
+								if(preg_match("/fakultas/i", $faculty->faculty)) {
+									echo  $faculty->faculty;
+								} else {
+									echo "Fakultas ". $faculty->faculty;
+								}
+								echo"<br>";
+								if(preg_match("/universitas/i", $institution->institute)) {
+									echo  $institution->institute;
+								} else {
+									echo "universitas ". $institution->institute;
+								}							
 							}
-							echo"<br>";
-							if(preg_match("/fakultas/i", $faculty->faculty)) {
-								echo  $faculty->faculty;
-							} else {
-								echo "jurusan ". $faculty->faculty;
-							}
-							echo"<br>";
-							if(preg_match("/universitas/i", $institution->institute)) {
-								echo  $institution->institute;
-							} else {
-								echo "universitas ". $institution->institute;
-							}							
 						}
 						break;
 					}					

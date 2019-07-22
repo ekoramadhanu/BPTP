@@ -67,15 +67,12 @@
               </div>
             </div>
           </div>
-        </div>
-
-        
+        </div>        
       </div>
 
       <!-- Content Row -->
 
       <div class="row">
-
         <!-- Area Chart -->
         <div class="col-xl-8 col-lg-7">
           <div class="card shadow mb-4">
@@ -91,7 +88,6 @@
             </div>
           </div>
         </div>
-
         <!-- Pie Chart -->
         <div class="col-xl-4 col-lg-5">
           <div class="card shadow mb-4">
@@ -119,6 +115,11 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <!-- diagram batang -->
+
+      </div>
+
     </div>
     <!-- /.container-fluid -->
   </div>
