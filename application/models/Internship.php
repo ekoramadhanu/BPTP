@@ -430,10 +430,6 @@ class Internship extends CI_Model {
      * output :  mengembalikan banyak nya data 
      */
     public function getCountByEndDatePKL($monthCheck,$yearNow,$yearCheck=null,$monthNow=null){        
-        // $query ="
-        // select id from internship where status = 'terdaftar' and month(date_start) = ".$monthStart." and year(date_start) = ".$yearStart.
-        // " and month(date_end) >=".$monthEnd." and year(date_end) = ".$yearEnd;
-        // return $this->db->query($query)->num_rows();
         if(!$yearCheck){
             $query="select id from internship 
             where status='terdaftar' and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow.
@@ -613,6 +609,28 @@ class Internship extends CI_Model {
 
     public function DeleteLeaderKelompok($kelompok){
         return $this->db->delete('internship', array('id' => $kelompok));
+    }
+
+    public function getRekapStartDateByIsSekolah($isSekolah,$month,$year){
+        $query ="select id from internship where status = 'terdaftar' and is_sekolah = ".$isSekolah." and month(date_start) = ".$month." and year(date_start)=".$year;
+        return $this->db->query($query)->num_rows();
+    }
+
+    public function getRekapEndtDateByIsSekolah($isSekolah,$monthCheck,$yearNow,$yearCheck=null,$monthNow=null){
+        if(!$yearCheck){
+            $query="select id from internship 
+            where status='terdaftar' and is_sekolah = ".$isSekolah. " and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow.
+            " and month(date_start) =".$monthNow." and year(date_start)= ".$yearNow;
+            return $this->db->query($query)->num_rows();        
+        }else if($yearNow < $yearCheck){
+            $query="select id from internship where status ='terdaftar' and is_sekolah = ".$isSekolah. " and year(date_start)= ".$yearNow." 
+             and month(date_start) <".$monthCheck." and year(date_end)= ".$yearCheck;
+             return $this->db->query($query)->num_rows();        
+        }else{            
+            $query="select id from internship where status ='terdaftar' and is_sekolah = ".$isSekolah. " and year(date_start)= ".$yearCheck." 
+             and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow;
+             return $this->db->query($query)->num_rows();   
+        }        
     }
 
 

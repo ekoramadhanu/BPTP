@@ -83,7 +83,34 @@ class Home extends CI_Controller {
             }
             $diagram['total'][$i]=$jumlah;            
 
-		}        
+        }        
+        // fix batang chart
+        for ($i=1; $i <=12 ; $i++) { 
+            $result['jumlahStartDateSiswa'][$i]= $this->Internship->getRekapStartDateByIsSekolah(1,$i,$tahun);
+            $result['jumlahStartDateMahasiswa'][$i]= $this->Internship->getRekapStartDateByIsSekolah(0,$i,$tahun);
+            $result['JumlahendMonthNextInNowSiswa'][$i]= $this->Internship->getRekapEndtDateByIsSekolah(1,$i,$tahun,$nextYear);
+            $result['JumlahendMonthNextInNowMahasiswa'][$i]= $this->Internship->getRekapEndtDateByIsSekolah(0,$i,$tahun,$nextYear);
+            $result['JumlahendMonthPrevInNowSiswa'][$i]= $this->Internship->getRekapEndtDateByIsSekolah(1,$i,$tahun,$prevYear);
+            $result['JumlahendMonthPrevInNowMahasiswa'][$i]= $this->Internship->getRekapEndtDateByIsSekolah(0,$i,$tahun,$prevYear);
+            for ($j=1; $j <$i ; $j++) { 								
+				$result['jumlahEndaDateSiswa'][$i][$j]= $this->Internship->getRekapEndtDateByIsSekolah(1,$i,$tahun,null,$j);
+				$result['jumlahEndaDateMahasiswa'][$i][$j]= $this->Internship->getRekapEndtDateByIsSekolah(0,$i,$tahun,null,$j);
+            }
+            $jumlahSiswa = 0 ;
+            $jumlahMahasiswa = 0 ;
+            $jumlahSiswa += $result['jumlahStartDateSiswa'][$i] ;
+            $jumlahSiswa += $result['JumlahendMonthNextInNowSiswa'][$i] ;
+            $jumlahSiswa += $result['JumlahendMonthPrevInNowSiswa'][$i] ;
+            $jumlahMahasiswa += $result['jumlahStartDateMahasiswa'][$i] ;
+            $jumlahMahasiswa += $result['JumlahendMonthNextInNowMahasiswa'][$i] ;
+            $jumlahMahasiswa += $result['JumlahendMonthPrevInNowMahasiswa'][$i] ;
+            for ($j=1; $j <$i ; $j++) { 
+                $jumlahSiswa += $result['jumlahEndaDateSiswa'][$i][$j];
+                $jumlahMahasiswa += $result['jumlahEndaDateMahasiswa'][$i][$j];
+            }
+            $diagram['totalMahasiswa'][$i]=$jumlahMahasiswa;            
+            $diagram['totalSiswa'][$i]=$jumlahSiswa;            
+        }          
         $this->load->view('template/header',$data);
         $this->load->view('template/sidebar',$role);
         $this->load->view('template/topbar',$top);

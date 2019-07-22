@@ -78,7 +78,7 @@
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
-              <h6 class="m-0 font-weight-bold" style="color:black">Jumlah Magang Tiap bulan</h6>              
+              <h6 class="m-0 font-weight-bold" style="color:black">Jumlah Magang Tiap Bulan</h6>              
             </div>
             <!-- Card Body -->
             <div class="card-body">
@@ -117,7 +117,28 @@
       </div>
       <div class="row">
         <!-- diagram batang -->
-
+        <div class="col-xl-12 col-lg-12">
+          <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
+              <h6 class="m-0 font-weight-bold" style="color:black">Jumlah Pemagang Berdasarkan Pekerjaan Tiap Bulan</h6>              
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="chart-area">
+                <canvas id="myBatangChart"></canvas>
+              </div>
+              <div class="mt-4 text-center small">
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color:#4e73df"></i> Mahasiswa
+                </span>
+                <span class="mr-2">
+                  <i class="fas fa-square" style="color:#bfc5e3"></i> Siswa
+                </span>                
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
