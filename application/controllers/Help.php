@@ -70,6 +70,13 @@ class Help extends CI_Controller {
         $this->load->view('Bantuan/sidebar');
         $this->load->view('Bantuan/mengganti_kata_sandi');
         $this->load->view('Bantuan/footer');         
+    
+    }
+    public function menghapusDataMagang(){
+        $this->load->view('Bantuan/header');
+        $this->load->view('Bantuan/sidebar');
+        $this->load->view('Bantuan/menghapus_data_magang');
+        $this->load->view('Bantuan/footer');         
     }
 
 

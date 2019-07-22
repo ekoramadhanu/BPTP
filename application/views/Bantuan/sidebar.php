@@ -27,6 +27,7 @@
       <a class="collapse-item" href="<?=base_url('Help/alurPenerimaanMagang')?>">Alur penerimaan magang</a>
       <a class="collapse-item" href="<?=base_url('Help/cetakSuratBalasan')?>">Mencetak surat balasan</a>
       <a class="collapse-item" href="<?=base_url('Help/cetakLaporan')?>">Mencetak rekap magang</a>
+      <a class="collapse-item" href="<?=base_url('Help/menghapusDataMagang')?>">menghapus Data Magang</a>
       <a class="collapse-item" href="<?=base_url('Help/tambahData')?>">Menambah data</a>
     </div>
   </div>
