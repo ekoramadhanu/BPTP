@@ -23,8 +23,8 @@ class Admin extends CI_Controller {
         if ($role['role'] == 1){
             // validasi form
             $this->form_validation->set_rules('username','username','is_unique[user.username]|alpha_dash',[
-                'is_unique'=>'Username Sudah Ada Silahkan Cari yang Lainnya',
-                'alpha_dash'=>'Username Hanya Boleh Huruf,Angka, dan Underscore'
+                'is_unique'=>'Nama Pengguna Sudah Ada Silahkan Cari yang Lainnya',
+                'alpha_dash'=>'Nama Pengguna Hanya Boleh Huruf,Angka, dan Underscore'
             ]);
             $data['title'] = 'Daftar Administrator';
             $role['title'] = $data['title'];
