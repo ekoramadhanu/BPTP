@@ -28,7 +28,9 @@
       <a class="collapse-item" href="<?=base_url('Help/cetakSuratBalasan')?>">Mencetak surat balasan</a>
       <a class="collapse-item" href="<?=base_url('Help/cetakLaporan')?>">Mencetak rekap magang</a>
       <a class="collapse-item" href="<?=base_url('Help/menghapusDataMagang')?>">menghapus Data Magang</a>
-      <a class="collapse-item" href="<?=base_url('Help/tambahData')?>">Menambah data</a>
+      <?php if($role==1) :?>
+        <a class="collapse-item" href="<?=base_url('Help/tambahData')?>">Menambah data</a>
+      <?php endif;?>
     </div>
   </div>
 </li>
