@@ -139,7 +139,7 @@ data-backdrop="static" data-keyboard="false">
           name="namaAggota"  style="color:black" onblur="validate()">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" placeholder="NIM/NISN" id="nomorInduk"
+          <input type="number" class="form-control form-control-user" placeholder="NIM/NISN" id="nomorInduk"
           name="nomorInduk" min='0' style="color:black" onblur="validate()">
         </div>        
         <div class="form-group">          
