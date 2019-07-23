@@ -370,14 +370,7 @@ class Internship extends CI_Model {
         $yearPrev = $yearNow-1;
         return $this->db->get_where("internship",['year(date_start)'=>$yearPrev,'year(date_end)'=>$yearNow])->num_rows();
     }
-
-    public function getCountAllByStartYear($yearNow){    
-        $query="select id from internship where status='terdaftar' and year(date_start)=".$yearNow;
-        
-    }
-
-
-
+    
     /**
      * method ini digunakan sebagai untuk mengambil  data
      * intsitusi, hari mulai, bulan mulai,tahun mulai,
@@ -574,7 +567,7 @@ class Internship extends CI_Model {
         return $this->db->query($query)->row();
     }
     
-    public function getProgramStuyByKelompok($kelompok){
+    public function getProgramStudyByKelompok($kelompok){
         $query="select distinct studyProgram from internship where id_kelompok =".$kelompok;
         return $this->db->query($query)->row();
     }

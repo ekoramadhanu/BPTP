@@ -120,7 +120,7 @@
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">
-    <a class="nav-link" href="<?=base_url('Help')?>">
+    <a class="nav-link" target="_blank" href="<?=base_url('Help')?>">
       <i class="fas fa-fw fa-question-circle"></i>
       <span>Bantuan</span></a>
   </li>

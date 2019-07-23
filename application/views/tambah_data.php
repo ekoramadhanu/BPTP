@@ -152,7 +152,7 @@ data-backdrop="static" data-keyboard="false">
       </div>
       <div class="modal-footer" id="footerTambahAnggota">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalTambahAnggota">Batal</button>
-        <button class="btn btn-primary" id="tambah">Tambah</button>
+        <button class="btn btn-primary" id="tambah" disable>Tambah</button>
       </div>        
   </div>
 </div>

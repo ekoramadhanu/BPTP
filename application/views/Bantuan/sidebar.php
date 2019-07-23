@@ -2,7 +2,7 @@
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #2dad21 !important">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('Home')?>">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('Help')?>">
     <div class="sidebar-brand-icon">
         <i class="fas fa-home"></i>
   </div>
