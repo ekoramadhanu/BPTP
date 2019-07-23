@@ -70,25 +70,47 @@
     });    
 
     // tambah list anggota
-    var index = 0;
+    // var index = 0;
     $('#tambah').click(function(){      
       var namaAnggota = document.getElementById('namaAnggota').value;
       var nomorAnggota = document.getElementById('nomorInduk').value;      
-      var jenisKelamin = document.getElementById('jenisKelamin').value;            
-      console.log(namaAnggota);
-      console.log(nomorAnggota);
-      console.log(jenisKelamin);
-      if(namaAnggota === '' || nomorAnggota === ''){
-        $('#tambah').attr('data-dismiss','');
-        alert('Data Tidak Bisa Ditambahkan Harap Diisi Semua Formulir yang Diberikan');
-      }else{
-        $('#tambah').attr('data-dismiss','modal');
-        list(namaAnggota,nomorAnggota,jenisKelamin);
-        $('#namaAnggota').val('');
-        $('#nomorInduk').val('');                
-      }
+      var jenisKelamin = document.getElementById('jenisKelamin').value;                  
+      list(namaAnggota,nomorAnggota,jenisKelamin);      
+      $('#namaAnggota').val('');
+      $('#nomorInduk').val('');              
+             
     });
+    $('#linkTambahAnggota').click(function(){
+      $('#tambah').attr('disabled','disabled');  
+    })
 
+    // validasi inputan        
+    function checkNomor(){
+      var name= $('#nomorInduk').val();
+      if(name === ''){
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function checkNama(){
+      var name= $('#namaAnggota').val();
+      if(name === ''){
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+    function validate(){
+      var valid = checkNama();
+      valid = valid && checkNomor();
+      if(valid) {
+        $('#tambah').removeAttr('disabled');         
+		  }      
+    }    
+    
     // ,nameNomor,valueNomor,nameGender,valueGender
     function list(valueNama,valueNomor,valueJenis){      
       $('#listAnggota').append(              
@@ -176,13 +198,15 @@
     $('#footerTambahAnggota').on('click','#batalTambahAnggota',function(e){
       e.preventDefault();
       $('#nomorInduk').val('');      
-      $('#namaAnggota').val('');      
+      $('#namaAnggota').val('');     
+      $('#tambah').attr('disabled','disabled'); 
     });
 
     $('#headerTambahAnggota').on('click','#xTambahAnggota',function(e){
       e.preventDefault();
       $('#nomorInduk').val('');      
       $('#namaAnggota').val('');   
+      $('#tambah').attr('disabled','disabled');
     });    
     
     // Example starter JavaScript for disabling form submissions if there are invalid fields

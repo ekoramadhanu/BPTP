@@ -91,7 +91,7 @@
             <div class="form-group">
               <label id="daftarMagang" class="text-black text-capitalize">Daftar anggota</label>                
               <div id="listAnggota"></div>
-              <a class="small text-primary" href="" data-toggle="modal" data-target="#tambahAnggota" >Tambah Anggota</a>
+              <a class="small text-primary" href="" data-toggle="modal" data-target="#tambahAnggota" id="linkTambahAnggota" >Tambah Anggota</a>
             </div>
             <button class="btn btn-primary ">Simpan</button>
         </form>
@@ -133,14 +133,14 @@ data-backdrop="static" data-keyboard="false">
         <span aria-hidden="true">×</span>
       </button>
     </div>            
-      <div class="modal-body">        
+      <div class="modal-body" id="bodyTambahAnggota">        
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="Nama Anggota"  id="namaAnggota"
-          name="namaAggota"  style="color:black" >
+          name="namaAggota"  style="color:black" onblur="validate()">
         </div>
         <div class="form-group">
           <input type="text" class="form-control form-control-user" placeholder="NIM/NISN" id="nomorInduk"
-          name="nomorInduk" min='0' style="color:black" >
+          name="nomorInduk" min='0' style="color:black" onblur="validate()">
         </div>        
         <div class="form-group">          
           <label class="text-black text-capitalize">jenis kelamin</label>
@@ -152,7 +152,7 @@ data-backdrop="static" data-keyboard="false">
       </div>
       <div class="modal-footer" id="footerTambahAnggota">
         <button class="btn btn-danger" type="button" data-dismiss="modal" id="batalTambahAnggota">Batal</button>
-        <button class="btn btn-primary" id="tambah">Tambah</button>
+        <button class="btn btn-primary" id="tambah" data-dismiss="modal" disabled>Tambah</button>
       </div>        
   </div>
 </div>
