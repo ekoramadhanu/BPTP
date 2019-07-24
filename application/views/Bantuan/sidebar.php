@@ -28,26 +28,25 @@
       <a class="collapse-item" href="<?=base_url('Help/cetakSuratBalasan')?>">Mencetak surat balasan</a>
       <a class="collapse-item" href="<?=base_url('Help/cetakLaporan')?>">Mencetak rekap magang</a>
       <a class="collapse-item" href="<?=base_url('Help/menghapusDataMagang')?>">menghapus Data Magang</a>
-      <?php if($role==1) :?>
-        <a class="collapse-item" href="<?=base_url('Help/tambahData')?>">Menambah data</a>
-      <?php endif;?>
+      <a class="collapse-item" href="<?=base_url('Help/tambahData')?>">Menambah data</a>
     </div>
   </div>
 </li>
-
-<!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">    
-    <span>Menambah Pengguna</span>
-  </a>
-  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <a class="collapse-item" href="<?=base_url('Help/membuatAkun')?>">membuat akun</a>
-      <a class="collapse-item" href="<?=base_url('Help/mengubahHakAkses')?>">mengubah hak akses</a>
-      <a class="collapse-item" href="<?=base_url('Help/menghapusAkun')?>">menghapus akun</a>      
+<?php if($role==1) :?>
+  <!-- Nav Item - Utilities Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">    
+      <span>Menambah Pengguna</span>
+    </a>
+    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <a class="collapse-item" href="<?=base_url('Help/membuatAkun')?>">membuat akun</a>
+        <a class="collapse-item" href="<?=base_url('Help/mengubahHakAkses')?>">mengubah hak akses</a>
+        <a class="collapse-item" href="<?=base_url('Help/menghapusAkun')?>">menghapus akun</a>      
+      </div>
     </div>
-  </div>
-</li>
+  </li>
+<?php endif;?>
 
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('Help/menggantiKataSandi')?>">    
