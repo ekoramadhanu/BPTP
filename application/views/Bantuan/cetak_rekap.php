@@ -6,11 +6,11 @@
       <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mt-4">
-            <h1 class="h3 mb-0" style="color:black" >Panduan Mencetak laporan magang Setiap Tahun</h1>                    
+            <h1 class="h3 mb-0" style="color:black" >Panduan Mencetak Rekap Magang</h1>                    
         </div>
         <hr>
         <ol class="text-black">
-            <li>Pilih menu daftar magang pada halaman utama SIM
+            <li>Pilih menu Daftar Magang pada halaman utama SIM
               <br>
               <img src="<?=base_url('Assets/image/')?>menu_daftar magang.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -30,7 +30,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>nama printer.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih print/cetak
+            <li>Pilih “Print/Cetak”
             <br>
               <img src="<?=base_url('Assets/image/')?>print.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>

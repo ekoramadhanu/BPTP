@@ -10,12 +10,12 @@
         </div>
         <hr>
         <ol class="text-black">
-            <li>Pilih menu daftar magang pada halaman utama SIM
+            <li>Pilih menu Daftar Magang pada halaman utama SIM
               <br>
               <img src="<?=base_url('Assets/image/')?>menu_daftar magang.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Cari nama peserta magang yang ingin anda tindak lanjuti pada tabel daftar magang</li>
-            <li>Atau anda bisa melakukan pencarian dengan memasukkan nama/tahun/keduanya pada formulir nama/tahun. Contoh pencarian berdasarkan nama, “martha”
+            <li>Cari nama peserta magang yang ingin anda tindak lanjuti pada tabel Daftar Magang</li>
+            <li>Atau anda bisa melakukan pencarian dengan memasukkan nama/tahun/keduanya pada formulir Nama/Tahun. Contoh pencarian berdasarkan nama, “martha”
               <br>
               <img src="<?=base_url('Assets/image/')?>pencarian_data.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -27,15 +27,15 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>setuju_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Jika setuju, maka masukkan nama pembimbing magang pada formulir pembimbing magang. Contoh “Abu, SP”
+            <li>Jika setuju, maka masukkan nama pembimbing magang pada formulir Pembimbing Magang. Contoh “Abu, SP”
               <br>
               <img src="<?=base_url('Assets/image/')?>setuju_pembimbing.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Jika setuju, maka masukkan penempatan magang pada formulir penempatan magang. Contoh “Perpustakaan”
+            <li>Jika setuju, maka masukkan penempatan magang pada formulir Penempatan Magang. Contoh “Perpustakaan”
               <br>
               <img src="<?=base_url('Assets/image/')?>setuju_penempatan.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih tombol setuju
+            <li>Pilih tombol “Setuju”
               <br>
               <img src="<?=base_url('Assets/image/')?>setuju_tombol2.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>

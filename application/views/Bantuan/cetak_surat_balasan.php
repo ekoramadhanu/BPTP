@@ -10,12 +10,12 @@
         </div>
         <hr>
         <ol class="text-black">
-            <li>Pilih menu daftar magang pada halaman utama SIM              
+            <li>Pilih menu Daftar Magang pada halaman utama SIM              
               <br>
               <img src="<?=base_url('Assets/image/')?>menu_daftar magang.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
             <li>Cari nama peserta magang yang ingin anda berikan surat balasan</li>
-            <li>Atau anda bisa melakukan pencarian dengan memasukkan nama/tahun/keduanya pada formulir nama/tahun. Contoh pencarian berdasarkan nama, “martha”
+            <li>Atau anda bisa melakukan pencarian dengan memasukkan nama/tahun/keduanya pada formulir Nama/Tahun. Contoh pencarian berdasarkan nama, “martha”
               <br>
               <img src="<?=base_url('Assets/image/')?>pencarian_data.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -31,7 +31,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_no surat.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Masukkan jumlah lampiran surat pada formulir Jumlah Lampiran. Contoh “0” untuk lampiran kosong
+            <li>Masukkan jumlah lampiran surat pada formulir Jumlah Lampiran. Contoh “0” untuk tidak ada lampiran 
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_lampiran.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -47,11 +47,11 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_no surat yg dibls.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Masukkan tanggal surat pada form Tanggal Surat yang akan di balas. Contoh “10/06/2019”
+            <li>Masukkan tanggal surat pada formulir Tanggal Surat yang Akan Dibalas. Contoh “10/06/2019”
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_tgl surat yg dibls.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih tombol “Cetak” pada Formulir cetak
+            <li>Pilih tombol “Cetak”
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_tombol2.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -59,7 +59,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>nama printer.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih print/cetak
+            <li>Pilih tombol “Print/Cetak”
             <br>
               <img src="<?=base_url('Assets/image/')?>print.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>

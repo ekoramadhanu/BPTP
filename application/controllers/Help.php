@@ -76,7 +76,7 @@ class Help extends CI_Controller {
     public function menggantiKataSandi(){
         $role['role']=$this->session->userdata('roleId');        
         $this->load->view('Bantuan/header');
-        $this->load->view('Bantuan/sidebar');
+        $this->load->view('Bantuan/sidebar',$role);
         $this->load->view('Bantuan/mengganti_kata_sandi');
         $this->load->view('Bantuan/footer');         
     
@@ -84,7 +84,7 @@ class Help extends CI_Controller {
     public function menghapusDataMagang(){
         $role['role']=$this->session->userdata('roleId');        
         $this->load->view('Bantuan/header');
-        $this->load->view('Bantuan/sidebar');
+        $this->load->view('Bantuan/sidebar',$role);
         $this->load->view('Bantuan/menghapus_data_magang');
         $this->load->view('Bantuan/footer');         
     }
