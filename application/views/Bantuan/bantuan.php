@@ -13,7 +13,7 @@
             <p class="h3 mb-0 text-black" >Apa Itu SIM BPTP ?</p> 
             <br>                   
             <p class="text-black">SIM BPTP merupakan kepanjangan dari Sistem Informasi Magang 
-            yang digunakan BPTP Jatim untuk segala kegiatan yang berhubungan dengan magang 
+            yang digunakan BPTP Jatim untuk segala kegiatan yang berhubungan dengan magang, 
             mulai dari proses penerimaan dan membuat kebutuhan arsip bagi BPTP Jatim.
             Pengguna SIM BPTP harus memiliki nama pengguna dan kata sandi terlebih dahulu, 
             setelah itu pengguna dapat mengakses SIM BPTP</p>
@@ -22,12 +22,12 @@
         <div class=" align-items-center mt-4">
             <p class="h3 mb-0" style="color:black" >Siapa Yang Bisa Menggunakan SIM BPTP ?</p>    
             <br>                
-            <p class="text-black">Terdapat dua jenis pengguna SIM yang dapat digunakan yaitu :</p>
+            <p class="text-black">Terdapat dua jenis pengguna SIM BPTP yang dapat digunakan, yaitu :</p>
             <ol class="text-black">
               <li> Admin SIM
                    <br>
                    <p>Pelaku ini dapat melakukan penambahan data, membuat dan mencetak laporan magang setiap tahun, 
-                   membuat dan mencetak surat balasan,menghapus data pemagang, menyetujui dan menolak pemagang yang mendaftar di BPTP
+                   membuat dan mencetak surat balasan,menghapus data pemagang, menyetujui dan menolak pemagang yang mendaftar di BPTP.
                    </p>
               </li>
               <li>Super Admin SIM 
