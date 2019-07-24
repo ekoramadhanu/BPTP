@@ -49,7 +49,7 @@
               </form>
               <br>
               <div class="text-center">
-                 <a class="small text-black" href="<?=base_url('Auth')?>">Masuk SIM</a>
+                 <a class="small text-primary text-bold" href="<?=base_url('Auth')?>">Masuk SIM</a>
               </div>              
               <br>              
             </div>

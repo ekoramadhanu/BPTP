@@ -78,7 +78,6 @@
       list(namaAnggota,nomorAnggota,jenisKelamin);      
       $('#namaAnggota').val('');
       $('#nomorInduk').val('');              
-             
     });
     $('#linkTambahAnggota').click(function(){
       $('#tambah').attr('disabled','disabled');  

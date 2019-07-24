@@ -41,7 +41,7 @@
               </form>
               <br>
               <div class="text-center">
-                 <a class="small text-black" href="<?=base_url('Auth/resetKataSandi')?>">Reset Kata Sandi?</a>
+                 <a class="small text-primary text-bold" href="<?=base_url('Auth/resetKataSandi')?>">Reset Kata Sandi?</a>
               </div>              
               <br>              
             </div>
