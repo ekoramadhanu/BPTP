@@ -98,6 +98,7 @@
 							echo $penerima."<br>".$institution->institute;
 						}else{
 							echo $penerima." ";
+
 							if(preg_match("/pol/i", $institution->institute)){
 								if(preg_match("/jurusan/i", $department->department)) {
 									echo  $department->department;
@@ -283,8 +284,8 @@
 				</table>
 				<br>
 				<p class="text-black">Perlu kami sampaikan bahwa dalam kegiatan tersebut ditempatkan dibagian administrasi keuangan
-				dan dibimbing oleh <b><?=$detail->guide?></b></p><br>
-				<p class="text-black">Demikian, atas perhatian dan kerjasamanya disampaikan terima kasih</p>				
+				dan dibimbing oleh <b><?=$detail->guide?></b>.</p><br>
+				<p class="text-black">Demikian, atas perhatian dan kerjasamanya disampaikan terima kasih.</p>				
 			</div>
 		</div>
 		<br><br>
