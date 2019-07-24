@@ -228,7 +228,7 @@
 				?> , perihal sebagaimana pada pokok surat. Kami memberikan ijin untuk kegiatan Praktek 
 				Kerja Lapangan di BPTP Balitbangtan Jawa Timur. Pelaksanaan kegiatan tersebut sesuai 
 				dengan permintaan terhitung mulai tanggal <b>
-				<?=$detail->startDay."-".$detail->StartMonth."-".$detail->satrtYear." sd ".$detail->endDay." - ".$detail->endMonth." - ".$detail->endYear?>
+				<?=$detail->startDay."-".$detail->StartMonth."-".$detail->satrtYear." sd ".$detail->endDay."-".$detail->endMonth." - ".$detail->endYear?>
 				</b> 
 				<?php foreach ($fullname as $name) {
 					if($name->is_sekolah == 1){
