@@ -78,7 +78,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_anggota_nama.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Jika memiliki kelompok, masukkan NIM/NISN pada formulir NIM/NISN. Contoh “1642520088”
+            <li>Jika memiliki kelompok, masukkan NIM atau NISN pada formulir NIM/NISN. Contoh “1642520088”
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_anggota_nimnisn.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -86,11 +86,11 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_anggota_jenis kelamin.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih tombol “tambah”
+            <li>Pilih tombol “Tambah”
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_anggota_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>jika ingin menghapus isi dari tambah anggolata pilih tombol “X”
+            <li>Jika ingin menghapus isi dari tambah anggolata pilih tombol “X”
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_hapus.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>

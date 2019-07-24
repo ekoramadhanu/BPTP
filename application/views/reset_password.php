@@ -25,21 +25,21 @@
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Nama Pengguna"
                   name="username" required>
-                  <div class="invalid-feedback">
+                  <div class="invalid-feedback text-capitalize">
                     <p class="pl-2">Nama pengguna tidak boleh kosong</p>
                   </div>                  
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Kata Sandi Baru"
                   name="password" required>
-                  <div class="invalid-feedback">
+                  <div class="invalid-feedback text-capitalize">
                     <p class="pl-2">Kata sandi tidak boleh kosong</p>
                   </div>                  
                 </div>                
                 <div class="form-group">
                   <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ulang Kata Sandi"
                   name="repassword" required>
-                  <div class="invalid-feedback">
+                  <div class="invalid-feedback text-capitalize">
                     <p class="pl-2">Kata sandi tidak boleh kosong</p>
                   </div>                  
                 </div>                

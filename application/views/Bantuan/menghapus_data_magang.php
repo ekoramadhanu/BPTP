@@ -18,7 +18,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>hapus data pemagang_tombol1.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih tombol “ya” untuk menghapus data pemagang
+            <li>Pilih tombol “Iya” untuk menghapus data pemagang
               <br>
               <img src="<?=base_url('Assets/image/')?>hapus data magang_tombol2.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>            

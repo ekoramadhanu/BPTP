@@ -14,11 +14,11 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>menu_daftar admin.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih tombol dengan ikon tempat sampah pada halaman Daftar Administrator
+            <li>Pilih tombol dengan ikon tempat sampah pada halaman Daftar Admin
               <br>
               <img src="<?=base_url('Assets/image/')?>daftaradmin_hapus_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Pilih tombol “ya” untuk menghapus Administrator
+            <li>Pilih tombol “Iya” untuk menghapus Admin
               <br>
               <img src="<?=base_url('Assets/image/')?>daftaradmin_hapus_tombol2.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>            

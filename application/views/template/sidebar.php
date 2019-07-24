@@ -154,7 +154,7 @@ data-backdrop="static" data-keyboard="false">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <div class="modal-body">Jika iya silahkan pilih tombol 'keluar'</div>
+    <div class="modal-body">Jika iya silahkan pilih tombol 'Keluar'</div>
     <div class="modal-footer">
       <button class="btn btn-primary" type="button" data-dismiss="modal">Batal</button>
       <a class="btn btn-danger" href="<?=base_url('UserControler/logout')?>">Keluar</a>

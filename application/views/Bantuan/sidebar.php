@@ -40,9 +40,9 @@
     </a>
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="<?=base_url('Help/membuatAkun')?>">membuat akun</a>
-        <a class="collapse-item" href="<?=base_url('Help/mengubahHakAkses')?>">mengubah hak akses</a>
-        <a class="collapse-item" href="<?=base_url('Help/menghapusAkun')?>">menghapus akun</a>      
+        <a class="collapse-item" href="<?=base_url('Help/membuatAkun')?>">Membuat akun</a>
+        <a class="collapse-item" href="<?=base_url('Help/mengubahHakAkses')?>">Mengubah hak akses</a>
+        <a class="collapse-item" href="<?=base_url('Help/menghapusAkun')?>">Menghapus akun</a>      
       </div>
     </div>
   </li>

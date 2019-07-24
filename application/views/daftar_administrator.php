@@ -109,8 +109,8 @@ data-backdrop="static" data-keyboard="false">
         <div class="form-group">          
           <select class="form-control" name="role" style="color:black" class="custom-select" required>
             <option disabled selected  style="color:black" value="">Pilih Jenis Pelaku</option>
-            <option class="" style="color:black">Administrator</option>
-            <option class="" style="color:black">Super Administrator</option>            
+            <option class="" style="color:black">Admin</option>
+            <option class="" style="color:black">Super Admin</option>            
           </select>
           <div class="invalid-feedback">
             <p class="pl-2 text-capitalize">Jenis Pelaku tidak boleh kosong</p>
@@ -137,7 +137,7 @@ data-backdrop="static" data-keyboard="false">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
+    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'Iya'</div>
     <div class="modal-footer">
       <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Admin/deleteAdmin')?>" method="post" class="form-hapus">
@@ -163,9 +163,9 @@ data-backdrop="static" data-keyboard="false">
       <div class="modal-body">                
         <div class="form-group">          
           <select class="form-control custom-select" name="role" style="color:black" required>
-            <option disabled selected class="" style="color:black" value="">Pilih Jenis Pelaku</option>
-            <option class="" style="color:black">Administrator</option>
-            <option class="" style="color:black">Super Administrator</option>            
+            <option disabled selected class="" style="color:black">Pilih Jenis Pelaku</option>
+            <option class="" style="color:black">Admin</option>
+            <option class="" style="color:black">Super Admin</option>            
           </select>
           <div class="invalid-feedback">
             <p class="pl-2 text-capitalize">Jenis Pelaku tidak boleh kosong</p>

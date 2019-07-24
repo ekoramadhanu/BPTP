@@ -281,7 +281,7 @@ data-backdrop="static" data-keyboard="false">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
+    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'Iya'</div>
     <div class="modal-footer">
       <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Magang/tolak')?>" method="post" class="form-tolak">
@@ -303,7 +303,7 @@ data-backdrop="static" data-keyboard="false">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'iya'</div>
+    <div class="modal-body" style="color:black">Jika iya silahkan pilih tombol 'Iya'</div>
     <div class="modal-footer">
       <button class="btn btn-primary " type="button" data-dismiss="modal">Batal</button>
       <form action="<?=base_url('Magang/delete')?>" method="post" class="form-hapus-magang">
