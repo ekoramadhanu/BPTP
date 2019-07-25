@@ -56,7 +56,7 @@
 		</div> -->
 		<br><br><br><br><br><br><br>
 		<div class="row mt-3 mb-3 ml-4 mr-5">
-			<div class="col-lg-9 col-md-9 col-xs-9" style="font-size:16px">
+			<div class="col-lg-9 col-md-9 col-xs-9" style="font-size:17px">
 				<table>
 					<tr>
 						<td>Nomor</td>
@@ -141,7 +141,7 @@
 				<?=$tempatTujuan?>
 				</b></p>
 			</div>
-			<div class="col-lg-3 col-md-3 col-xs-3" style="font-size:16px">
+			<div class="col-lg-3 col-md-3 col-xs-3" style="font-size:17px">
 				<p class="text-right text-black"><?php
 				switch ($bulan){					
 				case 1:
@@ -183,10 +183,9 @@
 					}
 				?></p>
 			</div>
-		</div>
-		<br><br>
+		</div>		
 		<div class="row mt-5 mb-3 ml-4 mr-5">
-			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:16px">
+			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:17px">
 				<p class="text-black">Menanggapi surat Saudara Nomor: <?=$nomorBalasan." tanggal "?><?php
 					switch ($bulanBalasan){					
 						case 1:
@@ -226,10 +225,10 @@
 					  echo $tanggalBalasan." Desember ".$tahunBalasan;
 					  break;
 					}
-				?> , perihal sebagaimana pada pokok surat. Kami memberikan ijin untuk kegiatan Praktek 
+				?>, perihal sebagaimana pada pokok surat. Kami memberikan ijin untuk kegiatan Praktek 
 				Kerja Lapangan di BPTP Balitbangtan Jawa Timur. Pelaksanaan kegiatan tersebut sesuai 
 				dengan permintaan terhitung mulai tanggal <b>
-				<?=$detail->startDay."-".$detail->StartMonth."-".$detail->satrtYear." sd ".$detail->endDay."-".$detail->endMonth." - ".$detail->endYear?>
+				<?=$detail->startDay."-".$detail->StartMonth."-".$detail->satrtYear." sd ".$detail->endDay."-".$detail->endMonth."-".$detail->endYear?>
 				</b> 
 				<?php foreach ($fullname as $name) {
 					if($name->is_sekolah == 1){
@@ -246,9 +245,8 @@
 					break;
 				}
 				?>
-				 </p>
-				<br>
-				<table class="table table-bordered text-black border-table-black" style="font-size:16px">
+				 </p>				
+				<table class="table table-bordered text-black border-table-black" style="font-size:17px">
 					<thead>
 						<tr>
 							<th class="pt-1 pb-1" style="border: 1px solid #000 !important"> No.</th>
@@ -281,17 +279,16 @@
 						$counter++;
 						endforeach;?>
 					</tbody>
-				</table>
-				<br>
+				</table>				
 				<p class="text-black">Perlu kami sampaikan bahwa dalam kegiatan tersebut ditempatkan dibagian administrasi keuangan
-				dan dibimbing oleh <b><?=$detail->guide?></b>.</p><br>
+				dan dibimbing oleh <b><?=$detail->guide?></b>.</p>
 				<p class="text-black">Demikian, atas perhatian dan kerjasamanya disampaikan terima kasih.</p>				
 			</div>
 		</div>
 		<br><br>
 		<div class="row">
 			<div class="col-lg-7 col-md-7 col-xs-7"></div>
-			<div class="col-lg-5 col-md-5 col-xs-5" style="font-size:16px;font-family:Arial">
+			<div class="col-lg-5 col-md-5 col-xs-5" style="font-size:18px;font-family:Arial">
 				<p style="margin:0" class="text-black"><b>An. Kepala Balai,</b></p>
 				<p class="text-black" style="margin:0"><b>Kepala Seksi Kerjasama dan</b></p>
 				<p class="text-black"style="margin:0"><b>Pelayanan Pengkajian</b></p>
