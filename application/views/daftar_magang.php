@@ -41,6 +41,7 @@
               <th class="align-middle border border-black">Waktu PKL</th>
               <th class="align-middle border border-black">Penempatan</th>
               <th class="align-middle border border-black">Pembimbing</th>
+              <th class="align-middle border border-black">Nomor Surat</th>
               <th class="align-middle border border-black">Keterangan</th>
             </tr>
           </thead>
@@ -77,6 +78,7 @@
               ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
               <td class="border border-black"><?=$rekap->place?></td>
               <td class="border border-black"><?=$rekap->guide?></td>
+              <td class="border border-black"><?=$rekap->nomorSurat?></td>
               <td class="text-center">      
               <?php 
                 if($rekap->status == "terdaftar"){
