@@ -42,6 +42,10 @@ class Magang extends CI_Controller {
 	 */     
 	public function daftarMagang()
 	{
+        if($this->session->userdata('tahun') || $this->session->userdata('nama')){
+            $this->session->unset_userdata('tahun');
+            $this->session->unset_userdata('nama');
+        }
 		$role['id']=$this->session->userdata('id');  
         $role['role']=$this->session->userdata('roleId');
         $data['title'] = 'Daftar Magang';
