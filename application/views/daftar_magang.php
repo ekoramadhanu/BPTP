@@ -63,7 +63,7 @@
                     }else{
                       // echo $nomor.". ".$name->fullname."<br>";
                       echo"<div class='d-sm-flex'>";
-                      echo "<div>".$nomor.". </div>";
+                      echo "<div class='mr-1'>".$nomor.". </div>";                      
                       echo "<div class='d-none d-sm-inline-block' >".$name->fullname."</div>";
                       echo "<br>";
                       echo"</div>";

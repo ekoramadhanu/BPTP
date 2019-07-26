@@ -16,7 +16,7 @@
             yang digunakan BPTP Jatim untuk segala kegiatan yang berhubungan dengan magang, 
             mulai dari proses penerimaan dan membuat kebutuhan arsip bagi BPTP Jatim.
             Pengguna SIM BPTP harus memiliki nama pengguna dan kata sandi terlebih dahulu, 
-            setelah itu pengguna dapat mengakses SIM BPTP</p>
+            setelah itu pengguna dapat mengakses SIM BPTP.</p>
         </div>
         <hr>
         <div class=" align-items-center mt-4">
@@ -27,12 +27,12 @@
               <li> Admin SIM
                    <br>
                    <p>Pelaku ini dapat melakukan penambahan data, membuat dan mencetak laporan magang setiap tahun, 
-                   membuat dan mencetak surat balasan,menghapus data pemagang, menyetujui dan menolak pemagang yang mendaftar di BPTP.
+                   membuat dan mencetak surat balasan, menghapus data pemagang, menyetujui dan menolak pemagang yang mendaftar di BPTP.
                    </p>
               </li>
               <li>Super Admin SIM 
               <br>
-              <p>pelaku ini adalah pelaku tertinggi di dalam sistem yang memiliki semua akses seperti pelaku admin. selain itu,
+              <p>Pelaku ini adalah pelaku tertinggi di dalam sistem yang memiliki semua akses seperti pelaku admin. Selain itu,
               pelaku ini juga bisa melakukan penambahan, penghapusan, dan perubahan terhadap admin BPTP.</p>
               </li>
             </ol>

@@ -448,7 +448,7 @@
                             if($check->num_rows() == 1){
                                 echo $name->fullname."<br>";
                             }else{
-                                echo $nomor.". ".$name->fullname."<br>";
+                                // echo $nomor.". ".$name->fullname."<br>";
                                 echo"<div class='d-sm-flex'>";
                                 echo "<div>".$nomor.". </div>";
                                 echo "<div class='d-none d-sm-inline-block' >".$name->fullname."</div>";
