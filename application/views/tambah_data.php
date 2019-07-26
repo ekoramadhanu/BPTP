@@ -76,14 +76,14 @@
             </div>
             <div class="form-group">
                 <label class="text-black">Tanggal Mulai</label>
-                <input type="date" class="form-control text-black" name="tanggalMulai" required id="datepicker1">                
+                <input type="date" class="form-control text-black" name="tanggalMulai" required id="tanggalMulai">                
                 <div class="invalid-feedback">
                   <p class="pl-2 text-capitalize">tanggal mulai tidak boleh kosong</p>
                 </div>
             </div>
             <div class="form-group">
                 <label class="text-black">Tanggal Selesai</label>
-                <input type="date" class="form-control text-black " name="tanggalSelesai"  required id="datepicker2">
+                <input type="date" class="form-control text-black " name="tanggalSelesai"  required id="tanggalSelesai">
                 <div class="invalid-feedback">
                   <p class="pl-2 text-capitalize">Tanggal selesai tidak boleh kosong</p>
                 </div>

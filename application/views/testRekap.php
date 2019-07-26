@@ -25,16 +25,17 @@
 
 <body id="page-top"style="font-family:verdana">
   <div class="container-fluid">
-  <h2 class="text-center text-black mt-3">REKAP MAGANG/PKL DI BPTP JAWA TIMUR TAHUN <?=$tahunRekap?></h2>
+  <h2 class="text-center text-black mt-3">REKAP MAGANG/PKL DI BPTP JAWA TIMUR TAHUN <?=$tahunRekap?></h2> 
+  <br>
   <table class="table table-bordered table-sm text-black border border-dark" id="dataTable" width="100%" cellspacing="0" style="border-color = black !important">
     <thead class="text-center">
         <tr>
-            <th style="border: 1px solid #000 !important">NO</th>
-            <th style="border: 1px solid #000 !important">NAMA</th>
-            <th style="border: 1px solid #000 !important">SEKOLAH/PT</th>
-            <th style="border: 1px solid #000 !important">WAKTU PKL</th>
-            <th style="border: 1px solid #000 !important">PENEMPATAN/MATERI</th>
-            <th style="border: 1px solid #000 !important">PEMBIMBING</th>
+            <th style="border: 1px solid #000 !important" class="align-middle">NO</th>
+            <th style="border: 1px solid #000 !important" width="23%" class="align-middle">NAMA</th>
+            <th style="border: 1px solid #000 !important" width="21%" class="align-middle">SEKOLAH/PT</th>
+            <th style="border: 1px solid #000 !important" class="align-middle">WAKTU PKL</th>
+            <th style="border: 1px solid #000 !important" width="17%" class="align-middle">PENEMPATAN/<br>MATERI</th>
+            <th style="border: 1px solid #000 !important" class="align-middle">PEMBIMBING</th>
         </tr>
     </thead>
     <tbody>
@@ -88,7 +89,7 @@
         foreach ($startMonth[$i] as $rekap):?>
           <tr>            
             <td style="border: 1px solid #000 !important"><?=$counter?></td>
-            <td style="border: 1px solid #000 !important">
+            <td style="border: 1px solid #000 !important" width="23%">
             <?php          
               $kelompok = $rekap->kelompok;
               $nomor = 1;
@@ -99,13 +100,18 @@
                 if($check->num_rows() == 1){
                    echo $name->fullname."<br>";
                 }else{
-                  echo $nomor.". ".$name->fullname."<br>";
+                //   echo $nomor.". ".$name->fullname."<br>";
+                  echo"<div class='d-sm-flex'>";
+                  echo "<div>".$nomor.". </div>";
+                  echo "<div class='d-none d-sm-inline-block' >".$name->fullname."</div>";
+                  echo "<br>";
+                  echo"</div>";
                   $nomor++;
                 }                    
              }
            ?>
            </td>
-              <td style="border: 1px solid #000 !important"><?=$rekap->institute?></td>
+              <td style="border: 1px solid #000 !important" width="21%"><?=$rekap->institute?></td>
               <td style="border: 1px solid #000 !important">                
               <?php
               switch ($rekap->StartMonth){
@@ -187,7 +193,7 @@
               }
               ?>
               </td>
-              <td style="border: 1px solid #000 !important"><?=$rekap->place?></td>
+              <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
               <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
             </tr>
             <?php 
@@ -200,7 +206,7 @@
                 foreach ($endMonth[$i][$j] as $rekap):?>
                 <tr>            
                     <td style="border: 1px solid #000 !important"><?=$counter?></td>
-                    <td style="border: 1px solid #000 !important">
+                    <td style="border: 1px solid #000 !important" width="23%">
                     <?php          
                         $kelompok = $rekap->kelompok;
                         $nomor = 1;
@@ -211,13 +217,18 @@
                             if($check->num_rows() == 1){
                             echo $name->fullname."<br>";
                             }else{
-                            echo $nomor.". ".$name->fullname."<br>";
+                            // echo $nomor.". ".$name->fullname."<br>";
+                            echo"<div class='d-sm-flex'>";
+                            echo "<div>".$nomor.". </div>";
+                            echo "<div class='d-none d-sm-inline-block' >".$name->fullname."</div>";
+                            echo "<br>";
+                            echo"</div>";
                             $nomor++;
                             }                    
                         }
                     ?>
                     </td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->institute?></td>
+                    <td style="border: 1px solid #000 !important" width="21%"><?=$rekap->institute?></td>
                     <td style="border: 1px solid #000 !important">
                     <?php
                 switch ($rekap->StartMonth){
@@ -299,7 +310,7 @@
                     }
                     ?>
                     </td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->place?></td>
+                    <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
                     <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
                 </tr>
                 <?php 
@@ -311,7 +322,7 @@
             <?php foreach ($endMonthNextInNow[$i] as $rekap) : ?>
             <tr>            
                     <td style="border: 1px solid #000 !important"><?=$counter?></td>
-                    <td style="border: 1px solid #000 !important">
+                    <td style="border: 1px solid #000 !important" width="23%">
                     <?php          
                         $kelompok = $rekap->kelompok;
                         $nomor = 1;
@@ -320,15 +331,20 @@
                         $check = $this->db->query($query);                                           
                         foreach ($fullname as $name) {
                             if($check->num_rows() == 1){
-                            echo $name->fullname."<br>";
+                                echo $name->fullname."<br>";
                             }else{
-                            echo $nomor.". ".$name->fullname."<br>";
-                            $nomor++;
+                                // echo $nomor.". ".$name->fullname."<br>";
+                                echo"<div class='d-sm-flex'>";
+                                echo "<div>".$nomor.". </div>";
+                                echo "<div class='d-none d-sm-inline-block' >".$name->fullname."</div>";
+                                echo "<br>";
+                                echo"</div>";
+                                $nomor++;
                             }                    
                         }
                     ?>
                     </td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->institute?></td>
+                    <td style="border: 1px solid #000 !important" width="21%"><?=$rekap->institute?></td>
                     <td style="border: 1px solid #000 !important">
                     <?php
                 switch ($rekap->StartMonth){
@@ -410,7 +426,7 @@
                     }
                     ?>
                     </td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->place?></td>
+                    <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
                     <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
                 </tr>
                 <?php 
@@ -421,7 +437,7 @@
              <?php foreach ($endMonthPrevInNow[$i] as $rekap) : ?>
             <tr>            
                     <td style="border: 1px solid #000 !important"><?=$counter?></td>
-                    <td style="border: 1px solid #000 !important">
+                    <td style="border: 1px solid #000 !important" width="23%">
                     <?php          
                         $kelompok = $rekap->kelompok;
                         $nomor = 1;
@@ -430,15 +446,20 @@
                         $check = $this->db->query($query);                                           
                         foreach ($fullname as $name) {
                             if($check->num_rows() == 1){
-                            echo $name->fullname."<br>";
+                                echo $name->fullname."<br>";
                             }else{
-                            echo $nomor.". ".$name->fullname."<br>";
-                            $nomor++;
+                                echo $nomor.". ".$name->fullname."<br>";
+                                echo"<div class='d-sm-flex'>";
+                                echo "<div>".$nomor.". </div>";
+                                echo "<div class='d-none d-sm-inline-block' >".$name->fullname."</div>";
+                                echo "<br>";
+                                echo"</div>";
+                                $nomor++;
                             }                    
                         }
                     ?>
                     </td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->institute?></td>
+                    <td style="border: 1px solid #000 !important" width="21%"><?=$rekap->institute?></td>
                     <td style="border: 1px solid #000 !important">
                     <?php
                 switch ($rekap->StartMonth){
@@ -520,7 +541,7 @@
                     }
                     ?>
                     </td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->place?></td>
+                    <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
                     <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
                 </tr>
                 <?php 

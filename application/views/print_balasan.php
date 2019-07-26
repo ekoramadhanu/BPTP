@@ -25,38 +25,35 @@
 
 <body id="page-top" style="font-family:tahoma">
 	<div class="container-fluid text-dark">
-		<!-- <div class="row row mt-3 mb-3">
+		<div class="row row mt-3 mb-3 d-flex justify-content-center">
 			<div class="col-lg-12 col-md-12 col-xs-12">
 				<div class="row">
 					<div class="col-lg-1 col-md-1 col-xs-1">
-						<img src="<?php 
-						// base_url('Assets/image/logo.png')?>
-						" height="120" class="mx-auto d-block mt-2" >	
+						<img src="<?=base_url('Assets/image/logo.png')?>" height="120" class="mx-auto d-block mt-2" >	
 					</div>
 					<div class="col-lg-9 col-md-9 col-xs-9 text-center pl-5">				
-						<h5 style="margin:0;" class="text-black"> KEMENTRIAN PERTANIAN </h5>
-						<h5 style="margin:0;" class="text-black">BADAN PENELITIAN PENGEMBANGAN PERTANIAN</h5>
-						<h4 style="margin:0;" class="font-weight-bold text-black">BALAI PENGKAJIAN TEKNOLOGI PERTANIAN JAWA TIMUR</h4>
-						<h6 style="margin:0;" class="text-black">JL. RAYA KARANGPLOSO KM 4 MALANG 65101 KOTAK POS 188 </h6>
-						<h6 style="margin:0;" class="text-black">TELEPONE (0341) 494052, 485055 FAXIMILI (0341) 471255</h6>
-						<h6 style="margin:0;" class="text-black"><span style="font-size: 12px">WEBSITE : </span>www.jatim.litbang.pertanian.go.id </h6>
-						<h6 style="margin:0;" class="text-black"><span style="font-size: 12px">EMAIL : </span> bptpjatim@yahoo.com, bptp-jatim@litbang.pertanian.go,id</h6>
+						<h5 style="margin:0;" class="text-primary"> KEMENTRIAN PERTANIAN </h5>
+						<h5 style="margin:0;" class="text-primary">BADAN PENELITIAN PENGEMBANGAN PERTANIAN</h5>
+						<h4 style="margin:0;" class="font-weight-bold text-primary">BALAI PENGKAJIAN TEKNOLOGI PERTANIAN JAWA TIMUR</h4>
+						<h6 style="margin:0;" class="text-primary">JL. RAYA KARANGPLOSO KM 4 MALANG 65101 KOTAK POS 188 </h6>
+						<h6 style="margin:0;" class="text-primary">TELEPONE (0341) 494052, 485055 FAXIMILI (0341) 471255</h6>
+						<h6 style="margin:0;" class="text-primary"><span style="font-size: 12px">WEBSITE : </span>www.jatim.litbang.pertanian.go.id </h6>
+						<h6 style="margin:0;" class="text-primary"><span style="font-size: 12px">EMAIL : </span> bptpjatim@yahoo.com, bptp-jatim@litbang.pertanian.go,id</h6>
 					</div>
-					<div class="col-lg-2 col-md-2 col-xs-2">
-						<img src="
-						<?php
-						// base_url('Assets/image/certificate.png')
-						?>
-						" height="60" class="mx-auto d-block mt-4 pr-5">	
+					<div class="col-lg-1 col-md-1 col-xs-1">
+						<div class="mr-5">
+							<img src="
+							<?= base_url('Assets/image/certificate.png')?>
+							" height="60" class="mx-auto d-block mt-4 pr-5">	
+						</div>
 					</div>
 				</div>
-				<hr style="width: 98%; border: 2px solid #000; margin-top: 0" class="mt-1">
-				<hr style="width: 97%; border: 1px solid #000; margin-top: -13px">	
+				<hr style="width: 98%; border: 2px solid; margin-top: 0" class="mt-2 border-primary">
+				<hr style="width: 97%; border: 1px solid; margin-top: -13px" class="border-primary">	
 			</div>
-		</div> -->
-		<br><br><br><br><br><br><br>
+		</div>		
 		<div class="row mt-3 mb-3 ml-4 mr-5">
-			<div class="col-lg-9 col-md-9 col-xs-9" style="font-size:17px">
+			<div class="col-lg-9 col-md-9 col-xs-9 text-black" style="font-size:20px">
 				<table>
 					<tr>
 						<td>Nomor</td>
@@ -86,7 +83,7 @@
 						<td class="pl-1">Praktek Kerja Lapangan</td>
 					</tr>
 				</table>
-				<br><br>
+				<br>
 					<?php 
 						$alamat = explode(" ",$penerima);	
 						$length = count($alamat);
@@ -141,7 +138,7 @@
 				<?=$tempatTujuan?>
 				</b></p>
 			</div>
-			<div class="col-lg-3 col-md-3 col-xs-3" style="font-size:17px">
+			<div class="col-lg-3 col-md-3 col-xs-3" style="font-size:20px">
 				<p class="text-right text-black"><?php
 				switch ($bulan){					
 				case 1:
@@ -185,7 +182,7 @@
 			</div>
 		</div>		
 		<div class="row mt-5 mb-3 ml-4 mr-5">
-			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:17px">
+			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:20px">
 				<p class="text-black">Menanggapi surat Saudara Nomor: <?=$nomorBalasan." tanggal "?><?php
 					switch ($bulanBalasan){					
 						case 1:
@@ -246,7 +243,7 @@
 				}
 				?>
 				 </p>				
-				<table class="table table-bordered text-black border-table-black" style="font-size:17px">
+				<table class="table table-bordered text-black border-table-black" style="font-size:20px">
 					<thead>
 						<tr>
 							<th class="pt-1 pb-1" style="border: 1px solid #000 !important"> No.</th>
@@ -288,13 +285,13 @@
 		<br><br>
 		<div class="row">
 			<div class="col-lg-7 col-md-7 col-xs-7"></div>
-			<div class="col-lg-5 col-md-5 col-xs-5" style="font-size:18px;font-family:Arial">
-				<p style="margin:0" class="text-black"><b>An. Kepala Balai,</b></p>
-				<p class="text-black" style="margin:0"><b>Kepala Seksi Kerjasama dan</b></p>
-				<p class="text-black"style="margin:0"><b>Pelayanan Pengkajian</b></p>
+			<div class="col-lg-5 col-md-5 col-xs-5" style="font-size:21px; font-family:Arial">
+				<p style="margin:0;font-size:21px" class="text-black"><b>An. Kepala Balai,</b></p>
+				<p class="text-black" style="margin:0;font-size:21px"><b>Kepala Seksi Kerjasama dan</b></p>
+				<p class="text-black"style="margin:0;font-size:21px"><b>Pelayanan Pengkajian</b></p>
 				<br><br><br><br>
-				<p style="margin:0" class="text-black mt-4"><b>RIKA ASNITA, SP, MSc</b></p>
-				<p class="text-black"style="margin:0">NIP. 197205152002122001</p>
+				<p style="margin:0;font-size:21px" class="text-black mt-4"><b>RIKA ASNITA, SP, MSc</b></p>
+				<p class="text-black"style="margin:0;font-size:21px">NIP. 197205152002122001</p>
 			</div>
 		</div>
 	</div>

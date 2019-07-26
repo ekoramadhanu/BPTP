@@ -70,6 +70,7 @@ class Admin extends CI_Controller {
     }
 
     public function updateAdminById($id){
+        echo $id;
         $role= $this->input->post('role');        
         if($role ==''){
             $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa diupdate karena

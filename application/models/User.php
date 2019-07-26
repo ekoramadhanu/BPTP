@@ -39,11 +39,11 @@ class User extends CI_Model {
     }
 
     public function updateAdminById($id,$role){
-        if($role=='Administrator'){
+        if($role=='Admin'){
             $role=2;
         }else{
             $role=1;
-        }
+        }        
         return $this->db->update('user',['roleId'=>$role],['id'=>$id]);
     }
 
