@@ -79,13 +79,16 @@
       $('#namaAnggota').val('');
       $('#nomorInduk').val('');              
     });
+
     $('#linkTambahAnggota').click(function(){
+      console.log('klik');
       $('#tambah').attr('disabled','disabled');  
     })
 
     // validasi inputan        
     function checkNomor(){
       var name= $('#nomorInduk').val();
+      console.log(name);
       if(name === ''){
         return false;
       }else{
@@ -95,6 +98,7 @@
 
     function checkNama(){
       var name= $('#namaAnggota').val();
+      console.log(name);
       if(name === ''){
         return false;
       }else{
@@ -109,6 +113,19 @@
         $('#tambah').removeAttr('disabled');         
 		  }      
     }    
+
+    // document.getElementById('namaAnggota').addEventListener('click',validate());
+    // document.getElementById('nomorInduk').addEventListener('click',validate());
+
+    // $('#bodyTambahAnggota').on('blur','#namaAnggota',function(e){
+    //   e.preventDefault();
+    //   validate();
+    // });
+
+    // $('#bodyTambahAnggota').on('blur','#nomorInduk',function(e){
+    //   e.preventDefault();
+    //   validate();
+    // });
     
     // ,nameNomor,valueNomor,nameGender,valueGender
     function list(valueNama,valueNomor,valueJenis){      
@@ -209,10 +226,10 @@
     });    
 
     // ubah format tanggal
-    $('#tanggalMulai').datepicker({
-      format:'dd-mm-yyy';
-      autoclose:true;
-    });
+    // $('#tanggalMulai').datepicker({
+    //   format:'dd-mm-yyy';
+    //   autoclose:true;
+    // });
     
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
