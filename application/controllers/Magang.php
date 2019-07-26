@@ -49,7 +49,8 @@ class Magang extends CI_Controller {
         $top['user']= $this->User->getIdentityUser($role['id']);
         
         $this->load->library('pagination');
-        // pencarian data 
+
+        // pencarian data         
         if($this->input->post('submit')){
             $tahun= $this->input->post('tahun');
             $nama= $this->input->post('nama');

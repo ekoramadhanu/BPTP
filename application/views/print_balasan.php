@@ -25,32 +25,32 @@
 
 <body id="page-top" style="font-family:tahoma">
 	<div class="container-fluid text-dark">
-		<div class="row row mt-3 mb-3 d-flex justify-content-center">
-			<div class="col-lg-12 col-md-12 col-xs-12">
+		<div class="row mt-3 mb-3">
+			<div class="col-lg-12 col-md-12 col-xs-12 d-flex justify-content-between">
 				<div class="row">
 					<div class="col-lg-1 col-md-1 col-xs-1">
-						<img src="<?=base_url('Assets/image/logo.png')?>" height="120" class="mx-auto d-block mt-2" >	
+						<img src="<?=base_url('Assets/image/logo.png')?>" height="75" width="75" class="mx-auto d-block mt-2 " >	
 					</div>
-					<div class="col-lg-9 col-md-9 col-xs-9 text-center pl-5">				
-						<h5 style="margin:0;" class="text-primary"> KEMENTRIAN PERTANIAN </h5>
-						<h5 style="margin:0;" class="text-primary">BADAN PENELITIAN PENGEMBANGAN PERTANIAN</h5>
-						<h4 style="margin:0;" class="font-weight-bold text-primary">BALAI PENGKAJIAN TEKNOLOGI PERTANIAN JAWA TIMUR</h4>
-						<h6 style="margin:0;" class="text-primary">JL. RAYA KARANGPLOSO KM 4 MALANG 65101 KOTAK POS 188 </h6>
-						<h6 style="margin:0;" class="text-primary">TELEPONE (0341) 494052, 485055 FAXIMILI (0341) 471255</h6>
-						<h6 style="margin:0;" class="text-primary"><span style="font-size: 12px">WEBSITE : </span>www.jatim.litbang.pertanian.go.id </h6>
-						<h6 style="margin:0;" class="text-primary"><span style="font-size: 12px">EMAIL : </span> bptpjatim@yahoo.com, bptp-jatim@litbang.pertanian.go,id</h6>
+					<div class="col-lg-9 col-md-9 col-xs-9 text-center">				
+						<h5 style="margin:0;" class="text-primary pl-4"> KEMENTRIAN PERTANIAN </h5>
+						<h5 style="margin:0;" class="text-primary pl-4">BADAN PENELITIAN PENGEMBANGAN PERTANIAN</h5>
+						<h4 style="margin:0;" class="font-weight-bold text-primary pl-4">BALAI PENGKAJIAN TEKNOLOGI PERTANIAN JAWA TIMUR</h4>
+						<h6 style="margin:0;" class="text-primary pl-4">JL. RAYA KARANGPLOSO KM 4 MALANG 65101 KOTAK POS 188 </h6>
+						<h6 style="margin:0;" class="text-primary pl-4">TELEPONE (0341) 494052, 485055 FAXIMILI (0341) 471255</h6>
+						<h6 style="margin:0;" class="text-primary pl-4"><span style="font-size: 12px">WEBSITE : </span>www.jatim.litbang.pertanian.go.id </h6>
+						<h6 style="margin:0;" class="text-primary pl-4"><span style="font-size: 12px">EMAIL : </span> bptpjatim@yahoo.com, bptp-jatim@litbang.pertanian.go,id</h6>
 					</div>
-					<div class="col-lg-1 col-md-1 col-xs-1">
-						<div class="mr-5">
+					<div class="col-lg-2 col-md-2 col-xs-2" >
+						<div class="">
 							<img src="
 							<?= base_url('Assets/image/certificate.png')?>
-							" height="60" class="mx-auto d-block mt-4 pr-5">	
+							" height="75" width="150" class="mx-auto d-block mt-2">	
 						</div>
 					</div>
 				</div>
-				<hr style="width: 98%; border: 2px solid; margin-top: 0" class="mt-2 border-primary">
-				<hr style="width: 97%; border: 1px solid; margin-top: -13px" class="border-primary">	
 			</div>
+			<hr style="width: 98%; border: 2px solid; margin-top: 0" class="mt-2 border-primary">
+			<hr style="width: 97%; border: 1px solid; margin-top: -13px" class="border-primary">	
 		</div>		
 		<div class="row mt-3 mb-3 ml-4 mr-5">
 			<div class="col-lg-9 col-md-9 col-xs-9 text-black" style="font-size:20px">
@@ -183,7 +183,7 @@
 		</div>		
 		<div class="row mt-5 mb-3 ml-4 mr-5">
 			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:20px">
-				<p class="text-black">Menanggapi surat Saudara Nomor: <?=$nomorBalasan." tanggal "?><?php
+				<p class="text-black text-justify">Menanggapi surat Saudara Nomor: <?=$nomorBalasan." tanggal "?><?php
 					switch ($bulanBalasan){					
 						case 1:
 					  echo $tanggalBalasan." Januari ".$tahunBalasan;
@@ -222,10 +222,10 @@
 					  echo $tanggalBalasan." Desember ".$tahunBalasan;
 					  break;
 					}
-				?>, perihal sebagaimana pada pokok surat. Kami memberikan ijin untuk kegiatan Praktek 
-				Kerja Lapangan di BPTP Balitbangtan Jawa Timur. Pelaksanaan kegiatan tersebut sesuai 
-				dengan permintaan terhitung mulai tanggal <b>
-				<?=$detail->startDay."-".$detail->StartMonth."-".$detail->satrtYear." sd ".$detail->endDay."-".$detail->endMonth."-".$detail->endYear?>
+				?>, perihal sebagaimana pada pokok surat. Kami memberikan izin untuk kegiatan Praktek 
+				<span class="mr-1">Kerja</span> <span class="mr-1">Lapangan</span> <span class="mr-1">di</span> <span class="mr-1">BPTP</span> <span class="mr-1">Balitbangtan</span> <span class="mr-1">Jawa <span class="mr-1">Timur. <span class="mr-1">Pelaksanaan</span> <span class="mr-1">kegiatan</span> <span class="mr-1">tersebut</span> <span class="mr-1">sesuai </span>
+				<span class="mr-1">dengan</span> <span class="mr-1">permintaan</span> <span class="mr-1">terhitung</span> <span class="mr-1">mulai</span> <span class="mr-1">tanggal</span> <b>
+				<?=$detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear." sd ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear?>
 				</b> 
 				<?php foreach ($fullname as $name) {
 					if($name->is_sekolah == 1){
@@ -277,9 +277,9 @@
 						endforeach;?>
 					</tbody>
 				</table>				
-				<p class="text-black">Perlu kami sampaikan bahwa dalam kegiatan tersebut ditempatkan dibagian administrasi keuangan
+				<p class="text-black text-justify">Perlu kami sampaikan bahwa dalam kegiatan tersebut ditempatkan dibagian administrasi keuangan
 				dan dibimbing oleh <b><?=$detail->guide?></b>.</p>
-				<p class="text-black">Demikian, atas perhatian dan kerjasamanya disampaikan terima kasih.</p>				
+				<p class="text-black text-justify">Demikian, atas perhatian dan kerjasamanya disampaikan terima kasih.</p>				
 			</div>
 		</div>
 		<br><br>
@@ -298,9 +298,9 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>    
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script>
+	<!-- <script>
 		print();
-	</script>
+	</script> -->
 </body>
 
 </html>

@@ -73,12 +73,12 @@ class Admin extends CI_Controller {
         echo $id;
         $role= $this->input->post('role');        
         if($role ==''){
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa diupdate karena
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data tidak bisa perbarui karena
              jenis pelaku kosong</div>');
         }else{
             $result=$this->User->updateAdminById($id,$role);
             if($result){
-                $this->session->set_flashdata('message','<div class="alert alert-success text-capitalize" role="alert">Data Berhasil diupdate</div>');
+                $this->session->set_flashdata('message','<div class="alert alert-success text-capitalize" role="alert">Data Berhasil perbarui</div>');
             }else{
                 $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Data gagal diupdate</div>');
             }

@@ -49,7 +49,7 @@
       }
     ?>
   ">
-    <a class="nav-link" href="<?=base_url('Magang/daftarMagang')?>" id="daftarMagang">
+    <a class="nav-link" href="<?=base_url('Magang')?>" id="daftarMagang">
       <i class="fas fa-fw fa-table"></i>
       <span>Daftar Magang</span></a>
   </li>

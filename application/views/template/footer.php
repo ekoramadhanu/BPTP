@@ -225,7 +225,10 @@
       $('#tambah').attr('disabled','disabled');
     });    
 
-      
+    // ubah format tanggal
+    // $('#tanggalMulai').datepicker({
+    //   format:'dd-mm-yyy';    
+    // });
     
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
