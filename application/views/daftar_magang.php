@@ -106,6 +106,7 @@
               <th class="align-middle">Waktu PKL</th>
               <th class="align-middle">Penempatan</th>
               <th class="align-middle">Pembimbing</th>
+              <th class="align-middle">Nomor Surat</th>
               <th class="align-middle">Keterangan</th>
             </tr>
           </tfoot>        
