@@ -36,7 +36,7 @@
           <thead >
             <tr class="text-center" id="bg-gradient-primary">
               <th class="align-middle border border-black">No</th>
-              <th class="align-middle border border-black">Nama Peserta</th>            
+              <th class="align-middle border border-black">Nama </th>            
               <th class="align-middle border border-black">Sekolah</th>
               <th class="align-middle border border-black">Waktu PKL</th>
               <th class="align-middle border border-black">Penempatan</th>
@@ -101,7 +101,7 @@
           <tfoot>
             <tr class="text-center">
               <th class="align-middle">No</th>
-              <th class="align-middle">Nama Peserta</th>            
+              <th class="align-middle">Nama</th>            
               <th class="align-middle">Sekolah</th>
               <th class="align-middle">Waktu PKL</th>
               <th class="align-middle">Penempatan</th>

@@ -36,7 +36,7 @@
             <th style="border: 1px solid #000 !important" class="align-middle" width="20%">WAKTU PKL</th>
             <th style="border: 1px solid #000 !important" width="17%" class="align-middle">PENEMPATAN/<br>MATERI</th>
             <th style="border: 1px solid #000 !important" class="align-middle">PEMBIMBING</th>
-            <th style="border: 1px solid #000 !important" class="align-middle" width="15%">Nomor Surat</th>
+            <th style="border: 1px solid #000 !important" class="align-middle" width="15%">NOMOR SURAT</th>
         </tr>
     </thead>
     <tbody>
