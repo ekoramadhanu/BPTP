@@ -38,7 +38,7 @@
 						<h6 style="margin:0;" class="text-primary pl-4">JL. RAYA KARANGPLOSO KM 4 MALANG 65101 KOTAK POS 188 </h6>
 						<h6 style="margin:0;" class="text-primary pl-4">TELEPONE (0341) 494052, 485055 FAXIMILI (0341) 471255</h6>
 						<h6 style="margin:0;" class="text-primary pl-4"><span style="font-size: 12px">WEBSITE : </span>www.jatim.litbang.pertanian.go.id </h6>
-						<h6 style="margin:0;" class="text-primary pl-4"><span style="font-size: 12px">EMAIL : </span> bptpjatim@yahoo.com, bptp-jatim@litbang.pertanian.go,id</h6>
+						<h6 style="margin:0;" class="text-primary pl-4"><span style="font-size: 12px">EMAIL : </span> bptpjatim@yahoo.com, bptp-jatim@litbang.pertanian.go.id</h6>
 					</div>
 					<div class="col-lg-2 col-md-2 col-xs-2" >
 						<div class="">
