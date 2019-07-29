@@ -50,7 +50,7 @@
 
 <li class="nav-item">
     <a class="nav-link" href="<?=base_url('Help/menggantiKataSandi')?>">    
-    <span>Mengganti kata sandi </span></a>
+    <span>Mengganti Kata Sandi </span></a>
 </li>
 <!-- Divider -->
 <hr class="sidebar-divider">
