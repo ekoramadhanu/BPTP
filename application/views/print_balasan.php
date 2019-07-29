@@ -277,7 +277,7 @@
 						endforeach;?>
 					</tbody>
 				</table>				
-				<p class="text-black text-justify">Perlu kami sampaikan bahwa dalam kegiatan tersebut ditempatkan dibagian administrasi keuangan
+				<p class="text-black text-justify">Perlu kami sampaikan bahwa dalam kegiatan tersebut ditempatkan dibagian <?=$detail->place?>
 				dan dibimbing oleh <b><?=$detail->guide?></b>.</p>
 				<p class="text-black text-justify">Demikian, atas perhatian dan kerjasamanya disampaikan terima kasih.</p>				
 			</div>
