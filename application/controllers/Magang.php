@@ -154,8 +154,8 @@ class Magang extends CI_Controller {
         $detail['detail'] = $this->Internship->getRekapBalasanByKelompok($kelompok);	
         $nomorSurat=$detail['nomorSurat']."/HM.240/H.12.15/".$detail['bulan']."/".$detail['tahun'];             
         $result= $this->Internship->updateNomorSuratByIdKelompok($nomorSurat,$kelompok);
-        print_r($detail['detail']);
-        die();
+        // print_r($detail['detail']);
+        // die();
 		$this->load->view('print_balasan',$detail);
 	}
 

@@ -493,7 +493,7 @@ class Internship extends CI_Model {
         when month(date_end) = 10 then 'Oktober'
         when month(date_end) = 11 then 'November'
         when month(date_end) = 12 then 'Desember'
-        END as 'endMonth',guide,
+        END as 'endMonth',guide,place,
         year(date_end) as 'endYear' from internship where id_kelompok= ".$kelompok;
         return $this->db->query($query)->row();
     }    
