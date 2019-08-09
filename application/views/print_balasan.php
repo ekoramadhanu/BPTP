@@ -29,7 +29,7 @@
 			<div class="col-lg-12 col-md-12 col-xs-12 d-flex justify-content-between">
 				<div class="row">
 					<div class="col-lg-1 col-md-1 col-xs-1">
-						<img src="<?=base_url('Assets/image/logo.png')?>" height="75" width="75" class="mx-auto d-block mt-2 " >	
+						<img src="<?=base_url('Assets/image/logoCetak.png')?>" height="80" width="85" class="mx-auto d-block mt-2 " >	
 					</div>
 					<div class="col-lg-9 col-md-9 col-xs-9 text-center">				
 						<h5 style="margin:0;" class="text-primary pl-4"> KEMENTRIAN PERTANIAN </h5>
@@ -44,7 +44,7 @@
 						<div class="">
 							<img src="
 							<?= base_url('Assets/image/certificate.png')?>
-							" height="75" width="150" class="mx-auto d-block mt-2">	
+							" height="80" width="150" class="mx-auto d-block mt-2">	
 						</div>
 					</div>
 				</div>
