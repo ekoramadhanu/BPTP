@@ -41,7 +41,7 @@
     <tbody>
         <?php for ($i=1; $i <=12 ; $i++) :?>
         <tr>
-          <td colspan="7" class="text-center text-black" style="border: 1px solid #000 !important"><b>
+          <td colspan="6" class="text-center text-black" style="border: 1px solid #000 !important"><b>
           <?php 
             switch ($i){
               case 1:
@@ -550,7 +550,7 @@
              <!-- akhir perulangan endMonth in prev -->
              <!-- perhitungan untuk  -->
              <tr>
-                <td colspan="7" class="text-center" style="border: 1px solid #000 !important">
+                <td colspan="6" class="text-center" style="border: 1px solid #000 !important">
                     <b>JUMLAH =                 
                         <?php
                         $jumlah = 0 ;
@@ -567,7 +567,7 @@
             </tr>
         <?php endfor;?>
         <tr>
-            <td colspan="7" class="text-center text-uppercase" style="border: 1px solid #000 !important"><b>Total Magang = <?= $total." orang"?></b></td>
+            <td colspan="6" class="text-center text-uppercase" style="border: 1px solid #000 !important"><b>Total Magang = <?= $total." orang"?></b></td>
         </tr>
     </tbody>
   </table>
