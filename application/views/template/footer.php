@@ -193,6 +193,7 @@
       $('#tempatSurat').val('');
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
+      $('#indexSurat').val('');
     });    
     
     $('#headerBalasan').on('click','#xBalasan',function(e){
@@ -203,6 +204,7 @@
       $('#tempatSurat').val('');
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
+      $('#indexSurat').val('');
     });    
     
     $('#footerTambahAdmin').on('click','#batalTambahAdmin',function(e){

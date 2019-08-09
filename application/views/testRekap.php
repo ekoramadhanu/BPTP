@@ -35,8 +35,7 @@
             <th style="border: 1px solid #000 !important" width="18%" class="align-middle">SEKOLAH/PT</th>
             <th style="border: 1px solid #000 !important" class="align-middle" width="20%">WAKTU PKL</th>
             <th style="border: 1px solid #000 !important" width="17%" class="align-middle">PENEMPATAN/<br>MATERI</th>
-            <th style="border: 1px solid #000 !important" class="align-middle">PEMBIMBING</th>
-            <th style="border: 1px solid #000 !important" class="align-middle" width="15%">NOMOR SURAT</th>
+            <th style="border: 1px solid #000 !important" class="align-middle">PEMBIMBING</th>            
         </tr>
     </thead>
     <tbody>
@@ -195,8 +194,7 @@
               ?>
               </td>
               <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
-              <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
-              <td style="border: 1px solid #000 !important" width="15%"><?=$rekap->nomorSurat?></td>
+              <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>              
             </tr>
             <?php 
             $counter++;
@@ -313,8 +311,7 @@
                     ?>
                     </td>
                     <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
-                    <td style="border: 1px solid #000 !important" width="15%"><?=$rekap->nomorSurat?></td>
+                    <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>                    
                 </tr>
                 <?php 
                 $counter++;
@@ -430,8 +427,7 @@
                     ?>
                     </td>
                     <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
-                    <td style="border: 1px solid #000 !important" width="15%"><?=$rekap->nomorSurat?></td>
+                    <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>                    
                 </tr>
                 <?php 
              $counter++;
@@ -546,8 +542,7 @@
                     ?>
                     </td>
                     <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
-                    <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>
-                    <td style="border: 1px solid #000 !important" width="15%"><?=$rekap->nomorSurat?></td>
+                    <td style="border: 1px solid #000 !important"><?=$rekap->guide?></td>                    
                 </tr>
                 <?php 
              $counter++;

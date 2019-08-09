@@ -41,7 +41,7 @@
               <th class="align-middle border border-black">Waktu PKL</th>
               <th class="align-middle border border-black">Penempatan</th>
               <th class="align-middle border border-black">Pembimbing</th>
-              <th class="align-middle border border-black">Nomor Surat</th>
+              <th class="align-middle border border-black">Index Surat</th>
               <th class="align-middle border border-black">Keterangan</th>
             </tr>
           </thead>
@@ -106,7 +106,7 @@
               <th class="align-middle">Waktu PKL</th>
               <th class="align-middle">Penempatan</th>
               <th class="align-middle">Pembimbing</th>
-              <th class="align-middle">Nomor Surat</th>
+              <th class="align-middle">Index Surat</th>
               <th class="align-middle">Keterangan</th>
             </tr>
           </tfoot>        
@@ -162,6 +162,13 @@ data-backdrop="static" data-keyboard="false">
           name="nomorSurat" min='0'required style="color:black" id="nomorSurat">
           <div class="invalid-feedback">
             <p class="pl-2 text-capitalize">Nomor surat tidak boleh kosong</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control form-control-user" placeholder="Index Surat" 
+          name="indexSurat" min='0'required style="color:black" id="indexSurat">
+          <div class="invalid-feedback">
+            <p class="pl-2 text-capitalize">Index surat tidak boleh kosong</p>
           </div>
         </div>
         <div class="form-group">
