@@ -157,18 +157,18 @@ data-backdrop="static" data-keyboard="false">
     </div>
     <form class="form-cetak needs-validation" action="<?=base_url('Magang/cetakBalasan')?>" method="get" novalidate>
       <div class="modal-body">
+      <div class="form-group">
+          <input type="text" class="form-control form-control-user" placeholder="Index Surat" 
+          name="indexSurat" min='0'required style="color:black" id="indexSurat">
+          <div class="invalid-feedback">
+            <p class="pl-2 text-capitalize">Index surat tidak boleh kosong</p>
+          </div>
+        </div>
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor Surat" 
           name="nomorSurat" min='0'required style="color:black" id="nomorSurat">
           <div class="invalid-feedback">
             <p class="pl-2 text-capitalize">Nomor surat tidak boleh kosong</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control form-control-user" placeholder="Index Surat" 
-          name="indexSurat" min='0'required style="color:black" id="indexSurat">
-          <div class="invalid-feedback">
-            <p class="pl-2 text-capitalize">Index surat tidak boleh kosong</p>
           </div>
         </div>
         <div class="form-group">
