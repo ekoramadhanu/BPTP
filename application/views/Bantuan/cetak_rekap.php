@@ -16,7 +16,7 @@
             </li>
             <li>Pilih tombol “Cetak Rekap per Tahun”
               <br>
-              <img src="<?=base_url('Assets/image/')?>cetak rekap_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+              <img src="<?=base_url('Assets/image/')?>cetakrekap_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
             <li>Masukkan tahun rekap pada formulir Tahun Rekap. Contoh “2018”
               <br>

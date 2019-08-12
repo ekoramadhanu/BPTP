@@ -27,6 +27,10 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>cetak surat balasan_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
+            <li>Masukkan index surat pada formulir Index Surat. Contoh “090”
+              <br>
+              <img src="<?=base_url('Assets/image/')?>suratbalasan_index.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
             <li>Masukkan nomor surat pada formulir Nomor Surat. Contoh “830”
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_no surat.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
@@ -37,7 +41,7 @@
             </li>
             <li>Masukkan nama penerima surat pada formulir Nama Penerima. Contoh “Kepala Sekolah”
               <br>
-              <img src="<?=base_url('Assets/image/')?>suratbalasan_ nama penerima.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+              <img src="<?=base_url('Assets/image/')?>suratbalasan_nama penerima.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
             <li>Masukkan tempat surat yang akan dituju pada formulir Tempat Surat Dituju. Contoh “Malang”
               <br>
