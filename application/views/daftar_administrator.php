@@ -163,7 +163,7 @@ data-backdrop="static" data-keyboard="false">
       <div class="modal-body">                
         <div class="form-group">          
           <select class="form-control custom-select" name="role" style="color:black" required>
-            <option disabled selected class="" style="color:black">Pilih Jenis Pelaku</option>
+            <option disabled selected class="" style="color:black" value="">Pilih Jenis Pelaku</option>
             <option class="" style="color:black">Admin</option>
             <option class="" style="color:black">Super Admin</option>            
           </select>

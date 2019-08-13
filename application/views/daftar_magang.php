@@ -74,8 +74,23 @@
                 ?>
               </td>
               <td class="border border-black"><?=$rekap->institute?></td>
-              <td class="border border-black"><?=$rekap->startDay."-".$rekap->StartMonth."-".$rekap->satrtYear
-              ." sd ".$rekap->endDay."-".$rekap->endMonth."-".$rekap->endYear?></td>
+              <td class="border border-black">
+              <?php 
+              if($rekap->startDay == 0 && $rekap->endDay == 0 ) {
+                echo $rekap->StartMonth." ".$rekap->satrtYear
+                  ." sd ".$rekap->endMonth." ".$rekap->endYear ;
+              }else if($rekap->endDay == 0){
+                echo $rekap->startDay." ".$rekap->StartMonth." ".$rekap->satrtYear
+                  ." sd ".$rekap->endMonth." ".$rekap->endYear ;
+              }else if($rekap->startDay == 0){
+                  echo $rekap->StartMonth." ".$rekap->satrtYear
+                ." sd ".$rekap->endDay." ".$rekap->endMonth." ".$rekap->endYear ;
+              }else{
+                echo $rekap->startDay." ".$rekap->StartMonth." ".$rekap->satrtYear
+                  ." sd ".$rekap->endDay." ".$rekap->endMonth." ".$rekap->endYear ;
+              }
+              ?>              
+              </td>
               <td class="border border-black"><?=$rekap->place?></td>
               <td class="border border-black"><?=$rekap->guide?></td>
               <td class="border border-black"><?=$rekap->nomorSurat?></td>
@@ -164,13 +179,13 @@ data-backdrop="static" data-keyboard="false">
             <p class="pl-2 text-capitalize">Index surat tidak boleh kosong</p>
           </div>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor Surat" 
           name="nomorSurat" min='0'required style="color:black" id="nomorSurat">
           <div class="invalid-feedback">
             <p class="pl-2 text-capitalize">Nomor surat tidak boleh kosong</p>
           </div>
-        </div>
+        </div> -->
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Jumlah Lampiran" 
           name="nomorLampiran" min='0'required style="color:black" id="jumlahLampiran">
@@ -179,10 +194,23 @@ data-backdrop="static" data-keyboard="false">
           </div>
         </div>        
         <div class="form-group">
+        <select class="form-control custom-select" name="perihal" style="color:black" required>
+            <option disabled selected class="" style="color:black" value="">Pilih Perihal Surat</option>
+            <option class="" style="color:black">PKL</option>
+            <option class="" style="color:black">Magang</option>            
+            <option class="" style="color:black">OJT</option>
+            <option class="" style="color:black">Magang Profesi</option>            
+            <option class="" style="color:black">Magang Kerja</option>            
+          </select>          
+          <div class="invalid-feedback">
+            <p class="pl-2 text-capitalize">Perihal tidak boleh kosong</p>
+          </div>
+        </div>        
+        <div class="form-group">
           <input type="text" class="form-control form-control-user"  placeholder="Nama Penerima"
            name="penerima" required style="color:black" id="namaPenerima">
            <div class="invalid-feedback">
-            <p class="pl-2 text-capitalize">Nomor penerima tidak boleh kosong</p>
+            <p class="pl-2 text-capitalize">Nama penerima tidak boleh kosong</p>
           </div>
         </div>                
         <div class="form-group">
@@ -201,11 +229,40 @@ data-backdrop="static" data-keyboard="false">
         </div>
         <div class="form-group">
           <label class="text-black">Tanggal Surat yang Akan Dibalas</label>
-          <input type="date" class="form-control form-control-user" placeholder="Tanggal Surat yang Dibalas"
-           name="tanggalSurat" required style="color:black" id="tanggalSuratBalasan">
-           <div class="invalid-feedback">
-            <p class="pl-2">Tanggal Surat yang Dibalas Tidak Boleh Kosong</p>
-          </div>
+          <div class="form-row">
+                  <div class="col">
+                    <input type="number" class="form-control" placeholder="Hari" min="0" max="31" required name="hariSurat">
+                    <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">hari tidak boleh kosong</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                  <select class="form-control custom-select" style="color:black" required name="bulanSurat">
+                    <option disabled selected class="" style="color:black" value="">Bulan</option>
+                    <option class="" style="color:black">Januari</option>
+                    <option class="" style="color:black">Februari</option>            
+                    <option class="" style="color:black">Maret</option>
+                    <option class="" style="color:black">April</option>            
+                    <option class="" style="color:black">Mei</option>            
+                    <option class="" style="color:black">Juni</option>
+                    <option class="" style="color:black">Juli</option>            
+                    <option class="" style="color:black">Agustus</option>
+                    <option class="" style="color:black">September</option>            
+                    <option class="" style="color:black">Oktober</option>            
+                    <option class="" style="color:black">November</option>            
+                    <option class="" style="color:black">Desember</option>            
+                  </select>
+                  <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">bulan tidak boleh kosong</p>
+                  </div>
+                  </div>
+                  <div class="col">
+                    <input type="number" class="form-control" placeholder="Tahun" min="2000" required name="tahunSurat">
+                    <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">tahun tidak boleh kosong</p>
+                    </div>
+                  </div>
+                </div>
         </div>                                
       </div>
       <div class="modal-footer" id="footerBalasan">

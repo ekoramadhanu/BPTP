@@ -26,185 +26,185 @@ class Internship extends CI_Model {
      */
     public function getRekapByMonth($month){
         $query ="select DISTINCT institute,
-                day(date_start) as 'startDay',
+              dayStar as 'startDay',
                 case  
-                when month(date_start) = 1 then 'Januari'
-                when month(date_start) = 2 then 'Februari'
-                when month(date_start) = 3 then 'Maret'
-                when month(date_start) = 4 then 'April'
-                when month(date_start) = 5 then 'Mei'
-                when month(date_start) = 6 then 'Juni'
-                when month(date_start) = 7 then 'Juli'
-                when month(date_start) = 8 then 'Agustus'
-                when month(date_start) = 9 then 'September'
-                when month(date_start) = 10 then 'Oktober'
-                when month(date_start) = 11 then 'November'
-                when month(date_start) = 12 then 'Desember'
+                when monthStart = 1 then 'Januari'
+                when monthStart = 2 then 'Februari'
+                when monthStart = 3 then 'Maret'
+                when monthStart = 4 then 'April'
+                when monthStart = 5 then 'Mei'
+                when monthStart = 6 then 'Juni'
+                when monthStart = 7 then 'Juli'
+                when monthStart = 8 then 'Agustus'
+                when monthStart = 9 then 'September'
+                when monthStart = 10 then 'Oktober'
+                when monthStart = 11 then 'November'
+                when monthStart = 12 then 'Desember'
                 END as 'StartMonth',
-                year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+                yearStart as 'satrtYear', dayEnd as 'endDay',
                 case  
-                when month(date_end) = 1 then 'Januari'
-                when month(date_end) = 2 then 'Februari'
-                when month(date_end) = 3 then 'Maret'
-                when month(date_end) = 4 then 'April'
-                when month(date_end) = 5 then 'Mei'
-                when month(date_end) = 6 then 'Juni'
-                when month(date_end) = 7 then 'Juli'
-                when month(date_end) = 8 then 'Agustus'
-                when month(date_end) = 9 then 'September'
-                when month(date_end) = 10 then 'Oktober'
-                when month(date_end) = 11 then 'November'
-                when month(date_end) = 12 then 'Desember'
+                when monthEnd = 1 then 'Januari'
+                when monthEnd = 2 then 'Februari'
+                when monthEnd = 3 then 'Maret'
+                when monthEnd = 4 then 'April'
+                when monthEnd = 5 then 'Mei'
+                when monthEnd = 6 then 'Juni'
+                when monthEnd = 7 then 'Juli'
+                when monthEnd = 8 then 'Agustus'
+                when monthEnd = 9 then 'September'
+                when monthEnd = 10 then 'Oktober'
+                when monthEnd = 11 then 'November'
+                when monthEnd = 12 then 'Desember'
                 END as 'endMonth',
-                year(date_end) as 'endYear', id_kelompok as 'kelompok',
-                guide,place from internship where month(date_start) = ".$month.
-                " order by year(date_start),month(date_start),day(date_start)";
+                yearEnd as 'endYear', id_kelompok as 'kelompok',
+                guide,place from internship where monthStart = ".$month.
+                " order by yearStart,monthStart,dayStar";
         return $this->db->query($query)->result();
     }  
     
     public function getLimitAndOffset($limit,$offset,$year = null,$like = null){
         if($year&&$like){
             $query ="select DISTINCT institute,status,nomorSurat,
-            day(date_start) as 'startDay',
+          dayStar as 'startDay',
             case  
-            when month(date_start) = 1 then 'Januari'
-            when month(date_start) = 2 then 'Februari'
-            when month(date_start) = 3 then 'Maret'
-            when month(date_start) = 4 then 'April'
-            when month(date_start) = 5 then 'Mei'
-            when month(date_start) = 6 then 'Juni'
-            when month(date_start) = 7 then 'Juli'
-            when month(date_start) = 8 then 'Agustus'
-            when month(date_start) = 9 then 'September'
-            when month(date_start) = 10 then 'Oktober'
-            when month(date_start) = 11 then 'November'
-            when month(date_start) = 12 then 'Desember'
+            when monthStart = 1 then 'Januari'
+            when monthStart = 2 then 'Februari'
+            when monthStart = 3 then 'Maret'
+            when monthStart = 4 then 'April'
+            when monthStart = 5 then 'Mei'
+            when monthStart = 6 then 'Juni'
+            when monthStart = 7 then 'Juli'
+            when monthStart = 8 then 'Agustus'
+            when monthStart = 9 then 'September'
+            when monthStart = 10 then 'Oktober'
+            when monthStart = 11 then 'November'
+            when monthStart = 12 then 'Desember'
             END as 'StartMonth',
-            year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+            yearStart as 'satrtYear', dayEnd as 'endDay',
             case  
-            when month(date_end) = 1 then 'Januari'
-            when month(date_end) = 2 then 'Februari'
-            when month(date_end) = 3 then 'Maret'
-            when month(date_end) = 4 then 'April'
-            when month(date_end) = 5 then 'Mei'
-            when month(date_end) = 6 then 'Juni'
-            when month(date_end) = 7 then 'Juli'
-            when month(date_end) = 8 then 'Agustus'
-            when month(date_end) = 9 then 'September'
-            when month(date_end) = 10 then 'Oktober'
-            when month(date_end) = 11 then 'November'
-            when month(date_end) = 12 then 'Desember'
+            when monthEnd = 1 then 'Januari'
+            when monthEnd = 2 then 'Februari'
+            when monthEnd = 3 then 'Maret'
+            when monthEnd = 4 then 'April'
+            when monthEnd = 5 then 'Mei'
+            when monthEnd = 6 then 'Juni'
+            when monthEnd = 7 then 'Juli'
+            when monthEnd = 8 then 'Agustus'
+            when monthEnd = 9 then 'September'
+            when monthEnd = 10 then 'Oktober'
+            when monthEnd = 11 then 'November'
+            when monthEnd = 12 then 'Desember'
             END as 'endMonth',
-            year(date_end) as 'endYear', id_kelompok as 'kelompok',
-            guide,place,create_at from internship where year(date_start) =".$year." and fullname like '%".$like."%' order by create_at desc, year(date_start) desc, month(date_start) asc
+            yearEnd as 'endYear', id_kelompok as 'kelompok',
+            guide,place,create_at from internship where yearStart =".$year." and fullname like '%".$like."%' order by create_at desc, yearStart desc, monthStart asc
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($like){
             $query ="select DISTINCT institute,status,nomorSurat,
-            day(date_start) as 'startDay',
+          dayStar as 'startDay',
             case  
-            when month(date_start) = 1 then 'Januari'
-            when month(date_start) = 2 then 'Februari'
-            when month(date_start) = 3 then 'Maret'
-            when month(date_start) = 4 then 'April'
-            when month(date_start) = 5 then 'Mei'
-            when month(date_start) = 6 then 'Juni'
-            when month(date_start) = 7 then 'Juli'
-            when month(date_start) = 8 then 'Agustus'
-            when month(date_start) = 9 then 'September'
-            when month(date_start) = 10 then 'Oktober'
-            when month(date_start) = 11 then 'November'
-            when month(date_start) = 12 then 'Desember'
+            when monthStart = 1 then 'Januari'
+            when monthStart = 2 then 'Februari'
+            when monthStart = 3 then 'Maret'
+            when monthStart = 4 then 'April'
+            when monthStart = 5 then 'Mei'
+            when monthStart = 6 then 'Juni'
+            when monthStart = 7 then 'Juli'
+            when monthStart = 8 then 'Agustus'
+            when monthStart = 9 then 'September'
+            when monthStart = 10 then 'Oktober'
+            when monthStart = 11 then 'November'
+            when monthStart = 12 then 'Desember'
             END as 'StartMonth',
-            year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+            yearStart as 'satrtYear', dayEnd as 'endDay',
             case  
-            when month(date_end) = 1 then 'Januari'
-            when month(date_end) = 2 then 'Februari'
-            when month(date_end) = 3 then 'Maret'
-            when month(date_end) = 4 then 'April'
-            when month(date_end) = 5 then 'Mei'
-            when month(date_end) = 6 then 'Juni'
-            when month(date_end) = 7 then 'Juli'
-            when month(date_end) = 8 then 'Agustus'
-            when month(date_end) = 9 then 'September'
-            when month(date_end) = 10 then 'Oktober'
-            when month(date_end) = 11 then 'November'
-            when month(date_end) = 12 then 'Desember'
+            when monthEnd = 1 then 'Januari'
+            when monthEnd = 2 then 'Februari'
+            when monthEnd = 3 then 'Maret'
+            when monthEnd = 4 then 'April'
+            when monthEnd = 5 then 'Mei'
+            when monthEnd = 6 then 'Juni'
+            when monthEnd = 7 then 'Juli'
+            when monthEnd = 8 then 'Agustus'
+            when monthEnd = 9 then 'September'
+            when monthEnd = 10 then 'Oktober'
+            when monthEnd = 11 then 'November'
+            when monthEnd = 12 then 'Desember'
             END as 'endMonth',
-            year(date_end) as 'endYear', id_kelompok as 'kelompok',
-            guide,place,create_at from internship where fullname like '%".$like."%' order by create_at desc,year(date_start) desc, month(date_start) asc
+            yearEnd as 'endYear', id_kelompok as 'kelompok',
+            guide,place,create_at from internship where fullname like '%".$like."%' order by create_at desc,yearStart desc, monthStart asc
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($year){
             $query ="select DISTINCT institute,status,nomorSurat,
-            day(date_start) as 'startDay',
+          dayStar as 'startDay',
             case  
-            when month(date_start) = 1 then 'Januari'
-            when month(date_start) = 2 then 'Februari'
-            when month(date_start) = 3 then 'Maret'
-            when month(date_start) = 4 then 'April'
-            when month(date_start) = 5 then 'Mei'
-            when month(date_start) = 6 then 'Juni'
-            when month(date_start) = 7 then 'Juli'
-            when month(date_start) = 8 then 'Agustus'
-            when month(date_start) = 9 then 'September'
-            when month(date_start) = 10 then 'Oktober'
-            when month(date_start) = 11 then 'November'
-            when month(date_start) = 12 then 'Desember'
+            when monthStart = 1 then 'Januari'
+            when monthStart = 2 then 'Februari'
+            when monthStart = 3 then 'Maret'
+            when monthStart = 4 then 'April'
+            when monthStart = 5 then 'Mei'
+            when monthStart = 6 then 'Juni'
+            when monthStart = 7 then 'Juli'
+            when monthStart = 8 then 'Agustus'
+            when monthStart = 9 then 'September'
+            when monthStart = 10 then 'Oktober'
+            when monthStart = 11 then 'November'
+            when monthStart = 12 then 'Desember'
             END as 'StartMonth',
-            year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+            yearStart as 'satrtYear', dayEnd as 'endDay',
             case  
-            when month(date_end) = 1 then 'Januari'
-            when month(date_end) = 2 then 'Februari'
-            when month(date_end) = 3 then 'Maret'
-            when month(date_end) = 4 then 'April'
-            when month(date_end) = 5 then 'Mei'
-            when month(date_end) = 6 then 'Juni'
-            when month(date_end) = 7 then 'Juli'
-            when month(date_end) = 8 then 'Agustus'
-            when month(date_end) = 9 then 'September'
-            when month(date_end) = 10 then 'Oktober'
-            when month(date_end) = 11 then 'November'
-            when month(date_end) = 12 then 'Desember'
+            when monthEnd = 1 then 'Januari'
+            when monthEnd = 2 then 'Februari'
+            when monthEnd = 3 then 'Maret'
+            when monthEnd = 4 then 'April'
+            when monthEnd = 5 then 'Mei'
+            when monthEnd = 6 then 'Juni'
+            when monthEnd = 7 then 'Juli'
+            when monthEnd = 8 then 'Agustus'
+            when monthEnd = 9 then 'September'
+            when monthEnd = 10 then 'Oktober'
+            when monthEnd = 11 then 'November'
+            when monthEnd = 12 then 'Desember'
             END as 'endMonth',
-            year(date_end) as 'endYear', id_kelompok as 'kelompok',
-            guide,place,create_at from internship where year(date_start) = ".$year." order by create_at desc,year(date_start) desc, month(date_start) asc
+            yearEnd as 'endYear', id_kelompok as 'kelompok',
+            guide,place,create_at from internship where yearStart = ".$year." order by create_at desc,yearStart desc, monthStart asc
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else{
             $query ="select DISTINCT institute,status,nomorSurat,
-                day(date_start) as 'startDay',
+              dayStar as 'startDay',
                 case  
-                when month(date_start) = 1 then 'Januari'
-                when month(date_start) = 2 then 'Februari'
-                when month(date_start) = 3 then 'Maret'
-                when month(date_start) = 4 then 'April'
-                when month(date_start) = 5 then 'Mei'
-                when month(date_start) = 6 then 'Juni'
-                when month(date_start) = 7 then 'Juli'
-                when month(date_start) = 8 then 'Agustus'
-                when month(date_start) = 9 then 'September'
-                when month(date_start) = 10 then 'Oktober'
-                when month(date_start) = 11 then 'November'
-                when month(date_start) = 12 then 'Desember'
+                when monthStart = 1 then 'Januari'
+                when monthStart = 2 then 'Februari'
+                when monthStart = 3 then 'Maret'
+                when monthStart = 4 then 'April'
+                when monthStart = 5 then 'Mei'
+                when monthStart = 6 then 'Juni'
+                when monthStart = 7 then 'Juli'
+                when monthStart = 8 then 'Agustus'
+                when monthStart = 9 then 'September'
+                when monthStart = 10 then 'Oktober'
+                when monthStart = 11 then 'November'
+                when monthStart = 12 then 'Desember'
                 END as 'StartMonth',
-                year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+                yearStart as 'satrtYear', dayEnd as 'endDay',
                 case  
-                when month(date_end) = 1 then 'Januari'
-                when month(date_end) = 2 then 'Februari'
-                when month(date_end) = 3 then 'Maret'
-                when month(date_end) = 4 then 'April'
-                when month(date_end) = 5 then 'Mei'
-                when month(date_end) = 6 then 'Juni'
-                when month(date_end) = 7 then 'Juli'
-                when month(date_end) = 8 then 'Agustus'
-                when month(date_end) = 9 then 'September'
-                when month(date_end) = 10 then 'Oktober'
-                when month(date_end) = 11 then 'November'
-                when month(date_end) = 12 then 'Desember'
+                when monthEnd = 1 then 'Januari'
+                when monthEnd = 2 then 'Februari'
+                when monthEnd = 3 then 'Maret'
+                when monthEnd = 4 then 'April'
+                when monthEnd = 5 then 'Mei'
+                when monthEnd = 6 then 'Juni'
+                when monthEnd = 7 then 'Juli'
+                when monthEnd = 8 then 'Agustus'
+                when monthEnd = 9 then 'September'
+                when monthEnd = 10 then 'Oktober'
+                when monthEnd = 11 then 'November'
+                when monthEnd = 12 then 'Desember'
                 END as 'endMonth',
-                year(date_end) as 'endYear', id_kelompok as 'kelompok',
-                guide,place,create_at from internship order by create_at desc,year(date_start) desc, month(date_start) asc
+                yearEnd as 'endYear', id_kelompok as 'kelompok',
+                guide,place,create_at from internship order by create_at desc,yearStart desc, monthStart asc
                 limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }
@@ -213,142 +213,142 @@ class Internship extends CI_Model {
     public function getCountAll($year = null, $like = null){
         if($year&&$like){
             $query ="select DISTINCT institute,
-                day(date_start) as 'startDay',
+              dayStar as 'startDay',
                 case  
-                when month(date_start) = 1 then 'Januari'
-                when month(date_start) = 2 then 'Februari'
-                when month(date_start) = 3 then 'Maret'
-                when month(date_start) = 4 then 'April'
-                when month(date_start) = 5 then 'Mei'
-                when month(date_start) = 6 then 'Juni'
-                when month(date_start) = 7 then 'Juli'
-                when month(date_start) = 8 then 'Agustus'
-                when month(date_start) = 9 then 'September'
-                when month(date_start) = 10 then 'Oktober'
-                when month(date_start) = 11 then 'November'
-                when month(date_start) = 12 then 'Desember'
+                when monthStart = 1 then 'Januari'
+                when monthStart = 2 then 'Februari'
+                when monthStart = 3 then 'Maret'
+                when monthStart = 4 then 'April'
+                when monthStart = 5 then 'Mei'
+                when monthStart = 6 then 'Juni'
+                when monthStart = 7 then 'Juli'
+                when monthStart = 8 then 'Agustus'
+                when monthStart = 9 then 'September'
+                when monthStart = 10 then 'Oktober'
+                when monthStart = 11 then 'November'
+                when monthStart = 12 then 'Desember'
                 END as 'StartMonth',
-                year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+                yearStart as 'satrtYear', dayEnd as 'endDay',
                 case  
-                when month(date_end) = 1 then 'Januari'
-                when month(date_end) = 2 then 'Februari'
-                when month(date_end) = 3 then 'Maret'
-                when month(date_end) = 4 then 'April'
-                when month(date_end) = 5 then 'Mei'
-                when month(date_end) = 6 then 'Juni'
-                when month(date_end) = 7 then 'Juli'
-                when month(date_end) = 8 then 'Agustus'
-                when month(date_end) = 9 then 'September'
-                when month(date_end) = 10 then 'Oktober'
-                when month(date_end) = 11 then 'November'
-                when month(date_end) = 12 then 'Desember'
+                when monthEnd = 1 then 'Januari'
+                when monthEnd = 2 then 'Februari'
+                when monthEnd = 3 then 'Maret'
+                when monthEnd = 4 then 'April'
+                when monthEnd = 5 then 'Mei'
+                when monthEnd = 6 then 'Juni'
+                when monthEnd = 7 then 'Juli'
+                when monthEnd = 8 then 'Agustus'
+                when monthEnd = 9 then 'September'
+                when monthEnd = 10 then 'Oktober'
+                when monthEnd = 11 then 'November'
+                when monthEnd = 12 then 'Desember'
                 END as 'endMonth',
-                year(date_end) as 'endYear', id_kelompok as 'kelompok',
-                guide,place from internship where year(date_start) = ".$year." and fullname like '%".$like."%'";
+                yearEnd as 'endYear', id_kelompok as 'kelompok',
+                guide,place from internship where yearStart = ".$year." and fullname like '%".$like."%'";
             return $this->db->query($query)->num_rows();
         }else if($like){
             $query ="select DISTINCT institute,
-                day(date_start) as 'startDay',
+              dayStar as 'startDay',
                 case  
-                when month(date_start) = 1 then 'Januari'
-                when month(date_start) = 2 then 'Februari'
-                when month(date_start) = 3 then 'Maret'
-                when month(date_start) = 4 then 'April'
-                when month(date_start) = 5 then 'Mei'
-                when month(date_start) = 6 then 'Juni'
-                when month(date_start) = 7 then 'Juli'
-                when month(date_start) = 8 then 'Agustus'
-                when month(date_start) = 9 then 'September'
-                when month(date_start) = 10 then 'Oktober'
-                when month(date_start) = 11 then 'November'
-                when month(date_start) = 12 then 'Desember'
+                when monthStart = 1 then 'Januari'
+                when monthStart = 2 then 'Februari'
+                when monthStart = 3 then 'Maret'
+                when monthStart = 4 then 'April'
+                when monthStart = 5 then 'Mei'
+                when monthStart = 6 then 'Juni'
+                when monthStart = 7 then 'Juli'
+                when monthStart = 8 then 'Agustus'
+                when monthStart = 9 then 'September'
+                when monthStart = 10 then 'Oktober'
+                when monthStart = 11 then 'November'
+                when monthStart = 12 then 'Desember'
                 END as 'StartMonth',
-                year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+                yearStart as 'satrtYear', dayEnd as 'endDay',
                 case  
-                when month(date_end) = 1 then 'Januari'
-                when month(date_end) = 2 then 'Februari'
-                when month(date_end) = 3 then 'Maret'
-                when month(date_end) = 4 then 'April'
-                when month(date_end) = 5 then 'Mei'
-                when month(date_end) = 6 then 'Juni'
-                when month(date_end) = 7 then 'Juli'
-                when month(date_end) = 8 then 'Agustus'
-                when month(date_end) = 9 then 'September'
-                when month(date_end) = 10 then 'Oktober'
-                when month(date_end) = 11 then 'November'
-                when month(date_end) = 12 then 'Desember'
+                when monthEnd = 1 then 'Januari'
+                when monthEnd = 2 then 'Februari'
+                when monthEnd = 3 then 'Maret'
+                when monthEnd = 4 then 'April'
+                when monthEnd = 5 then 'Mei'
+                when monthEnd = 6 then 'Juni'
+                when monthEnd = 7 then 'Juli'
+                when monthEnd = 8 then 'Agustus'
+                when monthEnd = 9 then 'September'
+                when monthEnd = 10 then 'Oktober'
+                when monthEnd = 11 then 'November'
+                when monthEnd = 12 then 'Desember'
                 END as 'endMonth',
-                year(date_end) as 'endYear', id_kelompok as 'kelompok',
+                yearEnd as 'endYear', id_kelompok as 'kelompok',
                 guide,place from internship where fullname like '%".$like."%'";
             return $this->db->query($query)->num_rows();
         }else if($year){
             $query ="select DISTINCT institute,
-                day(date_start) as 'startDay',
+              dayStar as 'startDay',
                 case  
-                when month(date_start) = 1 then 'Januari'
-                when month(date_start) = 2 then 'Februari'
-                when month(date_start) = 3 then 'Maret'
-                when month(date_start) = 4 then 'April'
-                when month(date_start) = 5 then 'Mei'
-                when month(date_start) = 6 then 'Juni'
-                when month(date_start) = 7 then 'Juli'
-                when month(date_start) = 8 then 'Agustus'
-                when month(date_start) = 9 then 'September'
-                when month(date_start) = 10 then 'Oktober'
-                when month(date_start) = 11 then 'November'
-                when month(date_start) = 12 then 'Desember'
+                when monthStart = 1 then 'Januari'
+                when monthStart = 2 then 'Februari'
+                when monthStart = 3 then 'Maret'
+                when monthStart = 4 then 'April'
+                when monthStart = 5 then 'Mei'
+                when monthStart = 6 then 'Juni'
+                when monthStart = 7 then 'Juli'
+                when monthStart = 8 then 'Agustus'
+                when monthStart = 9 then 'September'
+                when monthStart = 10 then 'Oktober'
+                when monthStart = 11 then 'November'
+                when monthStart = 12 then 'Desember'
                 END as 'StartMonth',
-                year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+                yearStart as 'satrtYear', dayEnd as 'endDay',
                 case  
-                when month(date_end) = 1 then 'Januari'
-                when month(date_end) = 2 then 'Februari'
-                when month(date_end) = 3 then 'Maret'
-                when month(date_end) = 4 then 'April'
-                when month(date_end) = 5 then 'Mei'
-                when month(date_end) = 6 then 'Juni'
-                when month(date_end) = 7 then 'Juli'
-                when month(date_end) = 8 then 'Agustus'
-                when month(date_end) = 9 then 'September'
-                when month(date_end) = 10 then 'Oktober'
-                when month(date_end) = 11 then 'November'
-                when month(date_end) = 12 then 'Desember'
+                when monthEnd = 1 then 'Januari'
+                when monthEnd = 2 then 'Februari'
+                when monthEnd = 3 then 'Maret'
+                when monthEnd = 4 then 'April'
+                when monthEnd = 5 then 'Mei'
+                when monthEnd = 6 then 'Juni'
+                when monthEnd = 7 then 'Juli'
+                when monthEnd = 8 then 'Agustus'
+                when monthEnd = 9 then 'September'
+                when monthEnd = 10 then 'Oktober'
+                when monthEnd = 11 then 'November'
+                when monthEnd = 12 then 'Desember'
                 END as 'endMonth',
-                year(date_end) as 'endYear', id_kelompok as 'kelompok',
-                guide,place from internship where year(date_start) = ".$year;
+                yearEnd as 'endYear', id_kelompok as 'kelompok',
+                guide,place from internship where yearStart = ".$year;
             return $this->db->query($query)->num_rows();
         }else{
             $query ="select DISTINCT institute,
-                day(date_start) as 'startDay',
+              dayStar as 'startDay',
                 case  
-                when month(date_start) = 1 then 'Januari'
-                when month(date_start) = 2 then 'Februari'
-                when month(date_start) = 3 then 'Maret'
-                when month(date_start) = 4 then 'April'
-                when month(date_start) = 5 then 'Mei'
-                when month(date_start) = 6 then 'Juni'
-                when month(date_start) = 7 then 'Juli'
-                when month(date_start) = 8 then 'Agustus'
-                when month(date_start) = 9 then 'September'
-                when month(date_start) = 10 then 'Oktober'
-                when month(date_start) = 11 then 'November'
-                when month(date_start) = 12 then 'Desember'
+                when monthStart = 1 then 'Januari'
+                when monthStart = 2 then 'Februari'
+                when monthStart = 3 then 'Maret'
+                when monthStart = 4 then 'April'
+                when monthStart = 5 then 'Mei'
+                when monthStart = 6 then 'Juni'
+                when monthStart = 7 then 'Juli'
+                when monthStart = 8 then 'Agustus'
+                when monthStart = 9 then 'September'
+                when monthStart = 10 then 'Oktober'
+                when monthStart = 11 then 'November'
+                when monthStart = 12 then 'Desember'
                 END as 'StartMonth',
-                year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+                yearStart as 'satrtYear', dayEnd as 'endDay',
                 case  
-                when month(date_end) = 1 then 'Januari'
-                when month(date_end) = 2 then 'Februari'
-                when month(date_end) = 3 then 'Maret'
-                when month(date_end) = 4 then 'April'
-                when month(date_end) = 5 then 'Mei'
-                when month(date_end) = 6 then 'Juni'
-                when month(date_end) = 7 then 'Juli'
-                when month(date_end) = 8 then 'Agustus'
-                when month(date_end) = 9 then 'September'
-                when month(date_end) = 10 then 'Oktober'
-                when month(date_end) = 11 then 'November'
-                when month(date_end) = 12 then 'Desember'
+                when monthEnd = 1 then 'Januari'
+                when monthEnd = 2 then 'Februari'
+                when monthEnd = 3 then 'Maret'
+                when monthEnd = 4 then 'April'
+                when monthEnd = 5 then 'Mei'
+                when monthEnd = 6 then 'Juni'
+                when monthEnd = 7 then 'Juli'
+                when monthEnd = 8 then 'Agustus'
+                when monthEnd = 9 then 'September'
+                when monthEnd = 10 then 'Oktober'
+                when monthEnd = 11 then 'November'
+                when monthEnd = 12 then 'Desember'
                 END as 'endMonth',
-                year(date_end) as 'endYear', id_kelompok as 'kelompok',
+                yearEnd as 'endYear', id_kelompok as 'kelompok',
                 guide,place from internship";
             return $this->db->query($query)->num_rows();
         }
@@ -363,12 +363,12 @@ class Internship extends CI_Model {
      * output: mengembalikan banyaknya data dalam bentuk int atau angka
      */
     public function getCountAllByYear($yearNow){
-        return $this->db->get_where("internship",['year(date_start)'=>$yearNow])->num_rows();
+        return $this->db->get_where("internship",['yearStart'=>$yearNow])->num_rows();
     }
 
     public function getCountAllByEndYear($yearNow){    
         $yearPrev = $yearNow-1;
-        return $this->db->get_where("internship",['year(date_start)'=>$yearPrev,'year(date_end)'=>$yearNow])->num_rows();
+        return $this->db->get_where("internship",['yearStart'=>$yearPrev,'yearEnd'=>$yearNow])->num_rows();
     }
     
     /**
@@ -388,9 +388,9 @@ class Internship extends CI_Model {
      */
     public function getRekapByStartDatePKL($month,$year){
         $query ="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
-        day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear', 
-        day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
-        from internship where status = 'terdaftar' and month(date_start) = ".$month." and year(date_start) = ".$year 
+      dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear', 
+        dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
+        from internship where status = 'terdaftar' and monthStart = ".$month." and yearStart = ".$year 
         ;
         return $this->db->query($query)->result();
     }
@@ -406,7 +406,7 @@ class Internship extends CI_Model {
      * output : mengebalikan banyaknya jumlah magang
      */
     public function getCountByStartDatePKL($month,$year){        
-        $query ="select id from internship where status = 'terdaftar'and month(date_start) = ".$month." and year(date_start)=".$year;
+        $query ="select id from internship where status = 'terdaftar'and monthStart = ".$month." and yearStart=".$year;
         return $this->db->query($query)->num_rows();
     }
     
@@ -425,16 +425,16 @@ class Internship extends CI_Model {
     public function getCountByEndDatePKL($monthCheck,$yearNow,$yearCheck=null,$monthNow=null){        
         if(!$yearCheck){
             $query="select id from internship 
-            where status='terdaftar' and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow.
-            " and month(date_start) =".$monthNow." and year(date_start)= ".$yearNow;
+            where status='terdaftar' and monthEnd >=".$monthCheck." and yearEnd= ".$yearNow.
+            " and monthStart =".$monthNow." and yearStart= ".$yearNow;
             return $this->db->query($query)->num_rows();        
         }else if($yearNow < $yearCheck){
-            $query="select id from internship where status ='terdaftar' and year(date_start)= ".$yearNow." 
-             and month(date_start) <".$monthCheck." and year(date_end)= ".$yearCheck;
+            $query="select id from internship where status ='terdaftar' and yearStart= ".$yearNow." 
+             and monthStart <".$monthCheck." and yearEnd= ".$yearCheck;
              return $this->db->query($query)->num_rows();        
         }else{            
-            $query="select id from internship where status ='terdaftar' and year(date_start)= ".$yearCheck." 
-             and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow;
+            $query="select id from internship where status ='terdaftar' and yearStart= ".$yearCheck." 
+             and monthEnd >=".$monthCheck." and yearEnd= ".$yearNow;
              return $this->db->query($query)->num_rows();   
         }
     }
@@ -464,37 +464,37 @@ class Internship extends CI_Model {
      * 
      */
     public function getRekapBalasanByKelompok($kelompok){
-        $query ="select department, day(date_start) as 'startDay',
+        $query ="select department, dayStar as 'startDay',
         case  
-        when month(date_start) = 1 then 'Januari'
-        when month(date_start) = 2 then 'Februari'
-        when month(date_start) = 3 then 'Maret'
-        when month(date_start) = 4 then 'April'
-        when month(date_start) = 5 then 'Mei'
-        when month(date_start) = 6 then 'Juni'
-        when month(date_start) = 7 then 'Juli'
-        when month(date_start) = 8 then 'Agustus'
-        when month(date_start) = 9 then 'September'
-        when month(date_start) = 10 then 'Oktober'
-        when month(date_start) = 11 then 'November'
-        when month(date_start) = 12 then 'Desember'
+        when monthStart = 1 then 'Januari'
+        when monthStart = 2 then 'Februari'
+        when monthStart = 3 then 'Maret'
+        when monthStart = 4 then 'April'
+        when monthStart = 5 then 'Mei'
+        when monthStart = 6 then 'Juni'
+        when monthStart = 7 then 'Juli'
+        when monthStart = 8 then 'Agustus'
+        when monthStart = 9 then 'September'
+        when monthStart = 10 then 'Oktober'
+        when monthStart = 11 then 'November'
+        when monthStart = 12 then 'Desember'
         END as 'StartMonth',
-        year(date_start) as 'satrtYear', day(date_end) as 'endDay',
+        yearStart as 'satrtYear', dayEnd as 'endDay',
         case  
-        when month(date_end) = 1 then 'Januari'
-        when month(date_end) = 2 then 'Februari'
-        when month(date_end) = 3 then 'Maret'
-        when month(date_end) = 4 then 'April'
-        when month(date_end) = 5 then 'Mei' 
-        when month(date_end) = 6 then 'Juni'
-        when month(date_end) = 7 then 'Juli'
-        when month(date_end) = 8 then 'Agustus'
-        when month(date_end) = 9 then 'September'
-        when month(date_end) = 10 then 'Oktober'
-        when month(date_end) = 11 then 'November'
-        when month(date_end) = 12 then 'Desember'
+        when monthEnd = 1 then 'Januari'
+        when monthEnd = 2 then 'Februari'
+        when monthEnd = 3 then 'Maret'
+        when monthEnd = 4 then 'April'
+        when monthEnd = 5 then 'Mei' 
+        when monthEnd = 6 then 'Juni'
+        when monthEnd = 7 then 'Juli'
+        when monthEnd = 8 then 'Agustus'
+        when monthEnd = 9 then 'September'
+        when monthEnd = 10 then 'Oktober'
+        when monthEnd = 11 then 'November'
+        when monthEnd = 12 then 'Desember'
         END as 'endMonth',guide,place,
-        year(date_end) as 'endYear' from internship where id_kelompok= ".$kelompok;
+        yearEnd as 'endYear' from internship where id_kelompok= ".$kelompok;
         return $this->db->query($query)->row();
     }    
 
@@ -513,48 +513,48 @@ class Internship extends CI_Model {
     public function getRekapByEndDatePKL($monthCheck,$yearNow,$yearCheck=null,$monthNow=null){        
         if(!$yearCheck){
             $query="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
-            day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear', 
-            day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
-            from internship where status='terdaftar' and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow.
-            " and month(date_start) =".$monthNow." and year(date_start)= ".$yearNow;
+          dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear', 
+            dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
+            from internship where status='terdaftar' and monthEnd >=".$monthCheck." and yearEnd= ".$yearNow.
+            " and monthStart =".$monthNow." and yearStart= ".$yearNow;
             return $this->db->query($query)->result();        
         }else if($yearNow < $yearCheck){
             $query="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
-            day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear',
-             day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
-             from internship where status ='terdaftar' and year(date_start)= ".$yearNow." 
-             and month(date_start) <".$monthCheck." and year(date_end)= ".$yearCheck;
+          dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear',
+             dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
+             from internship where status ='terdaftar' and yearStart= ".$yearNow." 
+             and monthStart <".$monthCheck." and yearEnd= ".$yearCheck;
              return $this->db->query($query)->result();        
         }else{            
             $query="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
-            day(date_start) as 'startDay',month(date_start) as 'StartMonth',year(date_start) as 'satrtYear',
-             day(date_end) as 'endDay',month(date_end) as 'endMonth',year(date_end) as 'endYear',place,guide 
-             from internship where status ='terdaftar' and year(date_start)= ".$yearCheck." 
-             and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow;
+          dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear',
+             dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
+             from internship where status ='terdaftar' and yearStart= ".$yearCheck." 
+             and monthEnd >=".$monthCheck." and yearEnd= ".$yearNow;
              return $this->db->query($query)->result();   
         }
     }
 
 
     public function getCountByStatusAndStartYear($status,$yearNow){        
-        $query="select id as 'jumlah'  from internship WHERE lower(status) ='".$status."' and year(date_start) =".$yearNow; 
+        $query="select id as 'jumlah'  from internship WHERE lower(status) ='".$status."' and yearStart =".$yearNow; 
         return $this->db->query($query)->num_rows();
     }
 
     public function getCountByStatusAndEndYear($status,$yearNow){  
         $yearPrev = $yearNow-1;      
-        $query="select id as 'jumlah'  from internship WHERE lower(status) ='".$status."' and year(date_start) =".$yearPrev." and year(date_end)=".$yearNow; 
+        $query="select id as 'jumlah'  from internship WHERE lower(status) ='".$status."' and yearStart =".$yearPrev." and yearEnd=".$yearNow; 
         return $this->db->query($query)->num_rows();
     }
 
     public function getCountByGenderAndStartYear($gender,$yearNow){
-        $query="select id as 'jumlah' from internship where gender= '".$gender."' and year(date_start) = ".$yearNow;
+        $query="select id as 'jumlah' from internship where gender= '".$gender."' and yearStart = ".$yearNow;
         return $this->db->query($query)->num_rows();
     }
     
     public function getCountByGenderAndEndYear($gender,$yearNow){
         $yearPrev = $yearNow-1;
-        $query="select id as 'jumlah' from internship where gender= '".$gender."' and year(date_end) = ".$yearNow." and year(date_start) =".$yearPrev;
+        $query="select id as 'jumlah' from internship where gender= '".$gender."' and yearEnd = ".$yearNow." and yearStart =".$yearPrev;
         return $this->db->query($query)->num_rows();
     }
     public function getDepartmentByKelompok($kelompok){
@@ -605,23 +605,23 @@ class Internship extends CI_Model {
     }
 
     public function getRekapStartDateByIsSekolah($isSekolah,$month,$year){
-        $query ="select id from internship where status = 'terdaftar' and is_sekolah = ".$isSekolah." and month(date_start) = ".$month." and year(date_start)=".$year;
+        $query ="select id from internship where status = 'terdaftar' and is_sekolah = ".$isSekolah." and monthStart = ".$month." and yearStart=".$year;
         return $this->db->query($query)->num_rows();
     }
 
     public function getRekapEndtDateByIsSekolah($isSekolah,$monthCheck,$yearNow,$yearCheck=null,$monthNow=null){
         if(!$yearCheck){
             $query="select id from internship 
-            where status='terdaftar' and is_sekolah = ".$isSekolah. " and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow.
-            " and month(date_start) =".$monthNow." and year(date_start)= ".$yearNow;
+            where status='terdaftar' and is_sekolah = ".$isSekolah. " and monthEnd >=".$monthCheck." and yearEnd= ".$yearNow.
+            " and monthStart =".$monthNow." and yearStart= ".$yearNow;
             return $this->db->query($query)->num_rows();        
         }else if($yearNow < $yearCheck){
-            $query="select id from internship where status ='terdaftar' and is_sekolah = ".$isSekolah. " and year(date_start)= ".$yearNow." 
-             and month(date_start) <".$monthCheck." and year(date_end)= ".$yearCheck;
+            $query="select id from internship where status ='terdaftar' and is_sekolah = ".$isSekolah. " and yearStart= ".$yearNow." 
+             and monthStart <".$monthCheck." and yearEnd= ".$yearCheck;
              return $this->db->query($query)->num_rows();        
         }else{            
-            $query="select id from internship where status ='terdaftar' and is_sekolah = ".$isSekolah. " and year(date_start)= ".$yearCheck." 
-             and month(date_end) >=".$monthCheck." and year(date_end)= ".$yearNow;
+            $query="select id from internship where status ='terdaftar' and is_sekolah = ".$isSekolah. " and yearStart= ".$yearCheck." 
+             and monthEnd >=".$monthCheck." and yearEnd= ".$yearNow;
              return $this->db->query($query)->num_rows();   
         }        
     }

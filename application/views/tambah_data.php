@@ -76,6 +76,80 @@
             </div>
             <div class="form-group">
                 <label class="text-black">Tanggal Mulai</label>
+                <div class="form-row">
+                  <div class="col">
+                    <input type="number" class="form-control" placeholder="Hari" min="0" max="31" required name="dayStart">
+                    <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">hari tidak boleh kosong</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                  <select class="form-control custom-select" style="color:black" required name="monthStart">
+                    <option disabled selected class="" style="color:black" value="">Bulan</option>
+                    <option class="" style="color:black">Januari</option>
+                    <option class="" style="color:black">Februari</option>            
+                    <option class="" style="color:black">Maret</option>
+                    <option class="" style="color:black">April</option>            
+                    <option class="" style="color:black">Mei</option>            
+                    <option class="" style="color:black">Juni</option>
+                    <option class="" style="color:black">Juli</option>            
+                    <option class="" style="color:black">Agustus</option>
+                    <option class="" style="color:black">September</option>            
+                    <option class="" style="color:black">Oktober</option>            
+                    <option class="" style="color:black">November</option>            
+                    <option class="" style="color:black">Desember</option>            
+                  </select>
+                  <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">bulan tidak boleh kosong</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <input type="number" class="form-control" placeholder="Tahun" min="2000" required name="yearStart"> 
+                    <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">tahun tidak boleh kosong</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="text-black">Tanggal Selesai</label>
+                <div class="form-row">
+                  <div class="col">
+                    <input type="number" class="form-control" placeholder="Hari" min="0" max="31" required name="dayEnd">
+                    <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">hari tidak boleh kosong</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                  <select class="form-control custom-select" style="color:black" required name="monthEnd">
+                    <option disabled selected class="" style="color:black" value="">Bulan</option>
+                    <option class="" style="color:black">Januari</option>
+                    <option class="" style="color:black">Februari</option>            
+                    <option class="" style="color:black">Maret</option>
+                    <option class="" style="color:black">April</option>            
+                    <option class="" style="color:black">Mei</option>            
+                    <option class="" style="color:black">Juni</option>
+                    <option class="" style="color:black">Juli</option>            
+                    <option class="" style="color:black">Agustus</option>
+                    <option class="" style="color:black">September</option>            
+                    <option class="" style="color:black">Oktober</option>            
+                    <option class="" style="color:black">November</option>            
+                    <option class="" style="color:black">Desember</option>            
+                  </select>
+                  <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">bulan tidak boleh kosong</p>
+                  </div>
+                  </div>
+                  <div class="col">
+                    <input type="number" class="form-control" placeholder="Tahun" min="2000" required name="yearEnd">
+                    <div class="invalid-feedback">
+                      <p class="pl-2 text-capitalize">tahun tidak boleh kosong</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label class="text-black">Tanggal Mulai</label>
                 <input type="date" class="form-control text-black" name="tanggalMulai" required id="tanggalMulai">                
                 <div class="invalid-feedback">
                   <p class="pl-2 text-capitalize">tanggal mulai tidak boleh kosong</p>
@@ -87,7 +161,7 @@
                 <div class="invalid-feedback">
                   <p class="pl-2 text-capitalize">Tanggal selesai tidak boleh kosong</p>
                 </div>
-            </div>
+            </div> -->
             <div class="form-group">
               <label id="daftarMagang" class="text-black text-capitalize">Daftar anggota</label>                
               <div id="listAnggota"></div>

@@ -139,10 +139,10 @@ class Magang extends CI_Controller {
 		$detail['penerima'] = $this->input->get('penerima');
 		$detail['nomorBalasan'] = $this->input->get('nomorBalasan');
 		$detail['tempatTujuan'] = $this->input->get('tempatTujuan');
-		$date = $this->input->get('tanggalSurat');
-		$detail['tanggalBalasan'] = substr($date,8,2);
-		$detail['bulanBalasan'] = substr($date,5,2);
-		$detail['tahunBalasan'] = substr($date,0,4);
+		$detail['perihal'] = $this->input->get('perihal');		
+		$detail['tanggalBalasan'] = $this->input->get('hariSurat');
+		$detail['bulanBalasan'] = $this->input->get('bulanSurat');
+		$detail['tahunBalasan'] = $this->input->get('tahunSurat');
 		$detail['tanggal'] = date('d');
 		$detail['bulan'] = date('m');
 		$detail['tahun'] = date('Y');		
@@ -167,13 +167,13 @@ class Magang extends CI_Controller {
         $this->form_validation->set_rules('nomor[]','nomor[]','is_unique[internship.id]',[
             "is_unique"=>'NIM / NISN sudah terdaftar'
         ]);
-        if(!$this->form_validation->run()){
+        if(!$this->form_validation->run()){            
             $this->load->view('template/header',$data);
             $this->load->view('template/sidebar',$role);
             $this->load->view('template/topbar',$top);
             $this->load->view('tambah_data');
             $this->load->view('template/footer');        
-        }else{
+        }else{            
             $this->insertData();
         }
     }
@@ -196,11 +196,99 @@ class Magang extends CI_Controller {
         }
         $penempatanMagang =$this->input->post('penempatanMagang');
         $pembimbingMagang =$this->input->post('pembimbingMagang');
-        $tanggalMulai =$this->input->post('tanggalMulai');
-        $tanggalBerakhir =$this->input->post('tanggalSelesai');    
+        $dayStart = $this->input->post('dayStart') ;
+        $monthStart= $this->input->post('monthStart');
+        $yearStart = $this->input->post('yearStart');
+        $dayEnd = $this->input->post('dayEnd');
+        $monthEnd = $this->input->post('monthEnd');
+        $yearEnd = $this->input->post('yearEnd');
+        // echo $monthStart;
+        // echo $monthEnd;
+        switch($monthStart){
+            case 'Januari':
+                $monthStart=1;
+                break;
+            case 'Februari':
+                $monthStart=2;
+                break;
+            case 'Maret':
+                $monthStart=3;
+                break;
+            case 'April':
+                $monthStart=4;
+                break;
+            case 'Mei':
+                $monthStart=5;
+                break;
+            case 'Juni':
+                $monthStart=6;
+                break;
+            case 'Juli':
+                $monthStart=7;
+                break;
+            case 'Agustus':
+                $monthStart=8;
+                break;
+            case 'September':
+                $monthStart=9;
+                break;
+            case 'Oktober':
+                $monthStart=10;
+                break;
+            case 'November':
+                $monthStart=11;
+                break;
+            case 'Desember':
+                $monthStart=12;
+                break;
+        }
+        switch($monthEnd){
+            case 'Januari':
+                $monthEnd=1;
+                break;
+            case 'Februari':
+                $monthEnd=2;
+                break;
+            case 'Maret':
+                $monthEnd=3;
+                break;
+            case 'April':
+                $monthEnd=4;
+                break;
+            case 'Mei':
+                $monthEnd=5;
+                break;
+            case 'Juni':
+                $monthEnd=6;
+                break;
+            case 'Juli':
+                $monthEnd=7;
+                break;
+            case 'Agustus':
+                $monthEnd=8;
+                break;
+            case 'September':
+                $monthEnd=9;
+                break;
+            case 'Oktober':
+                $monthEnd=10;
+                break;
+            case 'November':
+                $monthEnd=11;
+                break;
+            case 'Desember':
+                $monthEnd=12;
+                break;
+        }
+        if($yearStart > $yearEnd){
+            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">tahun mulai magang tidak boleh lebih besar</div>');
+        }else if($yearStart = $yearEnd){
+            if($monthStart > $monthEnd){
+                $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">bulan mulai magang tidak boleh lebih besar</div>');
+            }
+        }        
         $data = array();
         $index = 0;           
-
         foreach ((array)$nomor as $result) {
             array_push($data,array(
                 'id'=>$result,
@@ -215,19 +303,23 @@ class Magang extends CI_Controller {
                 'guide'=>$pembimbingMagang,
                 'id_kelompok'=>$nomor[0],
                 'is_sekolah'=>$pekerjaan,
-                'date_start'=>$tanggalMulai,
-                'date_end'=>$tanggalBerakhir
+                'dayStar'=>$dayStart,
+                'monthStart'=>$monthStart,
+                'yearStart'=>$yearStart,
+                'dayEnd'=>$dayEnd,
+                'monthEnd'=>$monthEnd,
+                'yearEnd'=>$yearEnd
                 )
             );
             $index++;
-        }
-        print_r(json_encode($data));                        
+        }                
         $result = $this->Internship->insertNewInternship($data);
-        if($result){
-            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan</div>');
-        }else{
-            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Tidak Berhasil Ditambahkan</div>');
-        }
+        $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan</div>');
+        // if($result){
+        //     $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan</div>');
+        // }else{
+        //     $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Tidak Berhasil Ditambahkan</div>');
+        // }
         redirect('Magang/tambahData');
     }
 

@@ -95,7 +95,6 @@
 							echo $penerima."<br>".$institution->institute;
 						}else{
 							echo $penerima." ";
-
 							if(preg_match("/pol/i", $institution->institute)){
 								if(preg_match("/jurusan/i", $department->department)) {
 									echo  $department->department;
@@ -183,49 +182,25 @@
 		</div>		
 		<div class="row mt-5 mb-3 ml-4 mr-5">
 			<div class="col-lg-12 col-md-12 col-xs-12" style="font-size:20px">
-				<p class="text-black text-justify">Menanggapi surat Saudara Nomor: <?=$nomorBalasan." tanggal "?><?php
-					switch ($bulanBalasan){					
-						case 1:
-					  echo $tanggalBalasan." Januari ".$tahunBalasan;
-					  break;
-				  case 2:
-					  echo $tanggalBalasan." Februari ".$tahunBalasan;
-					  break;
-				  case 3:
-					  echo $tanggalBalasan." Maret ".$tahunBalasan;
-					  break;
-				  case 4:
-					  echo $tanggalBalasan." April " .$tahunBalasan;
-					  break;
-				  case 5:
-					  echo $tanggalBalasan." Mei ".$tahunBalasan;
-					  break;
-				  case 6:
-					  echo $tanggalBalasan." Juni ".$tahunBalasan;
-					  break;
-				  case 7:
-					  echo $tanggalBalasan." Juli ".$tahunBalasan;
-					  break;
-				  case 8:
-					  echo $tanggalBalasan." Agustus ".$tahunBalasan;
-					  break;
-				  case 9:
-					  echo $tanggalBalasan." September ".$tahunBalasan;
-					  break;
-				  case 10:
-					  echo $tanggalBalasan." Oktober ".$tahunBalasan;
-					  break;
-				  case 11:
-					  echo $tanggalBalasan." November ".$tahunBalasan;
-					  break;
-				  case 12:
-					  echo $tanggalBalasan." Desember ".$tahunBalasan;
-					  break;
-					}
-				?>, perihal sebagaimana pada pokok surat. Kami memberikan izin untuk kegiatan Praktek 
+				<p class="text-black text-justify">Menanggapi surat Saudara Nomor: <?=$nomorBalasan." tanggal "?>
+				<?=$tanggalBalasan." ".$bulanBalasan." ".$tahunBalasan?>, perihal sebagaimana pada pokok surat. Kami memberikan izin untuk kegiatan Praktek 
 				<span class="mr-1">Kerja</span> <span class="mr-1">Lapangan</span> <span class="mr-1">di</span> <span class="mr-1">BPTP</span> <span class="mr-1">Balitbangtan</span> <span class="mr-1">Jawa <span class="mr-1">Timur. <span class="mr-1">Pelaksanaan</span> <span class="mr-1">kegiatan</span> <span class="mr-1">tersebut</span> <span class="mr-1">sesuai </span>
 				<span class="mr-1">dengan</span> <span class="mr-1">permintaan</span> <span class="mr-1">terhitung</span> <span class="mr-1">mulai</span> <span class="mr-1">tanggal</span> <b>
-				<?=$detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear." sd ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear?>
+				<?php 
+					if($detail->startDay == 0 && $detail->endDay == 0 ) {
+						echo $detail->StartMonth." ".$detail->satrtYear
+						." sd ".$detail->endMonth." ".$detail->endYear ;
+					}else if($detail->endDay == 0){
+						echo $detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear
+						." sd ".$detail->endMonth." ".$detail->endYear ;
+					}else if($detail->startDay == 0){
+						echo $detail->StartMonth." ".$detail->satrtYear
+						." sd ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
+					}else{
+						echo $detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear
+						." sd ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
+					}
+					?>              
 				</b> 
 				<?php foreach ($fullname as $name) {
 					if($name->is_sekolah == 1){
