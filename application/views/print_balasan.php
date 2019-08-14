@@ -58,7 +58,14 @@
 					<tr>
 						<td>Nomor</td>
 						<td class="pl-3">:</td>
-						<td class="pl-1">B- <?=$nomorSurat?>/HM.240/H.12.15/<?=$bulan."/".$tahun?></td>
+						<td class="pl-1">B-
+						<?php if($nomorSurat==null){
+							echo "&emsp;&emsp;&emsp;&emsp;";
+						}else{
+							echo $nomorSurat;
+						}
+						?>
+						/HM.240/H.12.15/<?=$bulan."/".$tahun?></td>
 					</tr>
 					<tr>
 						<td>Sifat</td>
@@ -80,7 +87,7 @@
 					<tr>
 						<td>Hal</td>
 						<td class="pl-3">:</td>
-						<td class="pl-1">Praktek Kerja Lapangan</td>
+						<td class="pl-1"><?=$perihal?></td>
 					</tr>
 				</table>
 				<br>
@@ -98,7 +105,9 @@
 							if(preg_match("/pol/i", $institution->institute)){
 								if(preg_match("/jurusan/i", $department->department)) {
 									echo  $department->department;
-								} else {
+								} else if(preg_match("/-/i", $department->department)) {
+									
+								}else{
 									echo "jurusan ". $department->department;
 								}
 								echo"<br>";
@@ -112,7 +121,9 @@
 							}else{
 								if(preg_match("/jurusan/i", $department->department)) {
 									echo  $department->department;
-								} else {
+								} else if(preg_match("/-/i", $department->department)) {
+									
+								}else{
 									echo "jurusan ". $department->department;
 								}
 								echo"<br>";
@@ -187,19 +198,35 @@
 				<span class="mr-1">Kerja</span> <span class="mr-1">Lapangan</span> <span class="mr-1">di</span> <span class="mr-1">BPTP</span> <span class="mr-1">Balitbangtan</span> <span class="mr-1">Jawa <span class="mr-1">Timur. <span class="mr-1">Pelaksanaan</span> <span class="mr-1">kegiatan</span> <span class="mr-1">tersebut</span> <span class="mr-1">sesuai </span>
 				<span class="mr-1">dengan</span> <span class="mr-1">permintaan</span> <span class="mr-1">terhitung</span> <span class="mr-1">mulai</span> <span class="mr-1">tanggal</span> <b>
 				<?php 
-					if($detail->startDay == 0 && $detail->endDay == 0 ) {
-						echo $detail->StartMonth." ".$detail->satrtYear
-						." sd ".$detail->endMonth." ".$detail->endYear ;
-					}else if($detail->endDay == 0){
-						echo $detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear
-						." sd ".$detail->endMonth." ".$detail->endYear ;
-					}else if($detail->startDay == 0){
-						echo $detail->StartMonth." ".$detail->satrtYear
-						." sd ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
+					if($detail->satrtYear ==$detail->endYear){
+						if($detail->startDay == 0 && $detail->endDay == 0 ) {							
+							echo $detail->StartMonth." "
+							." - ".$detail->endMonth." ".$detail->endYear ;
+						}else if($detail->endDay == 0){							
+							echo $detail->startDay." ".$detail->StartMonth
+							." - ".$detail->endMonth." ".$detail->endYear ;
+						}else if($detail->startDay == 0){							
+							echo $detail->StartMonth
+							." - ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
+						}else{							
+							echo $detail->startDay." ".$detail->StartMonth." "
+							." - ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
+						}
 					}else{
-						echo $detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear
-						." sd ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
-					}
+						if($detail->startDay == 0 && $detail->endDay == 0 ) {
+							echo $detail->StartMonth." ".$detail->satrtYear
+							." - ".$detail->endMonth." ".$detail->endYear ;
+						}else if($detail->endDay == 0){
+							echo $detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear
+							." - ".$detail->endMonth." ".$detail->endYear ;
+						}else if($detail->startDay == 0){
+							echo $detail->StartMonth." ".$detail->satrtYear
+							." - ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
+						}else{
+							echo $detail->startDay." ".$detail->StartMonth." ".$detail->satrtYear
+							." - ".$detail->endDay." ".$detail->endMonth." ".$detail->endYear ;
+						}	
+					}					
 					?>              
 				</b> 
 				<?php foreach ($fullname as $name) {

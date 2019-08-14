@@ -152,8 +152,62 @@ class Magang extends CI_Controller {
         $detail['studyProgram']=$this->Internship->getProgramStudyByKelompok($kelompok);
         $detail['faculty']=$this->Internship->getFakultasByKelompok($kelompok);
         $detail['detail'] = $this->Internship->getRekapBalasanByKelompok($kelompok);	
-        $nomorSurat= $this->input->get('indexSurat');        
-        $result= $this->Internship->updateNomorSuratByIdKelompok($nomorSurat,$kelompok);        
+        $indexSurat= $this->input->get('indexSurat');        
+        $data = array();
+        $id = $this->Internship->getNIMByKelompok($kelompok);
+        foreach ((array)$id as $result) {
+            switch($detail['bulanBalasan']){
+                case 'Januari':
+                $bulan=1;
+                break;
+            case 'Februari':
+                $bulan=2;
+                break;
+            case 'Maret':
+                $bulan=3;
+                break;
+            case 'April':
+                $bulan=4;
+                break;
+            case 'Mei':
+                $bulan=5;
+                break;
+            case 'Juni':
+                $bulan=6;
+                break;
+            case 'Juli':
+                $bulan=7;
+                break;
+            case 'Agustus':
+                $bulan=8;
+                break;
+            case 'September':
+                $bulan=9;
+                break;
+            case 'Oktober':
+                $bulan=10;
+                break;
+            case 'November':
+                $bulan=11;
+                break;
+            case 'Desember':
+                $bulan=12;
+                break;
+            }
+            array_push($data,array(
+                'id'=>$result->id,
+                'indexSurat'=>$indexSurat,
+                'nomorSurat'=>$detail['nomorSurat'],
+                'jumlahLampiran'=> $detail['nomorLampiran'],
+                'perihal'=> $detail['perihal'],
+                'namaPenerima'=>$detail['penerima'],
+                'tempatSurat'=>$detail['tempatTujuan'],
+                'nomorSuratBalasan'=> $detail['nomorBalasan'],
+                'tanggalSuratBalasan'=> $detail['tahunBalasan']."-".$bulan."-".$detail['tanggalBalasan'],
+                'isCetak' => 1                
+            ));
+        }        
+        $result= $this->Internship->updateSuratBalasanByIdKelompok($data);        
 		$this->load->view('print_balasan',$detail);
 	}
 
@@ -201,9 +255,7 @@ class Magang extends CI_Controller {
         $yearStart = $this->input->post('yearStart');
         $dayEnd = $this->input->post('dayEnd');
         $monthEnd = $this->input->post('monthEnd');
-        $yearEnd = $this->input->post('yearEnd');
-        // echo $monthStart;
-        // echo $monthEnd;
+        $yearEnd = $this->input->post('yearEnd');        
         switch($monthStart){
             case 'Januari':
                 $monthStart=1;
@@ -280,13 +332,13 @@ class Magang extends CI_Controller {
                 $monthEnd=12;
                 break;
         }
-        if($yearStart > $yearEnd){
-            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">tahun mulai magang tidak boleh lebih besar</div>');
-        }else if($yearStart = $yearEnd){
-            if($monthStart > $monthEnd){
-                $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">bulan mulai magang tidak boleh lebih besar</div>');
-            }
-        }        
+        // if($yearStart > $yearEnd){
+        //     $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">tahun mulai magang tidak boleh lebih besar</div>');
+        // }else if($yearStart = $yearEnd){
+        //     if($monthStart > $monthEnd){
+        //         $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">bulan mulai magang tidak boleh lebih besar</div>');
+        //     }
+        // }        
         $data = array();
         $index = 0;           
         foreach ((array)$nomor as $result) {
@@ -308,7 +360,8 @@ class Magang extends CI_Controller {
                 'yearStart'=>$yearStart,
                 'dayEnd'=>$dayEnd,
                 'monthEnd'=>$monthEnd,
-                'yearEnd'=>$yearEnd
+                'yearEnd'=>$yearEnd,
+                'isCetak'=>0
                 )
             );
             $index++;
@@ -383,5 +436,70 @@ class Magang extends CI_Controller {
         $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">Data Tidak Bisa Dihapus</div>');
       }
       redirect('Magang/daftarMagang');
+    }
+
+    public function reCetak($kelompok=null){        
+        $data= $this->Internship->getDataCetakBalasan($kelompok);
+        foreach ($data as $result) {            
+            $detail['nomorSurat'] = $result->nomorSurat;
+            $detail['nomorLampiran'] = $result->jumlahLampiran;
+            $detail['penerima'] = $result->namaPenerima;
+            $detail['nomorBalasan'] = $result->nomorSuratBalasan;
+            $detail['tempatTujuan'] = $result->tempatSurat;
+            $detail['perihal'] = $result->perihal;		
+            $tanggal= $result->tanggalSuratBalasan;
+            $detail['tanggalBalasan'] = substr($tanggal,8,2);
+            $detail['bulanBalasan'] = substr($tanggal,5,2);
+            $detail['tahunBalasan'] = substr($tanggal,0,4);
+        }
+        switch($detail['bulanBalasan']){
+            case '01':
+                $detail['bulanBalasan']="Januari";
+                break;
+            case '02':
+                $detail['bulanBalasan']="Februari";
+            break;
+            case '03':
+                $detail['bulanBalasan']="Maret";
+                break;
+            case '04':
+                $detail['bulanBalasan']="April";
+                break;
+            case '05':
+                $detail['bulanBalasan']="Mei";
+                break;
+            case '06':
+                $detail['bulanBalasan']="Juni";
+                break;
+            case '07':
+                $detail['bulanBalasan']="Juli";
+                break;
+            case '08':
+                $detail['bulanBalasan']="Agustus";
+                break;
+            case '09':
+                $detail['bulanBalasan']="September";
+                break;
+            case '10':
+                $detail['bulanBalasan']="Oktober";
+                break;
+            case '11':
+                $detail['bulanBalasan']="November";
+                break;
+            case '12':
+                $detail['bulanBalasan']="Desember";
+                break;
+
+        }
+		$detail['tanggal'] = date('d');
+		$detail['bulan'] = date('m');
+		$detail['tahun'] = date('Y');		
+		$detail['fullname'] = $this->Internship->getNameByKelompok($kelompok);
+		$detail['department'] = $this->Internship->getDepartmentByKelompok($kelompok);
+        $detail['institution'] = $this->Internship->getInstitutionByKelompok($kelompok);
+        $detail['studyProgram']=$this->Internship->getProgramStudyByKelompok($kelompok);
+        $detail['faculty']=$this->Internship->getFakultasByKelompok($kelompok);
+        $detail['detail'] = $this->Internship->getRekapBalasanByKelompok($kelompok);	
+        $this->load->view('print_balasan',$detail);
     }
 }

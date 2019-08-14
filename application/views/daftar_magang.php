@@ -93,11 +93,15 @@
               </td>
               <td class="border border-black"><?=$rekap->place?></td>
               <td class="border border-black"><?=$rekap->guide?></td>
-              <td class="border border-black"><?=$rekap->nomorSurat?></td>
+              <td class="border border-black"><?=$rekap->indexSurat?></td>
               <td class="text-center">      
               <?php 
                 if($rekap->status == "terdaftar"){
-                  echo "<button type='submit' class='cetak btn btn-sm btn-outline-primary mr-1' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'><i class='fas fa-fw fa-print'></i></button>";
+                  if($rekap->isCetak !=1){
+                    echo "<button type='submit' class='cetak btn btn-sm btn-outline-primary mr-1' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#cetakBalasan'><i class='fas fa-fw fa-print'></i></button>";
+                  }else{
+                    echo "<button type='submit' class='recetak btn btn-sm btn-outline-primary mr-1' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#reCetakDataMagang'><i class='fas fa-fw fa-print'></i></button>";
+                  }
                   echo "<button type='submit' class='hapusMagang btn btn-sm btn-outline-danger' data-kelompok='".$rekap->kelompok."'data-toggle='modal' data-target='#hapusDataMagang'><i class='fas fa-fw fa-trash-alt'></i></button>";
                 }else if($rekap->status == "ditolak"){
                   echo "<p class='text-danger'>Ditolak</p>";
@@ -179,13 +183,13 @@ data-backdrop="static" data-keyboard="false">
             <p class="pl-2 text-capitalize">Index surat tidak boleh kosong</p>
           </div>
         </div>
-        <!-- <div class="form-group">
+        <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Nomor Surat" 
-          name="nomorSurat" min='0'required style="color:black" id="nomorSurat">
-          <div class="invalid-feedback">
+          name="nomorSurat" min='0' style="color:black" id="nomorSurat">
+          <!-- <div class="invalid-feedback">
             <p class="pl-2 text-capitalize">Nomor surat tidak boleh kosong</p>
-          </div>
-        </div> -->
+          </div> -->
+        </div>
         <div class="form-group">
           <input type="number" class="form-control form-control-user" placeholder="Jumlah Lampiran" 
           name="nomorLampiran" min='0'required style="color:black" id="jumlahLampiran">
@@ -381,6 +385,30 @@ data-backdrop="static" data-keyboard="false">
       <form action="<?=base_url('Magang/delete')?>" method="post" class="form-hapus-magang">
         <button class="btn btn-danger btnHapusDataMagang" type="submit" id="">Iya</button>
       </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Cetak Kembali Data Magang-->
+<div class="modal fade" id="reCetakDataMagang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title text-capitalize" id="exampleModalLabel" style="color:black">Apakah anda yakin ingin mencetak data kembali?</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body" style="color:black">
+      Jika ingin mencetak kembali silahkan pilih tombol 'Cetak'
+    </div>
+    <div class="modal-footer footerReCetak" >
+      <button class="btn btn-primary ubahRecetak" type="button" data-dismiss="modal" data-toggle='modal' data-target="#cetakBalasan">Ubah</button> 
+      <form action="<?=base_url('Magang/reCetak')?>" method="get" class="form-reCetak-magang">
+        <button class="btn btn-danger butonCetakReCetak" type="submit" >Cetak</button>      
+      </form>     
     </div>
   </div>
 </div>

@@ -64,8 +64,8 @@ class Internship extends CI_Model {
     
     public function getLimitAndOffset($limit,$offset,$year = null,$like = null){
         if($year&&$like){
-            $query ="select DISTINCT institute,status,nomorSurat,
-          dayStar as 'startDay',
+            $query ="select DISTINCT institute,status,indexSurat,
+          dayStar as 'startDay',isCetak,nomorSurat,
             case  
             when monthStart = 1 then 'Januari'
             when monthStart = 2 then 'Februari'
@@ -100,8 +100,8 @@ class Internship extends CI_Model {
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($like){
-            $query ="select DISTINCT institute,status,nomorSurat,
-          dayStar as 'startDay',
+            $query ="select DISTINCT institute,status,indexSurat,
+          dayStar as 'startDay',isCetak,nomorSurat,
             case  
             when monthStart = 1 then 'Januari'
             when monthStart = 2 then 'Februari'
@@ -136,8 +136,8 @@ class Internship extends CI_Model {
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else if($year){
-            $query ="select DISTINCT institute,status,nomorSurat,
-          dayStar as 'startDay',
+            $query ="select DISTINCT institute,status,indexSurat,
+          dayStar as 'startDay',isCetak,nomorSurat,
             case  
             when monthStart = 1 then 'Januari'
             when monthStart = 2 then 'Februari'
@@ -172,8 +172,8 @@ class Internship extends CI_Model {
             limit ".$limit." offset ".$offset;
             return $this->db->query($query)->result();
         }else{
-            $query ="select DISTINCT institute,status,nomorSurat,
-              dayStar as 'startDay',
+            $query ="select DISTINCT institute,status,indexSurat,
+              dayStar as 'startDay',isCetak,nomorSurat,
                 case  
                 when monthStart = 1 then 'Januari'
                 when monthStart = 2 then 'Februari'
@@ -387,7 +387,7 @@ class Internship extends CI_Model {
      * endMonth,endYear,kelompok
      */
     public function getRekapByStartDatePKL($month,$year){
-        $query ="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
+        $query ="select distinct id_kelompok as 'kelompok',institute, indexSurat,
       dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear', 
         dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
         from internship where status = 'terdaftar' and monthStart = ".$month." and yearStart = ".$year 
@@ -512,21 +512,21 @@ class Internship extends CI_Model {
      */
     public function getRekapByEndDatePKL($monthCheck,$yearNow,$yearCheck=null,$monthNow=null){        
         if(!$yearCheck){
-            $query="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
+            $query="select distinct id_kelompok as 'kelompok',institute, indexSurat,
           dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear', 
             dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
             from internship where status='terdaftar' and monthEnd >=".$monthCheck." and yearEnd= ".$yearNow.
             " and monthStart =".$monthNow." and yearStart= ".$yearNow;
             return $this->db->query($query)->result();        
         }else if($yearNow < $yearCheck){
-            $query="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
+            $query="select distinct id_kelompok as 'kelompok',institute, indexSurat,
           dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear',
              dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
              from internship where status ='terdaftar' and yearStart= ".$yearNow." 
              and monthStart <".$monthCheck." and yearEnd= ".$yearCheck;
              return $this->db->query($query)->result();        
         }else{            
-            $query="select distinct id_kelompok as 'kelompok',institute, nomorSurat,
+            $query="select distinct id_kelompok as 'kelompok',institute, indexSurat,
           dayStar as 'startDay',monthStart as 'StartMonth',yearStart as 'satrtYear',
              dayEnd as 'endDay',monthEnd as 'endMonth',yearEnd as 'endYear',place,guide 
              from internship where status ='terdaftar' and yearStart= ".$yearCheck." 
@@ -626,8 +626,14 @@ class Internship extends CI_Model {
         }        
     }
 
-    public function updateNomorSuratByIdKelompok($data,$id_kelompok){
-        return $this->db->update('internship',['nomorSurat'=>$data],['id_kelompok'=>$id_kelompok]);        
+    public function updateSuratBalasanByIdKelompok($data){
+        return $this->db->update_batch('internship',$data,'id');        
+    }
+
+    public function getDataCetakBalasan($id){
+        $query = "select nomorSurat,jumlahLampiran,perihal,namaPenerima,
+        tempatSurat,nomorSuratBalasan,tanggalSuratBalasan from internship where id=".$id;
+        return $this->db->query($query)->result();
     }
 
 

@@ -67,7 +67,32 @@
       $('.form-hapus-magang').on('click','.btnHapusDataMagang',function(e){
         $('.form-hapus-magang').attr('action', $('.form-hapus-magang').attr('action') + '/' + ambilVal)
       });
-    });    
+    });  
+
+    // event yang diambil dari tempat view daftar_magang untuk mencetak kembali
+    $('.recetak').click(function () {
+      ambilVal= $(this).attr('data-kelompok');        
+      console.log(ambilVal);
+      $('.ubahRecetak').attr('data-kelompok',ambilVal);
+      $('.form-reCetak-magang').on('click','.butonCetakReCetak',function(e){
+        console.log('masuk');
+        $('.form-reCetak-magang').attr('action', $('.form-reCetak-magang').attr('action') + '/' + ambilVal)
+      });
+    });  
+
+    // event yang diambil dari tempat view daftar_magang untuk mengubah    
+    $('.ubahRecetak').click(function () {
+      ambilVal= $(this).attr('data-kelompok');        
+      console.log(ambilVal);
+      $('.form-cetak').on('click','.btnCetakBalasan',function(e){
+        $('.form-cetak').attr('action', $('.form-cetak').attr('action') + '/' + ambilVal)
+      });
+    });  
+
+    // $('.butonCetakReCetak').click(function () {
+    //   ambilVal= $(this).attr('data-kelompok');        
+    //   console.log(ambilVal);      
+    // });  
 
     // tambah list anggota
     // var index = 0;
@@ -78,6 +103,7 @@
       list(namaAnggota,nomorAnggota,jenisKelamin);      
       $('#namaAnggota').val('');
       $('#nomorInduk').val('');              
+      $('#jenisKelamin').val(1);              
     });
 
     $('#linkTambahAnggota').click(function(){
@@ -113,19 +139,6 @@
         $('#tambah').removeAttr('disabled');         
 		  }      
     }    
-
-    // document.getElementById('namaAnggota').addEventListener('click',validate());
-    // document.getElementById('nomorInduk').addEventListener('click',validate());
-
-    // $('#bodyTambahAnggota').on('blur','#namaAnggota',function(e){
-    //   e.preventDefault();
-    //   validate();
-    // });
-
-    // $('#bodyTambahAnggota').on('blur','#nomorInduk',function(e){
-    //   e.preventDefault();
-    //   validate();
-    // });
     
     // ,nameNomor,valueNomor,nameGender,valueGender
     function list(valueNama,valueNomor,valueJenis){      
@@ -193,7 +206,7 @@
       $('#tempatSurat').val('');
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
-      $('#indexSurat').val('');
+      $('#indexSurat').val('');      
     });    
     
     $('#headerBalasan').on('click','#xBalasan',function(e){
@@ -205,6 +218,7 @@
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
       $('#indexSurat').val('');
+      
     });    
     
     $('#footerTambahAdmin').on('click','#batalTambahAdmin',function(e){
@@ -217,20 +231,19 @@
       e.preventDefault();
       $('#nomorInduk').val('');      
       $('#namaAnggota').val('');     
+      $('#jenisKelamin').val(1);     
       $('#tambah').attr('disabled','disabled'); 
     });
 
     $('#headerTambahAnggota').on('click','#xTambahAnggota',function(e){
       e.preventDefault();
       $('#nomorInduk').val('');      
-      $('#namaAnggota').val('');   
+      $('#namaAnggota').val('');  
+      $('#jenisKelamin').val(1);   
       $('#tambah').attr('disabled','disabled');
     });    
 
-    // ubah format tanggal
-    // $('#tanggalMulai').datepicker({
-    //   format:'dd-mm-yyy';    
-    // });
+    
     
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {

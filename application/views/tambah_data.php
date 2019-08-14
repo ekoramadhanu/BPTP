@@ -217,8 +217,9 @@ data-backdrop="static" data-keyboard="false">
           name="nomorInduk" min='0' style="color:black" onblur="validate()">
         </div>        
         <div class="form-group">          
-          <label class="text-black text-capitalize">jenis kelamin</label>
+          <!-- <label class="text-black text-capitalize">jenis kelamin</label> -->
           <select class="form-control" name="jenisKelamin" style="color:black" id="jenisKelamin">            
+          <option disabled selected class="" style="color:black" value="1">Pilih Jenis Kelamin</option>
             <option class="" style="color:black" value="L">Laki-Laki</option>
             <option class="" style="color:black" value="P">Perempuan</option>            
           </select>
