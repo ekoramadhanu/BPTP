@@ -198,7 +198,7 @@ data-backdrop="static" data-keyboard="false">
           </div>
         </div>        
         <div class="form-group">
-        <select class="form-control custom-select" name="perihal" style="color:black" required>
+        <select class="form-control custom-select" name="perihal" style="color:black" required id="perihalSurat">
             <option disabled selected class="" style="color:black" value="">Pilih Perihal Surat</option>
             <option class="" style="color:black">PKL</option>
             <option class="" style="color:black">Magang</option>            
@@ -235,13 +235,13 @@ data-backdrop="static" data-keyboard="false">
           <label class="text-black">Tanggal Surat yang Akan Dibalas</label>
           <div class="form-row">
                   <div class="col">
-                    <input type="number" class="form-control" placeholder="Hari" min="0" max="31" required name="hariSurat">
+                    <input type="number" class="form-control" placeholder="Hari" min="0" max="31" required name="hariSurat" id="hariSuratYangBalasan">
                     <div class="invalid-feedback">
                       <p class="pl-2 text-capitalize">hari tidak boleh kosong</p>
                     </div>
                   </div>
                   <div class="col">
-                  <select class="form-control custom-select" style="color:black" required name="bulanSurat">
+                  <select class="form-control custom-select" style="color:black" required name="bulanSurat" id="bulanSuratYangBalasan">
                     <option disabled selected class="" style="color:black" value="">Bulan</option>
                     <option class="" style="color:black">Januari</option>
                     <option class="" style="color:black">Februari</option>            
@@ -261,7 +261,7 @@ data-backdrop="static" data-keyboard="false">
                   </div>
                   </div>
                   <div class="col">
-                    <input type="number" class="form-control" placeholder="Tahun" min="2000" required name="tahunSurat">
+                    <input type="number" class="form-control" placeholder="Tahun" min="2000" required name="tahunSurat" id="tahunSuratYangBalasan">
                     <div class="invalid-feedback">
                       <p class="pl-2 text-capitalize">tahun tidak boleh kosong</p>
                     </div>
@@ -405,9 +405,9 @@ data-backdrop="static" data-keyboard="false">
       Jika ingin mencetak kembali silahkan pilih tombol 'Cetak'
     </div>
     <div class="modal-footer footerReCetak" >
-      <button class="btn btn-primary ubahRecetak" type="button" data-dismiss="modal" data-toggle='modal' data-target="#cetakBalasan">Ubah</button> 
+      <button class="btn btn-success ubahRecetak" type="button" data-dismiss="modal" data-toggle='modal' data-target="#cetakBalasan">Ubah</button> 
       <form action="<?=base_url('Magang/reCetak')?>" method="get" class="form-reCetak-magang">
-        <button class="btn btn-danger butonCetakReCetak" type="submit" >Cetak</button>      
+        <button class="btn btn-primary butonCetakReCetak" type="submit" >Cetak</button>      
       </form>     
     </div>
   </div>

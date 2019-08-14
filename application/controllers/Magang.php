@@ -332,13 +332,17 @@ class Magang extends CI_Controller {
                 $monthEnd=12;
                 break;
         }
-        // if($yearStart > $yearEnd){
-        //     $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">tahun mulai magang tidak boleh lebih besar</div>');
-        // }else if($yearStart = $yearEnd){
-        //     if($monthStart > $monthEnd){
-        //         $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">bulan mulai magang tidak boleh lebih besar</div>');
-        //     }
-        // }        
+        if($yearStart > $yearEnd){
+            $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">tahun mulai magang tidak boleh lebih besar</div>');
+            redirect('Magang/tambahData');
+            return;
+        }else if($yearStart = $yearEnd){
+            if($monthStart > $monthEnd){
+                $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">bulan mulai magang tidak boleh lebih besar</div>');
+                redirect('Magang/tambahData');
+                return;
+            }
+        }        
         $data = array();
         $index = 0;           
         foreach ((array)$nomor as $result) {

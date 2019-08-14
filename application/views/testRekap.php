@@ -1,3 +1,636 @@
+<?php
+function printDate($rekap){
+  if($rekap->satrtYear ==$rekap->endYear){    
+    if($rekap->startDay == 0 && $rekap->endDay == 0 ) {      
+      switch ($rekap->StartMonth){
+          case 1:
+            echo "Januari ";
+            break;
+          case 2:
+            echo "Februari ";
+            break;
+          case 3:
+            echo "Maret ";
+            break;
+          case 4:
+            echo "April ";
+            break;
+          case 5:
+            echo "Mei ";
+            break;
+          case 6:
+            echo "Juni ";
+            break;
+          case 7:
+            echo "Juli ";
+            break;
+          case 8:
+            echo "Agustus ";
+            break;
+          case 9:
+            echo "September ";
+            break;
+          case 10:
+            echo "Oktober ";
+            break;
+          case 11:
+            echo "November ";
+            break;
+          case 12:
+            echo "Desember ";
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo "Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo "Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo "Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo "April ".$rekap->endYear;
+            break;
+          case 5:
+            echo "Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo "Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo "Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo "Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo "September ".$rekap->endYear;
+            break;
+          case 10:
+            echo "Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo "November ".$rekap->endYear;
+            break;
+          case 12:
+            echo "Desember ".$rekap->endYear;
+            break;
+      }                
+    }else if($rekap->endDay == 0){      
+      switch ($rekap->StartMonth){
+          case 1:
+            echo $rekap->startDay." Januari ";
+            break;
+          case 2:
+            echo $rekap->startDay." Februari ";
+            break;
+          case 3:
+            echo $rekap->startDay." Maret ";
+            break;
+          case 4:
+            echo $rekap->startDay." April ";
+            break;
+          case 5:
+            echo $rekap->startDay." Mei ";
+            break;
+          case 6:
+            echo $rekap->startDay." Juni ";
+            break;
+          case 7:
+            echo $rekap->startDay." Juli ";
+            break;
+          case 8:
+            echo $rekap->startDay." Agustus ";
+            break;
+          case 9:
+            echo $rekap->startDay." September ";
+            break;
+          case 10:
+            echo $rekap->startDay." Oktober ";
+            break;
+          case 11:
+            echo $rekap->startDay." November ";
+            break;
+          case 12:
+            echo $rekap->startDay." Desember ";
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo "Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo "Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo "Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo "April ".$rekap->endYear;
+            break;
+          case 5:
+            echo "Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo "Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo "Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo "Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo "September ".$rekap->endYear;
+            break;
+          case 10:
+            echo "Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo "November ".$rekap->endYear;
+            break;
+          case 12:
+            echo "Desember ".$rekap->endYear;
+            break;
+      }                 
+    }else if($rekap->startDay == 0){      
+      switch ($rekap->StartMonth){
+          case 1:
+            echo "Januari ";
+            break;
+          case 2:
+            echo "Februari ";
+            break;
+          case 3:
+            echo "Maret ";
+            break;
+          case 4:
+            echo "April ";
+            break;
+          case 5:
+            echo "Mei ";
+            break;
+          case 6:
+            echo "Juni ";
+            break;
+          case 7:
+            echo "Juli ";
+            break;
+          case 8:
+            echo "Agustus ";
+            break;
+          case 9:
+            echo "September ";
+            break;
+          case 10:
+            echo "Oktober ";
+            break;
+          case 11:
+            echo "November ";
+            break;
+          case 12:
+            echo "Desember ";
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo $rekap->endDay." Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo $rekap->endDay." Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo $rekap->endDay." Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo $rekap->endDay." April ".$rekap->endYear;
+            break;
+          case 5:
+            echo $rekap->endDay." Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo $rekap->endDay." Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo $rekap->endDay." Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo $rekap->endDay." Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo $rekap->startDay." September ".$rekap->endYear;
+            break;
+          case 10:
+            echo $rekap->endDay." Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo $rekap->endDay." November ".$rekap->endYear;
+            break;
+          case 12:
+            echo $rekap->endDay." Desember ".$rekap->endYear;
+            break;
+      }                  
+    }else{      
+      switch ($rekap->StartMonth){
+          case 1:
+            echo $rekap->startDay." Januari ";
+            break;
+          case 2:
+            echo $rekap->startDay." Februari ";
+            break;
+          case 3:
+            echo $rekap->startDay." Maret ";
+            break;
+          case 4:
+            echo $rekap->startDay." April ";
+            break;
+          case 5:
+            echo $rekap->startDay." Mei ";
+            break;
+          case 6:
+            echo $rekap->startDay." Juni ";
+            break;
+          case 7:
+            echo $rekap->startDay." Juli ";
+            break;
+          case 8:
+            echo $rekap->startDay." Agustus ";
+            break;
+          case 9:
+            echo $rekap->startDay." September ";
+            break;
+          case 10:
+            echo $rekap->startDay." Oktober ";
+            break;
+          case 11:
+            echo $rekap->startDay." November ";
+            break;
+          case 12:
+            echo $rekap->startDay." Desember ";
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo $rekap->endDay." Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo $rekap->endDay." Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo $rekap->endDay." Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo $rekap->endDay." April ".$rekap->endYear;
+            break;
+          case 5:
+            echo $rekap->endDay." Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo $rekap->endDay." Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo $rekap->endDay." Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo $rekap->endDay." Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo $rekap->startDay." September ".$rekap->endYear;
+            break;
+          case 10:
+            echo $rekap->endDay." Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo $rekap->endDay." November ".$rekap->endYear;
+            break;
+          case 12:
+            echo $rekap->endDay." Desember ".$rekap->endYear;
+            break;
+      }                
+    }
+  }else{    
+    if($rekap->startDay == 0 && $rekap->endDay == 0 ) {
+      switch ($rekap->StartMonth){
+          case 1:
+            echo "Januari ";
+            break;
+          case 2:
+            echo "Februari ";
+            break;
+          case 3:
+            echo "Maret ";
+            break;
+          case 4:
+            echo "April ";
+            break;
+          case 5:
+            echo "Mei ";
+            break;
+          case 6:
+            echo "Juni ";
+            break;
+          case 7:
+            echo "Juli ";
+            break;
+          case 8:
+            echo "Agustus ";
+            break;
+          case 9:
+            echo "September ";
+            break;
+          case 10:
+            echo "Oktober ";
+            break;
+          case 11:
+            echo "November ";
+            break;
+          case 12:
+            echo "Desember ";
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo "Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo "Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo "Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo "April ".$rekap->endYear;
+            break;
+          case 5:
+            echo "Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo "Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo "Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo "Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo "September ".$rekap->endYear;
+            break;
+          case 10:
+            echo "Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo "November ".$rekap->endYear;
+            break;
+          case 12:
+            echo "Desember ".$rekap->endYear;
+            break;
+      }                
+    }else if($rekap->endDay == 0){
+      switch ($rekap->StartMonth){
+          case 1:
+            echo $rekap->startDay." Januari ".$rekap->satrtYear;
+            break;
+          case 2:
+            echo $rekap->startDay." Februari ".$rekap->satrtYear;
+            break;
+          case 3:
+            echo $rekap->startDay." Maret ".$rekap->satrtYear;
+            break;
+          case 4:
+            echo $rekap->startDay." April ".$rekap->satrtYear;
+            break;
+          case 5:
+            echo $rekap->startDay." Mei ".$rekap->satrtYear;
+            break;
+          case 6:
+            echo $rekap->startDay." Juni ".$rekap->satrtYear;
+            break;
+          case 7:
+            echo $rekap->startDay." Juli ".$rekap->satrtYear;
+            break;
+          case 8:
+            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
+            break;
+          case 9:
+            echo $rekap->startDay." September ".$rekap->satrtYear;
+            break;
+          case 10:
+            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
+            break;
+          case 11:
+            echo $rekap->startDay." November ".$rekap->satrtYear;
+            break;
+          case 12:
+            echo $rekap->startDay." Desember ".$rekap->satrtYear;
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo "Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo "Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo "Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo "April ".$rekap->endYear;
+            break;
+          case 5:
+            echo "Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo "Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo "Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo "Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo "September ".$rekap->endYear;
+            break;
+          case 10:
+            echo "Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo "November ".$rekap->endYear;
+            break;
+          case 12:
+            echo "Desember ".$rekap->endYear;
+            break;
+      }                 
+    }else if($rekap->startDay == 0){
+      switch ($rekap->StartMonth){
+          case 1:
+            echo "Januari ".$rekap->satrtYear;
+            break;
+          case 2:
+            echo "Februari ".$rekap->satrtYear;
+            break;
+          case 3:
+            echo "Maret ".$rekap->satrtYear;
+            break;
+          case 4:
+            echo "April ".$rekap->satrtYear;
+            break;
+          case 5:
+            echo "Mei ".$rekap->satrtYear;
+            break;
+          case 6:
+            echo "Juni ".$rekap->satrtYear;
+            break;
+          case 7:
+            echo "Juli ".$rekap->satrtYear;
+            break;
+          case 8:
+            echo "Agustus ".$rekap->satrtYear;
+            break;
+          case 9:
+            echo "September ".$rekap->satrtYear;
+            break;
+          case 10:
+            echo "Oktober ".$rekap->satrtYear;
+            break;
+          case 11:
+            echo "November ".$rekap->satrtYear;
+            break;
+          case 12:
+            echo "Desember ".$rekap->satrtYear;
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo $rekap->endDay." Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo $rekap->endDay." Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo $rekap->endDay." Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo $rekap->endDay." April ".$rekap->endYear;
+            break;
+          case 5:
+            echo $rekap->endDay." Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo $rekap->endDay." Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo $rekap->endDay." Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo $rekap->endDay." Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo $rekap->startDay." September ".$rekap->endYear;
+            break;
+          case 10:
+            echo $rekap->endDay." Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo $rekap->endDay." November ".$rekap->endYear;
+            break;
+          case 12:
+            echo $rekap->endDay." Desember ".$rekap->endYear;
+            break;
+      }                  
+    }else{
+      switch ($rekap->StartMonth){
+          case 1:
+            echo $rekap->startDay." Januari ".$rekap->satrtYear;
+            break;
+          case 2:
+            echo $rekap->startDay." Februari ".$rekap->satrtYear;
+            break;
+          case 3:
+            echo $rekap->startDay." Maret ".$rekap->satrtYear;
+            break;
+          case 4:
+            echo $rekap->startDay." April ".$rekap->satrtYear;
+            break;
+          case 5:
+            echo $rekap->startDay." Mei ".$rekap->satrtYear;
+            break;
+          case 6:
+            echo $rekap->startDay." Juni ".$rekap->satrtYear;
+            break;
+          case 7:
+            echo $rekap->startDay." Juli ".$rekap->satrtYear;
+            break;
+          case 8:
+            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
+            break;
+          case 9:
+            echo $rekap->startDay." September ".$rekap->satrtYear;
+            break;
+          case 10:
+            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
+            break;
+          case 11:
+            echo $rekap->startDay." November ".$rekap->satrtYear;
+            break;
+          case 12:
+            echo $rekap->startDay." Desember ".$rekap->satrtYear;
+            break;
+      }
+      echo " - <br>";
+      switch ($rekap->endMonth){
+          case 1:
+            echo $rekap->endDay." Januari ".$rekap->endYear;
+            break;
+          case 2:
+            echo $rekap->endDay." Februari ".$rekap->endYear;
+            break;
+          case 3:
+            echo $rekap->endDay." Maret ".$rekap->endYear;
+            break;
+          case 4:
+            echo $rekap->endDay." April ".$rekap->endYear;
+            break;
+          case 5:
+            echo $rekap->endDay." Mei ".$rekap->endYear;
+            break;
+          case 6:
+            echo $rekap->endDay." Juni ".$rekap->endYear;
+            break;
+          case 7:
+            echo $rekap->endDay." Juli ".$rekap->endYear;
+            break;
+          case 8:
+            echo $rekap->endDay." Agustus ".$rekap->endYear;
+            break;
+          case 9:
+            echo $rekap->startDay." September ".$rekap->endYear;
+            break;
+          case 10:
+            echo $rekap->endDay." Oktober ".$rekap->endYear;
+            break;
+          case 11:
+            echo $rekap->endDay." November ".$rekap->endYear;
+            break;
+          case 12:
+            echo $rekap->endDay." Desember ".$rekap->endYear;
+            break;
+      }                
+    }
+  }  
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,319 +747,7 @@
               <td style="border: 1px solid #000 !important" width="18%"><?=$rekap->institute?></td>
               <td style="border: 1px solid #000 !important"  width="20%">                
               <?php 
-              if($rekap->startDay == 0 && $rekap->endDay == 0 ) {
-                switch ($rekap->StartMonth){
-                    case 1:
-                      echo "Januari ".$rekap->satrtYear;
-                      break;
-                    case 2:
-                      echo "Februari ".$rekap->satrtYear;
-                      break;
-                    case 3:
-                      echo "Maret ".$rekap->satrtYear;
-                      break;
-                    case 4:
-                      echo "April ".$rekap->satrtYear;
-                      break;
-                    case 5:
-                      echo "Mei ".$rekap->satrtYear;
-                      break;
-                    case 6:
-                      echo "Juni ".$rekap->satrtYear;
-                      break;
-                    case 7:
-                      echo "Juli ".$rekap->satrtYear;
-                      break;
-                    case 8:
-                      echo "Agustus ".$rekap->satrtYear;
-                      break;
-                    case 9:
-                      echo "September ".$rekap->satrtYear;
-                      break;
-                    case 10:
-                      echo "Oktober ".$rekap->satrtYear;
-                      break;
-                    case 11:
-                      echo "November ".$rekap->satrtYear;
-                      break;
-                    case 12:
-                      echo "Desember ".$rekap->satrtYear;
-                      break;
-                }
-                echo " sd <br>";
-                switch ($rekap->endMonth){
-                    case 1:
-                      echo "Januari ".$rekap->endYear;
-                      break;
-                    case 2:
-                      echo "Februari ".$rekap->endYear;
-                      break;
-                    case 3:
-                      echo "Maret ".$rekap->endYear;
-                      break;
-                    case 4:
-                      echo "April ".$rekap->endYear;
-                      break;
-                    case 5:
-                      echo "Mei ".$rekap->endYear;
-                      break;
-                    case 6:
-                      echo "Juni ".$rekap->endYear;
-                      break;
-                    case 7:
-                      echo "Juli ".$rekap->endYear;
-                      break;
-                    case 8:
-                      echo "Agustus ".$rekap->endYear;
-                      break;
-                    case 9:
-                      echo "September ".$rekap->endYear;
-                      break;
-                    case 10:
-                      echo "Oktober ".$rekap->endYear;
-                      break;
-                    case 11:
-                      echo "November ".$rekap->endYear;
-                      break;
-                    case 12:
-                      echo "Desember ".$rekap->endYear;
-                      break;
-                }                
-              }else if($rekap->endDay == 0){
-                switch ($rekap->StartMonth){
-                    case 1:
-                      echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                      break;
-                    case 2:
-                      echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                      break;
-                    case 3:
-                      echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                      break;
-                    case 4:
-                      echo $rekap->startDay." April ".$rekap->satrtYear;
-                      break;
-                    case 5:
-                      echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                      break;
-                    case 6:
-                      echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                      break;
-                    case 7:
-                      echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                      break;
-                    case 8:
-                      echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                      break;
-                    case 9:
-                      echo $rekap->startDay." September ".$rekap->satrtYear;
-                      break;
-                    case 10:
-                      echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                      break;
-                    case 11:
-                      echo $rekap->startDay." November ".$rekap->satrtYear;
-                      break;
-                    case 12:
-                      echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                      break;
-                }
-                echo " sd <br>";
-                switch ($rekap->endMonth){
-                    case 1:
-                      echo "Januari ".$rekap->endYear;
-                      break;
-                    case 2:
-                      echo "Februari ".$rekap->endYear;
-                      break;
-                    case 3:
-                      echo "Maret ".$rekap->endYear;
-                      break;
-                    case 4:
-                      echo "April ".$rekap->endYear;
-                      break;
-                    case 5:
-                      echo "Mei ".$rekap->endYear;
-                      break;
-                    case 6:
-                      echo "Juni ".$rekap->endYear;
-                      break;
-                    case 7:
-                      echo "Juli ".$rekap->endYear;
-                      break;
-                    case 8:
-                      echo "Agustus ".$rekap->endYear;
-                      break;
-                    case 9:
-                      echo "September ".$rekap->endYear;
-                      break;
-                    case 10:
-                      echo "Oktober ".$rekap->endYear;
-                      break;
-                    case 11:
-                      echo "November ".$rekap->endYear;
-                      break;
-                    case 12:
-                      echo "Desember ".$rekap->endYear;
-                      break;
-                }                 
-              }else if($rekap->startDay == 0){
-                switch ($rekap->StartMonth){
-                    case 1:
-                      echo "Januari ".$rekap->satrtYear;
-                      break;
-                    case 2:
-                      echo "Februari ".$rekap->satrtYear;
-                      break;
-                    case 3:
-                      echo "Maret ".$rekap->satrtYear;
-                      break;
-                    case 4:
-                      echo "April ".$rekap->satrtYear;
-                      break;
-                    case 5:
-                      echo "Mei ".$rekap->satrtYear;
-                      break;
-                    case 6:
-                      echo "Juni ".$rekap->satrtYear;
-                      break;
-                    case 7:
-                      echo "Juli ".$rekap->satrtYear;
-                      break;
-                    case 8:
-                      echo "Agustus ".$rekap->satrtYear;
-                      break;
-                    case 9:
-                      echo "September ".$rekap->satrtYear;
-                      break;
-                    case 10:
-                      echo "Oktober ".$rekap->satrtYear;
-                      break;
-                    case 11:
-                      echo "November ".$rekap->satrtYear;
-                      break;
-                    case 12:
-                      echo "Desember ".$rekap->satrtYear;
-                      break;
-                }
-                echo " sd <br>";
-                switch ($rekap->endMonth){
-                    case 1:
-                      echo $rekap->endDay." Januari ".$rekap->endYear;
-                      break;
-                    case 2:
-                      echo $rekap->endDay." Februari ".$rekap->endYear;
-                      break;
-                    case 3:
-                      echo $rekap->endDay." Maret ".$rekap->endYear;
-                      break;
-                    case 4:
-                      echo $rekap->endDay." April ".$rekap->endYear;
-                      break;
-                    case 5:
-                      echo $rekap->endDay." Mei ".$rekap->endYear;
-                      break;
-                    case 6:
-                      echo $rekap->endDay." Juni ".$rekap->endYear;
-                      break;
-                    case 7:
-                      echo $rekap->endDay." Juli ".$rekap->endYear;
-                      break;
-                    case 8:
-                      echo $rekap->endDay." Agustus ".$rekap->endYear;
-                      break;
-                    case 9:
-                      echo $rekap->startDay." September ".$rekap->endYear;
-                      break;
-                    case 10:
-                      echo $rekap->endDay." Oktober ".$rekap->endYear;
-                      break;
-                    case 11:
-                      echo $rekap->endDay." November ".$rekap->endYear;
-                      break;
-                    case 12:
-                      echo $rekap->endDay." Desember ".$rekap->endYear;
-                      break;
-                }                  
-              }else{
-                switch ($rekap->StartMonth){
-                    case 1:
-                      echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                      break;
-                    case 2:
-                      echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                      break;
-                    case 3:
-                      echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                      break;
-                    case 4:
-                      echo $rekap->startDay." April ".$rekap->satrtYear;
-                      break;
-                    case 5:
-                      echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                      break;
-                    case 6:
-                      echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                      break;
-                    case 7:
-                      echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                      break;
-                    case 8:
-                      echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                      break;
-                    case 9:
-                      echo $rekap->startDay." September ".$rekap->satrtYear;
-                      break;
-                    case 10:
-                      echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                      break;
-                    case 11:
-                      echo $rekap->startDay." November ".$rekap->satrtYear;
-                      break;
-                    case 12:
-                      echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                      break;
-                }
-                echo " sd <br>";
-                switch ($rekap->endMonth){
-                    case 1:
-                      echo $rekap->endDay." Januari ".$rekap->endYear;
-                      break;
-                    case 2:
-                      echo $rekap->endDay." Februari ".$rekap->endYear;
-                      break;
-                    case 3:
-                      echo $rekap->endDay." Maret ".$rekap->endYear;
-                      break;
-                    case 4:
-                      echo $rekap->endDay." April ".$rekap->endYear;
-                      break;
-                    case 5:
-                      echo $rekap->endDay." Mei ".$rekap->endYear;
-                      break;
-                    case 6:
-                      echo $rekap->endDay." Juni ".$rekap->endYear;
-                      break;
-                    case 7:
-                      echo $rekap->endDay." Juli ".$rekap->endYear;
-                      break;
-                    case 8:
-                      echo $rekap->endDay." Agustus ".$rekap->endYear;
-                      break;
-                    case 9:
-                      echo $rekap->startDay." September ".$rekap->endYear;
-                      break;
-                    case 10:
-                      echo $rekap->endDay." Oktober ".$rekap->endYear;
-                      break;
-                    case 11:
-                      echo $rekap->endDay." November ".$rekap->endYear;
-                      break;
-                    case 12:
-                      echo $rekap->endDay." Desember ".$rekap->endYear;
-                      break;
-                }                
-              }
+              printDate($rekap);
               ?>                            
               </td>
               <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
@@ -467,319 +788,7 @@
                     <td style="border: 1px solid #000 !important" width="18%"><?=$rekap->institute?></td>
                     <td style="border: 1px solid #000 !important"  width="20%">
                     <?php 
-                    if($rekap->startDay == 0 && $rekap->endDay == 0 ) {
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo "Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo "Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->endYear;
-                            break;
-                        }                
-                    }else if($rekap->endDay == 0){
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo $rekap->startDay." April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo $rekap->startDay." November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo "Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->endYear;
-                            break;
-                        }                 
-                    }else if($rekap->startDay == 0){
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo "Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo $rekap->endDay." Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo $rekap->endDay." Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo $rekap->endDay." Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo $rekap->endDay." April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo $rekap->endDay." Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo $rekap->endDay." Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo $rekap->endDay." Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo $rekap->endDay." Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo $rekap->endDay." Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo $rekap->endDay." November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo $rekap->endDay." Desember ".$rekap->endYear;
-                            break;
-                        }                  
-                    }else{
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo $rekap->startDay." April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo $rekap->startDay." November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo $rekap->endDay." Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo $rekap->endDay." Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo $rekap->endDay." Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo $rekap->endDay." April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo $rekap->endDay." Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo $rekap->endDay." Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo $rekap->endDay." Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo $rekap->endDay." Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo $rekap->endDay." Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo $rekap->endDay." November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo $rekap->endDay." Desember ".$rekap->endYear;
-                            break;
-                        }                
-                    }
+                    printDate($rekap);
                     ?>                     
                     </td>
                     <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
@@ -819,319 +828,7 @@
                     <td style="border: 1px solid #000 !important" width="18%"><?=$rekap->institute?></td>
                     <td style="border: 1px solid #000 !important"  width="20%">
                     <?php 
-                    if($rekap->startDay == 0 && $rekap->endDay == 0 ) {
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo "Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo "Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->endYear;
-                            break;
-                        }                
-                    }else if($rekap->endDay == 0){
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo $rekap->startDay." April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo $rekap->startDay." November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo "Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->endYear;
-                            break;
-                        }                 
-                    }else if($rekap->startDay == 0){
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo "Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo $rekap->endDay." Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo $rekap->endDay." Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo $rekap->endDay." Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo $rekap->endDay." April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo $rekap->endDay." Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo $rekap->endDay." Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo $rekap->endDay." Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo $rekap->endDay." Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo $rekap->endDay." Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo $rekap->endDay." November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo $rekap->endDay." Desember ".$rekap->endYear;
-                            break;
-                        }                  
-                    }else{
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo $rekap->startDay." April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo $rekap->startDay." November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo $rekap->endDay." Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo $rekap->endDay." Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo $rekap->endDay." Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo $rekap->endDay." April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo $rekap->endDay." Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo $rekap->endDay." Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo $rekap->endDay." Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo $rekap->endDay." Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo $rekap->endDay." Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo $rekap->endDay." November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo $rekap->endDay." Desember ".$rekap->endYear;
-                            break;
-                        }                
-                    }
+                    printDate($rekap);                    
                     ?>                     
                     </td>
                     <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>
@@ -1170,319 +867,7 @@
                     <td style="border: 1px solid #000 !important" width="18%"><?=$rekap->institute?></td>
                     <td style="border: 1px solid #000 !important"  width="20%">
                     <?php 
-                    if($rekap->startDay == 0 && $rekap->endDay == 0 ) {
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo "Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo "Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->endYear;
-                            break;
-                        }                
-                    }else if($rekap->endDay == 0){
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo $rekap->startDay." April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo $rekap->startDay." November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo "Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->endYear;
-                            break;
-                        }                 
-                    }else if($rekap->startDay == 0){
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo "Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo "Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo "Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo "April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo "Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo "Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo "Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo "Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo "September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo "Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo "November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo "Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo $rekap->endDay." Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo $rekap->endDay." Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo $rekap->endDay." Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo $rekap->endDay." April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo $rekap->endDay." Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo $rekap->endDay." Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo $rekap->endDay." Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo $rekap->endDay." Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo $rekap->endDay." Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo $rekap->endDay." November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo $rekap->endDay." Desember ".$rekap->endYear;
-                            break;
-                        }                  
-                    }else{
-                        switch ($rekap->StartMonth){
-                            case 1:
-                            echo $rekap->startDay." Januari ".$rekap->satrtYear;
-                            break;
-                            case 2:
-                            echo $rekap->startDay." Februari ".$rekap->satrtYear;
-                            break;
-                            case 3:
-                            echo $rekap->startDay." Maret ".$rekap->satrtYear;
-                            break;
-                            case 4:
-                            echo $rekap->startDay." April ".$rekap->satrtYear;
-                            break;
-                            case 5:
-                            echo $rekap->startDay." Mei ".$rekap->satrtYear;
-                            break;
-                            case 6:
-                            echo $rekap->startDay." Juni ".$rekap->satrtYear;
-                            break;
-                            case 7:
-                            echo $rekap->startDay." Juli ".$rekap->satrtYear;
-                            break;
-                            case 8:
-                            echo $rekap->startDay." Agustus ".$rekap->satrtYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->satrtYear;
-                            break;
-                            case 10:
-                            echo $rekap->startDay." Oktober ".$rekap->satrtYear;
-                            break;
-                            case 11:
-                            echo $rekap->startDay." November ".$rekap->satrtYear;
-                            break;
-                            case 12:
-                            echo $rekap->startDay." Desember ".$rekap->satrtYear;
-                            break;
-                        }
-                        echo " sd <br>";
-                        switch ($rekap->endMonth){
-                            case 1:
-                            echo $rekap->endDay." Januari ".$rekap->endYear;
-                            break;
-                            case 2:
-                            echo $rekap->endDay." Februari ".$rekap->endYear;
-                            break;
-                            case 3:
-                            echo $rekap->endDay." Maret ".$rekap->endYear;
-                            break;
-                            case 4:
-                            echo $rekap->endDay." April ".$rekap->endYear;
-                            break;
-                            case 5:
-                            echo $rekap->endDay." Mei ".$rekap->endYear;
-                            break;
-                            case 6:
-                            echo $rekap->endDay." Juni ".$rekap->endYear;
-                            break;
-                            case 7:
-                            echo $rekap->endDay." Juli ".$rekap->endYear;
-                            break;
-                            case 8:
-                            echo $rekap->endDay." Agustus ".$rekap->endYear;
-                            break;
-                            case 9:
-                            echo $rekap->startDay." September ".$rekap->endYear;
-                            break;
-                            case 10:
-                            echo $rekap->endDay." Oktober ".$rekap->endYear;
-                            break;
-                            case 11:
-                            echo $rekap->endDay." November ".$rekap->endYear;
-                            break;
-                            case 12:
-                            echo $rekap->endDay." Desember ".$rekap->endYear;
-                            break;
-                        }                
-                    }
+                    printDate($rekap);
                     ?>                     
                     </td>
                     <td style="border: 1px solid #000 !important" width="17%"><?=$rekap->place?></td>

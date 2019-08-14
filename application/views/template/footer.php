@@ -207,6 +207,10 @@
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
       $('#indexSurat').val('');      
+      $('#perihalSurat').val('');      
+      $('#hariSuratYangBalasan').val('');
+      $('#bulanSuratYangBalasan').val('');
+      $('#tahunSuratYangBalasan').val('');
     });    
     
     $('#headerBalasan').on('click','#xBalasan',function(e){
@@ -218,7 +222,10 @@
       $('#nomorSuratBalasan').val('');
       $('#tanggalSuratBalasan').val('');
       $('#indexSurat').val('');
-      
+      $('#perihalSurat').val('');      
+      $('#hariSuratYangBalasan').val('');
+      $('#bulanSuratYangBalasan').val('');
+      $('#tahunSuratYangBalasan').val('');
     });    
     
     $('#footerTambahAdmin').on('click','#batalTambahAdmin',function(e){

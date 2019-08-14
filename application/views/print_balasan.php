@@ -59,7 +59,7 @@
 						<td>Nomor</td>
 						<td class="pl-3">:</td>
 						<td class="pl-1">B-
-						<?php if($nomorSurat==null){
+						<?php if($nomorSurat==null || $nomorSurat==0){
 							echo "&emsp;&emsp;&emsp;&emsp;";
 						}else{
 							echo $nomorSurat;
