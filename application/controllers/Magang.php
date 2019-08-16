@@ -341,7 +341,11 @@ class Magang extends CI_Controller {
                 $this->session->set_flashdata('message','<div class="alert alert-danger text-capitalize" role="alert">bulan mulai magang tidak boleh lebih besar</div>');
                 redirect('Magang/tambahData');
                 return;
-            }
+            }else if($dayStart > $dayEnd && $monthStart == $monthEnd){
+				$this->session->set_flashdata('massage','<div class="alert alert-danger text-capitalize" role="alert">hari mulai magang tidak boleh lebih besar</div>');
+                redirect('Permohonan');
+                return;
+			}
         }        
         $data = array();
         $index = 0;           

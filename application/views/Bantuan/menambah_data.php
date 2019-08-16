@@ -46,7 +46,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_mhs_faklts.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Jika anda memilih “Mahasiswa”, masukkan jurusan peserta magang pada formulir Jurusan. Contoh “Akutansi Manajemen”
+            <li>Jika anda memilih “Mahasiswa”, masukkan jurusan peserta magang pada formulir Jurusan.Contoh “Akutansi Manajemen” atau “-” jika jurusan tidak diketahui
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_mhs_jrs.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -62,11 +62,11 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_pembimbing.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Masukkan tanggal mulai peserta magang pada formulir Tanggal Mulai. Contoh “17/06/2019”
+            <li>Masukkan hari,bulan, dan tahun pada formulir Tanggal Mulai. Contoh hari dilampirkan dengan lengkap “10/06/2019”, jika hari tidak dilapirkan maka kolom Hari diisi dengan angka “0”.
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_tgl mulai.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Masukkan tanggal selesai peserta magang pada formulir Tanggal Selesai. Contoh “02/08/2019”
+            <li>Masukkan hari,bulan, dan tahun pada formulir Tanggal Selesai. Contoh hari dilampirkan dengan lengkap “10/06/2019”, jika hari tidak dilapirkan maka kolom Hari diisi dengan angka “0”.
               <br>
               <img src="<?=base_url('Assets/image/')?>tambahdata_tgl selesai.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>

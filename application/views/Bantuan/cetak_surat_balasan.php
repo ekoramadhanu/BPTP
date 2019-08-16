@@ -31,13 +31,17 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_index.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Masukkan nomor surat pada formulir Nomor Surat. Contoh “830”
+            <li>Masukkan nomor surat pada formulir Nomor Surat. Contoh “830”. Jika, belum mendapatkan Nomor Surat silahkan dilewati saja (tidak diisi).
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_no surat.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Masukkan jumlah lampiran surat pada formulir Jumlah Lampiran. Contoh “0” untuk tidak ada lampiran 
+            <li>Masukkan jumlah lampiran surat pada formulir Jumlah Lampiran. Contoh “0” untuk tidak ada lampiran, angka “1” sampai seterusnya untuk ada lampiran
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_lampiran.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
+            <li>Pilih salah satu perihal surat pada formulir Pilih Perihal Surat. Contoh “OJT” 
+              <br>
+              <img src="<?=base_url('Assets/image/')?>suratbalasan_perihal surat.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
             <li>Masukkan nama penerima surat pada formulir Nama Penerima. Contoh “Kepala Sekolah”
               <br>
@@ -51,7 +55,7 @@
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_no surat yg dibls.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
-            <li>Masukkan tanggal surat pada formulir Tanggal Surat yang Akan Dibalas. Contoh “10/06/2019”
+            <li>Masukkan hari,bulan, dan tahun pada formulir Tanggal Surat yang Akan Dibalas. Contoh hari dilampirkan dengan lengkap “10/06/2019”, jika hari tidak dilapirkan maka kolom Hari diisi dengan angka “0”.
               <br>
               <img src="<?=base_url('Assets/image/')?>suratbalasan_tgl surat yg dibls.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
@@ -66,6 +70,18 @@
             <li>Pilih tombol “Print/Cetak”
             <br>
               <img src="<?=base_url('Assets/image/')?>print.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
+            <li>Jika ingin mencetak kembali, silahkan pilih tombol ikon print
+            <br>
+              <img src="<?=base_url('Assets/image/')?>cetak surat balasan_tombol.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
+            <li>Pilih tombol “Cetak”. Lalu lakukan langkah pada nomor 15 dan 16
+            <br>
+              <img src="<?=base_url('Assets/image/')?>suratbalasan_cetak_tombol3.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+            </li>
+            <li>Jika ingin mengubah bagian dari surat balasan silahkan pilih tombol “Ubah” lalu, lakukan langkah dari nomor 6 sampai 15
+            <br>
+              <img src="<?=base_url('Assets/image/')?>suratbalasan_ubah.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
         </ol>
             
