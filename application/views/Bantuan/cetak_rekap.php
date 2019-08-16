@@ -28,11 +28,11 @@
             </li>            
             <li>Arahkan ke nama printer yang anda gunakan
               <br>
-              <img src="<?=base_url('Assets/image/')?>nama printer.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+              <img src="<?=base_url('Assets/image/')?>cetakrekap_nama print.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
             <li>Pilih “Print/Cetak”
             <br>
-              <img src="<?=base_url('Assets/image/')?>print.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
+              <img src="<?=base_url('Assets/image/')?>cetakrekap_print.png" class="mt-1 mb-4 img-fluid img-thumbnail" width="450">
             </li>
         </ol>
             
